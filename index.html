@@ -611,7 +611,19 @@
           <h3 class="qwiz__panel-title" id="q-step2-title">Service Selection</h3>
           <p class="qwiz__panel-sub">Tell us more about your property so we can give you an accurate price.</p>
 
+          <!-- ─── Custom-Designed Property (always visible) ─── -->
+          <div class="qwiz__service-card" style="margin-bottom:12px" id="q-custom-designed-card">
+            <div style="padding:18px">
+              <p class="qwiz__sub-prompt-q">Is this a custom-designed property? <span class="req">*</span></p>
+              <div class="qwiz__sub-prompt-btns">
+                <button type="button" class="btn btn--sky btn--sm qwiz__toggle-btn" data-field="custom-designed" data-value="yes">Yes</button>
+                <button type="button" class="btn btn--ghost btn--sm qwiz__toggle-btn" data-field="custom-designed" data-value="no">No</button>
+              </div>
+            </div>
+          </div>
+
           <!-- ─── Window Cleaning Questions (only if windows selected) ─── -->
+          <h4 class="qwiz__sub-block-title" id="q-windows-title" style="display:none">Window Cleaning</h4>
           <div id="q-windows-section" style="display:none">
             <div id="q-residential-step2">
               <div class="qwiz__field">
@@ -721,18 +733,8 @@
           </div>
 
           <!-- ─── Pressure Washing Questions (only if pressure selected) ─── -->
+          <h4 class="qwiz__sub-block-title" id="q-pressure-title" style="display:none">Pressure Washing</h4>
           <div id="q-pressure-section" style="display:none">
-            <!-- Custom property -->
-            <div class="qwiz__service-card" style="margin-bottom:12px">
-              <div style="padding:18px">
-                <p class="qwiz__sub-prompt-q">Is this a custom-designed property? <span class="req">*</span></p>
-                <div class="qwiz__sub-prompt-btns">
-                  <button type="button" class="btn btn--sky btn--sm qwiz__toggle-btn" data-field="pw-custom" data-value="yes">Yes</button>
-                  <button type="button" class="btn btn--ghost btn--sm qwiz__toggle-btn" data-field="pw-custom" data-value="no">No</button>
-                </div>
-              </div>
-            </div>
-
             <!-- Water source -->
             <div class="qwiz__service-card" style="margin-bottom:12px">
               <div style="padding:18px">
@@ -778,46 +780,158 @@
             </div>
           </div>
 
-          <!-- ─── Conditional: Home Material ─── -->
-          <div id="q-home-material-group" class="qwiz__conditional-group" style="display:none">
+          <!-- ─── House Washing (only if house_wash selected) ─── -->
+          <div id="q-house-wash-section" style="display:none">
+            <h4 class="qwiz__sub-block-title">House Washing</h4>
+
             <div class="qwiz__field">
-              <label for="q-home-material">What material is the exterior of your home? <span class="req">*</span></label>
-              <small class="qwiz__help">This helps us choose the right method and chemicals. It does not change the price for window cleaning.</small>
-              <select id="q-home-material">
+              <label for="q-hw-material">What material is the exterior of your home? <span class="req">*</span></label>
+              <select id="q-hw-material">
                 <option value="">Select...</option>
                 <option value="Stucco">Stucco</option>
                 <option value="Limestone">Limestone</option>
                 <option value="Brick">Brick</option>
                 <option value="Vinyl Siding">Vinyl Siding</option>
                 <option value="Wood Siding">Wood Siding</option>
-                <option value="Mixed (multiple materials)">Mixed (multiple materials)</option>
+                <option value="Mixed">Mixed</option>
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div class="qwiz__field" id="q-home-material-notes-field" style="display:none">
-              <label for="q-home-material-notes">Any details we should know? <em>(optional)</em></label>
-              <textarea id="q-home-material-notes" rows="2" placeholder="e.g., stucco front + limestone back, or limestone w/ cedar accents"></textarea>
+            <div class="qwiz__field" id="q-hw-mixed-desc" style="display:none">
+              <label for="q-hw-mixed-input">Describe the mix of materials <span class="req">*</span></label>
+              <textarea id="q-hw-mixed-input" rows="2" placeholder="e.g., stucco front + limestone back"></textarea>
             </div>
-          </div>
+            <div class="qwiz__field" id="q-hw-other-desc" style="display:none">
+              <label for="q-hw-other-input">Describe the material <span class="req">*</span></label>
+              <textarea id="q-hw-other-input" rows="2" placeholder="e.g., cedar siding with stone accents"></textarea>
+            </div>
 
-          <!-- ─── Conditional: Debris Types ─── -->
-          <div id="q-debris-group" class="qwiz__conditional-group" style="display:none">
+            <div class="qwiz__field">
+              <label>What areas need washing? <span class="req">*</span></label>
+              <div class="qwiz__multi-select" id="q-hw-structures-wrap">
+                <button type="button" class="qwiz__multi-select__trigger" id="q-hw-structures-trigger">Select area(s)...</button>
+                <div class="qwiz__multi-select__dropdown" id="q-hw-structures-dropdown" style="display:none">
+                  <label class="qwiz__check"><input type="checkbox" value="Full House" /><span>Full House</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Partial House Wash" /><span>Partial House Wash</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Patio Cover" /><span>Patio Cover</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Fence" /><span>Fence</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Pergola" /><span>Pergola</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Retaining Wall" /><span>Retaining Wall</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Deck" /><span>Deck</span></label>
+                  <label class="qwiz__check"><input type="checkbox" value="Other Structures" /><span>Other Structures</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="qwiz__field" id="q-hw-partial-desc" style="display:none">
+              <label for="q-hw-partial-input">Which areas of the house? <span class="req">*</span></label>
+              <textarea id="q-hw-partial-input" rows="2" placeholder="e.g., front and left side only"></textarea>
+            </div>
+            <div class="qwiz__field" id="q-hw-struct-other-desc" style="display:none">
+              <label for="q-hw-struct-other-input">Describe the other structures <span class="req">*</span></label>
+              <textarea id="q-hw-struct-other-input" rows="2" placeholder="e.g., detached garage, gazebo"></textarea>
+            </div>
+
             <div class="qwiz__field">
               <label>What debris are we dealing with?</label>
               <small class="qwiz__help">Check everything you see. We'll bring the right mix.</small>
-              <div class="qwiz__debris-grid" id="q-debris-checks">
-                <label class="qwiz__check"><input type="checkbox" value="Algae (black streaks on roof)" /><span>Algae (black streaks on roof)</span></label>
+              <div class="qwiz__debris-grid" id="q-hw-debris-checks">
+                <label class="qwiz__check"><input type="checkbox" value="Algae" /><span>Algae</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Mold & Mildew" /><span>Mold &amp; Mildew</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Moss & Lichen" /><span>Moss &amp; Lichen</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Pollen (cedar, oak, ragweed)" /><span>Pollen (cedar, oak, ragweed)</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Pollen" /><span>Pollen</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Spider webs & cobwebs" /><span>Spider webs &amp; cobwebs</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Bird droppings" /><span>Bird droppings</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Dirt & dust" /><span>Dirt &amp; dust</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Film / haze" /><span>Film / haze</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Oxidized paint (house painting prep)" /><span>Oxidized paint (house painting prep)</span></label>
                 <label class="qwiz__check"><input type="checkbox" value="Post-construction debris" /><span>Post-construction debris</span></label>
               </div>
               <p class="qwiz__nudge">Not sure? Select what you can see. We'll handle the rest on-site.</p>
+            </div>
+          </div>
+
+          <!-- ─── Roof Cleaning (only if roof_wash selected) ─── -->
+          <div id="q-roof-wash-section" style="display:none">
+            <h4 class="qwiz__sub-block-title">Roof Cleaning</h4>
+
+            <div class="qwiz__field">
+              <label for="q-roof-material">What type of roof do you have? <span class="req">*</span></label>
+              <select id="q-roof-material">
+                <option value="">Select...</option>
+                <option value="Asphalt Shingle">Asphalt Shingle</option>
+                <option value="Metal">Metal</option>
+                <option value="Tile">Tile</option>
+                <option value="Slate">Slate</option>
+                <option value="TPO / Flat">TPO / Flat</option>
+                <option value="Mixed">Mixed</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="qwiz__field" id="q-roof-mixed-desc" style="display:none">
+              <label for="q-roof-mixed-input">Describe the mix of roofing materials <span class="req">*</span></label>
+              <textarea id="q-roof-mixed-input" rows="2" placeholder="e.g., shingle main roof + metal patio cover"></textarea>
+            </div>
+            <div class="qwiz__field" id="q-roof-other-desc" style="display:none">
+              <label for="q-roof-other-input">Describe the roofing material <span class="req">*</span></label>
+              <textarea id="q-roof-other-input" rows="2" placeholder="e.g., cedar shake"></textarea>
+            </div>
+
+            <div class="qwiz__field">
+              <label>What debris are we dealing with?</label>
+              <small class="qwiz__help">Check everything you see. We'll bring the right mix.</small>
+              <div class="qwiz__debris-grid" id="q-roof-debris-checks">
+                <label class="qwiz__check"><input type="checkbox" value="Algae" /><span>Algae</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Mold & Mildew" /><span>Mold &amp; Mildew</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Moss & Lichen" /><span>Moss &amp; Lichen</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Pollen" /><span>Pollen</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Spider webs & cobwebs" /><span>Spider webs &amp; cobwebs</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Bird droppings" /><span>Bird droppings</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Dirt & dust" /><span>Dirt &amp; dust</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Oxidized paint (house painting prep)" /><span>Oxidized paint (house painting prep)</span></label>
+                <label class="qwiz__check"><input type="checkbox" value="Post-construction debris" /><span>Post-construction debris</span></label>
+              </div>
+              <p class="qwiz__nudge">Not sure? Select what you can see. We'll handle the rest on-site.</p>
+            </div>
+          </div>
+
+          <!-- ─── Gutter Cleaning (only if gutters selected) ─── -->
+          <div id="q-gutter-section" style="display:none">
+            <h4 class="qwiz__sub-block-title">Gutter Cleaning</h4>
+
+            <div class="qwiz__service-card" style="margin-bottom:12px">
+              <div style="padding:18px">
+                <p class="qwiz__sub-prompt-q">Do you have gutter guards installed? <span class="req">*</span></p>
+                <div class="qwiz__sub-prompt-btns">
+                  <button type="button" class="btn btn--sky btn--sm qwiz__toggle-btn" data-field="gutter-guards" data-value="yes">Yes</button>
+                  <button type="button" class="btn btn--ghost btn--sm qwiz__toggle-btn" data-field="gutter-guards" data-value="no">No</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="qwiz__field">
+              <label>Where do the gutters need cleaning? <span class="req">*</span></label>
+              <div class="qwiz__chips" id="q-gutter-location-chips"></div>
+            </div>
+            <div class="qwiz__field" id="q-gutter-other-desc" style="display:none">
+              <label for="q-gutter-other-input">Describe the gutter location(s)</label>
+              <textarea id="q-gutter-other-input" rows="2" placeholder="e.g., back of house only, garage gutters"></textarea>
+            </div>
+          </div>
+
+          <!-- ─── Solar Panel Cleaning (only if solar_panels selected) ─── -->
+          <div id="q-solar-section" style="display:none">
+            <h4 class="qwiz__sub-block-title">Solar Panel Cleaning</h4>
+
+            <div class="qwiz__field">
+              <label>How many solar panels? <span class="req">*</span></label>
+              <div class="qwiz__chips" id="q-solar-count-chips"></div>
+              <div class="qwiz__custom-count" id="q-solar-custom-wrap" style="display:none">
+                <input type="number" id="q-solar-custom" placeholder="Enter exact count" min="1" max="999" />
+              </div>
+            </div>
+
+            <div class="qwiz__field">
+              <label>What is the roof pitch? <span class="req">*</span></label>
+              <div class="qwiz__chips" id="q-solar-pitch-chips"></div>
             </div>
           </div>
 

@@ -246,6 +246,11 @@ if (qwiz) {
     pwCustomProperty: '', pwWaterSource: '', pwSurfaces: [], pwSurfaceType: '',
     homeMaterial: '', homeMaterialNotes: '',
     debrisTypes: [],
+    hwMaterial: '', hwMaterialDesc: '', hwStructures: [], hwPartialDesc: '', hwStructOtherDesc: '', hwDebris: [],
+    roofMaterial: '', roofMaterialDesc: '', roofDebris: [],
+    gutterGuards: '', gutterLocations: [],
+    solarPanelCount: 0, solarRoofPitch: '',
+    customDesignedProperty: '', gutterOtherDesc: '',
     surchargesApplied: [],
     plan: '', autoBilling: false, commercialFrequency: 'weekly',
     firstName: '', lastName: '', phone: '', email: '',
@@ -425,6 +430,57 @@ if (qwiz) {
       if (winSec) winSec.style.display = hasWindows ? '' : 'none';
       if (pwSec) pwSec.style.display = hasPressure ? '' : 'none';
 
+      const hasHouseWash = ss.includes('house_wash');
+      const hasRoof = ss.includes('roof_wash');
+      const hasGutters = ss.includes('gutters');
+      const hasSolar = ss.includes('solar_panels');
+
+      // Section titles
+      const winTitle = document.getElementById('q-windows-title');
+      const pwTitle = document.getElementById('q-pressure-title');
+      if (winTitle) winTitle.style.display = hasWindows ? '' : 'none';
+      if (pwTitle) pwTitle.style.display = hasPressure ? '' : 'none';
+
+      // New sections
+      const hwSec = document.getElementById('q-house-wash-section');
+      const rfSec = document.getElementById('q-roof-wash-section');
+      const gutSec = document.getElementById('q-gutter-section');
+      const solSec = document.getElementById('q-solar-section');
+      if (hwSec) hwSec.style.display = hasHouseWash ? '' : 'none';
+      if (rfSec) rfSec.style.display = hasRoof ? '' : 'none';
+      if (gutSec) gutSec.style.display = hasGutters ? '' : 'none';
+      if (solSec) solSec.style.display = hasSolar ? '' : 'none';
+
+      // Build solar chips
+      if (hasSolar) {
+        buildChips(document.getElementById('q-solar-count-chips'), [5, 10, 15, 20, 25, 30, 'Other'], 'solarPanelCount');
+        // Wire "Other" chip for solar count
+        var solarChips = document.getElementById('q-solar-count-chips');
+        var solarCustomWrap = document.getElementById('q-solar-custom-wrap');
+        var solarCustomInput = document.getElementById('q-solar-custom');
+        if (solarChips) {
+          solarChips.querySelectorAll('.qwiz__chip').forEach(function(chip) {
+            chip.addEventListener('click', function() {
+              if (chip.textContent === 'Other') {
+                if (solarCustomWrap) solarCustomWrap.style.display = '';
+                state.solarPanelCount = parseInt(solarCustomInput?.value) || 0;
+              } else {
+                if (solarCustomWrap) solarCustomWrap.style.display = 'none';
+              }
+            });
+          });
+        }
+        if (solarCustomInput) {
+          solarCustomInput.addEventListener('input', function() { state.solarPanelCount = parseInt(solarCustomInput.value) || 0; });
+        }
+        buildChips(document.getElementById('q-solar-pitch-chips'), ['Flat', 'Low Slope', 'Moderate', 'Steep', 'Not Sure'], 'solarRoofPitch');
+      }
+
+      // Build gutter location chips
+      if (hasGutters) {
+        buildChips(document.getElementById('q-gutter-location-chips'), ['Full Perimeter', 'Front & Back Only', 'Partial / Other'], 'gutterLocations');
+      }
+
       // Dynamic title
       const titleEl = document.getElementById('q-step2-title');
       if (titleEl) {
@@ -434,7 +490,7 @@ if (qwiz) {
         if (ss.includes('house_wash')) parts.push('House Washing');
         if (ss.includes('roof_wash')) parts.push('Roof Cleaning');
         if (ss.includes('gutters')) parts.push('Gutter');
-        if (ss.includes('solar')) parts.push('Solar Panel');
+        if (ss.includes('solar_panels')) parts.push('Solar Panel');
         titleEl.textContent = (parts.length ? parts.join(' & ') : 'Service') + ' Selection';
       }
 
@@ -504,13 +560,6 @@ if (qwiz) {
         buildChipsWithCustom(document.getElementById('q-track-chips'), stOpts, 'trackCount');
       }
 
-      // Conditional field groups based on Step 0 selections
-      const needsMaterial = ss.includes('house_wash') || ss.includes('pressure');
-      const needsDebris = ss.includes('roof_wash') || ss.includes('house_wash');
-      const onlyWindows = ss.length === 1 && ss.includes('windows');
-
-      document.getElementById('q-home-material-group').style.display = (needsMaterial && !onlyWindows) ? '' : 'none';
-      document.getElementById('q-debris-group').style.display = needsDebris ? '' : 'none';
     }
 
     // Show/hide residential vs commercial plans on step 3
@@ -635,10 +684,31 @@ if (qwiz) {
       }
       // Pressure washing validation (only if pressure selected)
       if (ss.includes('pressure')) {
-        if (!state.pwCustomProperty) { flashError('q-pressure-section'); return false; }
         if (!state.pwWaterSource) { flashError('q-pressure-section'); return false; }
         if (!state.pwSurfaces.length) { flashError('q-pw-surfaces-wrap'); return false; }
         if (!state.pwSurfaceType) { flashError('q-pw-surface-type'); return false; }
+      }
+      // Custom designed property (always visible on step 2)
+      if (!state.customDesignedProperty) { flashError('q-custom-designed-card'); return false; }
+      // House wash validation
+      if (ss.includes('house_wash')) {
+        if (!state.hwMaterial) { flashError('q-hw-material'); return false; }
+        if (state.hwMaterial === 'Mixed' && !state.hwMaterialDesc) { flashError('q-hw-mixed-desc'); return false; }
+        if (state.hwMaterial === 'Other' && !state.hwMaterialDesc) { flashError('q-hw-other-desc'); return false; }
+        if (!state.hwStructures.length) { flashError('q-hw-structures-wrap'); return false; }
+      }
+      // Roof validation
+      if (ss.includes('roof_wash')) {
+        if (!state.roofMaterial) { flashError('q-roof-material'); return false; }
+      }
+      // Gutter validation
+      if (ss.includes('gutters')) {
+        if (!state.gutterGuards) { flashError('q-gutter-section'); return false; }
+      }
+      // Solar validation
+      if (ss.includes('solar_panels')) {
+        if (!state.solarPanelCount) { flashError('q-solar-count-chips'); return false; }
+        if (!state.solarRoofPitch) { flashError('q-solar-pitch-chips'); return false; }
       }
       return true;
     }
@@ -1037,7 +1107,8 @@ if (qwiz) {
       });
       btn.classList.add('active', 'btn--sky');
       btn.classList.remove('btn--ghost');
-      if (field === 'pw-custom') state.pwCustomProperty = value;
+      if (field === 'custom-designed') { state.customDesignedProperty = value; if (value === 'yes') state.requiresCustomQuote = true; }
+      if (field === 'gutter-guards') state.gutterGuards = value;
       if (field === 'pw-water') state.pwWaterSource = value;
     });
   });
@@ -1071,6 +1142,72 @@ if (qwiz) {
   document.getElementById('q-pw-surface-type')?.addEventListener('change', function(e) {
     state.pwSurfaceType = e.target.value;
   });
+
+  // ─── House Wash handlers ───
+  document.getElementById('q-hw-material')?.addEventListener('change', function(e) {
+    state.hwMaterial = e.target.value;
+    document.getElementById('q-hw-mixed-desc').style.display = e.target.value === 'Mixed' ? '' : 'none';
+    document.getElementById('q-hw-other-desc').style.display = e.target.value === 'Other' ? '' : 'none';
+  });
+  document.getElementById('q-hw-mixed-input')?.addEventListener('input', e => { state.hwMaterialDesc = e.target.value.trim(); });
+  document.getElementById('q-hw-other-input')?.addEventListener('input', e => { state.hwMaterialDesc = e.target.value.trim(); });
+
+  // House wash structures multi-select
+  (function() {
+    var trigger = document.getElementById('q-hw-structures-trigger');
+    var dropdown = document.getElementById('q-hw-structures-dropdown');
+    if (!trigger || !dropdown) return;
+    trigger.addEventListener('click', function() {
+      dropdown.style.display = dropdown.style.display === 'none' ? '' : 'none';
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#q-hw-structures-wrap')) dropdown.style.display = 'none';
+    });
+    dropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', function() {
+        state.hwStructures = [...dropdown.querySelectorAll('input:checked')].map(c => c.value);
+        trigger.textContent = state.hwStructures.length ? state.hwStructures.join(', ') : 'Select area(s)...';
+        trigger.classList.toggle('has-value', state.hwStructures.length > 0);
+        document.getElementById('q-hw-partial-desc').style.display = state.hwStructures.includes('Partial House Wash') ? '' : 'none';
+        document.getElementById('q-hw-struct-other-desc').style.display = state.hwStructures.includes('Other Structures') ? '' : 'none';
+      });
+    });
+  })();
+
+  document.getElementById('q-hw-partial-input')?.addEventListener('input', e => { state.hwPartialDesc = e.target.value.trim(); });
+  document.getElementById('q-hw-struct-other-input')?.addEventListener('input', e => { state.hwStructOtherDesc = e.target.value.trim(); });
+
+  // House wash debris checkboxes
+  document.getElementById('q-hw-debris-checks')?.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', function() {
+      state.hwDebris = [...document.getElementById('q-hw-debris-checks').querySelectorAll('input:checked')].map(c => c.value);
+    });
+  });
+
+  // ─── Roof Wash handlers ───
+  document.getElementById('q-roof-material')?.addEventListener('change', function(e) {
+    state.roofMaterial = e.target.value;
+    document.getElementById('q-roof-mixed-desc').style.display = e.target.value === 'Mixed' ? '' : 'none';
+    document.getElementById('q-roof-other-desc').style.display = e.target.value === 'Other' ? '' : 'none';
+  });
+  document.getElementById('q-roof-mixed-input')?.addEventListener('input', e => { state.roofMaterialDesc = e.target.value.trim(); });
+  document.getElementById('q-roof-other-input')?.addEventListener('input', e => { state.roofMaterialDesc = e.target.value.trim(); });
+
+  // Roof debris checkboxes
+  document.getElementById('q-roof-debris-checks')?.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', function() {
+      state.roofDebris = [...document.getElementById('q-roof-debris-checks').querySelectorAll('input:checked')].map(c => c.value);
+    });
+  });
+
+  // ─── Gutter handlers ───
+  document.getElementById('q-gutter-location-chips')?.addEventListener('click', function(e) {
+    var chip = e.target.closest('.qwiz__chip');
+    if (!chip) return;
+    var otherWrap = document.getElementById('q-gutter-other-desc');
+    if (otherWrap) otherWrap.style.display = chip.textContent.includes('Other') && chip.classList.contains('active') ? '' : 'none';
+  });
+  document.getElementById('q-gutter-other-input')?.addEventListener('input', e => { state.gutterOtherDesc = e.target.value.trim(); });
 
   // Commercial service checkboxes
   document.getElementById('q-csvc-exterior')?.addEventListener('change', e => { state.svcExterior = e.target.checked; });

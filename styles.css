@@ -2090,6 +2090,18 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .qwiz__check em { color: rgba(255,255,255,.65); font-style: normal; font-size: 13px; }
 .qwiz__conditional { margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,.03); border-radius: var(--r); border: 1px solid rgba(255,255,255,.06); }
 
+.qwiz__sub-block-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sky);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.qwiz__sub-block-title:first-of-type { margin-top: 8px; }
+
 /* Service list with inline sub-prompts */
 .qwiz__service-list { display: flex; flex-direction: column; gap: 12px; }
 

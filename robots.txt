@@ -1,0 +1,37 @@
+# CleanzATX — Window Cleaning & Pressure Washing
+# https://www.cleanzatx.com
+
+User-agent: *
+Allow: /
+Sitemap: https://www.cleanzatx.com/sitemap.xml
+
+# AI crawlers — explicitly welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
