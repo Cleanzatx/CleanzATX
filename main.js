@@ -217,1254 +217,187 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+
 /* ============================================================
-   QUOTE WIZARD — Multi-step form with pricing engine
+   QUOTE FORM — 2-step quote request
    ============================================================ */
 const qwiz = document.getElementById('quoteWizard');
 if (qwiz) {
-  const SURCHARGE_CONFIG = {
-    homeMaterial: {
-      "Limestone":    { services: ["house_wash"], percent: 10, label: "Limestone care surcharge", tooltip: "Limestone is more porous than stucco or vinyl — we use a lower-concentration mix and rinse longer." },
-      "Wood Siding":  { services: ["house_wash"], percent: 15, label: "Wood siding surcharge", tooltip: "Wood needs the lowest-pressure setup we have, and extra care to avoid driving water behind the grain." }
-    },
-    debris: {
-      roofWashHeavy:     { services: ["roof_wash"],  triggers: ["Moss & Lichen", "Oxidized paint (house painting prep)", "Post-construction debris"], percent: 15, label: "Heavy debris" },
-      houseWashPaintPrep: { services: ["house_wash"], triggers: ["Oxidized paint (house painting prep)", "Post-construction debris"], percent: 20, label: "Paint prep / post-construction surcharge" }
-    }
-  };
 
-  const state = window.__qwizState = {
-    step: 0,
-    selectedServices: [],
-    address: '', sqft: 0, stories: 0,
-    propertyType: 'Residential',
-    commercialPropertyType: '', commercialPropertyDesc: '', businessName: '',
-    windowCount: 0, screenCount: 0, trackCount: 0,
-    screenType: 'normal',
-    svcExterior: false, svcInterior: false, svcScreens: false, svcTracks: false,
-    interiorType: '', interiorCount: 0,
-    pwCustomProperty: '', pwWaterSource: '', pwSurfaces: [], pwSurfaceType: '',
-    homeMaterial: '', homeMaterialNotes: '',
-    debrisTypes: [],
-    hwMaterial: '', hwMaterialDesc: '', hwStructures: [], hwPartialDesc: '', hwStructOtherDesc: '', hwDebris: [],
-    roofMaterial: '', roofMaterialDesc: '', roofDebris: [],
-    gutterGuards: '', gutterLocations: [],
-    solarPanelCount: 0, solarRoofPitch: '',
-    customDesignedProperty: '', gutterOtherDesc: '',
-    surchargesApplied: [],
-    plan: '', autoBilling: false, commercialFrequency: 'weekly',
-    firstName: '', lastName: '', phone: '', email: '',
-    referral: '', referrer: '', timeline: '', deadlineDate: '',
-    promoCode: '', promoDiscount: 0,
-    lastCleaned: '',
-    customLayout: false, autoSuggestedWindowCount: 0,
-    frenchPanes: false, frenchPaneCount: 0,
-    _frenchPaneAsked: false,
-  };
+  const propertyTypeSel = document.getElementById('q-property-type');
+  const storiesSel = document.getElementById('q-stories');
+  const referralSel = document.getElementById('q-referral');
+  const referrerField = document.getElementById('q-referrer-field');
+  const timelineSel = document.getElementById('q-timeline');
+  const dateField = document.getElementById('q-date-field');
+  const step1 = document.getElementById('qStep1');
+  const step2 = document.getElementById('qStep2');
+  const dots = qwiz.querySelectorAll('.qwiz__dot');
 
-  const TOTAL_STEPS = 6;
-  const stepLabels = {
-    0: 'Services',
-    1: 'Property Info',
-    2: 'Service Selection',
-    3: 'Service Plan',
-    4: 'Contact Info',
-    5: 'Your Quote'
-  };
-
-  // Window/screen/track options based on sqft
-  function getOptions(sqft) {
-    if (sqft <= 1500)      return { windows: [10,15,20,25], screens: [5,10,15,20], tracks: [5,10,15,20] };
-    if (sqft <= 2500)      return { windows: [15,20,25,30], screens: [15,20,25,30], tracks: [15,20,25,30] };
-    if (sqft <= 3500)      return { windows: [25,30,35,40], screens: [20,25,30,35], tracks: [20,25,30,35] };
-    return                        { windows: [35,40,45,50], screens: [25,30,35,40], tracks: [25,30,35,40] };
-  }
-
-  // Auto-suggest window count from sqft (confirmed: 3000 sqft = ~30 windows)
-  function autoSuggestWindows(sqft) {
-    return Math.round(sqft * 0.01);
-  }
-
-  // Screen/track chip options based on window count
-  // Returns 3 options in steps of 5 up to windowCount + 'Custom'
-  function getScreenTrackOptions(windowCount) {
-    const wc = Math.max(10, windowCount);
-    // Round to nearest 5
-    const top = Math.round(wc / 5) * 5;
-    const opts = [];
-    // Go from top-10 to top in steps of 5 (3 options)
-    for (let i = Math.max(5, top - 10); i <= top; i += 5) {
-      if (!opts.includes(i)) opts.push(i);
-    }
-    // Ensure we have at least 3 numeric options
-    while (opts.length < 3) {
-      const next = opts[opts.length - 1] + 5;
-      opts.push(next);
-    }
-    opts.push('Custom');
-    return opts;
-  }
-
-  // Build chip selectors
-  function buildChips(container, options, stateKey) {
-    container.innerHTML = '';
-    options.forEach(val => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'qwiz__chip' + (state[stateKey] === val ? ' active' : '');
-      chip.textContent = val;
-      chip.addEventListener('click', () => {
-        state[stateKey] = val;
-        container.querySelectorAll('.qwiz__chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-      });
-      container.appendChild(chip);
-    });
-  }
-
-  // Build chips where the last option ('Custom') morphs into an inline number input
-  function buildChipsWithCustom(container, options, stateKey) {
-    container.innerHTML = '';
-    const numerics = options.filter(v => v !== 'Custom');
-    const hasCustom = options.includes('Custom');
-
-    function deactivateAll() {
-      container.querySelectorAll('.qwiz__chip').forEach(c => c.classList.remove('active'));
-    }
-
-    numerics.forEach(val => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'qwiz__chip' + (state[stateKey] === val ? ' active' : '');
-      chip.textContent = val;
-      chip.addEventListener('click', () => {
-        state[stateKey] = val;
-        deactivateAll();
-        chip.classList.add('active');
-        // If there was an active inline input, restore Custom chip
-        const existing = container.querySelector('.qwiz__chip--custom-input');
-        if (existing) {
-          existing.replaceWith(makeCustomChip());
-        }
-      });
-      container.appendChild(chip);
-    });
-
-    function makeCustomChip() {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'qwiz__chip qwiz__chip--custom';
-      chip.textContent = 'Custom';
-      chip.addEventListener('click', () => {
-        // Morph chip into inline input
-        const input = document.createElement('input');
-        input.type = 'number';
-        input.min = '1';
-        input.placeholder = '#';
-        input.className = 'qwiz__chip qwiz__chip--custom-input active';
-        input.style.cssText = 'width:72px;text-align:center;-moz-appearance:textfield;';
-        deactivateAll();
-        chip.replaceWith(input);
-        input.focus();
-        input.addEventListener('input', () => {
-          state[stateKey] = parseInt(input.value) || 0;
-        });
-        // On blur: if empty restore chip, else keep showing the value
-        input.addEventListener('blur', () => {
-          if (!input.value || parseInt(input.value) < 1) {
-            input.replaceWith(makeCustomChip());
-            state[stateKey] = 0;
-          }
-        });
-        input.addEventListener('keydown', e => {
-          if (e.key === 'Enter') input.blur();
-        });
-      });
-      return chip;
-    }
-
-    if (hasCustom) container.appendChild(makeCustomChip());
-  }
-
-  // Navigate steps
-  function goToStep(step) {
-    state.step = step;
-    qwiz.querySelectorAll('.qwiz__panel').forEach(p => p.classList.remove('active'));
-    const panel = qwiz.querySelector(`[data-panel="${step}"]`);
-    if (panel) panel.classList.add('active');
-    // Fire event for plan auto-select
-    document.dispatchEvent(new CustomEvent('qwiz:step', { detail: { step } }));
-
-    // Progress bar
-    const fill = document.getElementById('qwizBarFill');
-    fill.style.width = ((step + 1) / TOTAL_STEPS * 100) + '%';
-
-    // Step indicators
-    qwiz.querySelectorAll('.qwiz__step').forEach(s => {
-      const n = parseInt(s.dataset.step);
-      s.classList.remove('active', 'done');
-      if (n === step) s.classList.add('active');
-      else if (n < step) s.classList.add('done');
-    });
-
-    // Label
-    const label = document.getElementById('qwizStepLabel');
-    label.textContent = `Step ${step + 1} of ${TOTAL_STEPS}: ${stepLabels[step] || ''}`;
-
-    // Show/hide "last cleaned" field based on whether windows is selected
-    if (step === 1) {
-      const hasWindows = state.selectedServices.includes('windows');
-      const lcField = document.getElementById('q-last-cleaned-field');
-      if (lcField) lcField.style.display = hasWindows ? '' : 'none';
-    }
-
-    // Pre-populate chips when entering step 2
-    if (step === 2) {
-      const ss = state.selectedServices;
-      const hasWindows = ss.includes('windows');
-      const hasPressure = ss.includes('pressure');
-
-      // Show/hide service-specific sections
-      const winSec = document.getElementById('q-windows-section');
-      const pwSec = document.getElementById('q-pressure-section');
-      if (winSec) winSec.style.display = hasWindows ? '' : 'none';
-      if (pwSec) pwSec.style.display = hasPressure ? '' : 'none';
-
-      const hasHouseWash = ss.includes('house_wash');
-      const hasRoof = ss.includes('roof_wash');
-      const hasGutters = ss.includes('gutters');
-      const hasSolar = ss.includes('solar_panels');
-
-      // Section titles
-      const winTitle = document.getElementById('q-windows-title');
-      const pwTitle = document.getElementById('q-pressure-title');
-      if (winTitle) winTitle.style.display = hasWindows ? '' : 'none';
-      if (pwTitle) pwTitle.style.display = hasPressure ? '' : 'none';
-
-      // New sections
-      const hwSec = document.getElementById('q-house-wash-section');
-      const rfSec = document.getElementById('q-roof-wash-section');
-      const gutSec = document.getElementById('q-gutter-section');
-      const solSec = document.getElementById('q-solar-section');
-      if (hwSec) hwSec.style.display = hasHouseWash ? '' : 'none';
-      if (rfSec) rfSec.style.display = hasRoof ? '' : 'none';
-      if (gutSec) gutSec.style.display = hasGutters ? '' : 'none';
-      if (solSec) solSec.style.display = hasSolar ? '' : 'none';
-
-      // Build solar chips
-      if (hasSolar) {
-        buildChips(document.getElementById('q-solar-count-chips'), [5, 10, 15, 20, 25, 30, 'Other'], 'solarPanelCount');
-        // Wire "Other" chip for solar count
-        var solarChips = document.getElementById('q-solar-count-chips');
-        var solarCustomWrap = document.getElementById('q-solar-custom-wrap');
-        var solarCustomInput = document.getElementById('q-solar-custom');
-        if (solarChips) {
-          solarChips.querySelectorAll('.qwiz__chip').forEach(function(chip) {
-            chip.addEventListener('click', function() {
-              if (chip.textContent === 'Other') {
-                if (solarCustomWrap) solarCustomWrap.style.display = '';
-                state.solarPanelCount = parseInt(solarCustomInput?.value) || 0;
-              } else {
-                if (solarCustomWrap) solarCustomWrap.style.display = 'none';
-              }
-            });
-          });
-        }
-        if (solarCustomInput) {
-          solarCustomInput.addEventListener('input', function() { state.solarPanelCount = parseInt(solarCustomInput.value) || 0; });
-        }
-        buildChips(document.getElementById('q-solar-pitch-chips'), ['Flat', 'Low Slope', 'Moderate', 'Steep', 'Not Sure'], 'solarRoofPitch');
-      }
-
-      // Build gutter location chips
-      if (hasGutters) {
-        buildChips(document.getElementById('q-gutter-location-chips'), ['Full Perimeter', 'Front & Back Only', 'Partial / Other'], 'gutterLocations');
-      }
-
-      // Dynamic title
-      const titleEl = document.getElementById('q-step2-title');
-      if (titleEl) {
-        const parts = [];
-        if (hasWindows) parts.push('Window');
-        if (hasPressure) parts.push('Pressure Washing');
-        if (ss.includes('house_wash')) parts.push('House Washing');
-        if (ss.includes('roof_wash')) parts.push('Roof Cleaning');
-        if (ss.includes('gutters')) parts.push('Gutter');
-        if (ss.includes('solar_panels')) parts.push('Solar Panel');
-        titleEl.textContent = (parts.length ? parts.join(' & ') : 'Service') + ' Selection';
-      }
-
-      const isCommercial = state.propertyType === 'Commercial';
-      document.getElementById('q-residential-step2')?.style && (document.getElementById('q-residential-step2').style.display = (isCommercial || !hasWindows) ? 'none' : '');
-      var commStep2 = document.getElementById('q-commercial-step2');
-      if (commStep2) commStep2.style.display = (isCommercial && hasWindows) ? '' : 'none';
-
-      if (isCommercial) {
-        // Commercial: update label with property type
-        const propType = state.commercialPropertyType || 'property';
-        document.getElementById('q-commercial-window-label').textContent = `How many windows does the ${propType.toLowerCase()} have?`;
-        buildChips(document.getElementById('q-commercial-window-chips'), [10, 20, 30, 50, 75, 100, 'Other'], 'windowCount');
-        // Wire commercial Other chip
-        const cChips = document.getElementById('q-commercial-window-chips');
-        const cWrap = document.getElementById('q-commercial-window-custom-wrap');
-        const cInput = document.getElementById('q-commercial-window-custom');
-        cChips.querySelectorAll('.qwiz__chip').forEach(chip => {
-          chip.addEventListener('click', () => {
-            if (chip.textContent === 'Other') { cWrap.style.display = ''; state.windowCount = parseInt(cInput.value) || 0; }
-            else { cWrap.style.display = 'none'; }
-          });
-        });
-        cInput?.addEventListener('input', () => { state.windowCount = parseInt(cInput.value) || 0; });
-      } else {
-        // Residential: auto-suggest window count
-        const opts = getOptions(state.sqft);
-        const suggested = autoSuggestWindows(state.sqft);
-        state.autoSuggestedWindowCount = suggested;
-        buildChips(document.getElementById('q-window-chips'), [...opts.windows, 'Other'], 'windowCount');
-
-        // Auto-select nearest chip to suggested count
-        const chipValues = opts.windows;
-        const nearest = chipValues.reduce((prev, curr) =>
-          Math.abs(curr - suggested) < Math.abs(prev - suggested) ? curr : prev
-        );
-        state.windowCount = nearest;
-        document.getElementById('q-window-chips').querySelectorAll('.qwiz__chip').forEach(c => {
-          c.classList.toggle('active', c.textContent == nearest);
-        });
-
-        // Wire "Other" chip to show custom input
-        const windowChips = document.getElementById('q-window-chips');
-        const customWrap = document.getElementById('q-window-custom-wrap');
-        const customInput = document.getElementById('q-window-custom');
-        windowChips.querySelectorAll('.qwiz__chip').forEach(chip => {
-          chip.addEventListener('click', () => {
-            if (chip.textContent === 'Other') {
-              customWrap.style.display = '';
-              state.windowCount = parseInt(customInput.value) || 0;
-            } else {
-              customWrap.style.display = 'none';
-              // Check if user overrode auto-suggest
-              const chosen = parseInt(chip.textContent);
-              if (chosen !== state.autoSuggestedWindowCount && !state.customLayout) {
-                document.getElementById('q-custom-layout-prompt').style.display = '';
-              }
-            }
-          });
-        });
-        customInput?.addEventListener('input', () => { state.windowCount = parseInt(customInput.value) || 0; });
-
-        // Build screen/track chips based on window count
-        // Custom chip morphs inline into a number input when tapped
-        const stOpts = getScreenTrackOptions(state.windowCount || 15);
-        buildChipsWithCustom(document.getElementById('q-screen-chips'), stOpts, 'screenCount');
-        buildChipsWithCustom(document.getElementById('q-track-chips'), stOpts, 'trackCount');
-      }
-
-    }
-
-    // Show/hide residential vs commercial plans on step 3
-    if (step === 3) {
-      const isCommercial = state.propertyType === 'Commercial';
-      document.getElementById('q-residential-plans').style.display = isCommercial ? 'none' : '';
-      document.getElementById('q-commercial-plans').style.display = isCommercial ? '' : 'none';
-    }
-
-    // Show/hide business name on step 4 for commercial
-    if (step === 4) {
-      document.getElementById('q-business-name-field').style.display =
-        state.propertyType === 'Commercial' ? '' : 'none';
-    }
-    // Auto-apply promo from localStorage when entering step 4
-    if (step === 4) {
-      try {
-        const stored = localStorage.getItem('cleanzatx_promo');
-        if (stored) {
-          const promo = JSON.parse(stored);
-          if (promo && (promo.code === 'SAVE25' || promo.code === 'CLEAN25') && state.promoDiscount === 0) {
-            const promoInput = document.getElementById('q-promo');
-            if (promoInput) {
-              promoInput.value = promo.code;
-              applyPromo(promo.code);
-            }
-          }
-        }
-      } catch (e) {}
-    }
-
-    // Build price display when entering step 5
-    if (step === 5) buildPriceDisplay();
-
-    // GA4 step tracking
-    trackStep(step);
-
-    // Scroll to form (skip on initial load)
-    if (!qwiz._initialized) {
-      qwiz._initialized = true;
-    } else {
-      const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-      const top = qwiz.closest('.quote-section').getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  }
-
-  // Promo code logic
-  function applyPromo(code) {
-    const msgEl = document.getElementById('q-promo-msg');
-    const applyBtn = document.getElementById('q-promo-apply');
-    if (!msgEl) return;
-    if (code === 'SAVE25' || code === 'CLEAN25') {
-      state.promoCode = code;
-      state.promoDiscount = 25;
-      msgEl.style.display = '';
-      msgEl.style.color = '#22c55e';
-      msgEl.textContent = '$25 discount added to your quote successfully.';
-      if (applyBtn) {
-        applyBtn.style.background = '#22c55e';
-        applyBtn.style.borderColor = '#22c55e';
-        applyBtn.style.color = '#fff';
-        applyBtn.textContent = 'Applied';
-      }
-      localStorage.removeItem('cleanzatx_promo');
-    } else {
-      msgEl.style.display = '';
-      msgEl.style.color = '#ef4444';
-      msgEl.textContent = 'Invalid promo code.';
-    }
-  }
-
-  // Validation
-  function validateStep(step) {
-    if (step === 0) {
-      if (!state.selectedServices.length) return false;
-      return true;
-    }
-    if (step === 1) {
-      const addr = document.getElementById('q-address').value.trim();
-      state.address = addr;
-      if (!addr) { flashError('q-address'); return false; }
-
-      if (state.propertyType === 'Commercial') {
-        // Commercial validation
-        const cType = document.getElementById('q-commercial-type').value;
-        state.commercialPropertyType = cType;
-        state.commercialPropertyDesc = document.getElementById('q-commercial-desc')?.value?.trim() || '';
-        if (!cType) { flashError('q-commercial-type'); return false; }
-        if (cType === 'Other' && !state.commercialPropertyDesc) { flashError('q-commercial-desc'); return false; }
-        if (!state.stories) { flashError('q-commercial-stories-chips'); return false; }
-      } else {
-        // Residential validation
-        const sqft = parseInt(document.getElementById('q-sqft').value);
-        const hasWindows = state.selectedServices.includes('windows');
-        const lastCleaned = hasWindows ? document.getElementById('q-last-cleaned').value : '';
-        state.sqft = sqft || 0;
-        state.lastCleaned = lastCleaned;
-        if (!sqft || sqft < 100) { flashError('q-sqft'); return false; }
-        // 3700+ sqft: warn but allow through — will show custom quote path at Step 5
-        if (!state.stories) { flashError('q-stories-chips'); return false; }
-        if (hasWindows && !lastCleaned) { flashError('q-last-cleaned'); return false; }
-      }
-      return true;
-    }
-    if (step === 2) {
-      const ss = state.selectedServices;
-      // Window validation (only if windows selected)
-      if (ss.includes('windows')) {
-        if (!state.windowCount) {
-          const chipsId = state.propertyType === 'Commercial' ? 'q-commercial-window-chips' : 'q-window-chips';
-          const chips = document.getElementById(chipsId);
-          if (chips) {
-            chips.style.outline = '2px solid #ef4444';
-            chips.style.borderRadius = '8px';
-            setTimeout(() => { chips.style.outline = ''; }, 2000);
-          }
-          return false;
-        }
-        if (state.svcScreens && !state.screenCount) return false;
-        if (state.svcTracks && !state.trackCount) return false;
-      }
-      // Pressure washing validation (only if pressure selected)
-      if (ss.includes('pressure')) {
-        if (!state.pwWaterSource) { flashError('q-pressure-section'); return false; }
-        if (!state.pwSurfaces.length) { flashError('q-pw-surfaces-wrap'); return false; }
-        if (!state.pwSurfaceType) { flashError('q-pw-surface-type'); return false; }
-      }
-      // Custom designed property (always visible on step 2)
-      if (!state.customDesignedProperty) { flashError('q-custom-designed-card'); return false; }
-      // House wash validation
-      if (ss.includes('house_wash')) {
-        if (!state.hwMaterial) { flashError('q-hw-material'); return false; }
-        if (state.hwMaterial === 'Mixed' && !state.hwMaterialDesc) { flashError('q-hw-mixed-desc'); return false; }
-        if (state.hwMaterial === 'Other' && !state.hwMaterialDesc) { flashError('q-hw-other-desc'); return false; }
-        if (!state.hwStructures.length) { flashError('q-hw-structures-wrap'); return false; }
-      }
-      // Roof validation
-      if (ss.includes('roof_wash')) {
-        if (!state.roofMaterial) { flashError('q-roof-material'); return false; }
-      }
-      // Gutter validation
-      if (ss.includes('gutters')) {
-        if (!state.gutterGuards) { flashError('q-gutter-section'); return false; }
-      }
-      // Solar validation
-      if (ss.includes('solar_panels')) {
-        if (!state.solarPanelCount) { flashError('q-solar-count-chips'); return false; }
-        if (!state.solarRoofPitch) { flashError('q-solar-pitch-chips'); return false; }
-      }
-      return true;
-    }
-    if (step === 4) {
-      const fname = document.getElementById('q-fname').value.trim();
-      const phone = document.getElementById('q-phone').value.trim();
-      const timeline = document.getElementById('q-timeline').value;
-      state.firstName = fname;
-      state.lastName = document.getElementById('q-lname')?.value.trim() || '';
-      state.phone = phone;
-      state.email = document.getElementById('q-email').value.trim();
-      state.referral = document.getElementById('q-referral').value;
-      state.referrer = document.getElementById('q-referrer')?.value?.trim() || '';
-      state.timeline = timeline;
-      state.deadlineDate = document.getElementById('q-date')?.value || '';
-      if (state.propertyType === 'Commercial') {
-        state.businessName = document.getElementById('q-business-name')?.value?.trim() || '';
-        if (!state.businessName) { flashError('q-business-name'); return false; }
-      }
-      if (!fname) { flashError('q-fname'); return false; }
-      if (!phone || phone.replace(/\D/g,'').length < 10) { flashError('q-phone'); return false; }
-      if (!timeline) { flashError('q-timeline'); return false; }
-      return true;
-    }
-    return true;
-  }
-
-  function flashError(id) {
-    const field = document.getElementById(id)?.closest('.qwiz__field');
-    if (!field) return;
-    field.classList.add('qwiz__field--error');
-    document.getElementById(id).focus();
-    setTimeout(() => field.classList.remove('qwiz__field--error'), 2500);
-  }
-
-  // Pricing engine (flat price, no range)
-  function calcPrice() {
-    const wc = Number(state.windowCount) || 0;
-    const sqft = Number(state.sqft) || 0;
-    const ss = state.selectedServices;
-
-    // Exterior: $10/window (fall back to sqft x $0.10)
-    let exterior = state.svcExterior ? (wc > 0 ? wc * 10 : sqft * 0.10) : 0;
-    // Interior: $5/window (fall back to sqft x $0.05)
-    let interior = state.svcInterior ? (wc > 0 ? wc * 5 : sqft * 0.05) : 0;
-    // Screens: $5/screen (normal) or $10/screen (solar)
-    const screenPrice = state.screenType === 'solar' ? 10 : 5;
-    let screens = state.svcScreens ? (Number(state.screenCount) || 0) * screenPrice : 0;
-    // Tracks: $5/track (FREE on quarterly plan)
-    let tracks = state.svcTracks ? (Number(state.trackCount) || 0) * 5 : 0;
-    const tracksFree = state.plan === 'quarterly';
-    if (tracksFree) tracks = 0;
-    // French panes: $10/window
-    let frenchPanes = state.frenchPanes ? (Number(state.frenchPaneCount) || 0) * 10 : 0;
-
-    const subtotal = exterior + interior + screens + tracks + frenchPanes;
-
-    // Surcharges (applied to subtotal of affected services)
-    const surcharges = [];
-    state.surchargesApplied = [];
-    const mat = state.homeMaterial;
-    const matRule = SURCHARGE_CONFIG.homeMaterial[mat];
-    if (matRule && matRule.services.some(s => ss.includes(s))) {
-      const amt = Math.round(subtotal * matRule.percent / 100);
-      surcharges.push({ label: matRule.label, amount: amt, tooltip: matRule.tooltip });
-      state.surchargesApplied.push(matRule.label);
-    }
-    for (const [, rule] of Object.entries(SURCHARGE_CONFIG.debris)) {
-      if (rule.services.some(s => ss.includes(s)) && rule.triggers.some(t => state.debrisTypes.includes(t))) {
-        const amt = Math.round(subtotal * rule.percent / 100);
-        surcharges.push({ label: rule.label, amount: amt });
-        state.surchargesApplied.push(rule.label);
-      }
-    }
-    const surchargeTotal = surcharges.reduce((sum, s) => sum + s.amount, 0);
-
-    const subtotalWithSurcharges = subtotal + surchargeTotal;
-    const MINIMUM = 150;
-
-    // Discounts only apply when the job meets the minimum on its own
-    let discount = 0;
-    if (subtotalWithSurcharges >= MINIMUM) {
-      if (state.plan === '6month') discount = 50;
-      else if (state.plan === 'quarterly') discount = 100;
-      else if (state.plan === 'monthly') discount = 150;
-    }
-
-    // Promo discount also only applies when subtotal meets minimum
-    const promoDiscount = subtotalWithSurcharges >= MINIMUM ? (Number(state.promoDiscount) || 0) : 0;
-
-    const rawTotal = Math.max(0, subtotalWithSurcharges - discount - promoDiscount);
-    const total = rawTotal > 0 ? Math.max(MINIMUM, rawTotal) : 0;
-    const hitMinimum = subtotalWithSurcharges > 0 && subtotalWithSurcharges < MINIMUM;
-
-    return { exterior, interior, screens, tracks, frenchPanes, surcharges, surchargeTotal, discount, subtotal: subtotalWithSurcharges, total, rawTotal, hitMinimum, tracksFree, planName: state.plan };
-  }
-
-  // Job duration estimate
-  function getEstimatedDuration() {
-    const sqft = state.sqft;
-    let extMin = 60;
-    if (sqft > 1500) extMin = 120;
-    if (sqft > 2500) extMin = 180;
-    if (sqft > 3500) extMin = 240;
-    let intMin = 0;
-    if (state.svcInterior) {
-      intMin = 30;
-      if (sqft > 1500) intMin = 60;
-      if (sqft > 2500) intMin = 90;
-      if (sqft > 3500) intMin = 105;
-    }
-    const screenMin = state.svcScreens ? state.screenCount * 1 : 0;
-    const trackMin = state.svcTracks ? state.trackCount * 1 : 0;
-    return extMin + intMin + screenMin + trackMin;
-  }
-
-  function buildPriceDisplay() {
-    const isLarge = state.propertyType === 'Residential' && state.sqft >= 3700;
-    const isCustom = state.customLayout;
-    const customEl = document.getElementById('q-price-custom');
-    document.getElementById('q-price-normal').style.display = (isLarge || isCustom) ? 'none' : 'block';
-    document.getElementById('q-price-large').style.display = isLarge ? 'block' : 'none';
-    if (customEl) customEl.style.display = isCustom && !isLarge ? 'block' : 'none';
-    if (isLarge || isCustom) return;
-
-    const p = calcPrice();
-    const lines = document.getElementById('q-price-lines');
-    lines.innerHTML = '';
-    const addLine = (label, amount, cls) => {
-      const div = document.createElement('div');
-      div.className = 'qwiz__price-line' + (cls ? ' ' + cls : '');
-      const display = typeof amount === 'string' ? amount : '$' + (Number(amount) || 0).toFixed(2);
-      div.innerHTML = `<span>${label}</span><span>${display}</span>`;
-      lines.appendChild(div);
-    };
-    const wc = Number(state.windowCount) || 0;
-    const sc = Number(state.screenCount) || 0;
-    const tc = Number(state.trackCount) || 0;
-    const fpc = Number(state.frenchPaneCount) || 0;
-    if (state.svcExterior) addLine(`Exterior Windows (${wc} @ $10)`, p.exterior);
-    if (state.svcInterior) addLine(`Interior Windows (${wc} @ $5)`, p.interior);
-    if (state.frenchPanes && p.frenchPanes > 0) addLine(`French Pane Windows (${fpc} @ $10)`, p.frenchPanes);
-    if (state.svcScreens) addLine(`Screen Cleaning (${sc} ${state.screenType === 'solar' ? 'solar' : 'standard'})`, p.screens);
-    if (state.svcTracks && p.tracksFree) {
-      addLine(`Track Cleaning (${tc}) - FREE w/ Quarterly`, '$0.00', 'qwiz__price-line--discount');
-    } else if (state.svcTracks) {
-      addLine(`Track Cleaning (${tc})`, p.tracks);
-    }
-    if (p.surcharges && p.surcharges.length > 0) {
-      p.surcharges.forEach(s => {
-        const tip = s.tooltip ? ` <span class="qwiz__tooltip" title="${s.tooltip}">ⓘ</span>` : '';
-        addLine(`${s.label}${tip}`, s.amount, 'qwiz__price-line--surcharge');
-      });
-    }
-    if (p.discount > 0) {
-      const planLabel = state.plan === '6month' ? 'Bi-Annual' : state.plan === 'quarterly' ? 'Quarterly' : state.plan === 'monthly' ? 'Monthly' : 'Plan';
-      addLine(`${planLabel} Plan Discount`, '-$' + (Number(p.discount) || 0).toFixed(2), 'qwiz__price-line--discount');
-    }
-    if (state.promoDiscount > 0) {
-      addLine(`$25 Discount (${state.promoCode || 'PROMO'})`, '-$' + (Number(state.promoDiscount) || 0).toFixed(2), 'qwiz__price-line--discount');
-    }
-    // Flat price — no range
-    document.getElementById('q-price-total').textContent = '$' + Math.round(Number(p.total) || 0);
-
-    // Minimum job notice
-    const minNotice = document.getElementById('q-minimum-notice');
-    if (minNotice) minNotice.style.display = p.hitMinimum ? '' : 'none';
-  }
-
-  // Wire up Next/Back buttons
-  qwiz.querySelectorAll('.qwiz__next').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const next = parseInt(btn.dataset.next);
-      if (!validateStep(state.step)) return;
-      // GA4 events for new steps
-      if (typeof gtag !== 'undefined') {
-        if (state.step === 0) {
-          gtag('event', 'quote_step_services', { selected_services: state.selectedServices });
-        }
-        if (state.step === 2) {
-          gtag('event', 'quote_step_details', {
-            home_material: state.homeMaterial,
-            debris_types: state.debrisTypes,
-            surcharges_applied: state.surchargesApplied
-          });
-        }
-      }
-      goToStep(next);
-    });
-  });
-  qwiz.querySelectorAll('.qwiz__back').forEach(btn => {
-    btn.addEventListener('click', () => goToStep(parseInt(btn.dataset.back)));
-  });
-
-  // Step 0 — service tile checkboxes
-  const step0Next = document.getElementById('step0Next');
-  document.querySelectorAll('#q-service-tiles input[type="checkbox"]').forEach(cb => {
+  // Category toggles — show/hide sub-service panels
+  const catCheckboxes = qwiz.querySelectorAll('#q-service-cats input[type="checkbox"]');
+  const windowSubs = document.getElementById('q-window-subs');
+  const powerSubs = document.getElementById('q-power-subs');
+  catCheckboxes.forEach(cb => {
     cb.addEventListener('change', () => {
-      state.selectedServices = [...document.querySelectorAll('#q-service-tiles input:checked')].map(c => c.value);
-      step0Next.disabled = state.selectedServices.length === 0;
-      // Auto-check window service checkboxes if windows selected
-      if (cb.value === 'windows' && cb.checked) {
-        const ext = document.getElementById('q-svc-exterior');
-        if (ext && !ext.checked) { ext.checked = true; ext.dispatchEvent(new Event('change')); }
-      }
+      if (cb.value === 'window_cleaning') windowSubs.style.display = cb.checked ? '' : 'none';
+      if (cb.value === 'power_washing') powerSubs.style.display = cb.checked ? '' : 'none';
     });
   });
 
-  // Step 2 conditional — home material dropdown
-  document.getElementById('q-home-material')?.addEventListener('change', e => {
-    state.homeMaterial = e.target.value;
-    const showNotes = e.target.value === 'Mixed (multiple materials)' || e.target.value === 'Other';
-    document.getElementById('q-home-material-notes-field').style.display = showNotes ? '' : 'none';
-  });
-  document.getElementById('q-home-material-notes')?.addEventListener('input', e => {
-    state.homeMaterialNotes = e.target.value.trim();
-  });
-
-  // Step 2 conditional — debris checkboxes
-  document.querySelectorAll('#q-debris-checks input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      state.debrisTypes = [...document.querySelectorAll('#q-debris-checks input:checked')].map(c => c.value);
+  function getSelectedServices() {
+    const services = [];
+    qwiz.querySelectorAll('.qwiz__sub-services:not([style*="display:none"]):not([style*="display: none"]) input[type="checkbox"]').forEach(cb => {
+      if (cb.checked) services.push(cb.value);
     });
-  });
-
-  // Property type bubble selector (Step 1) — show/hide residential vs commercial fields
-  document.querySelectorAll('#q-property-type-chips .qwiz__chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll('#q-property-type-chips .qwiz__chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      state.propertyType = chip.dataset.value;
-      const isCommercial = chip.dataset.value === 'Commercial';
-      document.getElementById('q-residential-fields').style.display = isCommercial ? 'none' : '';
-      document.getElementById('q-commercial-fields').style.display = isCommercial ? '' : 'none';
-    });
-  });
-
-  // Stories bubble selectors (residential)
-  document.querySelectorAll('#q-stories-chips .qwiz__chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll('#q-stories-chips .qwiz__chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      state.stories = parseInt(chip.dataset.value) || 0;
-    });
-  });
-
-  // Stories bubble selectors (commercial)
-  document.querySelectorAll('#q-commercial-stories-chips .qwiz__chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll('#q-commercial-stories-chips .qwiz__chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      state.stories = parseInt(chip.dataset.value) || 0;
-    });
-  });
-
-  // Commercial property type select
-  document.getElementById('q-commercial-type')?.addEventListener('change', e => {
-    state.commercialPropertyType = e.target.value;
-    document.getElementById('q-commercial-desc-field').style.display = e.target.value === 'Other' ? '' : 'none';
-  });
-  document.getElementById('q-commercial-desc')?.addEventListener('input', e => {
-    state.commercialPropertyDesc = e.target.value.trim();
-  });
-
-  // Sqft threshold listener
-  let sqftWasBlocked = false;
-  document.getElementById('q-sqft')?.addEventListener('input', function() {
-    const val = parseInt(this.value) || 0;
-    const advisory = document.getElementById('q-sqft-advisory');
-    const blocked = document.getElementById('q-sqft-blocked');
-    const nextBtn = document.getElementById('step1Next');
-    if (advisory) advisory.style.display = (val >= 3500 && val < 3700) ? '' : 'none';
-    if (blocked) blocked.style.display = (val >= 3700) ? '' : 'none';
-    if (nextBtn) nextBtn.disabled = false; // 3700+ sqft users can proceed to get custom quote
-    // Auto-open the contact modal the first time sqft crosses 3700
-    if (val >= 3700 && !sqftWasBlocked) {
-      sqftWasBlocked = true;
-      if (window.openPhoneModal) window.openPhoneModal();
-    } else if (val < 3700) {
-      sqftWasBlocked = false; // reset so it fires again if they re-enter a large number
-    }
-  });
-
-  // Service card toggle helper — adds/removes .checked class
-  function toggleCard(checkbox) {
-    const card = checkbox.closest('.qwiz__service-card');
-    if (card) card.classList.toggle('checked', checkbox.checked);
+    return services;
   }
 
-  // Service checkboxes (residential)
-  document.getElementById('q-svc-exterior')?.addEventListener('change', e => {
-    state.svcExterior = e.target.checked;
-    toggleCard(e.target);
-    const prompt = document.getElementById('q-french-pane-prompt');
-    if (prompt) {
-      if (e.target.checked) {
-        prompt.style.display = '';
-      } else {
-        prompt.style.display = 'none';
-        state.frenchPanes = false;
-        state.frenchPaneCount = 0;
-        state._frenchPaneAsked = false;
-        const countWrap = document.getElementById('q-french-count-wrap');
-        if (countWrap) countWrap.style.display = 'none';
-        const countInput = document.getElementById('q-french-count');
-        if (countInput) countInput.value = '';
-      }
-    }
-  });
-  document.getElementById('q-svc-interior')?.addEventListener('change', e => {
-    state.svcInterior = e.target.checked;
-    toggleCard(e.target);
-    const opts = document.getElementById('q-interior-options');
-    if (opts) opts.style.display = e.target.checked ? '' : 'none';
-    if (!e.target.checked) {
-      state.interiorType = '';
-      state.interiorCount = 0;
-      const wrap = document.getElementById('q-interior-count-wrap');
-      if (wrap) wrap.style.display = 'none';
-    }
-  });
-  // Interior full/partial handlers
-  document.getElementById('q-interior-full')?.addEventListener('click', () => {
-    state.interiorType = 'full';
-    state.interiorCount = state.windowCount || 0;
-    document.getElementById('q-interior-count-wrap').style.display = 'none';
-    document.getElementById('q-interior-full').classList.add('btn--sky');
-    document.getElementById('q-interior-full').classList.remove('btn--ghost');
-    document.getElementById('q-interior-partial').classList.add('btn--ghost');
-    document.getElementById('q-interior-partial').classList.remove('btn--sky');
-  });
-  document.getElementById('q-interior-partial')?.addEventListener('click', () => {
-    state.interiorType = 'partial';
-    document.getElementById('q-interior-count-wrap').style.display = '';
-    document.getElementById('q-interior-partial').classList.add('btn--sky');
-    document.getElementById('q-interior-partial').classList.remove('btn--ghost');
-    document.getElementById('q-interior-full').classList.add('btn--ghost');
-    document.getElementById('q-interior-full').classList.remove('btn--sky');
-  });
-  document.getElementById('q-interior-count')?.addEventListener('input', e => {
-    state.interiorCount = parseInt(e.target.value) || 0;
+  function anyCategorySelected() {
+    return Array.from(catCheckboxes).some(cb => cb.checked);
+  }
+
+  function scrollToForm() {
+    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+    window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH - 10, behavior: 'smooth' });
+  }
+
+  function showStep(n) {
+    step1.style.display = n === 1 ? '' : 'none';
+    step1.classList.toggle('active', n === 1);
+    step2.style.display = n === 2 ? '' : 'none';
+    step2.classList.toggle('active', n === 2);
+    dots.forEach((d, i) => d.classList.toggle('active', i === n - 1));
+    scrollToForm();
+  }
+
+  // Next button — validate step 1
+  document.getElementById('q-next')?.addEventListener('click', () => {
+    const address = (document.getElementById('q-address')?.value || '').trim();
+    const sqft = parseInt(document.getElementById('q-sqft')?.value) || 0;
+    const stories = parseInt(storiesSel?.value) || 0;
+
+    const missing = [];
+    if (!anyCategorySelected()) missing.push('at least one service');
+    if (!address) missing.push('address');
+    if (!sqft) missing.push('square footage');
+    if (!stories) missing.push('number of stories');
+    if (missing.length) { alert('Please fill in: ' + missing.join(', ')); return; }
+    showStep(2);
   });
 
-  document.getElementById('q-svc-screens')?.addEventListener('change', e => {
-    state.svcScreens = e.target.checked;
-    toggleCard(e.target);
-    const opts = document.getElementById('q-screen-options');
-    if (opts) opts.style.display = e.target.checked ? '' : 'none';
-  });
-  document.getElementById('q-svc-tracks')?.addEventListener('change', e => {
-    state.svcTracks = e.target.checked;
-    toggleCard(e.target);
-    const opts = document.getElementById('q-track-options');
-    if (opts) opts.style.display = e.target.checked ? '' : 'none';
-  });
+  // Back button
+  document.getElementById('q-back')?.addEventListener('click', () => showStep(1));
 
-  // French pane prompt handlers
-  document.getElementById('q-french-yes')?.addEventListener('click', () => {
-    state.frenchPanes = true;
-    state._frenchPaneAsked = true;
-    document.getElementById('q-french-count-wrap').style.display = '';
-  });
-  document.getElementById('q-french-no')?.addEventListener('click', () => {
-    state.frenchPanes = false;
-    state._frenchPaneAsked = true;
-    document.getElementById('q-french-pane-prompt').style.display = 'none';
-  });
-  document.getElementById('q-french-count')?.addEventListener('input', e => {
-    state.frenchPaneCount = parseInt(e.target.value) || 0;
-  });
-
-  // Custom layout prompt handlers
-  document.getElementById('q-custom-yes')?.addEventListener('click', () => {
-    state.customLayout = true;
-    document.getElementById('q-custom-layout-prompt').style.display = 'none';
-  });
-  document.getElementById('q-custom-no')?.addEventListener('click', () => {
-    state.customLayout = false;
-    // Revert to auto-suggested count
-    state.windowCount = state.autoSuggestedWindowCount;
-    document.getElementById('q-window-chips').querySelectorAll('.qwiz__chip').forEach(c => {
-      c.classList.toggle('active', parseInt(c.textContent) === state.autoSuggestedWindowCount);
+  // Conditional fields
+  if (referralSel && referrerField) {
+    referralSel.addEventListener('change', () => {
+      referrerField.style.display = referralSel.value === 'Referral' ? '' : 'none';
     });
-    document.getElementById('q-custom-layout-prompt').style.display = 'none';
-  });
-
-  // ─── Pressure Washing handlers ───
-  // Yes/No toggle buttons
-  document.querySelectorAll('.qwiz__toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const field = btn.dataset.field;
-      const value = btn.dataset.value;
-      btn.parentElement.querySelectorAll('.qwiz__toggle-btn').forEach(b => {
-        b.classList.remove('active', 'btn--sky');
-        b.classList.add('btn--ghost');
-      });
-      btn.classList.add('active', 'btn--sky');
-      btn.classList.remove('btn--ghost');
-      if (field === 'custom-designed') { state.customDesignedProperty = value; if (value === 'yes') state.requiresCustomQuote = true; }
-      if (field === 'gutter-guards') state.gutterGuards = value;
-      if (field === 'pw-water') state.pwWaterSource = value;
-    });
-  });
-
-  // Multi-select dropdown for surfaces
-  var pwTrigger = document.getElementById('q-pw-surfaces-trigger');
-  var pwDropdown = document.getElementById('q-pw-surfaces-dropdown');
-  if (pwTrigger && pwDropdown) {
-    pwTrigger.addEventListener('click', function() {
-      pwDropdown.style.display = pwDropdown.style.display === 'none' ? '' : 'none';
-    });
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('#q-pw-surfaces-wrap')) {
-        pwDropdown.style.display = 'none';
-      }
-    });
-    pwDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-      cb.addEventListener('change', function() {
-        state.pwSurfaces = [...pwDropdown.querySelectorAll('input:checked')].map(c => c.value);
-        if (state.pwSurfaces.length > 0) {
-          pwTrigger.textContent = state.pwSurfaces.join(', ');
-          pwTrigger.classList.add('has-value');
-        } else {
-          pwTrigger.textContent = 'Select surface(s)...';
-          pwTrigger.classList.remove('has-value');
-        }
-      });
+  }
+  if (timelineSel && dateField) {
+    timelineSel.addEventListener('change', () => {
+      dateField.style.display = timelineSel.value === 'specific_date' ? '' : 'none';
     });
   }
 
-  document.getElementById('q-pw-surface-type')?.addEventListener('change', function(e) {
-    state.pwSurfaceType = e.target.value;
-  });
-
-  // ─── House Wash handlers ───
-  document.getElementById('q-hw-material')?.addEventListener('change', function(e) {
-    state.hwMaterial = e.target.value;
-    document.getElementById('q-hw-mixed-desc').style.display = e.target.value === 'Mixed' ? '' : 'none';
-    document.getElementById('q-hw-other-desc').style.display = e.target.value === 'Other' ? '' : 'none';
-  });
-  document.getElementById('q-hw-mixed-input')?.addEventListener('input', e => { state.hwMaterialDesc = e.target.value.trim(); });
-  document.getElementById('q-hw-other-input')?.addEventListener('input', e => { state.hwMaterialDesc = e.target.value.trim(); });
-
-  // House wash structures multi-select
-  (function() {
-    var trigger = document.getElementById('q-hw-structures-trigger');
-    var dropdown = document.getElementById('q-hw-structures-dropdown');
-    if (!trigger || !dropdown) return;
-    trigger.addEventListener('click', function() {
-      dropdown.style.display = dropdown.style.display === 'none' ? '' : 'none';
+  // Phone auto-format
+  const phoneInput = document.getElementById('q-phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', () => {
+      let d = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+      if (d.length >= 7) d = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+      else if (d.length >= 4) d = '(' + d.slice(0,3) + ') ' + d.slice(3);
+      else if (d.length >= 1) d = '(' + d;
+      phoneInput.value = d;
     });
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('#q-hw-structures-wrap')) dropdown.style.display = 'none';
-    });
-    dropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-      cb.addEventListener('change', function() {
-        state.hwStructures = [...dropdown.querySelectorAll('input:checked')].map(c => c.value);
-        trigger.textContent = state.hwStructures.length ? state.hwStructures.join(', ') : 'Select area(s)...';
-        trigger.classList.toggle('has-value', state.hwStructures.length > 0);
-        document.getElementById('q-hw-partial-desc').style.display = state.hwStructures.includes('Partial House Wash') ? '' : 'none';
-        document.getElementById('q-hw-struct-other-desc').style.display = state.hwStructures.includes('Other Structures') ? '' : 'none';
-      });
-    });
-  })();
-
-  document.getElementById('q-hw-partial-input')?.addEventListener('input', e => { state.hwPartialDesc = e.target.value.trim(); });
-  document.getElementById('q-hw-struct-other-input')?.addEventListener('input', e => { state.hwStructOtherDesc = e.target.value.trim(); });
-
-  // House wash debris checkboxes
-  document.getElementById('q-hw-debris-checks')?.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', function() {
-      state.hwDebris = [...document.getElementById('q-hw-debris-checks').querySelectorAll('input:checked')].map(c => c.value);
-    });
-  });
-
-  // ─── Roof Wash handlers ───
-  document.getElementById('q-roof-material')?.addEventListener('change', function(e) {
-    state.roofMaterial = e.target.value;
-    document.getElementById('q-roof-mixed-desc').style.display = e.target.value === 'Mixed' ? '' : 'none';
-    document.getElementById('q-roof-other-desc').style.display = e.target.value === 'Other' ? '' : 'none';
-  });
-  document.getElementById('q-roof-mixed-input')?.addEventListener('input', e => { state.roofMaterialDesc = e.target.value.trim(); });
-  document.getElementById('q-roof-other-input')?.addEventListener('input', e => { state.roofMaterialDesc = e.target.value.trim(); });
-
-  // Roof debris checkboxes
-  document.getElementById('q-roof-debris-checks')?.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', function() {
-      state.roofDebris = [...document.getElementById('q-roof-debris-checks').querySelectorAll('input:checked')].map(c => c.value);
-    });
-  });
-
-  // ─── Gutter handlers ───
-  document.getElementById('q-gutter-location-chips')?.addEventListener('click', function(e) {
-    var chip = e.target.closest('.qwiz__chip');
-    if (!chip) return;
-    var otherWrap = document.getElementById('q-gutter-other-desc');
-    if (otherWrap) otherWrap.style.display = chip.textContent.includes('Other') && chip.classList.contains('active') ? '' : 'none';
-  });
-  document.getElementById('q-gutter-other-input')?.addEventListener('input', e => { state.gutterOtherDesc = e.target.value.trim(); });
-
-  // Commercial service checkboxes
-  document.getElementById('q-csvc-exterior')?.addEventListener('change', e => { state.svcExterior = e.target.checked; });
-  document.getElementById('q-csvc-interior')?.addEventListener('change', e => { state.svcInterior = e.target.checked; });
-  document.getElementById('q-csvc-screens-tracks')?.addEventListener('change', e => {
-    state.svcScreens = e.target.checked;
-    state.svcTracks = e.target.checked;
-  });
-
-  // Business name
-  document.getElementById('q-business-name')?.addEventListener('input', e => {
-    state.businessName = e.target.value.trim();
-  });
-
-  // Commercial frequency toggle
-  document.querySelectorAll('.qwiz__freq-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.qwiz__plan-freq-toggle').querySelectorAll('.qwiz__freq-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.commercialFrequency = btn.dataset.freq;
-    });
-  });
-
-  // Screen type radios
-  document.querySelectorAll('input[name="screenType"]').forEach(r => {
-    r.addEventListener('change', e => { state.screenType = e.target.value; });
-  });
-
-  // Plan selection
-  qwiz.querySelectorAll('.qwiz__plan').forEach(card => {
-    card.addEventListener('click', e => {
-      if (e.target.closest('.qwiz__toggle') || e.target.closest('.qwiz__auto-bill') || e.target.closest('.qwiz__plan-freq-toggle')) return;
-      const wasSelected = card.classList.contains('selected');
-      qwiz.querySelectorAll('.qwiz__plan').forEach(c => c.classList.remove('selected'));
-      if (!wasSelected) {
-        card.classList.add('selected');
-        state.plan = card.dataset.plan;
-      } else {
-        state.plan = '';
-      }
-      const skipBtn = document.getElementById('skipPlanBtn');
-      const selectBtn = document.getElementById('selectPlanBtn');
-      const skipLink = document.getElementById('skipPlanLink');
-      if (skipBtn) skipBtn.style.display = state.plan ? 'none' : '';
-      if (selectBtn) selectBtn.style.display = state.plan ? '' : 'none';
-      if (skipLink) skipLink.style.display = state.plan ? '' : 'none';
-    });
-  });
-
-  // Auto-billing toggles
-  qwiz.querySelectorAll('.auto-bill-toggle').forEach(toggle => {
-    toggle.addEventListener('change', e => {
-      state.autoBilling = e.target.checked;
-    });
-  });
-
-  // Referral conditional
-  document.getElementById('q-referral')?.addEventListener('change', e => {
-    const v = e.target.value;
-    document.getElementById('q-referrer-field').style.display = v === 'Referral' ? 'block' : 'none';
-  });
-
-  // Timeline conditional
-  document.getElementById('q-timeline')?.addEventListener('change', e => {
-    document.getElementById('q-date-field').style.display = e.target.value === 'specific_date' ? 'block' : 'none';
-  });
-
-  // Promo code apply button and Enter key
-  document.getElementById('q-promo-apply')?.addEventListener('click', () => {
-    const code = document.getElementById('q-promo')?.value.trim().toUpperCase() || '';
-    applyPromo(code);
-  });
-  document.getElementById('q-promo')?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      const code = e.target.value.trim().toUpperCase();
-      applyPromo(code);
-    }
-  });
-
-  // GA4 — track quote wizard step progression
-  function trackStep(step) {
-    if (typeof gtag === 'undefined') return;
-    gtag('event', 'quote_step', { step_number: step });
-    if (step === 0) gtag('event', 'begin_checkout');
   }
 
-  // Submit handlers
+  // Submit
   let submitted = false;
   function handleSubmit() {
     if (submitted) return;
+
+    const selectedServices = getSelectedServices();
+    const firstName = (document.getElementById('q-fname')?.value || '').trim();
+    const lastName  = (document.getElementById('q-lname')?.value || '').trim();
+    const phone     = (document.getElementById('q-phone')?.value || '').trim();
+    const email     = (document.getElementById('q-email')?.value || '').trim();
+    const address   = (document.getElementById('q-address')?.value || '').trim();
+    const sqft      = parseInt(document.getElementById('q-sqft')?.value) || 0;
+    const propertyType = propertyTypeSel?.value || 'Residential';
+    const stories   = parseInt(storiesSel?.value) || 0;
+    const referral  = referralSel?.value || '';
+    const referrer  = (document.getElementById('q-referrer')?.value || '').trim();
+    const timeline  = timelineSel?.value || '';
+    const deadlineDate = document.getElementById('q-date')?.value || '';
+    const lastCleaned = document.getElementById('q-last-cleaned')?.value || '';
+    const frequency = document.getElementById('q-frequency')?.value || '';
+    const notes     = (document.getElementById('q-notes')?.value || '').trim();
+
+    const missing = [];
+    if (!firstName) missing.push('first name');
+    if (!phone || phone.replace(/\D/g, '').length < 10) missing.push('phone number');
+    if (!frequency) missing.push('service frequency');
+    if (!timeline) missing.push('timeline');
+    if (missing.length) { alert('Please fill in: ' + missing.join(', ')); return; }
+
     submitted = true;
-    const p = calcPrice();
-    const isLarge = state.propertyType === 'Residential' && state.sqft >= 3700;
-    const planLabel = state.plan === '6month' ? 'Bi-Annual' : state.plan === 'quarterly' ? 'Quarterly' : state.plan === 'monthly' ? 'Monthly' : state.plan === 'weekly' ? (state.commercialFrequency === 'biweekly' ? 'Bi-weekly' : 'Weekly') : state.plan || 'None (One-Time)';
-    const screenTypeLabel = state.screenType === 'solar' ? 'Solar Screens' : 'Normal Screens';
+    const btn = document.getElementById('q-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
-    // Silent EmailJS send
-    const emailPayload = {
-      first_name:       state.firstName,
-      last_name:        state.lastName || '',
-      phone:            state.phone,
-      email:            state.email || '',
-      address:          state.address || '',
-      property_type:    state.propertyType || 'Residential',
-      business_name:    state.businessName || '',
-      commercial_property_type: state.commercialPropertyType || '',
-      commercial_property_desc: state.commercialPropertyDesc || '',
-      sqft:             state.sqft,
-      stories:          state.stories,
-      last_cleaned:     state.lastCleaned || '',
-      exterior_windows: state.svcExterior ? 'Yes' : 'No',
-      interior_windows: state.svcInterior ? 'Yes' : 'No',
-      screens:          state.svcScreens ? state.screenCount + ' screens (' + (state.screenType === 'solar' ? 'solar' : 'standard') + ')' : 'No',
-      tracks:           state.svcTracks ? state.trackCount + ' tracks' : 'No',
-      french_panes:     state.frenchPanes ? state.frenchPaneCount + ' French pane windows' : 'No',
-      custom_layout:    state.customLayout,
-      service_plan:     planLabel,
-      auto_billing:     state.autoBilling ? 'Enrolled' : 'Not Enrolled',
-      referral_source:  state.referral || '',
-      timeline:         ({ asap: 'ASAP', within_1_week: 'Within 1 Week', within_2_weeks: 'Within 2 Weeks', specific_date: 'Specific Date' })[state.timeline] || state.timeline || '',
-      promo_code:       state.promoCode || '',
-      promo_discount:   state.promoDiscount || 0,
-      selected_services: (state.selectedServices || []).join(', '),
-      home_material:    state.homeMaterial || '',
-      home_material_notes: state.homeMaterialNotes || '',
-      debris_types:     (state.debrisTypes || []).join(', '),
-    };
-    emailjs.send('service_xsex2ss', 'template_536xvvp', emailPayload).catch(() => {});
+    const serviceLabels = { ext_windows:'Exterior Windows', int_windows:'Interior Windows', screens:'Screen Cleaning', tracks:'Track Cleaning', skylights:'Skylights', post_construction:'Post Construction', hard_water:'Hard Water Removal', house_wash:'House Washing', driveway:'Driveway', front_patio:'Front Patio', back_patio:'Back Patio', roof_wash:'Roof Cleaning', gutters:'Gutter Cleaning', stone_limestone:'Stone / Limestone', deck_fence:'Deck / Fence' };
+    const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', '6month':'Every 6 Months' };
+    const lastCleanedLabels = { never:'Never / First Time', '1_month':'Within 1 Month', '3_months':'1–3 Months Ago', '6_months':'3–6 Months Ago', '1_year':'6–12 Months Ago', over_1_year:'Over a Year Ago' };
+    const frequencyLabel = freqLabels[frequency] || frequency;
+    const servicesText = selectedServices.map(s => serviceLabels[s] || s).join(', ');
 
-    // Derive deadline date
-    let deadlineDate = state.deadlineDate || '';
-    if (!deadlineDate) {
+    let computedDeadline = deadlineDate;
+    if (!computedDeadline) {
       const d = new Date();
-      const days = { asap: 3, within_1_week: 7, within_2_weeks: 14 };
-      d.setDate(d.getDate() + (days[state.timeline] || 30));
-      deadlineDate = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+      d.setDate(d.getDate() + ({ asap:3, within_1_week:7, within_2_weeks:14 }[timeline] || 30));
+      computedDeadline = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
     }
 
-    // Build services list for payloads
-    const servicesList = [];
-    if (state.svcExterior) servicesList.push('Exterior Windows');
-    if (state.svcInterior) servicesList.push('Interior Windows');
-    if (state.svcScreens) servicesList.push('Screen Cleaning (' + screenTypeLabel + ')');
-    if (state.svcTracks) servicesList.push('Track Cleaning');
-
-    /* ── n8n webhook — DISABLED ──
-       The Vercel proxy to the n8n server was removed to stop null SMS
-       notifications. Re-enable in vercel.json when the n8n workflow
-       has the "Is Real Lead?" gate imported.
-    fetch('https://www.cleanzatx.com/n8n/webhook/f1cd6d3b-ddc5-4a08-9894-ff8bcb72659d', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        first_name: state.firstName, last_name: state.lastName || '',
-        phone: state.phone, email: state.email || '',
-        address: state.address || '', sqft: state.sqft, stories: state.stories,
-        last_cleaned: state.lastCleaned || '', property_type: state.propertyType || 'Residential',
-        service_plan: planLabel, auto_billing: state.autoBilling ? 'Enrolled' : 'Not Enrolled',
-        exterior_price: p.exterior.toFixed(2), interior_price: p.interior.toFixed(2),
-        screen_price: p.screens.toFixed(2), track_price: p.tracks.toFixed(2),
-        discount: p.discount.toFixed(2), total_price: p.total.toFixed(2),
-        services: servicesList.join(', '), selected_services: state.selectedServices || [],
-      }),
+    emailjs.send('service_xsex2ss', 'template_536xvvp', {
+      first_name: firstName, last_name: lastName, phone, email, address,
+      property_type: propertyType, sqft, stories,
+      last_cleaned: lastCleanedLabels[lastCleaned] || lastCleaned || '',
+      selected_services: servicesText, service_plan: frequencyLabel,
+      referral_source: referral,
+      timeline: ({ asap:'ASAP', within_1_week:'Within 1 Week', within_2_weeks:'Within 2 Weeks', flexible:'Flexible', specific_date:'Specific Date' })[timeline] || timeline,
+      notes,
     }).catch(() => {});
-    ── end n8n ── */
 
-    // Send to CleanzATX Tracker — auto-creates client + plan
     fetch((window.CLEANZATX_TRACKER_URL || 'https://cleanzatx-tracker.vercel.app') + '/api/webhooks/quote-form', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        first_name:                 state.firstName,
-        last_name:                  state.lastName || '',
-        phone:                      state.phone,
-        email:                      state.email || '',
-        address:                    state.address || '',
-        sqft:                       state.sqft,
-        stories:                    state.stories,
-        last_cleaned:               state.lastCleaned || '',
-        property_type:              state.propertyType || 'Residential',
-        business_name:              state.businessName || '',
-        commercial_property_type:   state.commercialPropertyType || '',
-        commercial_property_desc:   state.commercialPropertyDesc || '',
-        custom_layout:              state.customLayout,
-        french_panes:               state.frenchPanes ? state.frenchPaneCount + ' panes' : 'No',
-        service_plan:               planLabel,
-        auto_billing:               state.autoBilling ? 'Enrolled' : 'Not Enrolled',
-        exterior_price:             p.exterior.toFixed(2),
-        interior_price:             p.interior.toFixed(2),
-        screen_price:               p.screens.toFixed(2),
-        track_price:                p.tracks.toFixed(2),
-        french_pane_price:          (p.frenchPanes || 0).toFixed(2),
-        discount:                   p.discount.toFixed(2),
-        total_price:                p.total.toFixed(2),
-        services:                   servicesList.join(', '),
-        deadline_date:              deadlineDate,
-        estimated_duration_minutes: getEstimatedDuration(),
-        referral_source:            state.referral || '',
-        timeline:                   ({ asap: 'ASAP', within_1_week: 'Within 1 Week', within_2_weeks: 'Within 2 Weeks', specific_date: 'Specific Date' })[state.timeline] || state.timeline || '',
-        large_home:                 isLarge,
-        how_found:                  state.referral || '',
-        promo_code:                 state.promoCode || '',
-        promo_discount:             state.promoDiscount || 0,
-        selected_services:          state.selectedServices || [],
-        home_material:              state.homeMaterial || '',
-        home_material_notes:        state.homeMaterialNotes || '',
-        debris_types:               state.debrisTypes || [],
-        surcharges_applied:         state.surchargesApplied || [],
+        first_name: firstName, last_name: lastName, phone, email, address,
+        sqft, stories, property_type: propertyType,
+        service_categories: Array.from(catCheckboxes).filter(c => c.checked).map(c => c.value),
+        selected_services: selectedServices, service_frequency: frequency,
+        last_cleaned: lastCleaned, referral_source: referral, referrer_name: referrer,
+        timeline, deadline_date: computedDeadline, notes, source: 'quote_form_v2',
       }),
     }).catch(() => {});
 
-    // GA4 — lead conversion event
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'generate_lead', {
-        value: parseFloat(calcPrice().total.toFixed(2)),
-        currency: 'USD',
-        lead_source: state.referral || 'unknown',
-        selected_services: state.selectedServices,
-      });
+      gtag('event', 'generate_lead', { currency:'USD', value:0, services:servicesText, frequency:frequencyLabel });
     }
 
     // Show confirmation
-    qwiz.querySelectorAll('.qwiz__panel').forEach(p => p.classList.remove('active'));
+    step2.style.display = 'none';
+    step2.classList.remove('active');
+    const stepsEl = document.getElementById('q-steps');
+    if (stepsEl) stepsEl.style.display = 'none';
     const confirmPanel = qwiz.querySelector('[data-panel="confirm"]');
-    confirmPanel.style.display = '';
-    confirmPanel.classList.add('active');
-
-    const confirmTextEl = document.getElementById('q-confirm-text');
-    const confirmTextBtn = document.getElementById('q-confirm-text-now');
-    if (isLarge) {
-      document.getElementById('q-confirm-msg').textContent = `Got it! We'll reach out with your custom quote shortly.`;
-      if (confirmTextEl) confirmTextEl.textContent = `Your home is over 3,700 sqft so we'll review the details and contact you with a price as fast as possible. Don't want to wait?`;
-      if (confirmTextBtn) confirmTextBtn.style.display = '';
-    } else {
-      document.getElementById('q-confirm-msg').textContent = `Thanks! We'll be in touch with your quote shortly.`;
-      if (confirmTextEl) confirmTextEl.textContent = `Keep an eye on your phone and email. We'll have a formal quote sent over to you within the hour. We look forward to working with you!`;
-      if (confirmTextBtn) confirmTextBtn.style.display = 'none';
-    }
-
-    // Hide progress
-    qwiz.querySelector('.qwiz__progress').style.display = 'none';
-
-    // Scroll so the urgency bar sits flush below the fixed nav — exactly as designed
-    requestAnimationFrame(() => {
-      const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-      const wizTop = qwiz.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({ top: wizTop, behavior: 'smooth' });
-    });
+    if (confirmPanel) { confirmPanel.removeAttribute('style'); confirmPanel.classList.add('active'); }
+    scrollToForm();
+    if (typeof launchConfetti === 'function') setTimeout(launchConfetti, 300);
   }
 
   document.getElementById('q-submit')?.addEventListener('click', handleSubmit);
-  document.getElementById('q-submit-large')?.addEventListener('click', handleSubmit);
-  document.getElementById('q-submit-custom')?.addEventListener('click', handleSubmit);
-
-  // Initialize step 0
-  goToStep(0);
+  if (typeof gtag !== 'undefined') gtag('event', 'quote_form_view');
 }
 
 /* ---------- Phone action modal ---------- */
@@ -1616,11 +549,6 @@ function launchConfetti() {
   setTimeout(() => { cancelAnimationFrame(frame); canvas.remove(); }, 4000);
 }
 
-// Hook confetti to form submit
-const origSubmitBtn = document.getElementById('q-submit');
-if (origSubmitBtn) {
-  origSubmitBtn.addEventListener('click', () => setTimeout(launchConfetti, 300));
-}
 
 /* ---------- #6 Exit-intent popup ---------- */
 (function() {
@@ -2190,26 +1118,6 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
   });
 })();
 
-/* ---------- Quarterly plan upsell ---------- */
-(function() {
-  const upsellBtn = document.getElementById('qwizUpsellYes');
-  const upsell = document.getElementById('qwizUpsell');
-  const accepted = document.getElementById('qwizUpsellAccepted');
-  if (!upsellBtn) return;
-
-  upsellBtn.addEventListener('click', function() {
-    upsell.style.display = 'none';
-    accepted.style.display = 'flex';
-    // Upsell accepted — quiet email notification only (no n8n SMS blast)
-    emailjs.send('service_xsex2ss', 'template_536xvvp', {
-      first_name: (window.__qwizState || {}).firstName || 'Customer',
-      phone: (window.__qwizState || {}).phone || '',
-      service_plan: 'UPSELL ACCEPTED — Quarterly Plan',
-      timeline: 'Upsell accepted after initial quote submission',
-    }).catch(() => {});
-    if (typeof gtag !== 'undefined') gtag('event', 'upsell_accepted', { plan: 'quarterly' });
-  });
-})();
 
 
 /* ---------- Abandoned form recovery — DISABLED ---------- */

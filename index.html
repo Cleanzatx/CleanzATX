@@ -388,23 +388,23 @@
     <div class="container">
       <!-- Mobile section header (hidden on desktop, shown on mobile) -->
       <div class="section__header quote-header--mobile">
-        <span class="section__tag">Instant Quote</span>
-        <h2 class="section__title">Get Your Price in 60 Seconds</h2>
-        <p class="section__sub">Answer a few quick questions and get an instant quote. No waiting, no phone tag.</p>
+        <span class="section__tag">Free Quote</span>
+        <h2 class="section__title">Get Your Price Fast</h2>
+        <p class="section__sub">Fill out the form and we'll call you back with a quote — usually within the hour.</p>
       </div>
       <div class="quote-section__layout">
 
         <!-- Trust sidebar — visible on desktop, hidden on mobile -->
         <div class="quote-trust">
           <div class="section__header quote-trust__header">
-            <span class="section__tag">Instant Quote</span>
-            <h2 class="section__title">Get Your Price in 60 Seconds</h2>
-            <p class="section__sub">Answer a few quick questions and get an instant quote. No waiting, no phone tag.</p>
+            <span class="section__tag">Free Quote</span>
+            <h2 class="section__title">Get Your Price Fast</h2>
+            <p class="section__sub">Fill out the form and we'll call you back with a quote — usually within the hour.</p>
           </div>
           <ul class="quote-trust__list">
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Instant price — no phone tag, no waiting
+              Fast response — usually within the hour
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -449,663 +449,127 @@
           <span class="urgency-bar__dot"></span>
           <span id="urgencyText">Only <strong>4 spots</strong> left this month</span>
         </div>
-        <!-- Progress bar -->
-        <div class="qwiz__progress">
-          <div class="qwiz__bar"><div class="qwiz__bar-fill" id="qwizBarFill"></div></div>
-          <div class="qwiz__steps">
-            <span class="qwiz__step active" data-step="0">1</span>
-            <span class="qwiz__step" data-step="1">2</span>
-            <span class="qwiz__step" data-step="2">3</span>
-            <span class="qwiz__step" data-step="3">4</span>
-            <span class="qwiz__step" data-step="4">5</span>
-            <span class="qwiz__step" data-step="5">6</span>
-          </div>
-          <div class="qwiz__step-label" id="qwizStepLabel">Step 1 of 6: Services</div>
+
+        <!-- Single-page quote request form -->
+        <!-- Step indicator -->
+        <div class="qwiz__steps" id="q-steps">
+          <span class="qwiz__dot active"></span>
+          <span class="qwiz__dot"></span>
         </div>
 
-        <!-- Step 0: Service Multi-Select -->
-        <div class="qwiz__panel active" data-panel="0">
-          <h3 class="qwiz__panel-title">What service do you need?</h3>
-          <p class="qwiz__panel-sub">Select all that apply</p>
-          <div class="qwiz__service-tiles" id="q-service-tiles">
-            <label class="qwiz__tile">
-              <input type="checkbox" value="windows" />
-              <div class="qwiz__tile-inner">
-                <svg class="qwiz__tile-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-                <span class="qwiz__tile-label">Window Cleaning</span>
-              </div>
-            </label>
-            <label class="qwiz__tile">
-              <input type="checkbox" value="pressure" />
-              <div class="qwiz__tile-inner">
-                <svg class="qwiz__tile-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                <span class="qwiz__tile-label">Pressure Washing</span>
-              </div>
-            </label>
-            <label class="qwiz__tile">
-              <input type="checkbox" value="house_wash" />
-              <div class="qwiz__tile-inner">
-                <svg class="qwiz__tile-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                <span class="qwiz__tile-label">House Washing</span>
-              </div>
-            </label>
-            <label class="qwiz__tile">
-              <input type="checkbox" value="roof_wash" />
-              <div class="qwiz__tile-inner">
-                <svg class="qwiz__tile-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/></svg>
-                <span class="qwiz__tile-label">Roof Cleaning</span>
-              </div>
-            </label>
-            <label class="qwiz__tile">
-              <input type="checkbox" value="gutters" />
-              <div class="qwiz__tile-inner">
-                <svg class="qwiz__tile-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M5.2 11.2l1.4 1.4"/><path d="M2 18h20"/><path d="M18.8 11.2l-1.4 1.4"/><path d="M12 2a5 5 0 0 0-5 5c0 2 2 4 5 6 3-2 5-4 5-6a5 5 0 0 0-5-5z"/></svg>
-                <span class="qwiz__tile-label">Gutter Cleaning</span>
-              </div>
-            </label>
-            <label class="qwiz__tile">
-              <input type="checkbox" value="solar_panels" />
-              <div class="qwiz__tile-inner">
-                <svg class="qwiz__tile-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
-                <span class="qwiz__tile-label">Solar Panel Cleaning</span>
-              </div>
-            </label>
-          </div>
-          <div class="qwiz__actions">
-            <span></span>
-            <button type="button" class="btn btn--primary qwiz__next" data-next="1" id="step0Next" disabled>Add Property Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-          </div>
-        </div>
+        <!-- STEP 1: Property details -->
+        <div class="qwiz__panel active" id="qStep1">
+          <p class="qwiz__step-label">Tell us about your property</p>
 
-        <!-- Step 1: Property Info -->
-        <div class="qwiz__panel" data-panel="1">
-          <h3 class="qwiz__panel-title">Property Information</h3>
-
-          <!-- Property Type bubble selector -->
           <div class="qwiz__field">
-            <label>Property Type <span class="req">*</span></label>
-            <div class="qwiz__chips" id="q-property-type-chips">
-              <span class="qwiz__chip active" data-value="Residential">Residential</span>
-              <span class="qwiz__chip" data-value="Commercial">Commercial</span>
-              <span class="qwiz__chip" data-value="Realtor">Realtor</span>
+            <label>What do you need?</label>
+            <div class="qwiz__service-pills" id="q-service-cats">
+              <label class="qwiz__pill qwiz__pill--cat"><input type="checkbox" value="window_cleaning" /><span>Window Cleaning</span></label>
+              <label class="qwiz__pill qwiz__pill--cat"><input type="checkbox" value="power_washing" /><span>Power Washing</span></label>
+            </div>
+          </div>
+
+          <div class="qwiz__sub-services" id="q-window-subs" style="display:none">
+            <label>Which window services?</label>
+            <div class="qwiz__service-pills" id="q-service-tiles">
+              <label class="qwiz__pill"><input type="checkbox" value="ext_windows" checked /><span>Exterior</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="int_windows" /><span>Interior</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="screens" /><span>Screens</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="tracks" /><span>Track Cleaning</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="skylights" /><span>Skylights</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="post_construction" /><span>Post Construction</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="hard_water" /><span>Hard Water Removal</span></label>
+            </div>
+          </div>
+
+          <div class="qwiz__sub-services" id="q-power-subs" style="display:none">
+            <label>Which power wash services?</label>
+            <div class="qwiz__service-pills">
+              <label class="qwiz__pill"><input type="checkbox" value="house_wash" checked /><span>House Wash</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="driveway" /><span>Driveway</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="front_patio" /><span>Front Patio</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="back_patio" /><span>Back Patio</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="roof_wash" /><span>Roof</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="gutters" /><span>Gutters</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="stone_limestone" /><span>Stone / Limestone</span></label>
+              <label class="qwiz__pill"><input type="checkbox" value="deck_fence" /><span>Deck / Fence</span></label>
             </div>
           </div>
 
           <div class="qwiz__field">
-            <label for="q-address">Street Address <span class="req">*</span></label>
-            <input type="text" id="q-address" placeholder="100 Lakeway Dr, Lakeway, TX 78734" required autocomplete="street-address" />
+            <label for="q-address">Address</label>
+            <input type="text" id="q-address" placeholder="123 Lakeway Dr, Lakeway TX" required autocomplete="street-address" />
           </div>
 
-          <!-- Residential-only fields -->
-          <div id="q-residential-fields">
-            <div class="qwiz__row">
-              <div class="qwiz__field">
-                <label for="q-sqft">Home Square Footage <span class="req">*</span></label>
-                <input type="number" id="q-sqft" placeholder="e.g. 2500" min="100" max="99999" required />
-                <!-- Sqft threshold messages -->
-                <div id="q-sqft-advisory" class="qwiz__advisory" style="display:none">
-                  <p>For homes this size, we recommend calling us for a custom quote.</p>
-                  <a href="tel:5125180512" class="btn btn--sky btn--sm" style="margin-top:8px">Call (512) 518-0512</a>
-                </div>
-                <div id="q-sqft-blocked" class="qwiz__blocked" style="display:none">
-                  <p><strong>Heads up:</strong> Homes over 3,700 sqft require a custom quote. You're still welcome to submit the form and we'll reach out fast — or reach us directly right now.</p>
-                  <button type="button" class="btn btn--primary btn--sm" style="margin-top:8px" onclick="window.openPhoneModal && window.openPhoneModal()">📱 Call or Text Us Now</button>
-                </div>
-              </div>
-              <div class="qwiz__field">
-                <label>Number of Stories <span class="req">*</span></label>
-                <div class="qwiz__chips" id="q-stories-chips">
-                  <span class="qwiz__chip" data-value="1">1 Story</span>
-                  <span class="qwiz__chip" data-value="2">2 Stories</span>
-                  <span class="qwiz__chip" data-value="3">3 Stories</span>
-                </div>
-              </div>
+          <div class="qwiz__row qwiz__row--stay qwiz__row--3">
+            <div class="qwiz__field">
+              <label for="q-property-type">Property</label>
+              <select id="q-property-type" required>
+                <option value="Residential" selected>Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Realtor">Realtor</option>
+              </select>
             </div>
-            <div class="qwiz__field" id="q-last-cleaned-field" style="display:none">
-              <label for="q-last-cleaned">When were your windows last cleaned? <span class="req">*</span></label>
-              <select id="q-last-cleaned">
-                <option value="">Select...</option>
-                <option value="0-1 year ago">0-1 year ago</option>
-                <option value="2 years ago">2 years ago</option>
-                <option value="3 years ago">3 years ago</option>
-                <option value="Never / Unsure">Never / Unsure</option>
+            <div class="qwiz__field">
+              <label for="q-sqft">Sq ft</label>
+              <input type="number" id="q-sqft" placeholder="2,500" min="100" max="50000" required inputmode="numeric" />
+            </div>
+            <div class="qwiz__field">
+              <label for="q-stories">Stories</label>
+              <select id="q-stories" required>
+                <option value="">—</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3+</option>
               </select>
             </div>
           </div>
 
-          <!-- Commercial-only fields (hidden by default) -->
-          <div id="q-commercial-fields" style="display:none">
-            <div class="qwiz__field">
-              <label for="q-commercial-type">Property Type <span class="req">*</span></label>
-              <select id="q-commercial-type">
-                <option value="">Select...</option>
-                <option value="Storefront">Storefront</option>
-                <option value="Stand-alone">Stand-alone</option>
-                <option value="High Rise">High Rise</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="qwiz__field" id="q-commercial-desc-field" style="display:none">
-              <label for="q-commercial-desc">Please describe your property type</label>
-              <input type="text" id="q-commercial-desc" placeholder="e.g. 3-story office building" />
-            </div>
-            <div class="qwiz__field">
-              <label>Number of Stories <span class="req">*</span></label>
-              <div class="qwiz__chips" id="q-commercial-stories-chips">
-                <span class="qwiz__chip" data-value="1">1 Story</span>
-                <span class="qwiz__chip" data-value="2">2 Stories</span>
-                <span class="qwiz__chip" data-value="3">3 Stories</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="qwiz__actions">
-            <span></span>
-            <button type="button" class="btn btn--ghost qwiz__back" data-back="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back</button>
-            <button type="button" class="btn btn--primary qwiz__next" data-next="2" id="step1Next">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-          </div>
+          <button type="button" class="btn btn--primary btn--full" id="q-next">
+            Next
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
 
-        <!-- Step 2: Service Selection (conditional per service) -->
-        <div class="qwiz__panel" data-panel="2">
-          <h3 class="qwiz__panel-title" id="q-step2-title">Service Selection</h3>
-          <p class="qwiz__panel-sub">Tell us more about your property so we can give you an accurate price.</p>
+        <!-- STEP 2: Contact + preferences -->
+        <div class="qwiz__panel" id="qStep2" style="display:none">
+          <p class="qwiz__step-label">Almost done — how can we reach you?</p>
 
-          <!-- ─── Custom-Designed Property (always visible) ─── -->
-          <div class="qwiz__service-card" style="margin-bottom:12px" id="q-custom-designed-card">
-            <div style="padding:18px">
-              <p class="qwiz__sub-prompt-q">Is this a custom-designed property? <span class="req">*</span></p>
-              <div class="qwiz__sub-prompt-btns">
-                <button type="button" class="btn btn--sky btn--sm qwiz__toggle-btn" data-field="custom-designed" data-value="yes">Yes</button>
-                <button type="button" class="btn btn--ghost btn--sm qwiz__toggle-btn" data-field="custom-designed" data-value="no">No</button>
-              </div>
+          <div class="qwiz__row qwiz__row--stay">
+            <div class="qwiz__field">
+              <label for="q-fname">Name</label>
+              <input type="text" id="q-fname" placeholder="First" required />
+            </div>
+            <div class="qwiz__field">
+              <label for="q-lname">&nbsp;</label>
+              <input type="text" id="q-lname" placeholder="Last" />
             </div>
           </div>
 
-          <!-- ─── Window Cleaning Questions (only if windows selected) ─── -->
-          <h4 class="qwiz__sub-block-title" id="q-windows-title" style="display:none">Window Cleaning</h4>
-          <div id="q-windows-section" style="display:none">
-            <div id="q-residential-step2">
-              <div class="qwiz__field">
-                <label id="q-window-label">How many windows does your home have? <span class="req">*</span></label>
-                <div class="qwiz__chips" id="q-window-chips"></div>
-                <div class="qwiz__custom-count" id="q-window-custom-wrap" style="display:none">
-                  <input type="number" id="q-window-custom" placeholder="Enter exact count" min="1" max="999" />
-                </div>
-                <p class="qwiz__hint">Our sqft calculator auto-selects the best window estimate based on your home size. You can adjust if needed.</p>
-              </div>
-
-              <!-- Custom layout prompt -->
-              <div id="q-custom-layout-prompt" class="qwiz__conditional" style="display:none">
-                <p style="color:rgba(255,255,255,.8);font-size:14px;margin-bottom:10px;">Is this a custom or non-standard home layout?</p>
-                <div style="display:flex;gap:10px">
-                  <button type="button" class="btn btn--sky btn--sm" id="q-custom-yes">Yes</button>
-                  <button type="button" class="btn btn--ghost btn--sm" id="q-custom-no">No</button>
-                </div>
-              </div>
-
-              <div class="qwiz__field">
-                <label>Select window services</label>
-                <div class="qwiz__service-list">
-
-                  <!-- Exterior Windows -->
-                  <div class="qwiz__service-card" id="q-card-exterior">
-                    <label class="qwiz__service-card__header">
-                      <input type="checkbox" id="q-svc-exterior" />
-                      <span class="qwiz__service-card__name">Exterior Windows</span>
-                      <span class="qwiz__service-card__price">$10 / window</span>
-                    </label>
-                    <div class="qwiz__service-card__body" id="q-french-pane-prompt" style="display:none">
-                      <p class="qwiz__sub-prompt-q">Does your home have French pane windows? <span class="req">*</span></p>
-                      <div class="qwiz__sub-prompt-btns">
-                        <button type="button" class="btn btn--sky btn--sm" id="q-french-yes">Yes</button>
-                        <button type="button" class="btn btn--ghost btn--sm" id="q-french-no">No</button>
-                      </div>
-                      <div id="q-french-count-wrap" class="qwiz__field" style="display:none">
-                        <label for="q-french-count">How many French pane windows?</label>
-                        <input type="number" id="q-french-count" placeholder="e.g. 8" min="1" max="200" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Interior Windows -->
-                  <div class="qwiz__service-card" id="q-card-interior">
-                    <label class="qwiz__service-card__header">
-                      <input type="checkbox" id="q-svc-interior" />
-                      <span class="qwiz__service-card__name">Interior Windows</span>
-                      <span class="qwiz__service-card__price">$6 / window</span>
-                    </label>
-                    <div class="qwiz__service-card__body" id="q-interior-options" style="display:none">
-                      <p class="qwiz__sub-prompt-q">Are you wanting full interior or only partial? <span class="req">*</span></p>
-                      <div class="qwiz__sub-prompt-btns">
-                        <button type="button" class="btn btn--sky btn--sm" id="q-interior-full">Full Interior</button>
-                        <button type="button" class="btn btn--ghost btn--sm" id="q-interior-partial">Partial</button>
-                      </div>
-                      <div id="q-interior-count-wrap" class="qwiz__field" style="display:none">
-                        <label for="q-interior-count">How many interior windows do you want cleaned?</label>
-                        <input type="number" id="q-interior-count" placeholder="Enter window count" min="1" max="999" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Screen Cleaning -->
-                  <div class="qwiz__service-card" id="q-card-screens">
-                    <label class="qwiz__service-card__header">
-                      <input type="checkbox" id="q-svc-screens" />
-                      <span class="qwiz__service-card__name">Screen Cleaning</span>
-                      <span class="qwiz__service-card__price">$5 / screen</span>
-                    </label>
-                    <div class="qwiz__service-card__body" id="q-screen-options" style="display:none">
-                      <div class="qwiz__row">
-                        <div class="qwiz__field">
-                          <label>How many screens? <span class="req">*</span></label>
-                          <div class="qwiz__chips" id="q-screen-chips"></div>
-                        </div>
-                        <div class="qwiz__field">
-                          <label>Screen Type <span class="req">*</span></label>
-                          <div class="qwiz__checks">
-                            <label class="qwiz__check"><input type="radio" name="screenType" value="normal" checked /><span>Normal ($5 each)</span></label>
-                            <label class="qwiz__check"><input type="radio" name="screenType" value="solar" /><span>Solar ($10 each)</span></label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Track Cleaning -->
-                  <div class="qwiz__service-card" id="q-card-tracks">
-                    <label class="qwiz__service-card__header">
-                      <input type="checkbox" id="q-svc-tracks" />
-                      <span class="qwiz__service-card__name">Track Cleaning</span>
-                      <span class="qwiz__service-card__price">$5 / track</span>
-                    </label>
-                    <div class="qwiz__service-card__body" id="q-track-options" style="display:none">
-                      <div class="qwiz__field">
-                        <label>How many tracks? <span class="req">*</span></label>
-                        <div class="qwiz__chips" id="q-track-chips"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="qwiz__row qwiz__row--stay">
+            <div class="qwiz__field">
+              <label for="q-phone">Phone</label>
+              <input type="tel" id="q-phone" placeholder="(512) 000-0000" required />
+            </div>
+            <div class="qwiz__field">
+              <label for="q-email">Email <em>(optional)</em></label>
+              <input type="email" id="q-email" placeholder="you@email.com" />
             </div>
           </div>
 
-          <!-- ─── Pressure Washing Questions (only if pressure selected) ─── -->
-          <h4 class="qwiz__sub-block-title" id="q-pressure-title" style="display:none">Pressure Washing</h4>
-          <div id="q-pressure-section" style="display:none">
-            <!-- Water source -->
-            <div class="qwiz__service-card" style="margin-bottom:12px">
-              <div style="padding:18px">
-                <p class="qwiz__sub-prompt-q">Is there a water source at your property? <span class="req">*</span></p>
-                <div class="qwiz__sub-prompt-btns">
-                  <button type="button" class="btn btn--sky btn--sm qwiz__toggle-btn" data-field="pw-water" data-value="yes">Yes</button>
-                  <button type="button" class="btn btn--ghost btn--sm qwiz__toggle-btn" data-field="pw-water" data-value="no">No</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Surfaces to clean -->
+          <div class="qwiz__row qwiz__row--stay">
             <div class="qwiz__field">
-              <label for="q-pw-surfaces">What surfaces need cleaning? <span class="req">*</span></label>
-              <div class="qwiz__multi-select" id="q-pw-surfaces-wrap">
-                <button type="button" class="qwiz__multi-select__trigger" id="q-pw-surfaces-trigger">Select surface(s)...</button>
-                <div class="qwiz__multi-select__dropdown" id="q-pw-surfaces-dropdown" style="display:none">
-                  <label class="qwiz__check"><input type="checkbox" value="Driveway" /><span>Driveway</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Sidewalk" /><span>Sidewalk</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Patio" /><span>Patio</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Deck" /><span>Deck</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Pool Deck" /><span>Pool Deck</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Walkway" /><span>Walkway</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Retaining Wall" /><span>Retaining Wall</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Other" /><span>Other</span></label>
-                </div>
-              </div>
-            </div>
-
-            <!-- Surface type -->
-            <div class="qwiz__field">
-              <label for="q-pw-surface-type">What is the surface type? <span class="req">*</span></label>
-              <select id="q-pw-surface-type">
-                <option value="">Select surface type...</option>
-                <option value="Concrete">Concrete</option>
-                <option value="Stucco">Stucco</option>
-                <option value="Wood">Wood</option>
-                <option value="Composite">Composite</option>
-                <option value="Epoxy">Epoxy</option>
-                <option value="Paver Stones">Paver Stones</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- ─── House Washing (only if house_wash selected) ─── -->
-          <div id="q-house-wash-section" style="display:none">
-            <h4 class="qwiz__sub-block-title">House Washing</h4>
-
-            <div class="qwiz__field">
-              <label for="q-hw-material">What material is the exterior of your home? <span class="req">*</span></label>
-              <select id="q-hw-material">
+              <label for="q-frequency">Frequency</label>
+              <select id="q-frequency" required>
                 <option value="">Select...</option>
-                <option value="Stucco">Stucco</option>
-                <option value="Limestone">Limestone</option>
-                <option value="Brick">Brick</option>
-                <option value="Vinyl Siding">Vinyl Siding</option>
-                <option value="Wood Siding">Wood Siding</option>
-                <option value="Mixed">Mixed</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="qwiz__field" id="q-hw-mixed-desc" style="display:none">
-              <label for="q-hw-mixed-input">Describe the mix of materials <span class="req">*</span></label>
-              <textarea id="q-hw-mixed-input" rows="2" placeholder="e.g., stucco front + limestone back"></textarea>
-            </div>
-            <div class="qwiz__field" id="q-hw-other-desc" style="display:none">
-              <label for="q-hw-other-input">Describe the material <span class="req">*</span></label>
-              <textarea id="q-hw-other-input" rows="2" placeholder="e.g., cedar siding with stone accents"></textarea>
-            </div>
-
-            <div class="qwiz__field">
-              <label>What areas need washing? <span class="req">*</span></label>
-              <div class="qwiz__multi-select" id="q-hw-structures-wrap">
-                <button type="button" class="qwiz__multi-select__trigger" id="q-hw-structures-trigger">Select area(s)...</button>
-                <div class="qwiz__multi-select__dropdown" id="q-hw-structures-dropdown" style="display:none">
-                  <label class="qwiz__check"><input type="checkbox" value="Full House" /><span>Full House</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Partial House Wash" /><span>Partial House Wash</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Patio Cover" /><span>Patio Cover</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Fence" /><span>Fence</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Pergola" /><span>Pergola</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Retaining Wall" /><span>Retaining Wall</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Deck" /><span>Deck</span></label>
-                  <label class="qwiz__check"><input type="checkbox" value="Other Structures" /><span>Other Structures</span></label>
-                </div>
-              </div>
-            </div>
-            <div class="qwiz__field" id="q-hw-partial-desc" style="display:none">
-              <label for="q-hw-partial-input">Which areas of the house? <span class="req">*</span></label>
-              <textarea id="q-hw-partial-input" rows="2" placeholder="e.g., front and left side only"></textarea>
-            </div>
-            <div class="qwiz__field" id="q-hw-struct-other-desc" style="display:none">
-              <label for="q-hw-struct-other-input">Describe the other structures <span class="req">*</span></label>
-              <textarea id="q-hw-struct-other-input" rows="2" placeholder="e.g., detached garage, gazebo"></textarea>
-            </div>
-
-            <div class="qwiz__field">
-              <label>What debris are we dealing with?</label>
-              <small class="qwiz__help">Check everything you see. We'll bring the right mix.</small>
-              <div class="qwiz__debris-grid" id="q-hw-debris-checks">
-                <label class="qwiz__check"><input type="checkbox" value="Algae" /><span>Algae</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Mold & Mildew" /><span>Mold &amp; Mildew</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Moss & Lichen" /><span>Moss &amp; Lichen</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Pollen" /><span>Pollen</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Spider webs & cobwebs" /><span>Spider webs &amp; cobwebs</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Bird droppings" /><span>Bird droppings</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Dirt & dust" /><span>Dirt &amp; dust</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Oxidized paint (house painting prep)" /><span>Oxidized paint (house painting prep)</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Post-construction debris" /><span>Post-construction debris</span></label>
-              </div>
-              <p class="qwiz__nudge">Not sure? Select what you can see. We'll handle the rest on-site.</p>
-            </div>
-          </div>
-
-          <!-- ─── Roof Cleaning (only if roof_wash selected) ─── -->
-          <div id="q-roof-wash-section" style="display:none">
-            <h4 class="qwiz__sub-block-title">Roof Cleaning</h4>
-
-            <div class="qwiz__field">
-              <label for="q-roof-material">What type of roof do you have? <span class="req">*</span></label>
-              <select id="q-roof-material">
-                <option value="">Select...</option>
-                <option value="Asphalt Shingle">Asphalt Shingle</option>
-                <option value="Metal">Metal</option>
-                <option value="Tile">Tile</option>
-                <option value="Slate">Slate</option>
-                <option value="TPO / Flat">TPO / Flat</option>
-                <option value="Mixed">Mixed</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="qwiz__field" id="q-roof-mixed-desc" style="display:none">
-              <label for="q-roof-mixed-input">Describe the mix of roofing materials <span class="req">*</span></label>
-              <textarea id="q-roof-mixed-input" rows="2" placeholder="e.g., shingle main roof + metal patio cover"></textarea>
-            </div>
-            <div class="qwiz__field" id="q-roof-other-desc" style="display:none">
-              <label for="q-roof-other-input">Describe the roofing material <span class="req">*</span></label>
-              <textarea id="q-roof-other-input" rows="2" placeholder="e.g., cedar shake"></textarea>
-            </div>
-
-            <div class="qwiz__field">
-              <label>What debris are we dealing with?</label>
-              <small class="qwiz__help">Check everything you see. We'll bring the right mix.</small>
-              <div class="qwiz__debris-grid" id="q-roof-debris-checks">
-                <label class="qwiz__check"><input type="checkbox" value="Algae" /><span>Algae</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Mold & Mildew" /><span>Mold &amp; Mildew</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Moss & Lichen" /><span>Moss &amp; Lichen</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Pollen" /><span>Pollen</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Spider webs & cobwebs" /><span>Spider webs &amp; cobwebs</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Bird droppings" /><span>Bird droppings</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Dirt & dust" /><span>Dirt &amp; dust</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Oxidized paint (house painting prep)" /><span>Oxidized paint (house painting prep)</span></label>
-                <label class="qwiz__check"><input type="checkbox" value="Post-construction debris" /><span>Post-construction debris</span></label>
-              </div>
-              <p class="qwiz__nudge">Not sure? Select what you can see. We'll handle the rest on-site.</p>
-            </div>
-          </div>
-
-          <!-- ─── Gutter Cleaning (only if gutters selected) ─── -->
-          <div id="q-gutter-section" style="display:none">
-            <h4 class="qwiz__sub-block-title">Gutter Cleaning</h4>
-
-            <div class="qwiz__service-card" style="margin-bottom:12px">
-              <div style="padding:18px">
-                <p class="qwiz__sub-prompt-q">Do you have gutter guards installed? <span class="req">*</span></p>
-                <div class="qwiz__sub-prompt-btns">
-                  <button type="button" class="btn btn--sky btn--sm qwiz__toggle-btn" data-field="gutter-guards" data-value="yes">Yes</button>
-                  <button type="button" class="btn btn--ghost btn--sm qwiz__toggle-btn" data-field="gutter-guards" data-value="no">No</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="qwiz__field">
-              <label>Where do the gutters need cleaning? <span class="req">*</span></label>
-              <div class="qwiz__chips" id="q-gutter-location-chips"></div>
-            </div>
-            <div class="qwiz__field" id="q-gutter-other-desc" style="display:none">
-              <label for="q-gutter-other-input">Describe the gutter location(s)</label>
-              <textarea id="q-gutter-other-input" rows="2" placeholder="e.g., back of house only, garage gutters"></textarea>
-            </div>
-          </div>
-
-          <!-- ─── Solar Panel Cleaning (only if solar_panels selected) ─── -->
-          <div id="q-solar-section" style="display:none">
-            <h4 class="qwiz__sub-block-title">Solar Panel Cleaning</h4>
-
-            <div class="qwiz__field">
-              <label>How many solar panels? <span class="req">*</span></label>
-              <div class="qwiz__chips" id="q-solar-count-chips"></div>
-              <div class="qwiz__custom-count" id="q-solar-custom-wrap" style="display:none">
-                <input type="number" id="q-solar-custom" placeholder="Enter exact count" min="1" max="999" />
-              </div>
-            </div>
-
-            <div class="qwiz__field">
-              <label>What is the roof pitch? <span class="req">*</span></label>
-              <div class="qwiz__chips" id="q-solar-pitch-chips"></div>
-            </div>
-          </div>
-
-          <!-- ─── Commercial Step 2 ─── -->
-          <div id="q-commercial-step2" style="display:none">
-            <div class="qwiz__field">
-              <label id="q-commercial-window-label">How many windows does the property have? <span class="req">*</span></label>
-              <div class="qwiz__chips" id="q-commercial-window-chips"></div>
-              <div class="qwiz__custom-count" id="q-commercial-window-custom-wrap" style="display:none">
-                <input type="number" id="q-commercial-window-custom" placeholder="Enter exact count" min="1" max="9999" />
-              </div>
-            </div>
-            <div class="qwiz__field">
-              <label>Services</label>
-              <div class="qwiz__checks">
-                <label class="qwiz__check"><input type="checkbox" id="q-csvc-exterior" /><span>Exterior Window Cleaning</span></label>
-                <label class="qwiz__check"><input type="checkbox" id="q-csvc-interior" /><span>Interior Window Cleaning</span></label>
-                <label class="qwiz__check"><input type="checkbox" id="q-csvc-screens-tracks" /><span>Screen &amp; Track Cleaning</span></label>
-              </div>
-            </div>
-          </div>
-
-          <div class="qwiz__actions">
-            <button type="button" class="btn btn--ghost qwiz__back" data-back="1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back</button>
-            <button type="button" class="btn btn--primary qwiz__next" data-next="3">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-          </div>
-        </div>
-
-        <!-- Step 3: Service Plan -->
-        <div class="qwiz__panel" data-panel="3">
-          <h3 class="qwiz__panel-title">Want to save on every visit?</h3>
-
-          <!-- ─── Residential Plans ─── -->
-          <div id="q-residential-plans">
-            <div class="qwiz__plans">
-              <div class="qwiz__plan" data-plan="6month">
-                <div class="qwiz__plan-header"><h4>Bi-Annual Plan</h4><div class="qwiz__plan-price">$50 <span>off/visit</span></div></div>
-                <ul class="qwiz__plan-perks">
-                  <li>2 visits per year</li>
-                  <li>Auto-scheduling</li>
-                  <li>7-day rain guarantee</li>
-                  <li>Optional auto-billing</li>
-                </ul>
-                <label class="qwiz__auto-bill"><input type="checkbox" class="auto-bill-toggle" /><span>Enroll in auto-billing</span></label>
-              </div>
-
-              <div class="qwiz__plan qwiz__plan--popular" data-plan="quarterly">
-                <div class="qwiz__plan-badge">Most Popular</div>
-                <div class="qwiz__plan-header"><h4>Quarterly Plan</h4><div class="qwiz__plan-price">$100 <span>off/visit</span></div></div>
-                <ul class="qwiz__plan-perks">
-                  <li>4 visits per year</li>
-                  <li>Auto-scheduling</li>
-                  <li>Priority booking</li>
-                  <li>5 hard water windows free</li>
-                  <li>Free track cleaning</li>
-                  <li>Free track dusting</li>
-                  <li>7-day rain guarantee</li>
-                </ul>
-                <label class="qwiz__auto-bill"><input type="checkbox" class="auto-bill-toggle" /><span>Enroll in auto-billing</span></label>
-              </div>
-
-              <div class="qwiz__plan" data-plan="monthly">
-                <div class="qwiz__plan-header"><h4>Monthly Plan</h4><div class="qwiz__plan-price">$150 <span>off/visit</span></div></div>
-                <ul class="qwiz__plan-perks">
-                  <li>12 visits per year</li>
-                  <li>All quarterly perks</li>
-                  <li>Maximum savings</li>
-                  <li>Auto-scheduling</li>
-                  <li>Triple reminders</li>
-                  <li>Optional auto-billing</li>
-                </ul>
-                <label class="qwiz__auto-bill"><input type="checkbox" class="auto-bill-toggle" /><span>Enroll in auto-billing</span></label>
-              </div>
-            </div>
-          </div>
-
-          <!-- ─── Commercial Plans ─── -->
-          <div id="q-commercial-plans" style="display:none">
-            <div class="qwiz__plans">
-              <div class="qwiz__plan" data-plan="weekly">
-                <div class="qwiz__plan-header">
-                  <h4>Weekly / Bi-weekly</h4>
-                  <div class="qwiz__plan-freq-toggle">
-                    <button type="button" class="qwiz__freq-btn active" data-freq="weekly">Weekly</button>
-                    <button type="button" class="qwiz__freq-btn" data-freq="biweekly">Bi-weekly</button>
-                  </div>
-                </div>
-                <ul class="qwiz__plan-perks">
-                  <li>Maximum clean frequency</li>
-                  <li>Consistent storefront appearance</li>
-                  <li>Priority scheduling</li>
-                  <li>Auto-scheduling</li>
-                </ul>
-                <label class="qwiz__auto-bill"><input type="checkbox" class="auto-bill-toggle" /><span>Auto-billing</span></label>
-              </div>
-
-              <div class="qwiz__plan" data-plan="monthly">
-                <div class="qwiz__plan-header"><h4>Monthly</h4></div>
-                <ul class="qwiz__plan-perks">
-                  <li>12 visits per year</li>
-                  <li>Auto-scheduling</li>
-                  <li>Priority booking</li>
-                </ul>
-                <label class="qwiz__auto-bill"><input type="checkbox" class="auto-bill-toggle" /><span>Auto-billing</span></label>
-              </div>
-
-              <div class="qwiz__plan" data-plan="quarterly">
-                <div class="qwiz__plan-header"><h4>Quarterly</h4></div>
-                <ul class="qwiz__plan-perks">
-                  <li>4 visits per year</li>
-                  <li>Auto-scheduling</li>
-                  <li>Free track cleaning</li>
-                </ul>
-                <label class="qwiz__auto-bill"><input type="checkbox" class="auto-bill-toggle" /><span>Auto-billing</span></label>
-              </div>
-            </div>
-          </div>
-
-          <div class="qwiz__plan-actions">
-            <button type="button" class="btn btn--ghost qwiz__back" data-back="2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back</button>
-            <button type="button" class="btn btn--primary qwiz__next" data-next="4" id="selectPlanBtn" style="display:none">Continue with Plan</button>
-            <button type="button" class="btn btn--primary qwiz__next" data-next="4" id="skipPlanBtn">Continue</button>
-          </div>
-          <button type="button" class="qwiz__skip-link qwiz__next" data-next="4" id="skipPlanLink">No thanks, one-time service only</button>
-        </div>
-
-        <!-- Step 4: Contact Info & Timeline -->
-        <div class="qwiz__panel" data-panel="4">
-          <h3 class="qwiz__panel-title">Contact Information</h3>
-          <!-- Business name (commercial only) -->
-          <div class="qwiz__field" id="q-business-name-field" style="display:none">
-            <label for="q-business-name">Business Name <span class="req">*</span></label>
-            <input type="text" id="q-business-name" placeholder="Acme Corp" />
-          </div>
-          <div class="qwiz__row">
-            <div class="qwiz__field">
-              <label for="q-fname">First Name <span class="req">*</span></label>
-              <input type="text" id="q-fname" placeholder="Jane" required />
-            </div>
-            <div class="qwiz__field">
-              <label for="q-lname">Last Name</label>
-              <input type="text" id="q-lname" placeholder="Doe" />
-            </div>
-          </div>
-          <div class="qwiz__field">
-            <label for="q-phone">Phone Number <span class="req">*</span></label>
-            <input type="tel" id="q-phone" placeholder="(512) 000-0000" required />
-          </div>
-          <div class="qwiz__field">
-            <label for="q-email">Email <em>(optional)</em></label>
-            <input type="email" id="q-email" placeholder="you@email.com" />
-          </div>
-          <div class="qwiz__field" id="q-promo-wrap">
-            <label for="q-promo">Promo Code <em style="font-weight:400;opacity:.7">(optional)</em></label>
-            <div class="qwiz__promo-row">
-              <input type="text" id="q-promo" placeholder="Enter promo code" autocomplete="off" style="text-transform:uppercase" />
-              <button type="button" id="q-promo-apply" class="btn btn--sky">Apply</button>
-            </div>
-            <div id="q-promo-msg" style="display:none;margin-top:6px;font-size:.85rem;font-weight:600"></div>
-          </div>
-          <div class="qwiz__row">
-            <div class="qwiz__field">
-              <label for="q-referral">How did you hear about us?</label>
-              <select id="q-referral">
-                <option value="">Select...</option>
-                <option value="Google">Google</option>
-                <option value="Facebook">Facebook</option>
-                <option value="Nextdoor">Nextdoor</option>
-                <option value="Saw Your Truck">Saw Your Truck</option>
-                <option value="Referral">Referral / Word of Mouth</option>
+                <option value="one_time">One-Time</option>
+                <option value="bimonthly">Bi-Monthly — 5% off</option>
+                <option value="quarterly">Quarterly — 10% off</option>
+                <option value="6month">6-Month — 5% off</option>
               </select>
             </div>
             <div class="qwiz__field">
-              <label for="q-timeline">Timeline <span class="req">*</span></label>
+              <label for="q-timeline">Timeline</label>
               <select id="q-timeline" required>
                 <option value="">Select...</option>
                 <option value="asap">ASAP</option>
@@ -1116,118 +580,76 @@
               </select>
             </div>
           </div>
-          <!-- Referrer name (shown when Referral selected) -->
+
+          <div class="qwiz__field" id="q-date-field" style="display:none">
+            <label for="q-date">Preferred date</label>
+            <input type="date" id="q-date" />
+          </div>
+
+          <div class="qwiz__row qwiz__row--stay">
+            <div class="qwiz__field">
+              <label for="q-last-cleaned">Last serviced</label>
+              <select id="q-last-cleaned">
+                <option value="">Select...</option>
+                <option value="never">Never / First Time</option>
+                <option value="1_month">Within 1 Month</option>
+                <option value="3_months">1–3 Months Ago</option>
+                <option value="6_months">3–6 Months Ago</option>
+                <option value="1_year">6–12 Months Ago</option>
+                <option value="over_1_year">Over a Year Ago</option>
+              </select>
+            </div>
+            <div class="qwiz__field">
+              <label for="q-referral">Referral source</label>
+              <select id="q-referral">
+                <option value="">Select...</option>
+                <option value="Google">Google</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Nextdoor">Nextdoor</option>
+                <option value="Saw Your Truck">Saw Your Truck</option>
+                <option value="Referral">Referral / Word of Mouth</option>
+              </select>
+            </div>
+          </div>
+
           <div class="qwiz__field" id="q-referrer-field" style="display:none">
             <label for="q-referrer">Who referred you?</label>
             <input type="text" id="q-referrer" placeholder="Their name" />
           </div>
-          <!-- Date picker (shown when Specific Date selected) -->
-          <div class="qwiz__field" id="q-date-field" style="display:none">
-            <label for="q-date">Preferred Date</label>
-            <input type="date" id="q-date" />
-          </div>
-          <div class="qwiz__actions">
-            <button type="button" class="btn btn--ghost qwiz__back" data-back="3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back</button>
-            <button type="button" class="btn btn--primary qwiz__next" data-next="5">See My Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-          </div>
-        </div>
 
-        <!-- Step 5: Price Display + Submit -->
-        <div class="qwiz__panel" data-panel="5">
-          <h3 class="qwiz__panel-title">Your Instant Quote</h3>
-
-          <!-- Normal quote display -->
-          <div id="q-price-normal">
-            <div class="qwiz__price-card">
-              <div class="qwiz__price-lines" id="q-price-lines"></div>
-              <div id="q-minimum-notice" class="qwiz__minimum-notice" style="display:none">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                Our minimum service charge is $150. Plan discounts don't apply to jobs under $150 — your total has been set to our minimum. Need something smaller? Give us a call.
-              </div>
-              <div class="qwiz__price-divider"></div>
-              <div class="qwiz__price-total">
-                <span>Total</span>
-                <span id="q-price-total">$0</span>
-              </div>
-            </div>
-            <p class="qwiz__disclaimer">Your quote is based on the info provided. Our tech will do a quick walkthrough before starting to confirm all details. Pricing is subject to minor adjustments.</p>
-            <p class="qwiz__talk-first">Prefer to talk first? Call or text <a href="tel:5125180512">(512) 518-0512</a>.</p>
-            <button type="button" class="btn btn--primary btn--full btn--lg" id="q-submit">
-              Get My Quote
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
+          <div class="qwiz__field">
+            <label for="q-notes">Notes <em>(optional)</em></label>
+            <input type="text" id="q-notes" placeholder="Gate codes, special requests..." />
           </div>
 
-          <!-- Custom layout display (non-standard home) -->
-          <div id="q-price-custom" style="display:none">
-            <div class="qwiz__large-home">
-              <div class="qwiz__large-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <h4>Thanks for submitting!</h4>
-              <p>We'll review your custom property details and reach out with a quote shortly.</p>
-              <button type="button" class="btn btn--primary btn--full btn--lg" id="q-submit-custom">
-                Submit My Info
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Large home display (3700+ sqft) -->
-          <div id="q-price-large" style="display:none">
-            <div class="qwiz__large-home">
-              <div class="qwiz__large-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <h4>Your home requires a custom quote.</h4>
-              <p style="margin-bottom:14px">We'll review your details and reach out with a price as fast as possible. Submitting the form is the fastest way to get your quote — we highly recommend it!</p>
-              <button type="button" class="btn btn--primary btn--lg" id="q-submit-large" style="width:100%;margin-bottom:10px">Submit &amp; We'll Reach Out →</button>
-              <a href="sms:5125180512" class="btn btn--ghost btn--lg" style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                Don't Want to Wait? Text Us Now
-              </a>
-            </div>
-          </div>
-
-          <div class="qwiz__actions" style="justify-content:flex-start">
-            <button type="button" class="btn btn--ghost qwiz__back" data-back="4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back</button>
+          <div class="qwiz__row qwiz__row--stay" style="margin-top:4px">
+            <button type="button" class="btn btn--ghost btn--full" id="q-back">Back</button>
+            <button type="button" class="btn btn--primary btn--full" id="q-submit">Get My Quote</button>
           </div>
         </div>
 
-        <!-- Confirmation screen -->
+        <!-- CONFIRMATION -->
         <div class="qwiz__panel" data-panel="confirm" style="display:none">
           <div class="qwiz__confirm">
             <div class="qwiz__confirm-check">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green, #34d399)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green, #34d399)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
             </div>
-            <h3 id="q-confirm-msg">You're booked in! 🎉</h3>
-            <p id="q-confirm-text">Tyler will text you within the hour with your price and available dates. <strong style="color:#34d399">Only 1 spot left this week</strong> — we'll lock it in for you.</p>
-            <a href="sms:5125180512" id="q-confirm-text-now" class="btn btn--primary" style="display:none;margin-top:16px;gap:8px;align-items:center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-              Text Us Now: (512) 518-0512
+            <h3>You're all set!</h3>
+            <p>We'll reach out within a few hours with your quote and available dates.</p>
+            <p style="margin-top:16px; font-size:15px; color:rgba(255,255,255,.7)">Want a faster response?</p>
+            <a href="tel:5125180512" class="btn btn--primary" style="margin-top:10px;gap:8px;align-items:center;display:inline-flex">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Call Now: (512) 518-0512
             </a>
-          </div><!-- /.qwiz__confirm -->
-            <!-- Quarterly Plan Upsell -->
-            <div class="qwiz__upsell" id="qwizUpsell">
-              <div class="qwiz__upsell-badge">⚡ Wait — Save More</div>
-              <div class="qwiz__upsell-inner">
-                <div class="qwiz__upsell-left">
-                  <div class="qwiz__upsell-title">Add the Quarterly Plan?</div>
-                  <div class="qwiz__upsell-sub">Save <strong>$100 on this visit</strong> + automatic scheduling every 3 months. Cancel any time.</div>
-                </div>
-                <button class="qwiz__upsell-btn" id="qwizUpsellYes">
-                  Yes, Save $100 →
-                </button>
-              </div>
-            </div>
-            <!-- After upsell accepted -->
-            <div class="qwiz__upsell-accepted" id="qwizUpsellAccepted" style="display:none">
-              <span class="qwiz__upsell-accepted-icon">✅</span>
-              Quarterly plan added! Tyler will confirm the discount when he reaches out.
-            </div>
+            <a href="sms:5125180512" class="btn btn--ghost" style="margin-top:8px;gap:8px;align-items:center;display:inline-flex">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Text Us: (512) 518-0512
+            </a>
+          </div>
         </div>
 
       </div><!-- /.qwiz -->
+
       </div><!-- /.quote-section__layout -->
     </div>
   </section>
@@ -1964,7 +1386,7 @@
         <div class="faq-item-acc">
           <button class="faq-acc-btn">How much does window cleaning cost? <span class="faq-acc-icon">+</span></button>
           <div class="faq-acc-body">
-            <p>Exterior window cleaning is <strong>$10 per window</strong> or <strong>$5 per pane</strong>. Interior cleaning is $5 per window. Screen cleaning is $5 per screen. The <strong>average home runs about $350</strong>. Use our instant quote tool to get your exact price in 60 seconds.</p>
+            <p>Exterior window cleaning is <strong>$10 per window</strong> or <strong>$5 per pane</strong>. Interior cleaning is $5 per window. Screen cleaning is $5 per screen. The <strong>average home runs about $350</strong>. Request a free quote and we'll get back to you fast.</p>
           </div>
         </div>
         <div class="faq-item-acc">
@@ -2020,7 +1442,7 @@
         <div class="bottom-cta__left">
           <span class="section__tag" style="margin-bottom:16px;display:inline-block">Ready When You Are</span>
           <h2>Your Cleanest Windows Start With One Click</h2>
-          <p>Join 1,000+ Lakeway homeowners who trust CleanzATX. Get your instant quote in 60 seconds. No phone tag, no waiting.</p>
+          <p>Join 1,000+ Lakeway homeowners who trust CleanzATX. Request a free quote and we'll call you back — usually within the hour.</p>
           <div class="bottom-cta__proof">
             <span><span style="color:#f59e0b">★★★★★</span> 5.0 · 167 Google Reviews</span>
             <span>·</span>
