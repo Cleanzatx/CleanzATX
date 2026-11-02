@@ -6021,3 +6021,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   .faq2__side { position: static; }
   .faq2__more { width: 100%; }
 }
+.pg-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
+.pg-jump a { padding: 8px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 100px; color: rgba(255,255,255,.8); font-size: 13px; text-decoration: none; }
+.pg-jump a:hover { border-color: var(--sky); color: #fff; }
+.prices__fine a { color: var(--sky); }
