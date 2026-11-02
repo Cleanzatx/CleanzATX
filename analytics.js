@@ -4,6 +4,34 @@
    Quote-funnel events (quote_step*, begin_checkout, generate_lead,
    upsell_accepted) stay in main.js / the page's own script.
    ========================================================================== */
+/* Google Ads conversions. Each label comes from Google Ads > Goals > Conversions >
+   the action > "Use Google tag" > event snippet (send_to: 'AW-11122883575/<label>').
+   An empty label means that conversion isn't set up yet, so nothing is sent. */
+window.CZ_ADS = {
+  id: 'AW-11122883575',
+  labels: { lead: '', call: '', screens: '' },
+};
+
+// Enhanced conversions: the visitor's phone/email (Google hashes it before sending)
+// so Ads can match the conversion to the ad click. Kept for the session so a later
+// call tap is matched too.
+window.czAdsConversion = function (key, user) {
+  if (typeof gtag !== 'function') return;
+  var ud = null;
+  if (user && (user.phone || user.email)) {
+    ud = {};
+    var digits = String(user.phone || '').replace(/\D/g, '');
+    if (digits.length === 10) ud.phone_number = '+1' + digits;
+    if (user.email) ud.email = String(user.email).trim().toLowerCase();
+    try { sessionStorage.setItem('cz_ud', JSON.stringify(ud)); } catch (e) {}
+  } else {
+    try { ud = JSON.parse(sessionStorage.getItem('cz_ud') || 'null'); } catch (e) {}
+  }
+  if (ud) gtag('set', 'user_data', ud);
+  var label = window.CZ_ADS.labels[key];
+  if (label) gtag('event', 'conversion', { send_to: window.CZ_ADS.id + '/' + label });
+};
+
 (function () {
   'use strict';
 
@@ -11,7 +39,7 @@
   const OWN_HOSTS = ['cleanzatx.com', 'www.cleanzatx.com', location.hostname];
 
   // Quote / booking CTAs (links to the quote section, plus primary buttons)
-  const CTA_SELECTOR = 'a[href*="#quote"], .btn--primary, .btn--nav, .hero-cta';
+  const CTA_SELECTOR = 'a[href*="#quote"], a[href*="/pricing"], a[href*="/plans"], a[href*="/gallery"], .btn--primary, .btn--nav, .hero-cta, .rig__cta, .prices__btn, .club__plan, .club__link, .reviews-wall__btn, .ba-wall__btn, .mobile-cta-bar__quote, .site-footer__btn';
 
   // Which kind of page the click happened on, so reports can split by page
   // (page_location is also attached to every event by GA4 itself)
@@ -61,6 +89,7 @@
       // On the home page a tel: link first opens the call/text chooser
       // (main.js prevents the dial) — only count the actual call or text tap.
       if (e.defaultPrevented) return;
+      window.czAdsConversion('call');
       send('phone_call_click', {
         method: scheme === 'tel' ? 'call' : 'text',
         link_url: href,
@@ -105,6 +134,23 @@
   ['pointerdown', 'focusin', 'keydown', 'click'].forEach(function (type) {
     document.addEventListener(type, onQuoteInteract, true);
   });
+
+  // section_view — fires once per section the first time half of it is on screen
+  if ('IntersectionObserver' in window) {
+    const seenSections = new Set();
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        const id = en.target.id;
+        if (!en.isIntersecting || seenSections.has(id)) return;
+        seenSections.add(id);
+        send('section_view', { section_id: id });
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.5 });
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('section[id]').forEach(function (sec) { io.observe(sec); });
+    });
+  }
 
   // gtag.js holds events for ~5s and sends the batch early only on pagehide.
   // Phones usually just hide the page (switching to Phone/Messages, locking the

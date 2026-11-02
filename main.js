@@ -464,10 +464,7 @@ if (qwiz) {
           selected_services: selectedServices.join(','),
           ...(frequency ? { plan: frequency } : {}),
         });
-        // TODO(Google Ads): no Ads conversion tag exists yet (index.html only has a
-        // commented-out AW-CONVERSION_ID placeholder). Once the Ads account gives you
-        // a conversion ID and label, enable that tag and fire it here, e.g.:
-        // gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/XXXXXXXXXXXXX' });
+        if (window.czAdsConversion) window.czAdsConversion('lead', { phone, email });
       }
     } catch (e) {}
 
@@ -686,6 +683,7 @@ function launchConfetti() {
       }).catch(() => {});
     } catch (err) {}
     if (typeof gtag === 'function') gtag('event', 'screen_offer_claim');
+    if (window.czAdsConversion) window.czAdsConversion('screens', { phone });
 
     // Carry it into their quote: number filled in, window cleaning + screens selected
     if (qwiz) {
@@ -705,6 +703,42 @@ function launchConfetti() {
   });
 })();
 
+/* ---------- Plan links from /plans (/?plan=quarterly#quoteWizard) pre-pick the frequency ---------- */
+(function () {
+  const plan = new URLSearchParams(location.search).get('plan');
+  const freq = document.getElementById('q-frequency');
+  if (plan && freq && [...freq.options].some(o => o.value === plan)) freq.value = plan;
+})();
+
+/* ---------- ZIP finder: send visitors to the page built for their area ---------- */
+(function () {
+  const form = document.getElementById('zipFind');
+  if (!form) return;
+  const input = document.getElementById('zipInput');
+  const msg = document.getElementById('zipMsg');
+  // ZIP -> closest location page
+  const pages = {
+    '78734': 'lakeway', '78738': 'bee-cave', '78736': 'bee-cave', '78620': 'bee-cave',
+    '78669': 'lake-travis', '78645': 'lake-travis',
+    '78732': 'steiner-ranch',
+    '78730': 'four-points', '78726': 'four-points', '78750': 'four-points',
+    '78746': 'westlake-hills', '78733': 'westlake-hills', '78735': 'westlake-hills',
+  };
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const zip = input.value.replace(/\D/g, '').slice(0, 5);
+    if (zip.length !== 5) { msg.textContent = 'Enter a 5-digit ZIP code.'; return; }
+    const slug = pages[zip];
+    if (typeof gtag === 'function') gtag('event', 'zip_search', { zip, matched: slug ? 'yes' : 'no' });
+    if (slug) {
+      msg.textContent = 'Taking you to your local page…';
+      location.href = '/window-cleaning-' + slug;
+    } else {
+      msg.innerHTML = 'We don\'t have a page for ' + zip + ' yet, but we may still serve you. <a href="#quoteWizard">Request a quote</a> or call/text <a href="tel:5125180512">(512) 518-0512</a>.';
+    }
+  });
+})();
+
 /* ---------- Clean Windows Club: pick a plan, jump to the quote form ---------- */
 document.querySelectorAll('.club__plan[data-plan]').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -717,6 +751,19 @@ document.querySelectorAll('.club__plan[data-plan]').forEach(btn => {
     window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
   });
 });
+
+/* ---------- FAQ: show the first 6, expand to all ---------- */
+(function () {
+  const btn = document.getElementById('faqMore');
+  const list = document.querySelector('.faq2__list');
+  if (!btn || !list) return;
+  btn.addEventListener('click', () => {
+    const open = list.classList.toggle('faq2__list--all');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Show fewer questions' : 'Show all 13 questions';
+    if (typeof gtag === 'function' && open) gtag('event', 'faq_expand_all');
+  });
+})();
 
 /* ---------- #31 FAQ accordion ---------- */
 document.querySelectorAll('.faq-acc-btn').forEach(btn => {
