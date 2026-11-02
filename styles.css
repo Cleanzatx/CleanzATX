@@ -5145,7 +5145,9 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center 40%;
+  /* Each photo is cropped so its subject sits at the exact center; the zoom-out is anchored there too */
+  background-position: center center;
+  transform-origin: center center;
   opacity: 0;
   transition: opacity 1.6s;
 }
