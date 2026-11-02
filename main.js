@@ -385,7 +385,7 @@ if (qwiz) {
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
     const serviceLabels = { ext_windows:'Exterior Windows', int_windows:'Interior Windows', screens:'Screen Cleaning', tracks:'Track Cleaning', skylights:'Skylights', post_construction:'Post Construction', hard_water:'Hard Water Removal', house_wash:'House Washing', driveway:'Driveway', front_patio:'Front Patio', back_patio:'Back Patio', roof_wash:'Roof Cleaning', gutters:'Gutter Cleaning', stone_limestone:'Stone / Limestone', deck_fence:'Deck / Fence' };
-    const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', '6month':'Every 6 Months' };
+    const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', '6month':'Twice a Year' };
     const lastCleanedLabels = { never:'Never / First Time', '1_month':'Within 1 Month', '3_months':'1–3 Months Ago', '6_months':'3–6 Months Ago', '1_year':'6–12 Months Ago', over_1_year:'Over a Year Ago' };
     const timelineLabels = { asap:'ASAP', within_1_week:'Within 1 Week', within_2_weeks:'Within 2 Weeks', flexible:'Flexible', specific_date:'Specific Date' };
     const frequencyLabel = freqLabels[frequency] || frequency;
