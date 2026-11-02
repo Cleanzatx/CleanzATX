@@ -5387,7 +5387,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
    Reviews wall (TexasAutoClub-style): two rows of Google reviews
    drifting in opposite directions, pause on hover/touch
    ============================================================ */
-.reviews-wall { background: #f1f6fa; overflow: hidden; }
+.reviews-wall { background: linear-gradient(180deg, #0a1628 0%, var(--navy) 50%, #0f2440 100%); overflow: hidden; }
 .reviews-wall__header { text-align: center; margin-bottom: 36px; }
 .reviews-wall__eyebrow {
   font-size: 11.5px;
@@ -5403,11 +5403,11 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   font-weight: 800;
   letter-spacing: -.025em;
   line-height: 1.1;
-  color: var(--navy);
+  color: #fff;
   margin-bottom: 12px;
 }
 .reviews-wall__title em { font-style: italic; color: var(--sky); }
-.reviews-wall__sub { color: #64748b; font-size: 16px; }
+.reviews-wall__sub { color: rgba(255,255,255,.6); font-size: 16px; }
 
 .marquee {
   overflow: hidden;
@@ -5420,8 +5420,8 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .marquee__track { display: flex; width: max-content; animation: revScroll 78s linear infinite; }
 .marquee__group { display: flex; gap: 18px; padding-right: 18px; flex-shrink: 0; }
 .marquee--rev .marquee__track { animation-direction: reverse; animation-duration: 92s; }
-.marquee:hover .marquee__track,
-.marquee:focus-within .marquee__track { animation-play-state: paused; }
+/* Always moving: hovering or touching the cards does nothing */
+.marquee { pointer-events: none; user-select: none; -webkit-user-select: none; }
 @keyframes revScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -5431,19 +5431,19 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   flex: 0 0 378px;
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
+  background: linear-gradient(160deg, rgba(14,165,233,.10) 0%, rgba(255,255,255,.04) 55%);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 6px;
   padding: 28px 28px 24px;
 }
 .rev__stars { color: #f59e0b; font-size: 15px; letter-spacing: 3px; margin-bottom: 16px; }
-.rev__text { color: #334155; font-size: 14.5px; line-height: 1.68; flex: 1; margin-bottom: 22px; }
+.rev__text { color: rgba(255,255,255,.82); font-size: 14.5px; line-height: 1.68; flex: 1; margin-bottom: 22px; }
 .rev__foot {
   display: flex;
   align-items: center;
   gap: 12px;
   padding-top: 18px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid rgba(255,255,255,.1);
 }
 .rev__avatar {
   display: inline-flex;
@@ -5453,15 +5453,15 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   height: 34px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(14,165,233,.1);
-  border: 1px solid rgba(14,165,233,.3);
-  color: var(--sky);
+  background: rgba(14,165,233,.16);
+  border: 1px solid rgba(14,165,233,.45);
+  color: #7dd3fc;
   font-family: var(--head);
   font-weight: 800;
   font-size: 15px;
 }
-.rev__name { font-family: var(--head); font-weight: 800; font-size: 16px; color: var(--navy); }
-.rev__src { font-size: 12px; color: #64748b; }
+.rev__name { font-family: var(--head); font-weight: 800; font-size: 16px; color: #fff; }
+.rev__src { font-size: 12px; color: rgba(255,255,255,.5); }
 
 .reviews-wall__more { text-align: center; margin-top: 36px; }
 .reviews-wall__btn {
@@ -5469,9 +5469,9 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   align-items: center;
   gap: 10px;
   padding: 15px 30px;
-  border: 1.5px solid var(--navy);
+  border: 1.5px solid rgba(255,255,255,.7);
   border-radius: 3px;
-  color: var(--navy);
+  color: #fff;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .16em;
@@ -5479,7 +5479,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   text-decoration: none;
   transition: background .2s, color .2s;
 }
-.reviews-wall__btn:hover { background: var(--navy); color: #fff; }
+.reviews-wall__btn:hover { background: #fff; color: var(--navy); }
 
 @media (max-width: 700px) {
   .marquee--rev { display: none; }
