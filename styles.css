@@ -5290,3 +5290,95 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   .trust-bar__scroll { animation: none; }
   .trust-bar { overflow-x: auto; }
 }
+
+/* ============================================================
+   Meet the rig (TexasAutoClub-style "we show up with a shop"):
+   photo left with an accent stripe, copy and 3 features right
+   ============================================================ */
+.rig { background: #eef5fa; }
+.rig__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 72px;
+  align-items: center;
+}
+.rig__photo {
+  margin: 0;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(12,26,46,.18);
+}
+.rig__photo::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--sky), #0891b2);
+  z-index: 1;
+}
+.rig__photo img { display: block; width: 100%; height: auto; }
+.rig__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 18px;
+}
+.rig__eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--sky); }
+.rig__title {
+  font-family: var(--head);
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.025em;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+.rig__title em { display: block; font-style: italic; color: var(--sky); }
+.rig__lead { color: #475569; font-size: 16px; line-height: 1.75; max-width: 520px; margin-bottom: 30px; }
+.rig__list { list-style: none; margin: 0 0 30px; padding: 0; display: grid; gap: 22px; }
+.rig__item { display: flex; gap: 18px; align-items: flex-start; }
+.rig__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: rgba(14,165,233,.1);
+  border: 1px solid rgba(14,165,233,.25);
+  color: var(--sky);
+}
+.rig__icon svg { width: 20px; height: 20px; }
+.rig__item h3 { font-family: var(--head); font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.rig__item p { color: #64748b; font-size: 14.5px; line-height: 1.65; }
+.rig__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  border: 1.5px solid var(--navy);
+  border-radius: 3px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.rig__cta:hover { background: var(--navy); color: #fff; }
+@media (max-width: 900px) {
+  .rig__inner { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 640px) {
+  .rig__lead { font-size: 15px; }
+  .rig__item h3 { font-size: 16.5px; }
+  .rig__cta { width: 100%; justify-content: center; }
+}

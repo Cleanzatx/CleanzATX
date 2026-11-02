@@ -243,7 +243,7 @@
   <link rel="preload" href="hero-photo.jpg" as="image" fetchpriority="high">
   <link rel="preload" as="image" href="img/hero/slide-1-sm.jpg" media="(max-width: 768px)">
   <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px)">
-  <link rel="stylesheet" href="styles.css?v=23" />
+  <link rel="stylesheet" href="styles.css?v=24" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -386,37 +386,46 @@
     </div>
   </div>
 
-  <!-- ===== MEET THE OWNER ===== -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="about__inner">
-        <div class="about__left" data-aos>
-          <span class="section__tag">Meet the Owner</span>
-          <h2 class="section__title">Hey, I'm Tyler!</h2>
-          <p class="about__bio">I'm a Lakeway local and proud Lake Travis High School grad (class of 2021). I started Cleanz ATX in 2020 after years of seeing neighbors frustrated with unreliable contractors.</p>
-          <p class="about__bio">With 8 years of pressure washing experience and 6 years of window cleaning, I've built a business based on quality, reliability, and fast communication. We've proudly cleaned 1,000+ homes in the Lake Travis area and are rated 5 stars on Google.</p>
-          <div class="about__badges">
-            <div class="about-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4z"/><circle cx="12" cy="12" r="10"/></svg>
-              <div>
-                <strong>Nextdoor Neighborhood Fave</strong>
-                <span>2023 · 2024 · 2025</span>
-              </div>
+  <!-- ===== MEET THE RIG ===== -->
+  <section class="rig section" id="rig">
+    <div class="container rig__inner">
+      <figure class="rig__photo">
+        <picture>
+          <source media="(max-width: 640px)" srcset="img/rig/truck-rig-sm.jpg">
+          <img src="img/rig/truck-rig.jpg" width="1200" height="1098" loading="lazy"
+               alt="CleanzATX window cleaning truck with an RO/DI pure-water system, Honda-powered pressure washer, hose reels and ladders on a custom rack">
+        </picture>
+      </figure>
+      <div class="rig__text">
+        <p class="rig__eyebrow">The Cleanz ATX Difference</p>
+        <h2 class="rig__title">We don't show up with a bucket. <em>We show up with a rig.</em></h2>
+        <p class="rig__lead">Every truck rolls up stocked and organized before we knock on your door: a pure-water filtration system, water-fed poles, a Honda-powered pressure washer, and ladders racked and ready. Nothing is improvised in your driveway, and nothing changes from one visit to the next.</p>
+        <ul class="rig__list">
+          <li class="rig__item">
+            <span class="rig__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 6.8 9.3a7 7 0 1 0 10.4 0z"/></svg></span>
+            <div>
+              <h3>Pure water that dries spot-free</h3>
+              <p>Our RO/DI system strips the minerals out of Lake Travis hard water before it touches your glass, so windows dry clear with no soap film and no spots.</p>
             </div>
-            <div class="about-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <div>
-                <strong>116 Nextdoor Recommendations</strong>
-                <span>Trusted by local neighbors</span>
-              </div>
+          </li>
+          <li class="rig__item">
+            <span class="rig__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V3"/><path d="m8 7 4-4 4 4"/><path d="M6 21h12"/></svg></span>
+            <div>
+              <h3>Reach up to three stories from the ground</h3>
+              <p>Water-fed poles clean second- and third-story glass from your yard, so there's no ladder leaning on your stucco or stone for most windows.</p>
             </div>
-          </div>
-        </div>
-        <div class="about__right" data-aos>
-          <div class="about__photo">
-            <img src="photos/tyler-truck.jpg" alt="Tyler, owner of CleanzATX, sitting on his wrapped truck in front of the Austin skyline" loading="lazy" width="600" height="400" />
-          </div>
-        </div>
+          </li>
+          <li class="rig__item">
+            <span class="rig__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+            <div>
+              <h3>The same setup on every job</h3>
+              <p>Organized, commercial-grade gear means we run every home the same way, so the clean you get in spring matches the one you get in fall.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="#quoteWizard" class="rig__cta">Get My Free Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -935,6 +944,41 @@
       </div><!-- /.qwiz -->
 
       </div><!-- /.quote-section__layout -->
+    </div>
+  </section>
+
+  <!-- ===== MEET THE OWNER ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__left" data-aos>
+          <span class="section__tag">Meet the Owner</span>
+          <h2 class="section__title">Hey, I'm Tyler!</h2>
+          <p class="about__bio">I'm a Lakeway local and proud Lake Travis High School grad (class of 2021). I started Cleanz ATX in 2020 after years of seeing neighbors frustrated with unreliable contractors.</p>
+          <p class="about__bio">With 8 years of pressure washing experience and 6 years of window cleaning, I've built a business based on quality, reliability, and fast communication. We've proudly cleaned 1,000+ homes in the Lake Travis area and are rated 5 stars on Google.</p>
+          <div class="about__badges">
+            <div class="about-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4z"/><circle cx="12" cy="12" r="10"/></svg>
+              <div>
+                <strong>Nextdoor Neighborhood Fave</strong>
+                <span>2023 · 2024 · 2025</span>
+              </div>
+            </div>
+            <div class="about-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <strong>116 Nextdoor Recommendations</strong>
+                <span>Trusted by local neighbors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about__right" data-aos>
+          <div class="about__photo">
+            <img src="photos/tyler-truck.jpg" alt="Tyler, owner of CleanzATX, sitting on his wrapped truck in front of the Austin skyline" loading="lazy" width="600" height="400" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
