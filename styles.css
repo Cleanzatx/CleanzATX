@@ -5087,19 +5087,9 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .nav__inner { height: calc(var(--nav-h) - var(--bar-h)); }
 
 .nav__logo { gap: 12px; }
-.nav__logo-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 0 0 2px rgba(14,165,233,.35);
-}
+.nav__logo-badge { display: inline-flex; align-items: center; flex-shrink: 0; }
 .nav__logo-img,
-.nav .nav__logo-img { width: 50px; height: auto; }
+.nav .nav__logo-img { height: 40px; width: auto; }
 .nav__logo-text { display: flex; flex-direction: column; gap: 4px; line-height: 1; }
 .nav__logo-main {
   font-family: var(--head);
@@ -5139,8 +5129,8 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 }
 
 @media (max-width: 480px) {
-  .nav__logo-badge { width: 46px; height: 46px; border-radius: 10px; }
-  .nav__logo-img, .nav .nav__logo-img { width: 43px; }
+  .nav__logo { gap: 10px; }
+  .nav__logo-img, .nav .nav__logo-img { height: 32px; }
   .nav__logo-main { font-size: 19px; }
-  .nav__logo-sub { font-size: 8px; letter-spacing: .14em; }
+  .nav__logo-sub { font-size: 8px; letter-spacing: .12em; }
 }
