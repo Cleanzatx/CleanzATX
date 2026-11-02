@@ -241,7 +241,9 @@
   </script>
   <link rel="icon" href="logo.png" type="image/png">
   <link rel="preload" href="hero-photo.jpg" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="preload" as="image" href="img/hero/slide-1-sm.jpg" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px)">
+  <link rel="stylesheet" href="styles.css?v=20" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -252,8 +254,8 @@
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
     <div class="topbar__track">
-      <div class="topbar__group"><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span></div>
-      <div class="topbar__group topbar__group--dup" aria-hidden="true"><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span></div>
+      <div class="topbar__group"><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span></div>
+      <div class="topbar__group topbar__group--dup" aria-hidden="true"><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span><span class="topbar__item">🍂 Fall Sale — use code <span class="topbar__code">FALL</span> for 10% off your first window cleaning</span></div>
     </div>
   </div>
 
@@ -294,7 +296,24 @@
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
+  <section class="hero hero--slides" id="home">
+    <!-- Background slideshow: crossfade every 6s, each photo eases out from a slight zoom -->
+    <div class="hero__slides">
+      <div class="hero__slide active loaded" style="--bg-sm:url('img/hero/slide-1-sm.jpg');--bg-lg:url('img/hero/slide-1-lg.jpg')" role="img" aria-label="Water-fed pole window cleaning on a modern Lake Travis home"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-2-sm.jpg');--bg-lg:url('img/hero/slide-2-lg.jpg')" role="img" aria-label="CleanzATX trucks at a Lake Travis area estate"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-3-sm.jpg');--bg-lg:url('img/hero/slide-3-lg.jpg')" role="img" aria-label="Interior window cleaning with a Hill Country view"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-4-sm.jpg');--bg-lg:url('img/hero/slide-4-lg.jpg')" role="img" aria-label="CleanzATX pure-water and pressure washing truck rig"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-5-sm.jpg');--bg-lg:url('img/hero/slide-5-lg.jpg')" role="img" aria-label="Water-fed pole cleaning third-story windows on a stone home"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-6-sm.jpg');--bg-lg:url('img/hero/slide-6-lg.jpg')" role="img" aria-label="CleanzATX truck in downtown Austin"></div>
+    </div>
+    <div class="hero__dots" aria-label="Slideshow navigation">
+      <button type="button" class="hero__dot active" aria-label="Photo 1"></button>
+      <button type="button" class="hero__dot" aria-label="Photo 2"></button>
+      <button type="button" class="hero__dot" aria-label="Photo 3"></button>
+      <button type="button" class="hero__dot" aria-label="Photo 4"></button>
+      <button type="button" class="hero__dot" aria-label="Photo 5"></button>
+      <button type="button" class="hero__dot" aria-label="Photo 6"></button>
+    </div>
     <!-- Animated background grid -->
     <div class="hero__grid"></div>
     <!-- Glow orbs -->
@@ -1507,14 +1526,19 @@
   </div>
 
 
-  <!-- Exit Intent Popup -->
-  <div class="exit-popup" id="exitPopup">
+  <!-- Free screens pop-up: appears ~35s after the visitor starts scrolling (or on exit intent) -->
+  <div class="exit-popup" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="screenOfferTitle">
     <div class="exit-popup__box">
-      <div class="exit-popup__icon">💧</div>
-      <h3>Wait! Don't Leave Dirty Windows Behind!</h3>
-      <p>Get <strong>$25 off your first clean</strong> when you book today. Offer expires at midnight.</p>
-      <button type="button" class="btn btn--primary btn--lg" id="exitPopupCTA">Claim My $25 Off →</button>
-      <button class="exit-popup__skip" id="exitPopupSkip">No thanks, I'll keep my windows dirty</button>
+      <div class="exit-popup__icon">🪟</div>
+      <h3 id="screenOfferTitle">Want a Free Screen Cleaning?</h3>
+      <p>Enter your number and we'll add <strong>free screen cleaning</strong> to your window cleaning quote.</p>
+      <form class="screen-offer" id="screenOfferForm" novalidate>
+        <input type="tel" id="screenOfferPhone" class="screen-offer__input" placeholder="(512) 000-0000" autocomplete="tel" inputmode="tel" aria-label="Mobile number" required />
+        <button type="submit" class="btn btn--primary btn--lg btn--full" id="exitPopupCTA">Claim My Free Screens →</button>
+        <p class="screen-offer__error" id="screenOfferError" hidden>Please enter a 10-digit mobile number.</p>
+        <p class="screen-offer__consent">By submitting, you agree to get texts from CleanzATX about your quote. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/privacy-policy" target="_blank" rel="noopener">Privacy</a> · <a href="/terms-of-service" target="_blank" rel="noopener">Terms</a></p>
+      </form>
+      <button type="button" class="exit-popup__skip" id="exitPopupSkip">No thanks</button>
     </div>
   </div>
 
@@ -1534,7 +1558,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>if (window.emailjs) emailjs.init('pEcuEf_nmG3f4FLX1');</script>
-<script src="main.js?v=17"></script>
+<script src="main.js?v=20"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

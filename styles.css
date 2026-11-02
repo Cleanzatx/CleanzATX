@@ -5134,3 +5134,100 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   .nav__logo-main { font-size: 19px; }
   .nav__logo-sub { font-size: 8px; letter-spacing: .12em; }
 }
+
+/* ============================================================
+   Hero slideshow (TexasAutoClub-style): full-bleed photos that
+   crossfade every 6s, each easing out from a 7% zoom
+   ============================================================ */
+.hero--slides { overflow: hidden; }
+.hero__slides { position: absolute; inset: 0; z-index: 0; }
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0;
+  transition: opacity 1.6s;
+}
+.hero__slide.loaded { background-image: var(--bg-sm); }
+@media (min-width: 769px) {
+  .hero__slide.loaded { background-image: var(--bg-lg); }
+}
+.hero__slide.active { opacity: 1; animation: heroKenburns 7s ease-out forwards; }
+@keyframes heroKenburns {
+  from { transform: scale(1.07); }
+  to   { transform: scale(1); }
+}
+/* Navy fade so the headline stays readable over any photo */
+.hero__slides::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(8,17,32,.97) 8%, rgba(8,17,32,.55) 45%, rgba(8,17,32,.35) 100%),
+    linear-gradient(to right, rgba(8,17,32,.8) 0%, transparent 60%);
+}
+.hero--slides .hero__grid,
+.hero--slides .hero__orb,
+.hero--slides .hero__photo,
+.hero--slides .hero__logo-badge { display: none; }
+.hero--slides .hero__content { grid-template-columns: 1fr; }
+.hero--slides .hero__text { max-width: 640px; }
+
+.hero__dots {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  cursor: pointer;
+  transition: background .3s, width .3s;
+}
+.hero__dot.active { width: 22px; border-radius: 4px; background: var(--sky); }
+
+@media (max-width: 640px) {
+  .hero__slides::after {
+    background: linear-gradient(to top, rgba(8,17,32,.94) 10%, rgba(8,17,32,.62) 42%, rgba(8,17,32,.3) 100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide.active { animation: none; }
+  .hero__dots { display: none; }
+}
+
+/* Free screens pop-up form */
+.screen-offer { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.screen-offer__input {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: .04em;
+}
+.screen-offer__input:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,.25); }
+.screen-offer__error { color: #fca5a5; font-size: 13px; margin: 0 !important; text-align: center; }
+.exit-popup__box .screen-offer__consent {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.4);
+  margin: 0;
+  text-align: center;
+}
+.screen-offer__consent a { color: rgba(255,255,255,.55); text-decoration: underline; }
+@media (max-width: 480px) {
+  .exit-popup__box { padding: 32px 22px; }
+}

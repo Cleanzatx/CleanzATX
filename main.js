@@ -40,6 +40,28 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   });
 });
 
+/* ---------- Hero slideshow ---------- */
+(function () {
+  const slides = document.querySelectorAll('.hero__slide');
+  const dots = document.querySelectorAll('.hero__dot');
+  if (slides.length < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let cur = 0, timer;
+  // Photos after the first load just before they're shown
+  function load(i) { slides[i].classList.add('loaded'); }
+  function go(i) {
+    slides[cur].classList.remove('active'); dots[cur]?.classList.remove('active');
+    cur = (i + slides.length) % slides.length;
+    load(cur);
+    slides[cur].classList.add('active'); dots[cur]?.classList.add('active');
+    load((cur + 1) % slides.length);
+  }
+  function auto() { timer = setInterval(() => go(cur + 1), 6000); }
+  dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(timer); go(i); auto(); }));
+  window.addEventListener('load', () => load(1));
+  auto();
+})();
+
 /* ---------- Hero entrance animation ---------- */
 window.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero__content');
@@ -348,7 +370,13 @@ if (qwiz) {
     const deadlineDate = document.getElementById('q-date')?.value || '';
     const lastCleaned = document.getElementById('q-last-cleaned')?.value || '';
     const frequency = document.getElementById('q-frequency')?.value || '';
-    const notes     = (document.getElementById('q-notes')?.value || '').trim();
+    const typedNotes = (document.getElementById('q-notes')?.value || '').trim();
+    const screenOffer = qwiz.dataset.screenOffer === '1';
+    if (screenOffer) {
+      const screens = qwiz.querySelector('#q-service-tiles input[value="screens"]');
+      if (screens && !screens.checked) screens.checked = true;
+    }
+    const notes = [screenOffer ? 'FREE SCREEN CLEANING (claimed from the website pop-up)' : '', typedNotes].filter(Boolean).join(' | ');
 
     const missing = [];
     if (!firstName) missing.push('first name');
@@ -598,38 +626,87 @@ function launchConfetti() {
 }
 
 
-/* ---------- #6 Exit-intent popup ---------- */
+/* ---------- #6 Free screens pop-up (phone number capture) ---------- */
 (function() {
   const popup = document.getElementById('exitPopup');
-  if (!popup) return;
+  const form = document.getElementById('screenOfferForm');
+  if (!popup || !form) return;
+  const phoneEl = document.getElementById('screenOfferPhone');
+  const errEl = document.getElementById('screenOfferError');
+  const qwiz = document.getElementById('quoteWizard');
   let shown = false;
 
-  function showPopup() {
-    if (shown || sessionStorage.getItem('exitShown')) return;
-    popup.classList.add('active');
-    shown = true;
-    sessionStorage.setItem('exitShown', '1');
+  function seen() { try { return sessionStorage.getItem('screenOfferShown') === '1'; } catch (e) { return false; } }
+  // Skip anyone already filling out (or done with) the quote form
+  function busyWithQuote() {
+    const fname = document.getElementById('q-fname');
+    return !!(qwiz && (qwiz.dataset.screenOffer === '1' || (fname && fname.value.trim()) ||
+      qwiz.querySelector('[data-panel="confirm"].active')));
   }
+  function showPopup() {
+    if (shown || seen() || busyWithQuote()) return;
+    shown = true;
+    try { sessionStorage.setItem('screenOfferShown', '1'); } catch (e) {}
+    popup.classList.add('active');
+    if (typeof gtag === 'function') gtag('event', 'screen_offer_view');
+  }
+  function closePopup() { popup.classList.remove('active'); }
 
-  // Show after 2 minutes on all devices
-  setTimeout(showPopup, 120000);
+  // Timer starts on the first scroll, then shows ~35s later
+  window.addEventListener('scroll', function startTimer() {
+    window.removeEventListener('scroll', startTimer);
+    setTimeout(showPopup, 35000);
+  }, { passive: true });
+  // Desktop: also on exit intent, once they've been on the page 10s
+  setTimeout(() => {
+    document.addEventListener('mouseleave', (e) => { if (e.clientY < 10) showPopup(); });
+  }, 10000);
 
-  // Desktop fallback: also show on exit intent (mouse leaves top of viewport)
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY < 10) showPopup();
+  document.getElementById('exitPopupSkip')?.addEventListener('click', closePopup);
+  popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
+
+  phoneEl.addEventListener('input', () => {
+    let d = phoneEl.value.replace(/\D/g, '').slice(0, 10);
+    if (d.length >= 7) d = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+    else if (d.length >= 4) d = '(' + d.slice(0,3) + ') ' + d.slice(3);
+    else if (d.length >= 1) d = '(' + d;
+    phoneEl.value = d;
+    errEl.hidden = true;
   });
 
-  document.getElementById('exitPopupSkip')?.addEventListener('click', () => popup.classList.remove('active'));
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const phone = phoneEl.value.trim();
+    if (phone.replace(/\D/g, '').length !== 10) { errEl.hidden = false; phoneEl.focus(); return; }
 
-  document.getElementById('exitPopupCTA')?.addEventListener('click', () => {
-    localStorage.setItem('cleanzatx_promo', JSON.stringify({ code: 'CLEAN25', discount: 25, source: 'exit_popup' }));
-    popup.classList.remove('active');
-    // Scroll so the urgency bar sits flush below the nav — same position as post-submit
-    const qwiz = document.getElementById('quoteWizard');
+    // Save the number to Rotor right away (name filled in later if they finish the quote)
+    try {
+      fetch('/api/quote-lead', {
+        method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Website visitor (free screens pop-up)', phone, sms_consent: true,
+          services: ['Screen Cleaning (free offer)'],
+          notes: 'Claimed FREE SCREEN CLEANING from the website pop-up. Has not finished the quote form yet.',
+        }),
+      }).catch(() => {});
+    } catch (err) {}
+    if (typeof gtag === 'function') gtag('event', 'screen_offer_claim');
+
+    // Carry it into their quote: number filled in, window cleaning + screens selected
     if (qwiz) {
-      const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-      window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+      qwiz.dataset.screenOffer = '1';
+      const qPhone = document.getElementById('q-phone');
+      if (qPhone && !qPhone.value) qPhone.value = phone;
+      const winCat = qwiz.querySelector('#q-service-cats input[value="window_cleaning"]');
+      if (winCat && !winCat.checked) { winCat.checked = true; winCat.dispatchEvent(new Event('change')); }
+      const screens = qwiz.querySelector('#q-service-tiles input[value="screens"]');
+      if (screens) screens.checked = true;
+      const strip = qwiz.querySelector('.qwiz__urgency');
+      if (strip) strip.innerHTML = '<span>🎁 <strong>Free screen cleaning added</strong> to your quote</span>';
     }
+    closePopup();
+    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+    if (qwiz) window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
   });
 })();
 
