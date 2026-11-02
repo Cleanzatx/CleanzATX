@@ -5233,3 +5233,66 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 @media (max-width: 480px) {
   .exit-popup__box { padding: 32px 22px; }
 }
+
+/* ============================================================
+   Trust bar under the hero (TexasAutoClub-style): selling points
+   scroll slowly left, pause on hover/touch, fade at the edges
+   ============================================================ */
+.trust-bar {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-2);
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.trust-bar__scroll {
+  display: flex;
+  width: max-content;
+  animation: trustSlide 36s linear infinite;
+}
+.trust-bar:hover .trust-bar__scroll,
+.trust-bar:focus-within .trust-bar__scroll { animation-play-state: paused; }
+.trust-bar__group { display: flex; flex-shrink: 0; }
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 30px;
+  white-space: nowrap;
+}
+.trust-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(14,165,233,.12);
+  border: 1px solid rgba(14,165,233,.28);
+  color: var(--sky);
+}
+.trust-item__icon svg { width: 17px; height: 17px; }
+.trust-item__label {
+  font-family: var(--head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: rgba(255,255,255,.88);
+}
+@keyframes trustSlide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (max-width: 640px) {
+  .trust-item { padding: 14px 20px; gap: 10px; }
+  .trust-item__icon { width: 30px; height: 30px; }
+  .trust-item__label { font-size: 13px; }
+  .trust-bar__scroll { animation-duration: 30s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust-bar__scroll { animation: none; }
+  .trust-bar { overflow-x: auto; }
+}
