@@ -1231,16 +1231,20 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
   set2.setAttribute('aria-hidden', 'true');
   scroll.appendChild(set2);
 
-  var speed = 0.6; // pixels per frame (~36px/sec at 60fps
+  // Speed is per second, not per frame, so 120Hz screens don't run it twice as fast
+  var speed = 22; // pixels per second
   var pos = 0;
   var setWidth = 0;
+  var last = 0;
 
   function measure() {
     setWidth = set1.offsetWidth;
   }
 
-  function tick() {
-    pos -= speed;
+  function tick(now) {
+    var dt = last ? Math.min(now - last, 100) / 1000 : 0;
+    last = now;
+    pos -= speed * dt;
     // When we've scrolled past one full set, jump back seamlessly
     if (setWidth > 0 && pos <= -setWidth) {
       pos += setWidth;
@@ -1249,14 +1253,11 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
     requestAnimationFrame(tick);
   }
 
-  // Wait for all images to load before measuring
-  window.addEventListener('load', function () {
-    measure();
-    requestAnimationFrame(tick);
-  });
+  // One loop only: start now with an estimate, re-measure once images load
+  var started = false;
+  function start() { if (!started) { started = true; requestAnimationFrame(tick); } }
+  window.addEventListener('load', function () { measure(); start(); });
   window.addEventListener('resize', measure);
-
-  // Start immediately with an estimate, re-measure on load
   measure();
-  if (setWidth > 0) requestAnimationFrame(tick);
+  if (setWidth > 0) start();
 })();
