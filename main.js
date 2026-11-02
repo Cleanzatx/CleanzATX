@@ -62,11 +62,6 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   auto();
 })();
 
-/* ---------- Hero entrance animation ---------- */
-window.addEventListener('DOMContentLoaded', () => {
-  const hero = document.querySelector('.hero__content');
-  if (hero) hero.closest('.hero').classList.add('hero-anim');
-});
 
 /* ---------- Scroll reveal (AOS-lite) ---------- */
 const revealObserver = new IntersectionObserver(
@@ -710,124 +705,18 @@ function launchConfetti() {
   });
 })();
 
-/* ---------- #12 Booking notifications ---------- */
-(function() {
-  const notif = document.getElementById('bookingNotif');
-  if (!notif) return;
-
-  const bookings = [
-    // ── existing ──
-    { name: 'Sarah K.',        msg: 'from Lakeway just booked a quarterly plan' },
-    { name: 'Mike D.',         msg: 'from Bee Cave just requested a quote' },
-    { name: 'Jennifer R.',     msg: 'from Rough Hollow just booked exterior cleaning' },
-    { name: 'Tom & Linda B.',  msg: 'from Spillman Ranch joined the quarterly plan' },
-    { name: 'Amanda P.',       msg: 'from Lakeway renewed her quarterly plan' },
-    { name: 'Chris M.',        msg: 'from Serene Hills just booked same-week service' },
-    { name: 'Rachel W.',       msg: 'from Four Points requested a quote' },
-    { name: 'David L.',        msg: 'from Falconhead booked exterior + screens' },
-    // ── 30 new ──
-    { name: 'Maria T.',        msg: 'from Rough Hollow just booked exterior cleaning' },
-    { name: 'James R.',        msg: 'from Serene Hills joined the bi-annual plan' },
-    { name: 'Lauren H.',       msg: 'from Lake Travis booked full interior + exterior' },
-    { name: 'Kevin B.',        msg: 'from Westlake Hills just requested a quote' },
-    { name: 'Stephanie N.',    msg: 'from Hudson Bend booked same-week service' },
-    { name: 'Brian & Carol T.',msg: 'from Steiner Ranch signed up for monthly plan' },
-    { name: 'Megan F.',        msg: 'from The Hills just booked screen cleaning' },
-    { name: 'Patrick O.',      msg: 'from Barton Creek booked exterior + tracks' },
-    { name: 'Nicole S.',       msg: 'from Lakeway joined the quarterly plan' },
-    { name: 'Greg A.',         msg: 'from Bee Cave just booked a same-week clean' },
-    { name: 'Tiffany C.',      msg: 'from Flintrock Falls renewed her monthly plan' },
-    { name: 'Derek M.',        msg: 'from Lake Pointe booked exterior cleaning' },
-    { name: 'Ashley V.',       msg: 'from Rough Hollow just requested a quote' },
-    { name: 'Mark & Susan E.', msg: 'from Spillman Ranch booked full-home clean' },
-    { name: 'Courtney J.',     msg: 'from Serene Hills just booked interior windows' },
-    { name: 'Tyler H.',        msg: 'from Lakeway booked exterior + screens + tracks' },
-    { name: 'Melissa G.',      msg: 'from Falconhead joined the bi-annual plan' },
-    { name: 'Brandon K.',      msg: 'from Four Points just requested a quote' },
-    { name: 'Heather L.',      msg: 'from Bee Cave booked same-week exterior clean' },
-    { name: 'Josh & Amy R.',   msg: 'from Hudson Bend signed up for quarterly plan' },
-    { name: 'Danielle B.',     msg: 'from Steiner Ranch booked window cleaning' },
-    { name: 'Eric P.',         msg: 'from Westlake Hills just requested a quote' },
-    { name: 'Kristen N.',      msg: 'from Lakeway renewed her bi-annual plan' },
-    { name: 'Ryan C.',         msg: 'from Lake Travis booked exterior + screens' },
-    { name: 'Lisa M.',         msg: 'from Barton Creek just booked a quarterly plan' },
-    { name: 'Scott & Dana W.', msg: 'from The Hills signed up for monthly plan' },
-    { name: 'Amber F.',        msg: 'from Rough Hollow just requested a quote' },
-    { name: 'Nathan O.',       msg: 'from Falconhead booked full interior + exterior' },
-  ];
-
-  // Fisher-Yates shuffle — produces a random order with no repeats
-  function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
-
-  // Shuffle once per session; walk through the deck — never repeat
-  let deck = shuffle(bookings);
-  let pos = 0;
-  let dismissTimer = null;
-
-  function dismiss() {
-    clearTimeout(dismissTimer);
-    notif.classList.remove('show');
-  }
-
-  function showNotif() {
-    if (pos >= deck.length) return;
-    notif.classList.remove('show');
-    void notif.offsetWidth; // force reflow so slide-in replays
-    const b = deck[pos++];
-    document.getElementById('bookingNotifName').textContent = b.name;
-    document.getElementById('bookingNotifMsg').textContent = b.msg;
-    notif.classList.add('show');
-    clearTimeout(dismissTimer);
-    dismissTimer = setTimeout(dismiss, 5000);
-  }
-
-  // Close button
-  document.getElementById('bookingNotifClose')?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dismiss();
+/* ---------- Clean Windows Club: pick a plan, jump to the quote form ---------- */
+document.querySelectorAll('.club__plan[data-plan]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const freq = document.getElementById('q-frequency');
+    if (freq) freq.value = btn.dataset.plan;
+    if (typeof gtag === 'function') gtag('event', 'club_plan_click', { plan: btn.dataset.plan });
+    const qwiz = document.getElementById('quoteWizard');
+    if (!qwiz) return;
+    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+    window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
   });
-
-  // Tap or swipe left to dismiss early
-  notif.addEventListener('click', dismiss);
-  let nTsX = 0;
-  notif.addEventListener('touchstart', e => { nTsX = e.touches[0].clientX; }, { passive: true });
-  notif.addEventListener('touchend', e => {
-    if (e.changedTouches[0].clientX - nTsX < -40) dismiss();
-  });
-
-  // First show after 2 min, then every 2 min
-  setTimeout(() => {
-    showNotif();
-    setInterval(showNotif, 120000);
-  }, 120000);
-})();
-
-/* ---------- #7 Urgency widget rotation ---------- */
-(function() {
-  const el = document.getElementById('urgencyText');
-  if (!el) return;
-  const monthName = new Date().toLocaleString('en-US', { month: 'long' });
-  const spotsLeft = Math.floor(Math.random() * 3) + 3; // 3-5 spots
-  const msgs = [
-    'Only <strong>' + spotsLeft + ' spots</strong> left in ' + monthName,
-    '<strong>3 homeowners</strong> got quotes in the last hour',
-    monthName + ' is filling up — <strong>spots are limited</strong>',
-    'Book today, get cleaned <strong>this month</strong>',
-  ];
-  let i = 0;
-  setInterval(() => {
-    i = (i + 1) % msgs.length;
-    el.style.opacity = '0';
-    setTimeout(() => { el.innerHTML = msgs[i]; el.style.opacity = '1'; }, 300);
-  }, 5000);
-})();
+});
 
 /* ---------- #31 FAQ accordion ---------- */
 document.querySelectorAll('.faq-acc-btn').forEach(btn => {

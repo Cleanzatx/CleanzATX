@@ -5496,3 +5496,133 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   .marquee__track { animation: none; }
   .marquee { overflow-x: auto; }
 }
+
+/* ============================================================
+   Hero headline (Nov 2026): shows instantly, keyword headline
+   ============================================================ */
+.title-line,
+.hero__sub,
+.hero__ctas,
+.hero__stats { opacity: 1; transform: none; animation: none; }
+.hero__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+.hero__title { font-size: clamp(40px, 6.2vw, 80px); }
+.title-line--sm { font-size: .52em; letter-spacing: -.01em; margin-top: 6px; color: rgba(255,255,255,.92); }
+
+/* How it works (TexasAutoClub-style numbered steps) */
+.how { background: #f8fbfd; }
+.how__header { text-align: center; margin-bottom: 44px; }
+.how__eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+.how__title {
+  font-family: var(--head);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  color: var(--navy);
+}
+.how__title em { font-style: italic; color: var(--sky); }
+.how__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.how__step {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 30px 28px;
+}
+.how__num {
+  display: block;
+  font-family: var(--head);
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--sky);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.how__step h3 { font-family: var(--head); font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.how__step p { color: #64748b; font-size: 15px; line-height: 1.65; }
+.how__cta { text-align: center; margin-top: 34px; }
+@media (max-width: 768px) {
+  .how__steps { grid-template-columns: 1fr; gap: 12px; }
+  .how__step { padding: 22px 20px; }
+  .how__num { font-size: 28px; margin-bottom: 10px; }
+}
+
+/* Clean Windows Club: slim plans band (replaces the full plans section) */
+.club {
+  background: linear-gradient(120deg, #0a1628 0%, #0f2a4a 55%, #0c3b5c 100%);
+  border-top: 1px solid rgba(14,165,233,.15);
+  border-bottom: 1px solid rgba(14,165,233,.15);
+  padding: 56px 0;
+}
+.club__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: center;
+}
+.club__eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 10px;
+}
+.club__title {
+  font-family: var(--head);
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.club__title em { font-style: italic; color: var(--sky); }
+.club__sub { color: rgba(255,255,255,.65); font-size: 15.5px; line-height: 1.65; max-width: 520px; }
+.club__plans { display: flex; gap: 12px; }
+.club__plan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 150px;
+  padding: 16px 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.05);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: background .2s, border-color .2s;
+}
+.club__plan strong { font-family: var(--head); font-size: 16px; font-weight: 800; }
+.club__plan span { font-size: 12px; color: rgba(255,255,255,.55); }
+.club__plan:hover { background: rgba(14,165,233,.14); border-color: var(--sky); }
+.club__plan--pop { border-color: var(--sky); background: rgba(14,165,233,.12); }
+.club__plan--pop span { color: #7dd3fc; font-weight: 600; }
+@media (max-width: 900px) {
+  .club__inner { grid-template-columns: 1fr; gap: 24px; }
+  .club__plans { flex-direction: column; }
+  .club__plan { min-width: 0; flex-direction: row; justify-content: space-between; align-items: center; }
+}
+@media (max-width: 480px) { .hero__eyebrow { font-size: 10px; letter-spacing: .14em; } }
