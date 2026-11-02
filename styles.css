@@ -5021,3 +5021,126 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   border-radius: 12px;
   box-shadow: 0 0 0 4px rgba(239,68,68,.12);
 }
+
+/* ============================================================
+   Promo topbar + header (TexasAutoClub-style), Nov 2026
+   --nav-h is the full fixed header (topbar + nav) so every scroll
+   offset that uses it clears both.
+   ============================================================ */
+:root { --bar-h: 38px; --nav-h: 110px; }
+@media (max-width: 1100px) { :root { --nav-h: 106px; } }
+
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 201;
+  height: var(--bar-h);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #0a1628, var(--sky) 35%, #0891b2 65%, #0a1628);
+  box-shadow: 0 2px 10px rgba(0,0,0,.22);
+}
+.topbar__track {
+  display: flex;
+  width: max-content;
+  animation: topbarScroll 26s linear infinite;
+}
+.topbar__group { display: flex; align-items: center; flex-shrink: 0; }
+.topbar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 30px;
+  white-space: nowrap;
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #f0f9ff;
+}
+.topbar__item::after { content: "•"; margin-left: 30px; color: rgba(240,249,255,.45); }
+.topbar__code {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border: 1px solid rgba(240,249,255,.65);
+  border-radius: 4px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  color: #fff;
+}
+@keyframes topbarScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar__track { animation: none; }
+  .topbar__group--dup { display: none; }
+}
+
+.nav {
+  top: var(--bar-h);
+  height: calc(var(--nav-h) - var(--bar-h));
+  background: rgba(8,17,32,.97);
+}
+.nav__inner { height: calc(var(--nav-h) - var(--bar-h)); }
+
+.nav__logo { gap: 12px; }
+.nav__logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(14,165,233,.35);
+}
+.nav__logo-img,
+.nav .nav__logo-img { width: 50px; height: auto; }
+.nav__logo-text { display: flex; flex-direction: column; gap: 4px; line-height: 1; }
+.nav__logo-main {
+  font-family: var(--head);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.nav__logo-main span { color: var(--sky); }
+.nav__logo-sub {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+
+.nav__links { gap: 26px; }
+.nav__links li a:not(.btn):not(.nav__phone),
+.nav__phone {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.nav__links li a:not(.btn):not(.nav__phone) { color: rgba(255,255,255,.6); }
+.nav__phone { color: rgba(255,255,255,.75) !important; letter-spacing: .08em; }
+.nav__phone svg { display: none; }
+.nav .btn--nav {
+  border-radius: 3px;
+  padding: 15px 26px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .nav__logo-badge { width: 46px; height: 46px; border-radius: 10px; }
+  .nav__logo-img, .nav .nav__logo-img { width: 43px; }
+  .nav__logo-main { font-size: 19px; }
+  .nav__logo-sub { font-size: 8px; letter-spacing: .14em; }
+}

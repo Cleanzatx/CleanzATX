@@ -241,7 +241,7 @@
   </script>
   <link rel="icon" href="logo.png" type="image/png">
   <link rel="preload" href="hero-photo.jpg" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="styles.css?v=18" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -249,11 +249,23 @@
 </head>
 <body>
 
+  <!-- ===== PROMO TOPBAR ===== -->
+  <div class="topbar" role="note" aria-label="Promotion">
+    <div class="topbar__track">
+      <div class="topbar__group"><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span></div>
+      <div class="topbar__group topbar__group--dup" aria-hidden="true"><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span><span class="topbar__item">🍂 Fall Special: <span class="topbar__code">FREE SCREENS</span> with any window cleaning</span></div>
+    </div>
+  </div>
+
   <!-- ===== NAV ===== -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
       <a href="#home" class="nav__logo">
-        <img src="logo.png" alt="Cleanz ATX: Exterior Cleaning Experts" class="nav__logo-img" width="120" height="40" />
+        <span class="nav__logo-badge"><img src="logo-mark.png" alt="Cleanz ATX logo" class="nav__logo-img" width="120" height="46" /></span>
+        <span class="nav__logo-text">
+          <span class="nav__logo-main">Cleanz <span>ATX</span></span>
+          <span class="nav__logo-sub">Window &amp; Exterior Cleaning · Lakeway, TX</span>
+        </span>
       </a>
       <ul class="nav__links">
         <li><a href="#plans">Services</a></li>
@@ -265,7 +277,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           (512) 518-0512
         </a></li>
-        <li><a href="#quote" class="btn btn--nav">Free Quote</a></li>
+        <li><a href="#quote" class="btn btn--nav">Get a Quote</a></li>
       </ul>
       <button class="nav__burger" id="burger" aria-label="Open menu">
         <span></span><span></span><span></span>
