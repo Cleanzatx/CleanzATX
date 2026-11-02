@@ -5382,3 +5382,117 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
   .rig__item h3 { font-size: 16.5px; }
   .rig__cta { width: 100%; justify-content: center; }
 }
+
+/* ============================================================
+   Reviews wall (TexasAutoClub-style): two rows of Google reviews
+   drifting in opposite directions, pause on hover/touch
+   ============================================================ */
+.reviews-wall { background: #f1f6fa; overflow: hidden; }
+.reviews-wall__header { text-align: center; margin-bottom: 36px; }
+.reviews-wall__eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+.reviews-wall__title {
+  font-family: var(--head);
+  font-size: clamp(32px, 4.4vw, 54px);
+  font-weight: 800;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.reviews-wall__title em { font-style: italic; color: var(--sky); }
+.reviews-wall__sub { color: #64748b; font-size: 16px; }
+
+.marquee {
+  overflow: hidden;
+  max-width: 100vw;
+  position: relative;
+  padding: 9px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track { display: flex; width: max-content; animation: revScroll 78s linear infinite; }
+.marquee__group { display: flex; gap: 18px; padding-right: 18px; flex-shrink: 0; }
+.marquee--rev .marquee__track { animation-direction: reverse; animation-duration: 92s; }
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track { animation-play-state: paused; }
+@keyframes revScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.rev {
+  flex: 0 0 378px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 28px 28px 24px;
+}
+.rev__stars { color: #f59e0b; font-size: 15px; letter-spacing: 3px; margin-bottom: 16px; }
+.rev__text { color: #334155; font-size: 14.5px; line-height: 1.68; flex: 1; margin-bottom: 22px; }
+.rev__foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+}
+.rev__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(14,165,233,.1);
+  border: 1px solid rgba(14,165,233,.3);
+  color: var(--sky);
+  font-family: var(--head);
+  font-weight: 800;
+  font-size: 15px;
+}
+.rev__name { font-family: var(--head); font-weight: 800; font-size: 16px; color: var(--navy); }
+.rev__src { font-size: 12px; color: #64748b; }
+
+.reviews-wall__more { text-align: center; margin-top: 36px; }
+.reviews-wall__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border: 1.5px solid var(--navy);
+  border-radius: 3px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.reviews-wall__btn:hover { background: var(--navy); color: #fff; }
+
+@media (max-width: 700px) {
+  .marquee--rev { display: none; }
+  .rev { flex-basis: 280px; padding: 22px 20px 20px; }
+  .rev__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .reviews-wall__more { margin-top: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .marquee { overflow-x: auto; }
+}
