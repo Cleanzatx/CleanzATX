@@ -497,7 +497,7 @@
   <link rel="preload" href="hero-photo.jpg" as="image" fetchpriority="high">
   <link rel="preload" as="image" href="img/hero/slide-1-sm.jpg" media="(max-width: 768px)">
   <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px)">
-  <link rel="stylesheet" href="styles.css?v=36" />
+  <link rel="stylesheet" href="styles.css?v=38" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -590,7 +590,6 @@
         </h1>
 
         <p class="hero__sub">We clean your glass with purified water that dries spot-free, with no soap film and no streaks. Fully insured and backed by a 7-day rain guarantee.</p>
-
 
         <div class="hero__ctas">
           <a href="#quoteWizard" class="btn btn--primary btn--lg btn--shiny">
@@ -752,17 +751,14 @@
         <li class="how__step">
           <span class="how__num">01</span>
           <h3>Request a quote</h3>
-          <p>Tell us about your home and which windows you want cleaned. It takes about a minute, with no phone tag.</p>
         </li>
         <li class="how__step">
           <span class="how__num">02</span>
           <h3>Get your price by text</h3>
-          <p>We text your price and our next open dates from (512) 518-0512, usually within the hour. Reply to pick your day.</p>
         </li>
         <li class="how__step">
           <span class="how__num">03</span>
           <h3>We clean, you relax</h3>
-          <p>Pure-water poles reach up to three stories from the ground, and every clean is backed by our 7-day rain guarantee.</p>
         </li>
       </ol>
       <div class="how__cta">
@@ -1086,23 +1082,6 @@
   </section>
 
   <!-- ===== CLEAN WINDOWS CLUB (slim plans band) ===== -->
-  <section class="club" id="club">
-    <div class="container club__inner">
-      <div class="club__text">
-        <p class="club__eyebrow">The Clean Windows Club</p>
-        <h2 class="club__title">Spotless windows, <em>on autopilot.</em></h2>
-        <p class="club__sub">Pick how often you want us back. We lock in a member rate, schedule every visit for you, and text a reminder before we arrive.</p>
-        <a href="/plans" class="club__link">Learn more about Club plans
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-      </div>
-      <div class="club__plans" role="group" aria-label="Choose a plan">
-        <button type="button" class="club__plan" data-plan="6month"><strong>Twice a year</strong><span>5% off every visit</span></button>
-        <button type="button" class="club__plan club__plan--pop" data-plan="quarterly"><strong>Quarterly</strong><span>10% off · Most popular</span></button>
-        <button type="button" class="club__plan" data-plan="bimonthly"><strong>Every 2 months</strong><span>20% off every visit</span></button>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== BEFORE & AFTER (two rows scrolling in opposite directions; one row on phones) ===== -->
   <section class="ba-wall section" id="gallery">
     <div class="container">
@@ -1158,6 +1137,23 @@
       <div class="prices__ctas">
         <a href="/pricing" class="prices__btn prices__btn--solid">See All Pricing <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         <a href="#quoteWizard" class="prices__btn">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="club" id="club">
+    <div class="container club__inner">
+      <div class="club__text">
+        <p class="club__eyebrow">The Clean Windows Club</p>
+        <h2 class="club__title">Spotless windows, <em>on autopilot.</em></h2>
+        <p class="club__sub">Pick how often you want us back. We lock in a member rate, schedule every visit for you, and text a reminder before we arrive.</p>
+        <a href="/plans" class="club__link">Learn more about Club plans
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </div>
+      <div class="club__plans" role="group" aria-label="Choose a plan">
+        <button type="button" class="club__plan" data-plan="6month"><strong>Twice a year</strong><span>5% off every visit</span></button>
+        <button type="button" class="club__plan club__plan--pop" data-plan="quarterly"><strong>Quarterly</strong><span>10% off · Most popular</span></button>
+        <button type="button" class="club__plan" data-plan="bimonthly"><strong>Every 2 months</strong><span>20% off every visit</span></button>
       </div>
     </div>
   </section>
@@ -1414,7 +1410,6 @@
     </div>
   </div>
 
-
   <!-- Free screens pop-up: appears ~35s after the visitor starts scrolling (or on exit intent) -->
   <div class="exit-popup" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="screenOfferTitle">
     <div class="exit-popup__box">
@@ -1445,7 +1440,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>if (window.emailjs) emailjs.init('pEcuEf_nmG3f4FLX1');</script>
-<script src="main.js?v=27"></script>
+<script src="main.js?v=28"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

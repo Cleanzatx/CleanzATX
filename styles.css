@@ -6121,12 +6121,11 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 #quote { padding-top: 36px; justify-content: flex-start; }
 @media (max-width: 768px) {
   #how { padding-top: 44px; }
-  #how .how__header { margin-bottom: 20px; }
-  #how .how__steps { gap: 8px; }
-  #how .how__step { display: grid; grid-template-columns: 38px 1fr; column-gap: 12px; padding: 14px 16px; }
-  #how .how__num { grid-row: span 2; font-size: 22px; margin: 2px 0 0; }
-  #how .how__step h3 { font-size: 15.5px; margin-bottom: 2px; }
-  #how .how__step p { font-size: 13.5px; line-height: 1.55; }
+  #how .how__header { margin-bottom: 18px; }
+  #how .how__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  #how .how__step { padding: 14px 10px; text-align: center; }
+  #how .how__num { font-size: 20px; margin-bottom: 6px; }
+  #how .how__step h3 { font-size: 13.5px; line-height: 1.3; margin: 0; }
   #quote { padding-top: 20px; }
   #quote .quote-header--mobile { display: none; }
 }
@@ -6165,3 +6164,18 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
   .faq2 .faq-acc-body { padding: 0 16px 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .faq2 .faq-item-acc.open .faq-acc-body { animation: none; } }
+
+/* How It Works is titles only now: compact cards */
+#how .how__step { padding: 20px 22px; }
+#how .how__step h3 { margin-bottom: 0; }
+@media (min-width: 769px) {
+  #how .how__step { display: flex; align-items: center; gap: 14px; }
+  #how .how__num { margin: 0; }
+}
+@media (max-width: 768px) {
+  #how .how__step { padding: 14px 10px; display: block; }
+}
+/* Sections with short content size to their content instead of a full screen (no empty gaps) */
+#about, #club, #areas { min-height: 0; justify-content: flex-start; }
+/* The quote page starts at How It Works; the form section just follows it */
+#quote { min-height: 0; scroll-snap-align: none; }
