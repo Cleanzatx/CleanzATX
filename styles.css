@@ -6036,3 +6036,29 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .pk--yes { color: #16a34a; }
 .pk--no { color: #cbd5e1; }
 .price-card.plan-card { overflow: visible; }
+
+/* ---------- Every-device fixes (Z Fold cover screen, landscape phones, touch) ---------- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+a, button, input, select, textarea, label { touch-action: manipulation; }
+.areas__inner > * { min-width: 0; }
+.zip-find__row input { width: 100%; }
+.zip-find__row button { flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 359px) { .zip-find__row button { padding: 0 14px; letter-spacing: .08em; } }
+/* Slide dots stay small but get a finger-sized tap area */
+.hero__dot { position: relative; }
+.hero__dot::before { content: ""; position: absolute; inset: -10px -4px; }
+/* Pop-up never runs off a short screen (phone held sideways): it scrolls instead */
+.exit-popup { overflow-y: auto; }
+.exit-popup__box { max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; margin: auto; }
+@media (max-height: 520px) {
+  .exit-popup { padding: 12px; }
+  .exit-popup__box { padding: 22px 26px; }
+  .exit-popup__icon { display: none; }
+  .exit-popup__box p { margin-bottom: 14px; }
+}
+/* 4-column tables fit the narrowest phones */
+@media (max-width: 360px) {
+  .pg-table { font-size: 13px; }
+  .pg-table th, .pg-table td { padding: 10px 8px; }
+  .pg-table th { letter-spacing: .06em; font-size: 11px; }
+}
