@@ -497,7 +497,7 @@
   <link rel="preload" href="hero-photo.jpg" as="image" fetchpriority="high">
   <link rel="preload" as="image" href="img/hero/slide-1-sm.jpg" media="(max-width: 768px)">
   <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px)">
-  <link rel="stylesheet" href="styles.css?v=34" />
+  <link rel="stylesheet" href="styles.css?v=36" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -927,22 +927,22 @@
           <div class="qwiz__row qwiz__row--stay">
             <div class="qwiz__field">
               <label for="q-fname">Name</label>
-              <input type="text" id="q-fname" placeholder="First" required />
+              <input type="text" id="q-fname" placeholder="First" required autocomplete="given-name" />
             </div>
             <div class="qwiz__field">
               <label for="q-lname">&nbsp;</label>
-              <input type="text" id="q-lname" placeholder="Last" />
+              <input type="text" id="q-lname" placeholder="Last" autocomplete="family-name" />
             </div>
           </div>
 
           <div class="qwiz__row qwiz__row--stay">
             <div class="qwiz__field">
               <label for="q-phone">Phone</label>
-              <input type="tel" id="q-phone" placeholder="(512) 000-0000" required />
+              <input type="tel" id="q-phone" placeholder="(512) 000-0000" required autocomplete="tel-national" />
             </div>
             <div class="qwiz__field">
               <label for="q-email">Email <em>(optional)</em></label>
-              <input type="email" id="q-email" placeholder="you@email.com" />
+              <input type="email" id="q-email" placeholder="you@email.com" autocomplete="email" />
             </div>
           </div>
 
@@ -1445,7 +1445,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>if (window.emailjs) emailjs.init('pEcuEf_nmG3f4FLX1');</script>
-<script src="main.js?v=25"></script>
+<script src="main.js?v=27"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

@@ -636,7 +636,7 @@ function launchConfetti() {
   // Skip anyone already filling out (or done with) the quote form
   function busyWithQuote() {
     const fname = document.getElementById('q-fname');
-    return !!(qwiz && (qwiz.dataset.screenOffer === '1' || (fname && fname.value.trim()) ||
+    return !!(qwiz && (qwiz.dataset.screenOffer === '1' || (fname && fname.value.trim() && qwiz.dataset.prefilled !== '1') ||
       qwiz.querySelector('[data-panel="confirm"].active')));
   }
   function showPopup() {
@@ -1252,4 +1252,83 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
       if (sec) window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - navH, behavior: 'auto' });
     });
   }
+})();
+
+/* ---------- A refresh starts back at the top (links to a section, like /#quoteWizard, still land there) ---------- */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (!location.hash) window.scrollTo(0, 0);
+
+/* ---------- Returning visitors: the quote form remembers their details on this device ----------
+   Kept in localStorage (never sent anywhere until they submit) for 180 days.
+   "Not you? Clear my details" wipes it for shared devices. */
+(function () {
+  const KEY = 'cz_quote_details';
+  const MAX_AGE = 180 * 864e5;
+  const FIELDS = ['q-fname', 'q-lname', 'q-phone', 'q-email', 'q-address', 'q-sqft', 'q-property-type', 'q-stories'];
+  const qwiz = document.getElementById('quoteWizard');
+  if (!qwiz) return;
+  const field = id => document.getElementById(id);
+
+  function read() {
+    try {
+      const d = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (d && Date.now() - (d.at || 0) < MAX_AGE) return d;
+      localStorage.removeItem(KEY);
+    } catch (e) {}
+    return null;
+  }
+  let clearing = false;
+  function save() {
+    if (clearing) return;
+    const d = { at: Date.now() };
+    FIELDS.forEach(id => { const el = field(id); if (el && el.value.trim()) d[id] = el.value.trim(); });
+    if (Object.keys(d).length > 1) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
+  }
+
+  const saved = read();
+  if (saved) {
+    let filled = 0;
+    FIELDS.forEach(id => {
+      const el = field(id);
+      if (!el || el.value || saved[id] == null) return;
+      if (el.tagName === 'SELECT' && ![...el.options].some(o => o.value === saved[id])) return;
+      el.value = saved[id];
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      filled++;
+    });
+    if (filled) {
+      qwiz.dataset.prefilled = '1';
+      const note = document.createElement('div');
+      note.className = 'qwiz__saved';
+      const msg = document.createElement('span');
+      msg.textContent = saved['q-fname'] ? `Welcome back, ${saved['q-fname']}. We saved your details.` : 'Welcome back. We saved your details.';
+      const clear = document.createElement('button');
+      clear.type = 'button';
+      clear.textContent = 'Not you? Clear my details';
+      clear.addEventListener('click', () => {
+        try { localStorage.removeItem(KEY); } catch (e) {}
+        clearing = true;
+        FIELDS.forEach(id => {
+          const el = field(id);
+          if (!el) return;
+          el.value = el.tagName === 'SELECT' ? (el.options[0] ? el.options[0].value : '') : '';
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        clearing = false;
+        delete qwiz.dataset.prefilled;
+        note.remove();
+      });
+      note.append(msg, clear);
+      const strip = qwiz.querySelector('.qwiz__urgency');
+      if (strip) strip.after(note); else qwiz.prepend(note);
+    }
+  }
+  FIELDS.forEach(id => {
+    const el = field(id);
+    if (!el) return;
+    el.addEventListener('change', save);
+    el.addEventListener('blur', save);
+  });
+  const submit = field('q-submit');
+  if (submit) submit.addEventListener('click', save);
 })();

@@ -6104,3 +6104,64 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
   .hero.hero--slides .hero__ctas { margin-bottom: 28px; }
   .hero.hero--slides .hero__sub { margin-bottom: 22px; }
 }
+/* Quote form: returning visitor notice */
+.qwiz__saved { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 14px; padding: 9px 12px; border-radius: 6px; background: rgba(14,165,233,.1); color: #bae6fd; font-size: 13px; }
+.qwiz__saved button { background: none; border: 0; padding: 4px 0; color: #7dd3fc; font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+
+/* ---------- How It Works + quote form read as one page (Tyler, Nov 2) ----------
+   How It Works becomes a compact navy intro that flows straight into the form. */
+#how { min-height: 0; background: var(--navy); padding-bottom: 0; justify-content: flex-start; }
+#how .how__header { margin-bottom: 28px; }
+#how .how__title { color: #fff; }
+#how .how__step { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.09); padding: 22px 22px; }
+#how .how__num { font-size: 26px; margin-bottom: 10px; }
+#how .how__step h3 { color: #fff; font-size: 17px; }
+#how .how__step p { color: rgba(255,255,255,.65); font-size: 14.5px; }
+#how .how__cta { display: none; }
+#quote { padding-top: 36px; justify-content: flex-start; }
+@media (max-width: 768px) {
+  #how { padding-top: 44px; }
+  #how .how__header { margin-bottom: 20px; }
+  #how .how__steps { gap: 8px; }
+  #how .how__step { display: grid; grid-template-columns: 38px 1fr; column-gap: 12px; padding: 14px 16px; }
+  #how .how__num { grid-row: span 2; font-size: 22px; margin: 2px 0 0; }
+  #how .how__step h3 { font-size: 15.5px; margin-bottom: 2px; }
+  #how .how__step p { font-size: 13.5px; line-height: 1.55; }
+  #quote { padding-top: 20px; }
+  #quote .quote-header--mobile { display: none; }
+}
+
+/* ---------- FAQ: cleaner question cards ---------- */
+.faq2 .faq-item-acc,
+.faq2 .faq-item-acc:first-child {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin: 0 0 10px;
+  padding: 0;
+  transition: border-color .2s, box-shadow .2s;
+}
+.faq2 .faq-item-acc:hover { border-color: #bae6fd; }
+.faq2 .faq-item-acc.open { border-color: var(--sky); box-shadow: 0 10px 28px rgba(14,165,233,.12); }
+.faq2 .faq-acc-btn { padding: 18px 20px; font-size: 16px; font-weight: 700; line-height: 1.4; color: var(--navy); }
+.faq2 .faq-acc-icon {
+  width: 28px; height: 28px; flex: 0 0 28px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: var(--sky);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 600; line-height: 1;
+  transition: transform .25s, background .2s, color .2s;
+}
+.faq2 .faq-item-acc.open .faq-acc-icon { background: var(--sky); color: #fff; transform: rotate(45deg); }
+.faq2 .faq-acc-body { padding: 0 20px 18px; }
+.faq2 .faq-item-acc.open .faq-acc-body { animation: faqIn .25s ease; }
+@keyframes faqIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.faq2 .faq-acc-body p { color: #475569; font-size: 15px; line-height: 1.7; }
+.faq2 .faq-acc-body strong { color: var(--navy); }
+.faq2 .faq-acc-body a { color: #0284c7; font-weight: 600; }
+@media (max-width: 768px) {
+  .faq2 .faq-acc-btn { padding: 16px; font-size: 15px; }
+  .faq2 .faq-acc-body { padding: 0 16px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .faq2 .faq-item-acc.open .faq-acc-body { animation: none; } }
