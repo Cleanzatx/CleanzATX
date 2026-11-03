@@ -371,7 +371,7 @@ if (qwiz) {
       const screens = qwiz.querySelector('#q-service-tiles input[value="screens"]');
       if (screens && !screens.checked) screens.checked = true;
     }
-    const notes = [screenOffer ? 'FREE SCREEN CLEANING (claimed from the website pop-up)' : '', typedNotes].filter(Boolean).join(' | ');
+    const notes = [screenOffer ? 'FREE SCREENS OFFER claimed on the website (first window cleaning only)' : '', typedNotes].filter(Boolean).join(' | ');
 
     const missing = [];
     if (!firstName) missing.push('first name');
@@ -451,9 +451,12 @@ if (qwiz) {
           property_type: propertyType,
           sqft: sqft || '', stories: stories || '',
           referral, referrer, notes,
+          free_screens: screenOffer,
         }),
       }).catch(() => {});
     } catch (e) {}
+    // The quote now carries the free screens claim, so the pop-up lead is never sent
+    try { localStorage.removeItem('cz_screens_claim'); } catch (e) {}
 
     // GA4 — lead conversion (no price on the callback form, so no value)
     try {
@@ -657,6 +660,52 @@ function launchConfetti() {
   document.getElementById('exitPopupSkip')?.addEventListener('click', closePopup);
   popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
 
+  // A claimed number is held (in localStorage, 30 days) instead of sent right away.
+  // Finishing the quote form sends one combined Rotor lead and clears the claim.
+  // Leaving first (tab closed, app switched, or 10 minutes idle) sends the number
+  // alone as a free screens lead, so it can be followed up.
+  const CLAIM_KEY = 'cz_screens_claim';
+  function readClaim() {
+    try { return JSON.parse(localStorage.getItem(CLAIM_KEY) || 'null'); } catch (e) { return null; }
+  }
+  function writeClaim(c) { try { localStorage.setItem(CLAIM_KEY, JSON.stringify(c)); } catch (e) {} }
+  function sendClaimLead() {
+    const claim = readClaim();
+    if (!claim || claim.sent) return;
+    const body = JSON.stringify({ kind: 'screens', phone: claim.phone, sms_consent: true });
+    let ok = false;
+    try { ok = !!(navigator.sendBeacon && navigator.sendBeacon('/api/quote-lead', body)); } catch (e) {}
+    if (!ok) {
+      try { fetch('/api/quote-lead', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body }).catch(() => {}); } catch (e) {}
+    }
+    claim.sent = true;
+    writeClaim(claim);
+  }
+  let armed = false;
+  function armClaimLead() {
+    if (armed) return;
+    armed = true;
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') sendClaimLead(); });
+    window.addEventListener('pagehide', sendClaimLead);
+    setTimeout(sendClaimLead, 10 * 60 * 1000);
+  }
+  function applyClaim(phone) {
+    if (!qwiz) return;
+    qwiz.dataset.screenOffer = '1';
+    const qPhone = document.getElementById('q-phone');
+    if (qPhone && !qPhone.value) qPhone.value = phone;
+    const winCat = qwiz.querySelector('#q-service-cats input[value="window_cleaning"]');
+    if (winCat && !winCat.checked) { winCat.checked = true; winCat.dispatchEvent(new Event('change')); }
+    const screens = qwiz.querySelector('#q-service-tiles input[value="screens"]');
+    if (screens) screens.checked = true;
+    const strip = qwiz.querySelector('.qwiz__urgency');
+    if (strip) strip.innerHTML = '<span>🎁 <strong>Free screen cleaning added</strong> to your quote</span>';
+  }
+  // Returning visitor with a claim: keep the offer on their quote
+  const saved = readClaim();
+  if (saved && Date.now() - (saved.at || 0) > 30 * 864e5) { try { localStorage.removeItem(CLAIM_KEY); } catch (e) {} }
+  else if (saved && saved.phone) { applyClaim(saved.phone); if (!saved.sent) armClaimLead(); }
+
   phoneEl.addEventListener('input', () => {
     let d = phoneEl.value.replace(/\D/g, '').slice(0, 10);
     if (d.length >= 7) d = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
@@ -671,32 +720,13 @@ function launchConfetti() {
     const phone = phoneEl.value.trim();
     if (phone.replace(/\D/g, '').length !== 10) { errEl.hidden = false; phoneEl.focus(); return; }
 
-    // Save the number to Rotor right away (name filled in later if they finish the quote)
-    try {
-      fetch('/api/quote-lead', {
-        method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: 'Website visitor (free screens pop-up)', phone, sms_consent: true,
-          services: ['Screen Cleaning (free offer)'],
-          notes: 'Claimed FREE SCREEN CLEANING from the website pop-up. Has not finished the quote form yet.',
-        }),
-      }).catch(() => {});
-    } catch (err) {}
+    writeClaim({ phone, at: Date.now(), sent: false });
+    armClaimLead();
     if (typeof gtag === 'function') gtag('event', 'screen_offer_claim');
     if (window.czAdsConversion) window.czAdsConversion('screens', { phone });
 
     // Carry it into their quote: number filled in, window cleaning + screens selected
-    if (qwiz) {
-      qwiz.dataset.screenOffer = '1';
-      const qPhone = document.getElementById('q-phone');
-      if (qPhone && !qPhone.value) qPhone.value = phone;
-      const winCat = qwiz.querySelector('#q-service-cats input[value="window_cleaning"]');
-      if (winCat && !winCat.checked) { winCat.checked = true; winCat.dispatchEvent(new Event('change')); }
-      const screens = qwiz.querySelector('#q-service-tiles input[value="screens"]');
-      if (screens) screens.checked = true;
-      const strip = qwiz.querySelector('.qwiz__urgency');
-      if (strip) strip.innerHTML = '<span>🎁 <strong>Free screen cleaning added</strong> to your quote</span>';
-    }
+    applyClaim(phone);
     closePopup();
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
     if (qwiz) window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });

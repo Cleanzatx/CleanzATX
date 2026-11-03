@@ -6025,3 +6025,14 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .pg-jump a { padding: 8px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 100px; color: rgba(255,255,255,.8); font-size: 13px; text-decoration: none; }
 .pg-jump a:hover { border-color: var(--sky); color: #fff; }
 .prices__fine a { color: var(--sky); }
+
+/* ---------- Plans: perk comparison table ---------- */
+.pg-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 6px; }
+.pg-table--perks { min-width: 620px; }
+.pg-table--perks th:not(:first-child), .pg-table--perks td:not(:first-child) { text-align: center; }
+.pg-table--perks td { font-weight: 700; color: var(--navy); }
+.pg-table--perks td:first-child { font-weight: 600; }
+.pk { font-size: 17px; line-height: 1; }
+.pk--yes { color: #16a34a; }
+.pk--no { color: #cbd5e1; }
+.price-card.plan-card { overflow: visible; }
