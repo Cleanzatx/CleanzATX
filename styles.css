@@ -6360,16 +6360,10 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 .gt-card[hidden] { display: none; }
 .gt-ba { --pos: 50%; position: relative; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; box-shadow: 0 10px 26px rgba(12,26,46,.12); background: #e2e8f0; }
 .gt-ba:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
-.gt-ba__after, .gt-ba__before { position: absolute; inset: 0; background-image: var(--img); background-repeat: no-repeat; }
-/* side by side photos: each half fills the tile, trimming the white frame */
-.gt-ba--side .gt-ba__before, .gt-ba--side .gt-ba__after { background-size: 216% auto; }
-.gt-ba--side .gt-ba__before { background-position: 3.4% 50%; }
-.gt-ba--side .gt-ba__after { background-position: 96.6% 50%; }
-/* stacked photos (top before, bottom after) */
-.gt-ba--stack { aspect-ratio: 2 / 1; }
-.gt-ba--stack .gt-ba__before, .gt-ba--stack .gt-ba__after { background-size: 104% auto; }
-.gt-ba--stack .gt-ba__before { background-position: 50% 1%; }
-.gt-ba--stack .gt-ba__after { background-position: 50% 99%; }
+/* each pair is two photos lined up pixel for pixel; both are cropped the same way so they stay aligned */
+.gt-ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; -webkit-user-drag: none; }
+.gt-ba--tall { aspect-ratio: 3 / 4; }
+.gt-ba--wide { aspect-ratio: 2 / 1; }
 .gt-ba__before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .gt-ba__handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,.35); pointer-events: none; }
 .gt-ba__handle span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; letter-spacing: 2px; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
@@ -6381,9 +6375,22 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 .gt-card figcaption span { color: #64748b; font-size: 13px; }
 .gt-card figcaption em { font-style: normal; color: var(--sky); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 1000px) { .gt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* pairs shot from different angles: shown side by side instead of a slider */
+.gt-two { display: grid; gap: 4px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 26px rgba(12,26,46,.12); }
+.gt-two--tall { grid-template-columns: 1fr 1fr; }
+.gt-two > div { position: relative; }
+.gt-two img { display: block; width: 100%; height: auto; object-fit: cover; }
+.gt-two--tall img { aspect-ratio: 3 / 5; }
+.gt-two--wide img { aspect-ratio: 2 / 1; }
+.gt-two .gt-ba__tag--after { left: auto; right: 10px; }
 @media (max-width: 600px) {
   .gt-grid { grid-template-columns: 1fr; gap: 26px; }
-  .gt-ba--side { aspect-ratio: 1 / 1; }
 }
 /* the page scrolls on <html>, so the filter bar can stick under the header */
 @supports (overflow: clip) { html:has(body.gt-page), body.gt-page { overflow-x: clip; overflow-y: visible; } }
+
+/* ---------- Header slideshow: full-size landscape photos on computer screens (Nov 2) ----------
+   The portrait crops were being stretched to fill wide screens, which made them soft. */
+@media (min-width: 769px) and (min-aspect-ratio: 1/1) {
+  .hero__slide.loaded { background-image: var(--bg-xl, var(--bg-lg)); }
+}

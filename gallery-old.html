@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL4RJE3056"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QL4RJE3056');
+    gtag('config', 'AW-11122883575', { allow_enhanced_conversions: true });
+  </script>
+  <script src="/analytics.js?v=4" defer></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before & After Photo Gallery | CleanzATX Window & Exterior Cleaning</title>
+  <meta name="description" content="See real before & after results from CleanzATX, windows, stone walls, driveways, roofs, patios and more. Serving Lakeway, Bee Cave & Lake Travis, TX.">
+  <!-- Previous gallery design, kept so it can be restored (Nov 2 2026) -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.cleanzatx.com/gallery">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Before & After Photo Gallery | CleanzATX">
+  <meta property="og:description" content="Real before & after results from window cleaning, pressure washing, soft wash, and more in the Austin TX area.">
+  <meta property="og:url" content="https://www.cleanzatx.com/gallery">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.cleanzatx.com/gallery/stone-6.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/styles.css?v=3" />
+
+  <style>
+    /* ===== GALLERY PAGE STYLES ===== */
+    .gpage-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      padding: 100px 0 60px;
+      text-align: center;
+      color: #fff;
+    }
+    .gpage-hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .gpage-hero p {
+      font-size: 1.1rem;
+      opacity: .8;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    .gpage-hero .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2fa8e0;
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background .2s;
+    }
+    .gpage-hero .hero-cta:hover { background: #1a8fc7; }
+
+    /* Filter bar */
+    .gpage-filters {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 64px;
+      z-index: 100;
+      padding: 14px 0;
+    }
+    .gpage-filters__inner {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .gf-btn {
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1.5px solid #d1d5db;
+      background: #fff;
+      color: #374151;
+      font-size: .875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .gf-btn:hover { border-color: #2fa8e0; color: #2fa8e0; }
+    .gf-btn.active { background: #2fa8e0; border-color: #2fa8e0; color: #fff; }
+
+    /* Grid */
+    .gpage-grid-section {
+      background: #f8fafc;
+      padding: 48px 0 72px;
+    }
+    .gpage-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      columns: 3;
+      column-gap: 16px;
+    }
+    @media (max-width: 900px) { .gpage-grid { columns: 2; } }
+    @media (max-width: 520px) { .gpage-grid { columns: 1; } }
+
+    .gpage-card {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      position: relative;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .gpage-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.14);
+    }
+    .gpage-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gpage-card__info {
+      padding: 12px 14px 14px;
+    }
+    .gpage-card__title {
+      font-weight: 700;
+      font-size: .95rem;
+      color: #111827;
+      margin-bottom: 3px;
+    }
+    .gpage-card__sub {
+      font-size: .8rem;
+      color: #6b7280;
+    }
+    .gpage-card__badges {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      gap: 5px;
+    }
+    .gpb {
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .gpb--before { background: rgba(239,68,68,.85); color: #fff; }
+    .gpb--after  { background: rgba(34,197,94,.85);  color: #fff; }
+
+    /* Category label chip */
+    .gpage-card__cat {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    /* Lightbox */
+    .glb {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .glb.open { display: flex; }
+    .glb__img {
+      max-width: min(90vw, 900px);
+      max-height: 85vh;
+      border-radius: 12px;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .glb__close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      z-index: 10000;
+    }
+    .glb__caption {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.7);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: .9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .glb__prev, .glb__next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.15);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 12px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 10000;
+      transition: background .15s;
+    }
+    .glb__prev:hover, .glb__next:hover { background: rgba(255,255,255,.28); }
+    .glb__prev { left: 16px; }
+    .glb__next { right: 16px; }
+
+    /* Hidden items */
+    .gpage-card.gf-hidden { display: none; }
+
+    /* Count badge */
+    .gpage-count {
+      text-align: center;
+      color: #6b7280;
+      font-size: .875rem;
+      margin-bottom: 24px;
+    }
+
+    /* CTA strip at bottom */
+    .gpage-cta {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .gpage-cta h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .gpage-cta p { opacity: .8; margin-bottom: 28px; font-size: 1rem; }
+    .gpage-cta .btn--primary {
+      display: inline-block;
+      background: #2fa8e0;
+      color: #fff;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .gpage-cta .btn--primary:hover { background: #1a8fc7; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="/logo.png" alt="Cleanz ATX: Exterior Cleaning Experts" class="nav__logo-img" width="120" height="40" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#why-us">Why Us</a></li>
+        <li><a href="/#reviews">Reviews</a></li>
+        <li><a href="/#areas">Areas</a></li>
+        <li><a href="tel:5125180512" class="nav__phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (512) 518-0512
+        </a></li>
+        <li><a href="/#quote" class="btn btn--nav">Free Quote</a></li>
+      </ul>
+      <button class="nav__burger" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="/#services">Services</a>
+      <a href="/#about">About</a>
+      <a href="/#why-us">Why Us</a>
+      <a href="/#reviews">Reviews</a>
+      <a href="/#areas">Service Areas</a>
+      <a href="tel:5125180512">Call (512) 518-0512</a>
+      <a href="/#quote" class="btn btn--primary">Get a Free Quote</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="gpage-hero">
+    <h1>Before &amp; After Gallery</h1>
+    <p>Real results from real Austin area homes. Every photo is from an actual CleanzATX job.</p>
+    <a href="/#quote" class="hero-cta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Get Your Free Quote
+    </a>
+  </section>
+
+  <!-- ===== FILTER BAR ===== -->
+  <div class="gpage-filters">
+    <div class="gpage-filters__inner">
+      <button class="gf-btn active" data-filter="all">All (23)</button>
+      <button class="gf-btn" data-filter="windows">Windows</button>
+      <button class="gf-btn" data-filter="stone">Stone &amp; Exterior</button>
+      <button class="gf-btn" data-filter="driveways">Driveways</button>
+      <button class="gf-btn" data-filter="patios">Patios &amp; Decks</button>
+      <button class="gf-btn" data-filter="roofs">Roofs</button>
+      <button class="gf-btn" data-filter="screens">Screens</button>
+    </div>
+  </div>
+
+  <!-- ===== PHOTO GRID ===== -->
+  <section class="gpage-grid-section">
+    <p class="gpage-count" id="gpageCount">Showing all 23 photos</p>
+    <div class="gpage-grid" id="gpageGrid">
+
+      <!-- WINDOWS -->
+      <div class="gpage-card" data-cat="windows" data-title="Interior Window Clean" data-sub="Austin, TX · Mineral deposits removed">
+        <img src="/gallery/window-2.jpg" alt="Interior window cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Windows</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Interior Window Clean</div>
+          <div class="gpage-card__sub">Austin, TX · Mineral deposits removed</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="windows" data-title="Exterior Window Clean" data-sub="Austin, TX · Streak free finish">
+        <img src="/gallery/window-3.jpg" alt="Exterior window cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Windows</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Exterior Window Clean</div>
+          <div class="gpage-card__sub">Austin, TX · Streak free finish</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="windows" data-title="Double Windows on Brick" data-sub="Austin, TX · Full frame &amp; glass clean">
+        <img src="/gallery/window-4.jpg" alt="Tall double windows on brick home cleaned before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Windows</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Double Windows on Brick</div>
+          <div class="gpage-card__sub">Austin, TX · Full frame &amp; glass clean</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="windows" data-title="Glass Garage Door" data-sub="Austin, TX · Full glass panel clean">
+        <img src="/gallery/garage-2.jpg" alt="Glass garage door window cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Windows</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Glass Garage Door</div>
+          <div class="gpage-card__sub">Austin, TX · Full glass panel clean</div>
+        </div>
+      </div>
+
+      <!-- SCREENS -->
+      <div class="gpage-card" data-cat="screens" data-title="Window Screen Deep Clean" data-sub="Austin, TX · Dust &amp; grime removed">
+        <img src="/gallery/screen-1.jpg" alt="Window screen cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Screens</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Window Screen Deep Clean</div>
+          <div class="gpage-card__sub">Austin, TX · Dust &amp; grime removed</div>
+        </div>
+      </div>
+
+      <!-- STONE & EXTERIOR -->
+      <div class="gpage-card" data-cat="stone" data-title="Stone Column, Algae Removal" data-sub="Lakeway, TX · Algae &amp; buildup cleared">
+        <img src="/gallery/stone-1.jpg" alt="Stone column algae and buildup removal before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Stone Column, Algae Removal</div>
+          <div class="gpage-card__sub">Lakeway, TX · Algae &amp; buildup cleared</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="Stone Stairway" data-sub="Bee Cave, TX · Years of grime removed">
+        <img src="/gallery/stone-2.jpg" alt="Stone stairway cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Stone Stairway</div>
+          <div class="gpage-card__sub">Bee Cave, TX · Years of grime removed</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="Estate Limestone Wall" data-sub="West Lake Hills, TX · Full soft wash">
+        <img src="/gallery/stone-5.jpg" alt="Large estate limestone retaining wall cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Estate Limestone Wall</div>
+          <div class="gpage-card__sub">West Lake Hills, TX · Full soft wash</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="Stone Home Exterior" data-sub="Austin, TX · Mold &amp; buildup removed">
+        <img src="/gallery/stone-6.jpg" alt="Stone home exterior corner cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Stone Home Exterior</div>
+          <div class="gpage-card__sub">Austin, TX · Mold &amp; buildup removed</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="Stone Wall, Algae Removal" data-sub="Austin, TX · Green algae cleared">
+        <img src="/gallery/stone-7.jpg" alt="Stone wall corner algae and moss removal before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Stone Wall, Algae Removal</div>
+          <div class="gpage-card__sub">Austin, TX · Green algae cleared</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="Flagstone Courtyard" data-sub="Austin, TX · Deep stone clean">
+        <img src="/gallery/stone-8.jpg" alt="Flagstone pathway and courtyard cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Flagstone Courtyard</div>
+          <div class="gpage-card__sub">Austin, TX · Deep stone clean</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="Limestone Retaining Wall" data-sub="Austin, TX · Weathering reversed">
+        <img src="/gallery/stone-9.jpg" alt="Limestone retaining wall pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Stone</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Limestone Retaining Wall</div>
+          <div class="gpage-card__sub">Austin, TX · Weathering reversed</div>
+        </div>
+      </div>
+
+      <!-- EXTERIOR WASH -->
+      <div class="gpage-card" data-cat="stone" data-title="Travertine Pool Deck" data-sub="Lakeway, TX · Full deck restoration">
+        <img src="/gallery/wash-1.jpg" alt="Travertine pool deck pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Exterior</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Travertine Pool Deck</div>
+          <div class="gpage-card__sub">Lakeway, TX · Full deck restoration</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="House Front Soft Wash" data-sub="Cedar Park, TX · Full facade restored">
+        <img src="/gallery/wash-2.jpg" alt="Stone house front facade soft wash before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Exterior</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">House Front Soft Wash</div>
+          <div class="gpage-card__sub">Cedar Park, TX · Full facade restored</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="stone" data-title="House Siding Soft Wash" data-sub="Austin, TX · Black streaks removed">
+        <img src="/gallery/wash-4.jpg" alt="House siding soft wash before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Exterior</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">House Siding Soft Wash</div>
+          <div class="gpage-card__sub">Austin, TX · Black streaks removed</div>
+        </div>
+      </div>
+
+      <!-- DRIVEWAYS -->
+      <div class="gpage-card" data-cat="driveways" data-title="Brick Paver Driveway" data-sub="Bee Cave, TX · Joint cleaning included">
+        <img src="/gallery/driveway-1.jpg" alt="Brick paver driveway pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Driveways</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Brick Paver Driveway</div>
+          <div class="gpage-card__sub">Bee Cave, TX · Joint cleaning included</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="driveways" data-title="Concrete Driveway &amp; Patio" data-sub="Austin, TX · Grime &amp; stains lifted">
+        <img src="/gallery/driveway-2.jpg" alt="Curved concrete driveway and patio pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Driveways</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Concrete Driveway &amp; Patio</div>
+          <div class="gpage-card__sub">Austin, TX · Grime &amp; stains lifted</div>
+        </div>
+      </div>
+
+      <!-- PATIOS & DECKS -->
+      <div class="gpage-card" data-cat="patios" data-title="Rooftop Travertine Patio" data-sub="Westlake Hills, TX · Algae &amp; stain removal">
+        <img src="/gallery/patio-1.jpg" alt="Rooftop travertine patio pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Patios</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Rooftop Travertine Patio</div>
+          <div class="gpage-card__sub">Westlake Hills, TX · Algae &amp; stain removal</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="patios" data-title="Flagstone Entrance" data-sub="Austin, TX · Stone color restored">
+        <img src="/gallery/patio-2.jpg" alt="Flagstone entrance walkway pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Patios</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Flagstone Entrance</div>
+          <div class="gpage-card__sub">Austin, TX · Stone color restored</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="patios" data-title="Flagstone Backyard Patio" data-sub="Austin, TX · Fire pit area refreshed">
+        <img src="/gallery/patio-3.jpg" alt="Flagstone backyard patio cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Patios</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Flagstone Backyard Patio</div>
+          <div class="gpage-card__sub">Austin, TX · Fire pit area refreshed</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="patios" data-title="Wood Deck" data-sub="Austin, TX · Mold &amp; discoloration removed">
+        <img src="/gallery/deck-1.jpg" alt="Wood deck pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Decks</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Wood Deck</div>
+          <div class="gpage-card__sub">Austin, TX · Mold &amp; discoloration removed</div>
+        </div>
+      </div>
+
+      <div class="gpage-card" data-cat="patios" data-title="Garage Floor" data-sub="Bee Cave, TX · Oil &amp; grime removed">
+        <img src="/gallery/garage-1.jpg" alt="Garage floor pressure washing before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Garage</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Garage Floor</div>
+          <div class="gpage-card__sub">Bee Cave, TX · Oil &amp; grime removed</div>
+        </div>
+      </div>
+
+      <!-- ROOFS -->
+      <div class="gpage-card" data-cat="roofs" data-title="Clay Tile Roof" data-sub="Austin, TX · Safe low pressure wash">
+        <img src="/gallery/roof-1.jpg" alt="Clay tile roof soft wash cleaning before and after" loading="lazy" width="800" height="600" />
+        <div class="gpage-card__badges"><span class="gpb gpb--before">Before</span><span class="gpb gpb--after">After</span></div>
+        <span class="gpage-card__cat">Roofs</span>
+        <div class="gpage-card__info">
+          <div class="gpage-card__title">Clay Tile Roof</div>
+          <div class="gpage-card__sub">Austin, TX · Safe low pressure wash</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CTA STRIP ===== -->
+  <section class="gpage-cta">
+    <h2>Ready to See These Results at Your Home?</h2>
+    <p>Get a free instant quote online. It takes less than a minute.</p>
+    <a href="/#quote" class="btn--primary">Get My Free Quote →</a>
+  </section>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="glb" id="glb" role="dialog" aria-modal="true">
+    <button class="glb__close" id="glbClose" aria-label="Close">✕</button>
+    <button class="glb__prev" id="glbPrev" aria-label="Previous">&#8592;</button>
+    <img class="glb__img" id="glbImg" src="" alt="" />
+    <button class="glb__next" id="glbNext" aria-label="Next">&#8594;</button>
+    <div class="glb__caption" id="glbCaption"></div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__main">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/logo.png" alt="CleanzATX: Exterior Cleaning Experts" width="120" height="40" loading="lazy" />
+        </a>
+        <p>Lakeway's locally owned residential window cleaning service. Locally owned, fully insured, streak free results since 2020.</p>
+        <div class="footer__rating">
+          <span class="fr-stars">★★★★★</span>
+          <span>5.0 · 210 Google Reviews</span>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/#services">Residential Window Cleaning</a></li>
+          <li><a href="/#services">Recurring Maintenance Plans</a></li>
+          <li><a href="/#services">Soft Wash</a></li>
+          <li><a href="/#services">Pressure Washing</a></li>
+          <li><a href="/#services">Screen &amp; Track Cleaning</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Service Areas</h4>
+        <ul>
+          <li><a href="/window-cleaning-lakeway">Lakeway</a></li>
+          <li><a href="/window-cleaning-bee-cave">Bee Cave</a></li>
+          <li><a href="/window-cleaning-lake-travis">Lake Travis</a></li>
+          <li><a href="/window-cleaning-hudson-bend">Hudson Bend</a></li>
+          <li><a href="/window-cleaning-steiner-ranch">Steiner Ranch</a></li>
+          <li><a href="/window-cleaning-four-points">Four Points</a></li>
+          <li><a href="/window-cleaning-westlake-hills">Westlake Hills</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li>1020 Challenger<br />Lakeway, TX 78734</li>
+          <li><a href="tel:5125180512">(512) 518-0512</a></li>
+          <li><a href="mailto:cleanzatx@gmail.com">cleanzatx@gmail.com</a></li>
+          <li><a href="https://g.page/r/CY99SBD__mRZEBM/review" target="_blank" rel="noopener">⭐ Leave a Review</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <span>© 2026 DURMGENERAL LLC. CleanzAtx is a DBA of DURMGENERAL LLC. All rights reserved.</span>
+        <span>Licensed &amp; Insured · $1M Liability Coverage</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== NAV burger ===== */
+    const burgerBtn = document.getElementById('burger');
+    const mobileMenuEl = document.getElementById('mobileMenu');
+    burgerBtn.addEventListener('click', () => {
+      const open = mobileMenuEl.classList.toggle('open');
+      burgerBtn.classList.toggle('open', open);
+      burgerBtn.setAttribute('aria-expanded', open);
+    });
+    // Close on nav link click
+    mobileMenuEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenuEl.classList.remove('open');
+        burgerBtn.classList.remove('open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ===== Filter logic ===== */
+    const cards = Array.from(document.querySelectorAll('.gpage-card'));
+    const countEl = document.getElementById('gpageCount');
+
+    document.querySelectorAll('.gf-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visible = 0;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.cat === filter;
+          card.classList.toggle('gf-hidden', !match);
+          if (match) visible++;
+        });
+        countEl.textContent = filter === 'all'
+          ? `Showing all ${visible} photos`
+          : `Showing ${visible} photo${visible !== 1 ? 's' : ''}`;
+      });
+    });
+
+    /* ===== Lightbox ===== */
+    const lb = document.getElementById('glb');
+    const lbImg = document.getElementById('glbImg');
+    const lbCap = document.getElementById('glbCaption');
+    let lbIndex = 0;
+    let lbCards = [];
+
+    function openLightbox(card) {
+      lbCards = cards.filter(c => !c.classList.contains('gf-hidden'));
+      lbIndex = lbCards.indexOf(card);
+      showLb(lbIndex);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showLb(i) {
+      const c = lbCards[i];
+      lbImg.src = c.querySelector('img').src;
+      lbImg.alt = c.querySelector('img').alt;
+      lbCap.textContent = c.dataset.title + ' · ' + c.dataset.sub;
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => openLightbox(card));
+    });
+
+    document.getElementById('glbClose').addEventListener('click', () => {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    lb.addEventListener('click', e => {
+      if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+    document.getElementById('glbPrev').addEventListener('click', () => {
+      lbIndex = (lbIndex - 1 + lbCards.length) % lbCards.length;
+      showLb(lbIndex);
+    });
+    document.getElementById('glbNext').addEventListener('click', () => {
+      lbIndex = (lbIndex + 1) % lbCards.length;
+      showLb(lbIndex);
+    });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbCards.length) % lbCards.length; showLb(lbIndex); }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbCards.length; showLb(lbIndex); }
+      if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+  </script>
+
+</body>
+</html>

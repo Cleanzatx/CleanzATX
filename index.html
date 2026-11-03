@@ -496,8 +496,9 @@
   <link rel="icon" href="logo.png" type="image/png">
   <link rel="preload" href="hero-photo.jpg" as="image" fetchpriority="high">
   <link rel="preload" as="image" href="img/hero/slide-1-sm.jpg" media="(max-width: 768px)">
-  <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px)">
-  <link rel="stylesheet" href="styles.css?v=44" />
+  <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px) and (max-aspect-ratio: 1/1)">
+  <link rel="preload" as="image" href="img/hero/slide-1-xl.jpg" media="(min-width: 769px) and (min-aspect-ratio: 1/1)">
+  <link rel="stylesheet" href="styles.css?v=45" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -553,12 +554,12 @@
   <section class="hero hero--slides" id="home">
     <!-- Background slideshow: crossfade every 6s, each photo eases out from a slight zoom -->
     <div class="hero__slides">
-      <div class="hero__slide active loaded" style="--bg-sm:url('img/hero/slide-1-sm.jpg');--bg-lg:url('img/hero/slide-1-lg.jpg')" role="img" aria-label="Water fed pole window cleaning on a modern Lake Travis home"></div>
-      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-2-sm.jpg');--bg-lg:url('img/hero/slide-2-lg.jpg')" role="img" aria-label="CleanzATX F-250 work truck at a Lake Travis area estate"></div>
-      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-3-sm.jpg');--bg-lg:url('img/hero/slide-3-lg.jpg')" role="img" aria-label="Interior window cleaning with a Hill Country view"></div>
-      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-4-sm.jpg');--bg-lg:url('img/hero/slide-4-lg.jpg')" role="img" aria-label="CleanzATX pure water and pressure washing truck rig"></div>
-      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-5-sm.jpg');--bg-lg:url('img/hero/slide-5-lg.jpg')" role="img" aria-label="Water fed pole cleaning third story windows on a stone home"></div>
-      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-6-sm.jpg');--bg-lg:url('img/hero/slide-6-lg.jpg')" role="img" aria-label="CleanzATX truck in downtown Austin"></div>
+      <div class="hero__slide active loaded" style="--bg-sm:url('img/hero/slide-1-sm.jpg');--bg-lg:url('img/hero/slide-1-lg.jpg');--bg-xl:url('img/hero/slide-1-xl.jpg')" role="img" aria-label="Water fed pole window cleaning on a modern Lake Travis home"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-2-sm.jpg');--bg-lg:url('img/hero/slide-2-lg.jpg');--bg-xl:url('img/hero/slide-2-xl.jpg')" role="img" aria-label="CleanzATX F-250 work truck at a Lake Travis area estate"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-3-sm.jpg');--bg-lg:url('img/hero/slide-3-lg.jpg');--bg-xl:url('img/hero/slide-3-xl.jpg')" role="img" aria-label="Interior window cleaning with a Hill Country view"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-4-sm.jpg');--bg-lg:url('img/hero/slide-4-lg.jpg');--bg-xl:url('img/hero/slide-4-xl.jpg')" role="img" aria-label="CleanzATX pure water and pressure washing truck rig"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-5-sm.jpg');--bg-lg:url('img/hero/slide-5-lg.jpg');--bg-xl:url('img/hero/slide-5-xl.jpg')" role="img" aria-label="Water fed pole cleaning third story windows on a stone home"></div>
+      <div class="hero__slide" style="--bg-sm:url('img/hero/slide-6-sm.jpg');--bg-lg:url('img/hero/slide-6-lg.jpg');--bg-xl:url('img/hero/slide-6-xl.jpg')" role="img" aria-label="CleanzATX truck in downtown Austin"></div>
     </div>
     <div class="hero__dots" aria-label="Slideshow navigation">
       <button type="button" class="hero__dot active" aria-label="Photo 1"></button>

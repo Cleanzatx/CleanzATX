@@ -2,11 +2,40 @@
   "cleanUrls": true,
   "rewrites": [],
   "redirects": [
-    { "source": "/home", "destination": "/", "statusCode": 301 },
-    { "source": "/home/", "destination": "/", "statusCode": 301 },
-    { "source": "/why-house-washing-can-help-you-sell-your-home-faster", "destination": "/", "statusCode": 301 },
-    { "source": "/why-house-washing-can-help-you-sell-your-home-faster/", "destination": "/", "statusCode": 301 },
-    { "source": "/barton-creek-texas", "destination": "/window-cleaning-westlake-hills", "statusCode": 301 },
-    { "source": "/barton-creek-texas/", "destination": "/window-cleaning-westlake-hills", "statusCode": 301 }
+    {
+      "source": "/home",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/why-house-washing-can-help-you-sell-your-home-faster",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/why-house-washing-can-help-you-sell-your-home-faster/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/barton-creek-texas",
+      "destination": "/window-cleaning-westlake-hills",
+      "statusCode": 301
+    },
+    {
+      "source": "/barton-creek-texas/",
+      "destination": "/window-cleaning-westlake-hills",
+      "statusCode": 301
+    },
+    {
+      "source": "/gallery-test",
+      "destination": "/gallery",
+      "statusCode": 301
+    }
   ]
 }
