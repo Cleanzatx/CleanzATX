@@ -1321,9 +1321,11 @@ if (!location.hash) window.scrollTo(0, 0);
 
 /* ---------- Reviews and before & after rows: continuous scroll that phones can draw ----------
    The CSS version slid one ~7,000px strip with a transform; iPhones stop painting a layer that wide,
-   so cards vanished and photos stayed blank. Here each row scrolls its own box a little every frame
-   and wraps after one copy of the cards, so it loops forever. Rows only run while on screen, and
-   their photos are told to load just before the row is reached. */
+   so cards vanished and photos stayed blank. Scrolling the box instead fixed that, but iPhones only
+   scroll in whole pixels, so at this speed the row stepped (tick, tick) instead of gliding. Now every
+   card is moved on its own by the same fraction-of-a-pixel offset each frame: each card is a small
+   layer phones draw fine, and the motion is smooth. The row wraps after one copy of the cards, so it
+   loops forever. Rows only run while on screen, and their photos load just before the row is reached. */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const rows = [...document.querySelectorAll('.marquee')].filter(m => m.querySelector('.marquee__group'));
@@ -1332,6 +1334,7 @@ if (!location.hash) window.scrollTo(0, 0);
   const state = rows.map(el => ({
     el,
     group: el.querySelector('.marquee__group'),
+    items: [...el.querySelectorAll('.marquee__group > *')],
     reverse: el.classList.contains('marquee--rev'),
     pos: 0,
     on: false,
@@ -1353,7 +1356,8 @@ if (!location.hash) window.scrollTo(0, 0);
       const w = s.group.getBoundingClientRect().width;
       if (!w) return;
       s.pos = (s.pos + speed() * dt) % w;
-      s.el.scrollLeft = s.reverse ? w - s.pos : s.pos;
+      const t = `translate3d(${(s.reverse ? s.pos - w : -s.pos).toFixed(2)}px,0,0)`;
+      for (const it of s.items) it.style.transform = t;
     });
     requestAnimationFrame(frame);
   }

@@ -6,3 +6,4 @@ cleanzatx-tracker/
 .claude/
 server.py
 .env.example
+_neighborhood-template/
