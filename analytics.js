@@ -9,7 +9,7 @@
    An empty label means that conversion isn't set up yet, so nothing is sent. */
 window.CZ_ADS = {
   id: 'AW-11122883575',
-  labels: { lead: '', call: '', screens: '' },
+  labels: { lead: 'MwkgCKiO_rAdEPf35rcp', call: 'DfCpCK6O_rAdEPf35rcp', screens: 'i9B-CKuO_rAdEPf35rcp' },
 };
 
 // Enhanced conversions: the visitor's phone/email (Google hashes it before sending)
