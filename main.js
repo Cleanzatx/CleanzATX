@@ -225,7 +225,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href').slice(1);
     if (!id) return;
-    const target = document.getElementById(id);
+    // Quote buttons open the whole quote section as its own screen
+    const target = document.getElementById(id === 'quoteWizard' ? 'quote' : id) || document.getElementById(id);
     if (!target) return;
     e.preventDefault();
     const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
@@ -729,7 +730,8 @@ function launchConfetti() {
     applyClaim(phone);
     closePopup();
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-    if (qwiz) window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+    const quoteSec = document.getElementById('quote') || qwiz;
+    if (quoteSec) window.scrollTo({ top: quoteSec.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
   });
 })();
 
@@ -778,7 +780,8 @@ document.querySelectorAll('.club__plan[data-plan]').forEach(btn => {
     const qwiz = document.getElementById('quoteWizard');
     if (!qwiz) return;
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-    window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+    const quoteSec = document.getElementById('quote') || qwiz;
+    window.scrollTo({ top: quoteSec.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
   });
 });
 
@@ -1226,4 +1229,27 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
   window.addEventListener('resize', measure);
   measure();
   if (setWidth > 0) start();
+})();
+
+/* ---------- Full-screen pages: size the strips that share a screen with a section ---------- */
+(function () {
+  const root = document.documentElement;
+  function measure() {
+    const h = sel => { const el = document.querySelector(sel); return el ? Math.round(el.getBoundingClientRect().height) : 0; };
+    root.style.setProperty('--trust-h', h('.trust-bar') + 'px');
+    root.style.setProperty('--marquee-h', h('.trust-marquee') + 'px');
+    const bar = document.getElementById('mobileCtaBar');
+    root.style.setProperty('--cta-h', (bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0) + 'px');
+  }
+  measure();
+  window.addEventListener('load', measure);
+  window.addEventListener('resize', measure);
+  // Links from other pages (/#quoteWizard) land on the full quote section too
+  if (location.hash === '#quoteWizard') {
+    window.addEventListener('load', () => {
+      const sec = document.getElementById('quote');
+      const navH = parseInt(getComputedStyle(root).getPropertyValue('--nav-h')) || 72;
+      if (sec) window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - navH, behavior: 'auto' });
+    });
+  }
 })();

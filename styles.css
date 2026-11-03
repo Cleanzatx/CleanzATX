@@ -6066,3 +6066,41 @@ a, button, input, select, textarea, label { touch-action: manipulation; }
 .pg-section .pg-table-wrap + .prices__ctas { margin-top: 26px; }
 .pg-table--steps td:first-child { white-space: nowrap; }
 @media (max-width: 480px) { .pg-table--steps td:first-child { white-space: normal; } }
+
+/* ---------- Full-screen "pages": every section fills the screen and scrolling snaps to the next ----------
+   --nav-h is the fixed topbar + nav. --trust-h / --marquee-h / --cta-h are measured in main.js:
+   the trust strip rides with the Meet the Rig page, the logo strip with the reviews page, and the
+   mobile Free Quote bar is kept clear of the hero content. Proximity snapping never traps long sections. */
+html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
+.hero.hero--slides,
+.trust-bar, #reviews, #how, #quote, #about, #club, #gallery, #pricing, #areas, #faq, .bottom-cta {
+  scroll-snap-align: start;
+  scroll-margin-top: 0;
+}
+.hero.hero--slides { min-height: 100vh; min-height: 100svh; justify-content: center; }
+#rig, #reviews, #how, #quote, #about, #club, #gallery, #pricing, #areas, #faq {
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100svh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#rig { min-height: calc(100svh - var(--nav-h) - var(--trust-h, 0px)); }
+#reviews { min-height: calc(100svh - var(--nav-h) - var(--marquee-h, 0px)); }
+#rig > *, #reviews > *, #how > *, #quote > *, #about > *, #club > *, #gallery > *, #pricing > *, #areas > *, #faq > * { width: 100%; }
+@media (max-width: 768px) {
+  .hero.hero--slides {
+    min-height: 100svh;
+    justify-content: center;
+    padding-bottom: calc(var(--cta-h, 0px) + 20px);
+  }
+  .hero.hero--slides .hero__content { flex: 0 0 auto; }
+  .hero.hero--slides .hero__dots { bottom: calc(var(--cta-h, 0px) + 10px); }
+}
+/* Shorter desktop and laptop screens: the hero still fits in one screen */
+@media (min-width: 769px) and (max-height: 1000px) {
+  .hero.hero--slides { padding-top: calc(var(--nav-h) + 24px); padding-bottom: 48px; }
+  .hero.hero--slides .hero__title { font-size: min(80px, 7.6vh); }
+  .hero.hero--slides .hero__ctas { margin-bottom: 28px; }
+  .hero.hero--slides .hero__sub { margin-bottom: 22px; }
+}
