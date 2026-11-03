@@ -6062,3 +6062,7 @@ a, button, input, select, textarea, label { touch-action: manipulation; }
   .pg-table th, .pg-table td { padding: 10px 8px; }
   .pg-table th { letter-spacing: .06em; font-size: 11px; }
 }
+/* Plans page: CTA row under the comparison table */
+.pg-section .pg-table-wrap + .prices__ctas { margin-top: 26px; }
+.pg-table--steps td:first-child { white-space: nowrap; }
+@media (max-width: 480px) { .pg-table--steps td:first-child { white-space: normal; } }
