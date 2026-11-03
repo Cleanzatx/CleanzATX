@@ -771,20 +771,6 @@ function launchConfetti() {
   });
 })();
 
-/* ---------- Clean Windows Club: pick a plan, jump to the quote form ---------- */
-document.querySelectorAll('.club__plan[data-plan]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const freq = document.getElementById('q-frequency');
-    if (freq) freq.value = btn.dataset.plan;
-    if (typeof gtag === 'function') gtag('event', 'club_plan_click', { plan: btn.dataset.plan });
-    const qwiz = document.getElementById('quoteWizard');
-    if (!qwiz) return;
-    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-    const quoteSec = document.getElementById('how') || qwiz;
-    window.scrollTo({ top: quoteSec.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
-  });
-});
-
 /* ---------- FAQ: show the first 6, expand to all ---------- */
 (function () {
   const btn = document.getElementById('faqMore');
@@ -1331,4 +1317,98 @@ if (!location.hash) window.scrollTo(0, 0);
   });
   const submit = field('q-submit');
   if (submit) submit.addEventListener('click', save);
+})();
+
+/* ---------- Reviews and before & after rows: continuous scroll that phones can draw ----------
+   The CSS version slid one ~7,000px strip with a transform; iPhones stop painting a layer that wide,
+   so cards vanished and photos stayed blank. Here each row scrolls its own box a little every frame
+   and wraps after one copy of the cards, so it loops forever. Rows only run while on screen, and
+   their photos are told to load just before the row is reached. */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const rows = [...document.querySelectorAll('.marquee')].filter(m => m.querySelector('.marquee__group'));
+  if (!rows.length) return;
+  document.documentElement.classList.add('js-marquee');
+  const state = rows.map(el => ({
+    el,
+    group: el.querySelector('.marquee__group'),
+    reverse: el.classList.contains('marquee--rev'),
+    pos: 0,
+    on: false,
+  }));
+  const speed = () => (window.innerWidth < 700 ? 34 : 46); // px per second
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const s = state.find(x => x.el === e.target);
+    if (!s) return;
+    s.on = e.isIntersecting;
+    if (e.isIntersecting) s.el.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+  }), { rootMargin: '400px 0px' });
+  state.forEach(s => io.observe(s.el));
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(now - last, 100) / 1000;
+    last = now;
+    state.forEach(s => {
+      if (!s.on || !s.el.offsetParent) return;
+      const w = s.group.getBoundingClientRect().width;
+      if (!w) return;
+      s.pos = (s.pos + speed() * dt) % w;
+      s.el.scrollLeft = s.reverse ? w - s.pos : s.pos;
+    });
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- Club plans: pick one, then choose whether to put it on today's quote ---------- */
+(function () {
+  const wrap = document.querySelector('.club__plans');
+  const freq = document.getElementById('q-frequency');
+  if (!wrap || !freq) return;
+  const btns = [...wrap.querySelectorAll('.club__plan[data-plan]')];
+  const panel = document.createElement('div');
+  panel.className = 'club__confirm';
+  panel.hidden = true;
+  panel.setAttribute('role', 'status');
+  wrap.after(panel);
+  const nameOf = b => b.querySelector('strong').textContent;
+  const dealOf = b => b.querySelector('span').textContent.split('·')[0].trim();
+
+  function ask(btn) {
+    btns.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    panel.innerHTML = '';
+    const q = document.createElement('p');
+    q.textContent = `Apply ${nameOf(btn)} (${dealOf(btn)}) to your quote today?`;
+    const yes = document.createElement('button');
+    yes.type = 'button'; yes.className = 'club__confirm-yes'; yes.textContent = 'Yes, apply it';
+    const no = document.createElement('button');
+    no.type = 'button'; no.className = 'club__confirm-no'; no.textContent = 'Not now';
+    yes.addEventListener('click', () => {
+      freq.value = btn.dataset.plan;
+      freq.dispatchEvent(new Event('change', { bubbles: true }));
+      if (typeof gtag === 'function') gtag('event', 'club_plan_applied', { plan: btn.dataset.plan });
+      panel.innerHTML = '';
+      const done = document.createElement('p');
+      done.textContent = `✓ ${nameOf(btn)} is on your quote. It'll be picked when you fill out the form.`;
+      const go = document.createElement('a');
+      go.href = '#quoteWizard'; go.className = 'club__confirm-link'; go.textContent = 'Go to my quote';
+      go.addEventListener('click', e => {
+        e.preventDefault();
+        const sec = document.getElementById('how');
+        const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+        if (sec) window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+      });
+      panel.append(done, go);
+    });
+    no.addEventListener('click', () => {
+      btns.forEach(b => b.setAttribute('aria-pressed', 'false'));
+      panel.hidden = true;
+    });
+    panel.append(q, yes, no);
+    panel.hidden = false;
+  }
+  btns.forEach(btn => btn.addEventListener('click', () => {
+    if (typeof gtag === 'function') gtag('event', 'club_plan_click', { plan: btn.dataset.plan });
+    ask(btn);
+  }));
 })();

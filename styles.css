@@ -6179,3 +6179,48 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 #about, #club, #areas { min-height: 0; justify-content: flex-start; }
 /* The quote page starts at How It Works; the form section just follows it */
 #quote { min-height: 0; scroll-snap-align: none; }
+
+/* ---------- Rows scrolled by main.js (reviews, before & after) ---------- */
+.js-marquee .marquee__track { animation: none; }
+.js-marquee .marquee { overflow-x: hidden; }
+
+/* ---------- Meet the Rig: tighter on phones ---------- */
+@media (max-width: 768px) {
+  #rig { padding-top: 36px; padding-bottom: 40px; }
+  #rig .rig__inner { gap: 22px; }
+  #rig .rig__photo img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center 40%; }
+  #rig .rig__title { margin-bottom: 12px; }
+  #rig .rig__lead { font-size: 15px; line-height: 1.6; margin-bottom: 18px; }
+  #rig .rig__list { gap: 14px; margin-bottom: 22px; }
+  #rig .rig__item { gap: 12px; }
+  #rig .rig__icon { width: 36px; height: 36px; flex: 0 0 36px; }
+  #rig .rig__item h3 { font-size: 16px; margin-bottom: 2px; }
+  #rig .rig__item p { font-size: 14px; line-height: 1.5; }
+}
+
+/* ---------- Club plans: confirm before adding a plan to the quote ---------- */
+.club__plan[aria-pressed="true"] { border-color: var(--sky); background: rgba(14,165,233,.18); box-shadow: 0 0 0 2px rgba(14,165,233,.35); }
+.club__confirm { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px 12px; padding: 14px 16px; border-radius: 8px; background: rgba(14,165,233,.1); border: 1px solid rgba(14,165,233,.3); color: #e0f2fe; font-size: 14.5px; }
+.club__confirm p { margin-right: auto; }
+.club__confirm button { border-radius: 4px; padding: 10px 16px; font: 700 13px var(--head); cursor: pointer; border: 1px solid transparent; }
+.club__confirm-yes { background: var(--sky); color: #fff; }
+.club__confirm-no { background: transparent; color: #bae6fd; border-color: rgba(186,230,253,.35) !important; }
+.club__confirm-link { color: #7dd3fc; font-weight: 700; font-size: 14px; }
+@media (max-width: 768px) {
+  .club__confirm { justify-content: stretch; }
+  .club__confirm p { flex-basis: 100%; }
+  .club__confirm button { flex: 1; }
+}
+
+/* ---------- /plans: cards fill their column; tables fit phones without side-scrolling ---------- */
+.pg .price-card.plan-card { width: auto; flex-shrink: 1; }
+.th-short { display: none; }
+@media (max-width: 600px) {
+  .th-full { display: none; }
+  .th-short { display: inline; }
+  .pg-table-wrap { overflow: visible; }
+  .pg-table--perks { min-width: 0; table-layout: fixed; font-size: 13px; }
+  .pg-table--perks th, .pg-table--perks td { padding: 12px 4px; }
+  .pg-table--perks th:first-child, .pg-table--perks td:first-child { width: 38%; padding-left: 12px; text-align: left; }
+  .pg-table--perks th { font-size: 10.5px; letter-spacing: .04em; }
+}
