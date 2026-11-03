@@ -6394,3 +6394,5 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 @media (min-width: 769px) and (min-aspect-ratio: 1/1) {
   .hero__slide.loaded { background-image: var(--bg-xl, var(--bg-lg)); }
 }
+/* Our Story: quote and call buttons sit under Tyler's photo */
+.story-hero .story-hero__ctas { justify-content: center; margin-top: 20px; }

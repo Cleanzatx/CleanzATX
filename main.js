@@ -1,3 +1,12 @@
+/* Was this page load a reload? (used so a refresh always opens at the header) */
+window.czIsReload = (function () {
+  try {
+    const nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (nav) return nav.type === 'reload';
+    return performance.navigation && performance.navigation.type === 1;
+  } catch (e) { return false; }
+})();
+
 /* ============================================================
    CleanzATX — main.js
    ============================================================ */
@@ -1230,8 +1239,9 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
   measure();
   window.addEventListener('load', measure);
   window.addEventListener('resize', measure);
-  // Links from other pages (/#quoteWizard) land on the full quote section too
-  if (location.hash === '#quoteWizard') {
+  // Links from other pages (/#quoteWizard) land on the full quote section too.
+  // A reload never does: it always starts at the header (see below).
+  if (location.hash === '#quoteWizard' && !window.czIsReload) {
     window.addEventListener('load', () => {
       const sec = document.getElementById('how');
       const navH = parseInt(getComputedStyle(root).getPropertyValue('--nav-h')) || 72;
@@ -1240,9 +1250,21 @@ document.querySelectorAll('.faq-acc-btn').forEach(btn => {
   }
 })();
 
-/* ---------- A refresh starts back at the top (links to a section, like /#quoteWizard, still land there) ---------- */
+/* ---------- A refresh always starts back at the header ----------
+   Links from other pages (like /#quoteWizard) still land on their section, but the #part is then
+   taken out of the address, so pressing reload afterwards opens the top of the page. */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-if (!location.hash) window.scrollTo(0, 0);
+(function () {
+  const clearHash = () => { if (location.hash) history.replaceState(null, '', location.pathname + location.search); };
+  const toTop = () => window.scrollTo(0, 0);
+  if (window.czIsReload || !location.hash) {
+    clearHash(); toTop();
+    window.addEventListener('load', () => { toTop(); requestAnimationFrame(toTop); });
+  } else {
+    // arrived on a section link: let it land, then drop the #part
+    window.addEventListener('load', () => setTimeout(clearHash, 50));
+  }
+})();
 
 /* ---------- Returning visitors: the quote form remembers their details on this device ----------
    Kept in localStorage (never sent anywhere until they submit) for 180 days.
