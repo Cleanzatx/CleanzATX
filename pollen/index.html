@@ -1072,8 +1072,9 @@
         body: JSON.stringify({ first_name: name, last_name: '', phone, address: document.getElementById('pwiz-address')?.value || '', sqft: state.size, services: state.services.join(', '), service_plan: 'Pollen Landing Page Lead', source: 'Pollen Landing Page' }),
       }).catch(() => {}); */
 
-      // GA4
+      // GA4 + Google Ads lead conversion
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { lead_source: 'pollen_landing_page', selected_services: state.services });
+      if (window.czAdsConversion) window.czAdsConversion('lead', { phone });
 
       // Show confirm
       document.getElementById('pwiz-step2').classList.remove('active');
