@@ -513,7 +513,7 @@ plans_body = f'''  <main class="pg">
 '''
 open(f'{SITE}/plans.html', 'w', encoding='utf-8').write(page(
     'plans', 'Window Cleaning Plans, 10 to 20% Off Every Visit | CleanzATX',
-    'Window cleaning plans for Lakeway and Bee Cave: 10% off twice a year, 15% off triannual or quarterly, 20% off every two months, plus free screens and the rain guarantee.',
+    'Window cleaning plans for Lakeway and Bee Cave: 10% off twice a year, 15% off triannual or quarterly, 20% off every two months, with free screens yearly.',
     [faq_schema(plans_faq)], plans_body))
 print('built pricing.html and plans.html')
 
@@ -625,7 +625,7 @@ about_schema = {"@context": "https://schema.org", "@type": "AboutPage", "url": "
         "sameAs": ["https://nextdoor.com/page/cleanz-atx-lakeway-tx", "https://www.facebook.com/p/cleanzatx-100067454648100/", "https://www.instagram.com/cleanzatx/", "https://www.yelp.com/biz/cleanzatx-austin"]}}
 open(f'{SITE}/about.html', 'w', encoding='utf-8').write(page(
     'about', 'About Us | Our Story | CleanzATX Window Cleaning, Lakeway TX',
-    'CleanzATX was started in Lakeway in 2020 by Tyler Durham, a Lake Travis High School grad. Nextdoor Neighborhood Favorite 2023 to 2025, 200+ five star Google reviews.',
+    'CleanzATX was started in Lakeway in 2020 by Tyler Durham, a Lake Travis High School grad. Nextdoor Neighborhood Favorite 2023 to 2025. 200+ five star reviews.',
     [about_schema], about_body))
 print('built about.html')
 
