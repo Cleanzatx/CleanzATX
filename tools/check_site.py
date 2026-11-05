@@ -11,7 +11,7 @@ def main_text(s):
     body = re.sub(r'<section class="pg-cta">.*?</section>', ' ', body, flags=re.S)
     t = html.unescape(re.sub(r'<[^>]+>', ' ', body)); return re.sub(r'\s+', ' ', t)
 sent = collections.defaultdict(set); probs = 0; rows = []
-FORBID = ['shine', "pink's", 'window gang', 'casa washa', 'thumbtack', 'cleanz atx', 'cleanzatx is a dba of durmgeneral llc. ', '—', '–']
+FORBID = ['shine', "pink's", 'window gang', 'casa washa', 'thumbtack', 'cleanz atx', '—', '–']
 for f in files:
     s = open(f, encoding='utf-8').read(); slug = os.path.relpath(f, SITE)
     title = re.search(r'<title>(.*?)</title>', s, re.S); title = html.unescape(title.group(1).strip()) if title else ''

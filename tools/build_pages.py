@@ -153,8 +153,8 @@ house_wash = [
 ]
 roof = [
     ('Asphalt shingle', '$0.25 per sq ft'),
-    ('Tile', '$0.30–$0.35 per sq ft'),
-    ('Metal', '$0.35–$0.50 per sq ft'),
+    ('Tile', '$0.30 to $0.35 per sq ft'),
+    ('Metal', '$0.35 to $0.50 per sq ft'),
 ]
 gutters = [
     ('One story', '$1.50 per linear ft'),
@@ -170,7 +170,7 @@ flatwork = [
     ('Oil, rust &amp; gum treatment', '$50 add-on'),
     ('Pergola', '$100 add-on'),
     ('Mailbox', '$50'),
-    ('Exterior light fixtures', '$8–$15 each'),
+    ('Exterior light fixtures', '$8 to $15 each'),
 ]
 def table(head, items):
     return f'<table class="pg-table"><tr><th>{head}</th><th>Price</th></tr>{rows(items)}</table>'
@@ -179,7 +179,7 @@ pricing_faq = [
     ('How much does window cleaning cost in Lakeway and Bee Cave?', 'Exterior window cleaning is $10 per window, or $0.10 per square foot of home (a 3,000 sq ft home runs about $300). Inside and out is $15 per window. The minimum job is $200, and a typical home runs about $350.'),
     ('How much is screen and track cleaning?', 'Bug screens are $5 each, full screens $10 and solar screens $15. Track cleaning is $5 per track, or $10 per track for a deep track detail. Basic sill and track dusting is included with every window cleaning.'),
     ('How much does a house wash cost?', 'Soft washing runs $0.20 per sq ft for stucco, $0.22 for vinyl, Hardie and metal siding, $0.25 for brick and limestone, and $0.30 and up for painted wood that needs scrubbing. House washes have a $400 minimum.'),
-    ('How much does roof cleaning cost?', 'Roof soft washing is $0.25 per sq ft for asphalt shingle, $0.30–$0.35 for tile, and $0.35–$0.50 for metal, with a $400 minimum. It kills black streaks and algae without high pressure on the roof.'),
+    ('How much does roof cleaning cost?', 'Roof soft washing is $0.25 per sq ft for asphalt shingle, $0.30 to $0.35 for tile, and $0.35 to $0.50 for metal, with a $400 minimum. It kills black streaks and algae without high pressure on the roof.'),
     ('How much does gutter cleaning cost?', '$1.50 per linear foot for one-story homes, $2.25 for two-story, and $3.25 for three-story. Gutters can be added to any window or wash visit.'),
     ('How much does driveway or patio power washing cost?', 'Concrete is $0.18 per sq ft and pavers $0.25 per sq ft, with a $250 minimum on flatwork. Wood fences are $0.22 per sq ft per side and vinyl fences $0.20.'),
     ('Is there a minimum charge?', 'Yes. The minimum job is $200. House washes and roof soft washes have a $400 minimum, and driveway and patio flatwork has a $250 minimum.'),
@@ -299,7 +299,7 @@ pricing_body = f"""  <main class="pg">
           <p class="pg-lead">Ways to save on your cleaning.</p>
           <table class="pg-table">
             <tr><th>Offer</th><th>Savings</th></tr>
-            <tr><td>Clean Windows Club</td><td>10–20% off every visit</td></tr>
+            <tr><td>Clean Windows Club</td><td>10 to 20% off every visit</td></tr>
             <tr><td>Military &amp; seniors</td><td>10% off</td></tr>
             <tr><td>Seasonal sale (code in the top banner)</td><td>10% off a first window cleaning</td></tr>
             <tr><td>Club plans</td><td>Touch-ups, hard water removal and more. <a href="/plans">See plans</a></td></tr>
@@ -340,7 +340,7 @@ pricing_body = f"""  <main class="pg">
 """
 open(f'{SITE}/pricing.html', 'w', encoding='utf-8').write(page(
     'pricing', 'Window Cleaning Prices in Lakeway &amp; Bee Cave | CleanzATX',
-    'Published prices: window cleaning $10 per window, inside and out $15, screens $5, tracks $5, house soft wash from $0.20 per sq ft, roof, gutters and power washing. Plans save 10–20%.',
+    'Published prices: windows $10 each, inside and out $15, screens $5, house soft wash from $0.20 per sq ft, roof, gutters and power washing. Plans save 10 to 20%.',
     [pricing_schema, faq_schema(pricing_faq)], pricing_body))
 
 # ------------------------------------------------------------------ plans
@@ -512,8 +512,8 @@ plans_body = f'''  <main class="pg">
   </main>
 '''
 open(f'{SITE}/plans.html', 'w', encoding='utf-8').write(page(
-    'plans', 'Window Cleaning Plans | Lakeway, Bee Cave &amp; Lake Travis | CleanzATX',
-    'Window cleaning plans for Lakeway, Bee Cave and Lake Travis: 10% off twice a year, 15% off triannual or quarterly, 20% off every two months, plus a yearly screen cleaning and the rain guarantee.',
+    'plans', 'Window Cleaning Plans, 10 to 20% Off Every Visit | CleanzATX',
+    'Window cleaning plans for Lakeway and Bee Cave: 10% off twice a year, 15% off triannual or quarterly, 20% off every two months, plus free screens and the rain guarantee.',
     [faq_schema(plans_faq)], plans_body))
 print('built pricing.html and plans.html')
 
@@ -536,7 +536,7 @@ def area_grid(current=None):
 # saves and recommendations in the first few years, Nextdoor Neighborhood Favorite
 # 2023-2025, 116 Nextdoor recommendations, 210 Google reviews, 3,000+ homes.
 story = [
-    ('2020', 'It started with a post', 'I started Cleanz ATX in Lakeway in 2020. No ads, no call center, just me posting in local neighborhood groups, showing up when I said I would and doing the job right.'),
+    ('2020', 'It started with a post', 'I started CleanzATX in Lakeway in 2020. No ads, no call center, just me posting in local neighborhood groups, showing up when I said I would and doing the job right.'),
     ('Early on', 'Realtors and neighbors', 'Local realtors started calling us to get homes ready for listing photos, and the neighbors who saw the results started calling too. One clean driveway or set of windows turned into the next three on the street.'),
     ('The first few years', 'Word of mouth on Nextdoor', 'Neighbors kept recommending us on Nextdoor. Within the first few years we had a couple hundred saves and recommendations, almost all from people we had worked for.'),
     ('2023 to 2025', 'Neighborhood Favorite, three years running', 'Nextdoor named us a Neighborhood Favorite in 2023, 2024 and 2025. Today we have 116 Nextdoor recommendations and more than 200 five star Google reviews.'),
@@ -625,7 +625,7 @@ about_schema = {"@context": "https://schema.org", "@type": "AboutPage", "url": "
         "sameAs": ["https://nextdoor.com/page/cleanz-atx-lakeway-tx", "https://www.facebook.com/p/cleanzatx-100067454648100/", "https://www.instagram.com/cleanzatx/", "https://www.yelp.com/biz/cleanzatx-austin"]}}
 open(f'{SITE}/about.html', 'w', encoding='utf-8').write(page(
     'about', 'About Us | Our Story | CleanzATX Window Cleaning, Lakeway TX',
-    'CleanzATX was started in Lakeway in 2020 by Tyler Durham, a Lake Travis High School grad. Grown by neighbors on Nextdoor: Neighborhood Favorite 2023 to 2025, 200+ five star Google reviews.',
+    'CleanzATX was started in Lakeway in 2020 by Tyler Durham, a Lake Travis High School grad. Nextdoor Neighborhood Favorite 2023 to 2025, 200+ five star Google reviews.',
     [about_schema], about_body))
 print('built about.html')
 

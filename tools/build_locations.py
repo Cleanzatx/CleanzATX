@@ -217,7 +217,7 @@ def render(d):
         <div>
           <h2 class="pg-h2">What {n} homes book most</h2>
           <nav class="hood-areas" aria-label="Services">{svc}</nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
+          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in {n} save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
         </div>
       </div>
     </section>
