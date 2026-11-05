@@ -2,7 +2,7 @@
 // Analytics) get the latest deploy right away; the cache is only an offline
 // fallback. Static files use cache-then-refresh. Other sites (Google tag,
 // fonts, EmailJS, the tracker API) are never touched.
-const CACHE = 'cleanzatx-v9';
+const CACHE = 'cleanzatx-v10';
 const OFFLINE = '/__offline';
 const ASSETS = ['/', '/styles.css', '/logo.png', '/hero-photo.jpg'];
 

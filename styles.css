@@ -2023,11 +2023,13 @@ a.area-pill { text-decoration: none; cursor: pointer; }
   border: 1px solid rgba(255,255,255,.12);
   border-radius: var(--r);
   color: var(--white);
-  font-size: 15px;
+  font-size: 16px;
   font-family: var(--font);
   outline: none;
   transition: border-color .2s;
 }
+.qwiz__field .is-invalid, .qwiz__field input.is-invalid, .qwiz__field select.is-invalid { border-color: #f87171; box-shadow: 0 0 0 3px rgba(248,113,113,.18); }
+.qwiz__error { color: #fca5a5; font-size: 14px; margin: 0 0 12px; }
 .qwiz__field input::placeholder { color: rgba(255,255,255,.5); }
 .qwiz__field input:focus,
 .qwiz__field select:focus {
@@ -2535,7 +2537,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .qwiz__panel .qwiz__field { margin-bottom: 10px; }
 .qwiz__panel .qwiz__field label { font-size: 11px; font-weight: 500; color: rgba(255,255,255,.45); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .6px; }
 .qwiz__panel .qwiz__field input,
-.qwiz__panel .qwiz__field select { padding: 10px 12px; font-size: 14px; }
+.qwiz__panel .qwiz__field select { padding: 10px 12px; font-size: 16px; }
 .qwiz__panel .qwiz__row { gap: 10px; }
 .qwiz__row.qwiz__row--stay { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .qwiz__row.qwiz__row--3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -2854,7 +2856,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .exit-popup__icon { font-size: 48px; margin-bottom: 16px; }
 .exit-popup__box h3 { color: var(--white); font-family: var(--head); font-size: 22px; font-weight: 800; margin-bottom: 12px; }
 .exit-popup__box p { color: rgba(255,255,255,.7); margin-bottom: 24px; }
-.exit-popup__skip { background: none; border: none; color: rgba(255,255,255,.35); font-size: 12px; cursor: pointer; margin-top: 16px; display: block; width: 100%; text-align: center; }
+.exit-popup__skip { background: none; border: none; color: rgba(255,255,255,.55); font-size: 14px; cursor: pointer; margin-top: 10px; display: block; width: 100%; min-height: 44px; padding: 12px; text-align: center; }
 .exit-popup__skip:hover { color: rgba(255,255,255,.6); }
 
 /* ---------- Booking Notifications ---------- */
@@ -5817,7 +5819,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 }
 .site-footer__cols ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .site-footer__cols li { font-size: 14px; line-height: 1.5; }
-.site-footer__cols a { color: rgba(255,255,255,.62); text-decoration: none; transition: color .2s; }
+.site-footer__cols a { color: rgba(255,255,255,.62); text-decoration: none; transition: color .2s; display: inline-block; padding: 5px 0; }
 .site-footer__cols a:hover { color: #fff; }
 .site-footer__bottom { border-top: 1px solid rgba(255,255,255,.07); }
 .site-footer__bottom-inner {
@@ -5878,7 +5880,7 @@ input.qwiz__chip--custom-input::-webkit-outer-spin-button { -webkit-appearance: 
 .pg-table th { background: var(--navy); color: #fff; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
 .pg-table td:last-child { font-weight: 700; color: var(--navy); }
 .pg-table tr:last-child td { border-bottom: none; }
-.plan-compare { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 24px 0 28px; }
+.plan-compare { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: 24px 0 28px; }
 .plan-col { position: relative; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px 20px; }
 .plan-col--pop { border-color: var(--sky); box-shadow: 0 0 0 1px var(--sky); }
 .plan-col h3 { font-family: var(--head); font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
@@ -6396,3 +6398,14 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 }
 /* Our Story: quote and call buttons sit under Tyler's photo */
 .story-hero .story-hero__ctas { justify-content: center; margin-top: 20px; }
+
+/* ===== Location pages (Nov 5 2026) ===== */
+.crumbs--hero { font-size: 13px; color: rgba(255,255,255,.6); margin: 0 0 14px; }
+.crumbs--hero a { color: rgba(255,255,255,.75); text-decoration: none; }
+.crumbs--hero a:hover { color: #fff; }
+.hood-streets { margin-top: 14px; font-size: 15px; color: var(--slate); }
+.hood-areas--home { justify-content: center; }
+.hood-areas--home .hood-areas__a--hub { font-weight: 700; }
+.hood-areas--small .hood-areas__a { font-size: 13px; padding: 8px 12px; }
+.areas__sub { text-align: center; color: var(--slate); font-size: 14px; margin: 18px auto 10px; max-width: 720px; }
+.areas__sub a { color: var(--sky); }

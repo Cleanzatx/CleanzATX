@@ -1,3 +1,4 @@
+try { if (!sessionStorage.getItem('cz_landing')) sessionStorage.setItem('cz_landing', location.pathname + location.search); } catch (e) {}
 /* Was this page load a reload? (used so a refresh always opens at the header) */
 window.czIsReload = (function () {
   try {
@@ -302,6 +303,32 @@ if (qwiz) {
     }
   }
 
+  // Inline validation: mark the empty fields, show one line under the buttons, focus the first one
+  function clearMissing() {
+    qwiz.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    qwiz.querySelectorAll('.qwiz__error').forEach(el => el.remove());
+  }
+  function showMissing(missing, ids) {
+    clearMissing();
+    let first = null;
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const v = (el.value || '').trim();
+      const bad = !v || (id === 'q-phone' && v.replace(/\D/g, '').length < 10) || (id === 'q-sqft' && !(parseInt(v) > 0));
+      if (bad) { el.classList.add('is-invalid'); if (!first) first = el; }
+    });
+    if (!anyCategorySelected() && !first) first = qwiz.querySelector('#q-service-cats');
+    const panel = qwiz.querySelector('.qwiz__panel.active') || qwiz;
+    const msg = document.createElement('p');
+    msg.className = 'qwiz__error';
+    msg.setAttribute('role', 'alert');
+    msg.textContent = 'Please fill in: ' + missing.join(', ') + '.';
+    const actions = panel.querySelector('.qwiz__actions') || panel;
+    actions.insertAdjacentElement('beforebegin', msg);
+    if (first && first.focus) { try { first.focus({ preventScroll: false }); } catch (e) { first.focus(); } }
+  }
+
   function showStep(n) {
     step1.style.display = n === 1 ? '' : 'none';
     step1.classList.toggle('active', n === 1);
@@ -323,7 +350,8 @@ if (qwiz) {
     if (!address) missing.push('address');
     if (!sqft) missing.push('square footage');
     if (!stories) missing.push('number of stories');
-    if (missing.length) { alert('Please fill in: ' + missing.join(', ')); return; }
+    if (missing.length) { showMissing(missing, ['q-address', 'q-sqft', 'q-stories']); return; }
+    clearMissing();
     showStep(2);
   });
 
@@ -388,14 +416,15 @@ if (qwiz) {
     if (!phone || phone.replace(/\D/g, '').length < 10) missing.push('phone number');
     if (!frequency) missing.push('service frequency');
     if (!timeline) missing.push('timeline');
-    if (missing.length) { alert('Please fill in: ' + missing.join(', ')); return; }
+    if (missing.length) { showMissing(missing, ['q-fname', 'q-phone', 'q-frequency', 'q-timeline']); return; }
+    clearMissing();
 
     submitted = true;
     const btn = document.getElementById('q-submit');
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
     const serviceLabels = { ext_windows:'Exterior Windows', int_windows:'Interior Windows', screens:'Screen Cleaning', tracks:'Track Cleaning', skylights:'Skylights', post_construction:'Post Construction', hard_water:'Hard Water Removal', house_wash:'House Washing', driveway:'Driveway', front_patio:'Front Patio', back_patio:'Back Patio', roof_wash:'Roof Cleaning', gutters:'Gutter Cleaning', stone_limestone:'Stone / Limestone', deck_fence:'Deck / Fence' };
-    const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', '6month':'Twice a Year' };
+    const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', triannual:'3 Times a Year', '6month':'Twice a Year' };
     const lastCleanedLabels = { never:'Never / First Time', '1_month':'Within 1 Month', '3_months':'1–3 Months Ago', '6_months':'3–6 Months Ago', '1_year':'6–12 Months Ago', over_1_year:'Over a Year Ago' };
     const timelineLabels = { asap:'ASAP', within_1_week:'Within 1 Week', within_2_weeks:'Within 2 Weeks', flexible:'Flexible', specific_date:'Specific Date' };
     const frequencyLabel = freqLabels[frequency] || frequency;
@@ -427,22 +456,26 @@ if (qwiz) {
       }).catch(() => {});
     } catch (e) {}
 
-    // Send to CleanzATX Tracker — auto-creates the client
-    try {
-      fetch((window.CLEANZATX_TRACKER_URL || 'https://cleanzatx-tracker.vercel.app') + '/api/webhooks/quote-form', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          first_name: firstName, last_name: lastName, phone, email,
-          sms_consent: smsConsent ? 'Yes' : 'No',
-          address, sqft, stories, property_type: propertyType,
-          service_categories: Array.from(catCheckboxes).filter(c => c.checked).map(c => c.value),
-          selected_services: selectedServices, services: servicesText,
-          service_frequency: frequency, service_plan: frequencyLabel,
-          last_cleaned: lastCleaned, referral_source: referral, referrer_name: referrer,
-          timeline, deadline_date: computedDeadline, notes, source: 'quote_form_v2',
-        }),
-      }).catch(() => {});
-    } catch (e) {}
+    // GA4 + Google Ads lead conversion, fired once the lead service confirms the lead was
+    // created (or after 5 s if it never answers), so a failed submit is not counted as a lead.
+    let conversionFired = false;
+    function fireLeadConversion() {
+      if (conversionFired) return;
+      conversionFired = true;
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            currency: 'USD',
+            lead_source: referral || 'unknown',
+            selected_services: selectedServices.join(','),
+            landing_page: (sessionStorage.getItem('cz_landing') || location.pathname),
+            ...(frequency ? { plan: frequency } : {}),
+          });
+          if (window.czAdsConversion) window.czAdsConversion('lead', { phone, email });
+        }
+      } catch (e) {}
+    }
+    setTimeout(fireLeadConversion, 5000);
 
     // Rotor lead, via our own /api/quote-lead (API key stays on the server).
     // Runs alongside the email; the confirmation never waits on it.
@@ -462,24 +495,12 @@ if (qwiz) {
           sqft: sqft || '', stories: stories || '',
           referral, referrer, notes,
           free_screens: screenOffer,
+          landing_page: (sessionStorage.getItem('cz_landing') || location.pathname),
         }),
-      }).catch(() => {});
+      }).then(r => { if (r && r.ok) fireLeadConversion(); }).catch(() => {});
     } catch (e) {}
     // The quote now carries the free screens claim, so the pop-up lead is never sent
     try { localStorage.removeItem('cz_screens_claim'); } catch (e) {}
-
-    // GA4 — lead conversion (no price on the callback form, so no value)
-    try {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          currency: 'USD',
-          lead_source: referral || 'unknown',
-          selected_services: selectedServices.join(','),
-          ...(frequency ? { plan: frequency } : {}),
-        });
-        if (window.czAdsConversion) window.czAdsConversion('lead', { phone, email });
-      }
-    } catch (e) {}
 
     // Show confirmation
     step2.style.display = 'none';
@@ -645,8 +666,13 @@ function launchConfetti() {
   // Skip anyone already filling out (or done with) the quote form
   function busyWithQuote() {
     const fname = document.getElementById('q-fname');
-    return !!(qwiz && (qwiz.dataset.screenOffer === '1' || (fname && fname.value.trim() && qwiz.dataset.prefilled !== '1') ||
-      qwiz.querySelector('[data-panel="confirm"].active')));
+    if (!qwiz) return false;
+    const r = qwiz.getBoundingClientRect();
+    const inView = r.top < window.innerHeight && r.bottom > 0;
+    const typing = document.activeElement && qwiz.contains(document.activeElement);
+    const started = ['q-address', 'q-sqft', 'q-fname', 'q-phone'].some(id => { const el = document.getElementById(id); return el && el.value.trim(); });
+    return !!(inView || typing || started || qwiz.dataset.screenOffer === '1' || (fname && fname.value.trim() && qwiz.dataset.prefilled !== '1') ||
+      qwiz.querySelector('[data-panel="confirm"].active'));
   }
   function showPopup() {
     if (shown || seen() || busyWithQuote()) return;
@@ -762,8 +788,8 @@ function launchConfetti() {
     '78734': 'lakeway', '78738': 'bee-cave', '78736': 'bee-cave', '78620': 'bee-cave',
     '78669': 'lake-travis', '78645': 'lake-travis',
     '78732': 'steiner-ranch',
-    '78730': 'four-points', '78726': 'four-points', '78750': 'four-points',
-    '78746': 'westlake-hills', '78733': 'westlake-hills', '78735': 'westlake-hills',
+    '78730': 'river-place', '78726': 'four-points', '78750': 'four-points',
+    '78746': 'bee-cave', '78733': 'spanish-oaks', '78735': 'spanish-oaks',
   };
   form.addEventListener('submit', (e) => {
     e.preventDefault();
