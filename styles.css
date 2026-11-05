@@ -6409,3 +6409,5 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 .hood-areas--small .hood-areas__a { font-size: 13px; padding: 8px 12px; }
 .areas__sub { text-align: center; color: var(--slate); font-size: 14px; margin: 18px auto 10px; max-width: 720px; }
 .areas__sub a { color: var(--sky); }
+.nav__phone { white-space: nowrap; }
+@media (max-width: 1180px) { .nav__links li:nth-child(3), .nav__links li:nth-child(4) { display: none; } }

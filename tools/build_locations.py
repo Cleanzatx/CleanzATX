@@ -158,7 +158,7 @@ def render(d):
         paras = ''.join(f'<p>{esc(p)}</p>' for p in s['paragraphs'])
         extra = ''
         if i == 0 and d.get('streets'):
-            extra = '<p class="hood-streets"><strong>Streets we work:</strong> ' + esc(', '.join(d['streets'])) + '.</p>'
+            extra = '<p class="hood-streets"><strong>Streets and landmarks:</strong> ' + esc(', '.join(d['streets'])) + '.</p>'
         alt = ' pg-section--alt' if i % 2 else ''
         side = fig if i == 0 else ''
         if side:
