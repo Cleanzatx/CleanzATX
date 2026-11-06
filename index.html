@@ -1182,15 +1182,25 @@
         <span class="section__tag">Service Areas</span>
         <h2 class="section__title">Serving Lake Travis &amp; West Austin</h2>
         <p>We're based in Lakeway and clean homes all around Lake Travis and the hills west of Austin. Pick your area for local details, pricing and common questions.</p>
+        <form class="zip-find" id="zipFind" novalidate>
+          <label for="zipInput">Find your local page</label>
+          <div class="zip-find__row">
+            <input type="text" id="zipInput" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="Enter your ZIP code" autocomplete="postal-code" />
+            <button type="submit">Search</button>
+          </div>
+          <p class="zip-find__msg" id="zipMsg" aria-live="polite"></p>
+        </form>
       </div>
       <div class="areas__grid">
-          <a href="/window-cleaning-lakeway" class="area-pill area-pill--primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Lakeway</a>
-          <a href="/window-cleaning-bee-cave" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Bee Cave</a>
-          <a href="/window-cleaning-lake-travis" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Lake Travis</a>
-          <a href="/window-cleaning-rough-hollow" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Hudson Bend</a>
-          <a href="/window-cleaning-steiner-ranch" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Steiner Ranch</a>
-          <a href="/window-cleaning-four-points" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Four Points</a>
-          <a href="/window-cleaning-river-place" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning in Westlake Hills</a>
+          <a href="/window-cleaning-lakeway" class="area-pill area-pill--primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Lakeway</a>
+          <a href="/window-cleaning-the-hills" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>The Hills</a>
+          <a href="/window-cleaning-rough-hollow" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Rough Hollow</a>
+          <a href="/window-cleaning-bee-cave" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Bee Cave</a>
+          <a href="/window-cleaning-spanish-oaks" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Spanish Oaks</a>
+          <a href="/window-cleaning-lake-travis" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Lake Travis</a>
+          <a href="/window-cleaning-steiner-ranch" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Steiner Ranch</a>
+          <a href="/window-cleaning-four-points" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>Four Points</a>
+          <a href="/window-cleaning-river-place" class="area-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="area-pill__pre">Window cleaning in </span>River Place</a>
       </div>
     </div>
   </section>
