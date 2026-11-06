@@ -78,5 +78,8 @@
   "window cleaning bella montagna",
   "bella montagna window washing",
   "gated estate window cleaning lakeway"
- ]
+ ],
+ "lat": 30.36074,
+ "lon": -97.95642,
+ "geo_source": "osm:neighbourhood"
 }

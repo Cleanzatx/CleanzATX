@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-canyon-creek",
   "areaServed": {
     "@type": "Place",
-    "name": "Canyon Creek, TX"
+    "name": "Canyon Creek, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.37576,
+      "longitude": -97.85743
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Four Points",
       "item": "https://www.cleanzatx.com/window-cleaning-four-points"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Canyon Creek",
       "item": "https://www.cleanzatx.com/window-cleaning-canyon-creek"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-four-points">Four Points</a> / Canyon Creek</p>
-        <p class="prices__eyebrow">Serving Canyon Creek · Austin, TX 78726</p>
-        <h1 class="pg-hero__title">Window cleaning in Canyon Creek <em>homes along the greenbelt.</em></h1>
-        <p class="pg-hero__sub">Canyon Creek sits east of RM 620 near Boulder Lane, a large 1990s subdivision with greenbelt trails and its own elementary school. CleanzATX cleans the windows of homes here, with quotes by text from Tyler.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Canyon Creek homes are like</h2><p>Canyon Creek has roughly 1,000 homes, most of them 1990s production builds between about 2,000 and 3,500 square feet. Greenbelt trails run through the neighborhood, and Canyon Creek Elementary is part of the community. The Canyon Creek HOA oversees it, and there is no gate. The area is just outside the strict Four Points loop, but it is a short drive from our other work there.</p><p>Production homes from one builder tend to share layouts. That helps us quote accurately, because the window count on one street often matches the next.</p><p class="hood-streets"><strong>Streets and landmarks:</strong> Boulder Ln.</p></div>
-        <div><figure class="hood-photo"><img src="/photos/pole-modern-home.jpg" alt="CleanzATX tech cleaning tall windows on a modern home from the ground with a water fed pole" width="825" height="1100" loading="lazy"><figcaption>Tall glass cleaned from the ground, no ladders on the house</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Canyon Creek windows deal with</h2><p>Greenbelt means trees, and trees mean webs. Homes backing onto the trails get spiders working the corners of every frame, plus leaf litter in screens and tracks. Live oak pollen in March and April is heavy where the canopy is thick, and cedar pollen arrives in winter.</p><p>After thirty years, the glass has also seen a lot of sprinkler spray. Hard water spots on the lowest panes are common on homes this age, and some have been there long enough to need spot removal rather than a simple wash.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Canyon Creek</h2><p>We approach Canyon Creek as a route of similar homes. Once we have cleaned one house on a street, the next goes faster because the layouts repeat. Exterior glass is done with pure water and poles from the ground, so back windows facing the greenbelt do not need a ladder. Screens that have collected webs and leaf bits can be cleaned the same day for $5 each. Many owners add a house soft wash because tree cover leaves green film on siding.</p><p>A 2,600 square foot home is about $260 for exterior windows and takes around two and a half hours. Inside and out at $15 a window would be near $390 for roughly 26 windows.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/hero/slide-1-lg.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Canyon Creek neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Greenbelt facing windows get webs and leaf debris cleared without ladders on slopes.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Similar 1990s layouts let us quote close to the final number by text.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Screens come off, get cleaned by hand and go back tight.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>The 7 day touch up covers a missed spot at no charge.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-four-points">Four Points</a> / Canyon Creek</p>
+          <p class="loc-hero__eyebrow">Serving Canyon Creek · Austin, TX 78726</p>
+          <h1>Window cleaning in Canyon Creek <em>homes along the greenbelt.</em></h1>
+          <p class="loc-hero__sub">Canyon Creek sits east of RM 620 near Boulder Lane, a large 1990s subdivision with greenbelt trails and its own elementary school. CleanzATX cleans the windows of homes here, with quotes by text from Tyler.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Canyon Creek homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#screens" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Screen and track cleaning</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>House soft washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Canyon Creek save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Canyon Creek price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Canyon Creek questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Canyon Creek homes are like</h2><p>Canyon Creek has roughly 1,000 homes, most of them 1990s production builds between about 2,000 and 3,500 square feet. Greenbelt trails run through the neighborhood, and Canyon Creek Elementary is part of the community. The Canyon Creek HOA oversees it, and there is no gate. The area is just outside the strict Four Points loop, but it is a short drive from our other work there.</p><p>Production homes from one builder tend to share layouts. That helps us quote accurately, because the window count on one street often matches the next.</p><div class="loc-streets"><span>Boulder Ln</span></div></section>
+      <section><h2>What Canyon Creek windows deal with</h2><p>Greenbelt means trees, and trees mean webs. Homes backing onto the trails get spiders working the corners of every frame, plus leaf litter in screens and tracks. Live oak pollen in March and April is heavy where the canopy is thick, and cedar pollen arrives in winter.</p><p>After thirty years, the glass has also seen a lot of sprinkler spray. Hard water spots on the lowest panes are common on homes this age, and some have been there long enough to need spot removal rather than a simple wash.</p><figure class="loc-figure"><img src="/photos/pole-modern-home.jpg" alt="CleanzATX tech cleaning tall windows on a modern home from the ground with a water fed pole" width="825" height="1100" loading="lazy"><figcaption>Tall glass cleaned from the ground, no ladders on the house</figcaption></figure></section>
+      <section><h2>How we work Canyon Creek</h2><p>We approach Canyon Creek as a route of similar homes. Once we have cleaned one house on a street, the next goes faster because the layouts repeat. Exterior glass is done with pure water and poles from the ground, so back windows facing the greenbelt do not need a ladder. Screens that have collected webs and leaf bits can be cleaned the same day for $5 each. Many owners add a house soft wash because tree cover leaves green film on siding.</p><p>A 2,600 square foot home is about $260 for exterior windows and takes around two and a half hours. Inside and out at $15 a window would be near $390 for roughly 26 windows.</p></section>
+      <section><h2>Why Canyon Creek neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Greenbelt facing windows get webs and leaf debris cleared without ladders on slopes.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Similar 1990s layouts let us quote close to the final number by text.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Screens come off, get cleaned by hand and go back tight.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>The 7 day touch up covers a missed spot at no charge.</span></li></ul></section>
+      <section class="loc-faq"><h2>Canyon Creek questions</h2>
         <details class="pfaq">
           <summary>Why do my back windows get so many spider webs?</summary>
           <p>Homes next to the greenbelt sit in the path of insects, and spiders follow. We brush webs off frames and corners as part of a window clean, which is easier on a regular schedule.</p>
@@ -263,15 +266,25 @@
           <summary>Can I get screens cleaned along with windows?</summary>
           <p>Yes. Standard screens are $5, full screens $10, solar screens $15. On Triannual, Quarterly and Every 2 Months plans, a yearly screen cleaning is included.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-grandview-hills"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Grandview Hills</a><a href="/window-cleaning-woods-at-four-points"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Woods at Four Points</a><a href="/window-cleaning-preserve-at-four-points"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Preserve at Four Points</a><a href="/window-cleaning-four-points"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Four Points</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Canyon Creek price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Canyon Creek homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#screens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Screen and track cleaning</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>House soft washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Canyon Creek save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Canyon+Creek,+TX" target="_blank" rel="noopener">Canyon Creek on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-grandview-hills" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Grandview Hills</span></a><a href="/window-cleaning-woods-at-four-points" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Woods at Four Points</span></a><a href="/window-cleaning-preserve-at-four-points" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Preserve at Four Points</span></a><a href="/window-cleaning-four-points" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Four Points</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Canyon%20Creek." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Canyon%20Creek." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

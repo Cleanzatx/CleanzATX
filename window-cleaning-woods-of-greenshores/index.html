@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-woods-of-greenshores",
   "areaServed": {
     "@type": "Place",
-    "name": "Woods of Greenshores, TX"
+    "name": "Woods of Greenshores, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.376,
+      "longitude": -97.86
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "River Place",
       "item": "https://www.cleanzatx.com/window-cleaning-river-place"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Woods of Greenshores",
       "item": "https://www.cleanzatx.com/window-cleaning-woods-of-greenshores"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-river-place">River Place</a> / Woods of Greenshores</p>
-        <p class="prices__eyebrow">Serving Woods of Greenshores · Austin, TX 78730</p>
-        <h1 class="pg-hero__title">Window cleaning in Woods of Greenshores <em>behind the gate, spot free.</em></h1>
-        <p class="pg-hero__sub">Woods of Greenshores is a gated enclave of about 50 homes near Ski Shores Marina, with houses built between 2008 and 2019. Tyler handles each quote himself by text, and the work runs on pure water.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Woods of Greenshores is like</h2><p>The Woods is a gated enclave of roughly 50 homes close to Ski Shores Marina on Lake Austin. Homes date from 2008 to 2019, so they are recent builds with modern plans, large windows and tall rooms. Prices run from about $1.75M to $2.6M. Woods of Greenshores HOA manages the enclave and the gate. With only about 50 homes, the streets are quiet, and neighbors know each other. Trees are mostly mature native oak and cedar left on the hillside during building, with landscaping layered under them.</p><p>Because it is gated, visitors are checked in, which keeps traffic low and makes a scheduled visit easy to plan.</p></div>
-        <div><figure class="hood-photo"><img src="/photos/pole-modern-home.jpg" alt="CleanzATX tech cleaning tall windows on a modern home from the ground with a water fed pole" width="825" height="1100" loading="lazy"><figcaption>Tall glass cleaned from the ground, no ladders on the house</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Woods windows deal with</h2><p>Newer glass is big, and big glass shows things. Sprinkler overspray leaves hard water marks that look like a haze on the lower panes. Wooded lots give tracks and screens a steady load of leaf litter, pollen and spider webs, and you see it most in the sills and corners. Cedar pollen runs December to February, and live oak pollen March and April. Pure water from our dual RO, 4 stage system with a DI resin tank has near 0 TDS, so panes dry clean without a film. Water fed poles reach up to three stories from the ground, so no ladders against stucco or stone.</p><p>Screens are $5 each, with solar screens at $15, tracks are $5 and hard water spot removal is $10 per pane.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work the Woods</h2><p>Because the Woods is gated, we need the gate code or a plan for entry before the visit. Share it by text, or leave a note with the guard or gate system, and we confirm the day by message. If you can be home, we do the interior with you there. Otherwise exterior work needs nobody on site. HOA rules for vendor hours apply, so tell us if there are any. Most jobs are booked within about two weeks, and we tie the Woods in with Greenshores stops nearby. Stucco and stone benefit from soft washing, from $0.20 per sq ft.</p><p>For a 4,500 sq ft home, exterior windows at $0.10 per sq ft are about $450, with roughly three and a half to four and a half hours on site outside and around two and a quarter hours inside.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/hero/slide-4-lg.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Woods of Greenshores neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Gated entry is handled by text before we arrive, never at the door.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Wooded lots load screens and tracks with leaves and webs.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Newer homes have large glass that shows every streak and spot.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We tie the Woods in with Greenshores stops on the same day.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-river-place">River Place</a> / Woods of Greenshores</p>
+          <p class="loc-hero__eyebrow">Serving Woods of Greenshores · Austin, TX 78730</p>
+          <h1>Window cleaning in Woods of Greenshores <em>behind the gate, spot free.</em></h1>
+          <p class="loc-hero__sub">Woods of Greenshores is a gated enclave of about 50 homes near Ski Shores Marina, with houses built between 2008 and 2019. Tyler handles each quote himself by text, and the work runs on pure water.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Woods of Greenshores homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#screens" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Screen and track cleaning</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>House soft washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Woods of Greenshores save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Woods of Greenshores price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Woods of Greenshores questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Woods of Greenshores is like</h2><p>The Woods is a gated enclave of roughly 50 homes close to Ski Shores Marina on Lake Austin. Homes date from 2008 to 2019, so they are recent builds with modern plans, large windows and tall rooms. Prices run from about $1.75M to $2.6M. Woods of Greenshores HOA manages the enclave and the gate. With only about 50 homes, the streets are quiet, and neighbors know each other. Trees are mostly mature native oak and cedar left on the hillside during building, with landscaping layered under them.</p><p>Because it is gated, visitors are checked in, which keeps traffic low and makes a scheduled visit easy to plan.</p></section>
+      <section><h2>What Woods windows deal with</h2><p>Newer glass is big, and big glass shows things. Sprinkler overspray leaves hard water marks that look like a haze on the lower panes. Wooded lots give tracks and screens a steady load of leaf litter, pollen and spider webs, and you see it most in the sills and corners. Cedar pollen runs December to February, and live oak pollen March and April. Pure water from our dual RO, 4 stage system with a DI resin tank has near 0 TDS, so panes dry clean without a film. Water fed poles reach up to three stories from the ground, so no ladders against stucco or stone.</p><p>Screens are $5 each, with solar screens at $15, tracks are $5 and hard water spot removal is $10 per pane.</p><figure class="loc-figure"><img src="/photos/pole-modern-home.jpg" alt="CleanzATX tech cleaning tall windows on a modern home from the ground with a water fed pole" width="825" height="1100" loading="lazy"><figcaption>Tall glass cleaned from the ground, no ladders on the house</figcaption></figure></section>
+      <section><h2>How we work the Woods</h2><p>Because the Woods is gated, we need the gate code or a plan for entry before the visit. Share it by text, or leave a note with the guard or gate system, and we confirm the day by message. If you can be home, we do the interior with you there. Otherwise exterior work needs nobody on site. HOA rules for vendor hours apply, so tell us if there are any. Most jobs are booked within about two weeks, and we tie the Woods in with Greenshores stops nearby. Stucco and stone benefit from soft washing, from $0.20 per sq ft.</p><p>For a 4,500 sq ft home, exterior windows at $0.10 per sq ft are about $450, with roughly three and a half to four and a half hours on site outside and around two and a quarter hours inside.</p></section>
+      <section><h2>Why Woods of Greenshores neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Gated entry is handled by text before we arrive, never at the door.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Wooded lots load screens and tracks with leaves and webs.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Newer homes have large glass that shows every streak and spot.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We tie the Woods in with Greenshores stops on the same day.</span></li></ul></section>
+      <section class="loc-faq"><h2>Woods of Greenshores questions</h2>
         <details class="pfaq">
           <summary>What do you need from me to get through the gate?</summary>
           <p>Send us the gate code or entry instructions by text before the visit. If the HOA needs a vendor name or a list, tell us, and we confirm arrival time by message.</p>
@@ -263,15 +266,25 @@
           <summary>What if I want regular visits?</summary>
           <p>The Clean Windows Club saves 10% to 20%. Triannual, Quarterly and Every 2 Months also include a yearly free screen cleaning and hard water removal on up to 5 windows each visit.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-greenshores"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Greenshores on Lake Austin</a><a href="/window-cleaning-oak-shores-lake-austin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Manana West and Oak Shores</a><a href="/window-cleaning-river-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>River Pointe</a><a href="/window-cleaning-river-place"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>River Place</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Woods of Greenshores price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Woods of Greenshores homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#screens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Screen and track cleaning</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>House soft washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Woods of Greenshores save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Woods+of+Greenshores,+TX" target="_blank" rel="noopener">Woods of Greenshores on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-greenshores" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Greenshores on Lake Austin</span></a><a href="/window-cleaning-oak-shores-lake-austin" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Manana West and Oak Shores</span></a><a href="/window-cleaning-river-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>River Pointe</span></a><a href="/window-cleaning-river-place" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>River Place</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Woods%20of%20Greenshores." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Woods%20of%20Greenshores." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

@@ -78,5 +78,8 @@
   "window cleaning barton creek preserve",
   "acreage estate window cleaning bee cave",
   "spanish oaks gate window washing"
- ]
+ ],
+ "lat": 30.28641,
+ "lon": -97.90232,
+ "geo_source": "osm:nature_reserve"
 }

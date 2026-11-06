@@ -78,5 +78,8 @@
   "window cleaning barton creek west",
   "barton creek west austin window washing",
   "eanes isd window cleaning bee cave road"
- ]
+ ],
+ "lat": 30.299,
+ "lon": -97.94,
+ "geo_source": "hub"
 }

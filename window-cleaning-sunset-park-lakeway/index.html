@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-sunset-park-lakeway",
   "areaServed": {
     "@type": "Place",
-    "name": "Sunset Park, TX"
+    "name": "Sunset Park, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.37899,
+      "longitude": -97.95855
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Lakeway",
       "item": "https://www.cleanzatx.com/window-cleaning-lakeway"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Sunset Park",
       "item": "https://www.cleanzatx.com/window-cleaning-sunset-park-lakeway"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-lakeway">Lakeway</a> / Sunset Park</p>
-        <p class="prices__eyebrow">Serving Sunset Park · Lakeway, TX 78734</p>
-        <h1 class="pg-hero__title">Window cleaning in Sunset Park <em>Sunset glass without the streaks.</em></h1>
-        <p class="pg-hero__sub">Sunset Park is a Lakeway subdivision of 2000s mid sized homes. West facing glass here shows every streak at the end of the day, and our pure water finish is built to handle it.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Sunset Park homes are like</h2><p>The homes are mid sized, between 2,187 and 2,900 square feet, built in the 2000s and priced from $500K to $650K. The neighborhood has no known gate or HOA. For a typical Lakeway buyer, this sits in the middle of the market, with enough space for a family.</p><p>After two decades, landscaping is full, fences are weathered and many owners have updated kitchens or paint. Windows are often the one item that has gone uncleaned for years.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/lakeway-5.jpg" alt="A home in the Lakeway area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Lakeway area, February 2023</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Sunset Park windows deal with</h2><p>West facing glass takes strong afternoon light in a neighborhood like this one. Any smear stands out when the sun drops low. Pollen settles heavily on those panes, cedar from December to February and live oak from March to April.</p><p>Twenty years of sprinklers leave a visible mineral layer on lower windows. On 2000s homes we often see old hard water stains that regular washing will not lift. Spot removal costs $10 per pane. Tracks collect webs and leaf bits, and screens loosen with age.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Sunset Park</h2><p>We arrive with the pole system and work from the ground, reaching up to three stories. No ladders touch the siding or stucco for exterior glass. Interior windows are done by hand with squeegees. Gutters on mid sized 2000s homes are often packed with seeds by now, so owners often add them. We fit this neighborhood in with other north and central Lakeway work.</p><p>A 2,500 square foot home in Sunset Park is about $250 for the exterior. Plan on about two hours outside and 75 minutes inside. Pairing interior with exterior comes to $15 per window. Triannual takes 15% off and lines up with the cedar and live oak seasons.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/lakeway-2.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Sunset Park neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>West facing glass dried streak free, so late sun shows nothing.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Old hard water stains on 2000s glass treated panel by panel.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Gutters, screens and tracks can ride along on the same visit.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Mid sized home pricing is simple: about $250 for a 2,500 square foot house.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-lakeway">Lakeway</a> / Sunset Park</p>
+          <p class="loc-hero__eyebrow">Serving Sunset Park · Lakeway, TX 78734</p>
+          <h1>Window cleaning in Sunset Park <em>Sunset glass without the streaks.</em></h1>
+          <p class="loc-hero__sub">Sunset Park is a Lakeway subdivision of 2000s mid sized homes. West facing glass here shows every streak at the end of the day, and our pure water finish is built to handle it.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Sunset Park homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Gutter cleaning</span></a><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Hard water spot removal</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Sunset Park save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Sunset Park price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Sunset Park questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Sunset Park homes are like</h2><p>The homes are mid sized, between 2,187 and 2,900 square feet, built in the 2000s and priced from $500K to $650K. The neighborhood has no known gate or HOA. For a typical Lakeway buyer, this sits in the middle of the market, with enough space for a family.</p><p>After two decades, landscaping is full, fences are weathered and many owners have updated kitchens or paint. Windows are often the one item that has gone uncleaned for years.</p></section>
+      <section><h2>What Sunset Park windows deal with</h2><p>West facing glass takes strong afternoon light in a neighborhood like this one. Any smear stands out when the sun drops low. Pollen settles heavily on those panes, cedar from December to February and live oak from March to April.</p><p>Twenty years of sprinklers leave a visible mineral layer on lower windows. On 2000s homes we often see old hard water stains that regular washing will not lift. Spot removal costs $10 per pane. Tracks collect webs and leaf bits, and screens loosen with age.</p><figure class="loc-figure"><img src="/img/areas/lakeway-5.jpg" alt="A home in the Lakeway area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Lakeway area, February 2023</figcaption></figure></section>
+      <section><h2>How we work Sunset Park</h2><p>We arrive with the pole system and work from the ground, reaching up to three stories. No ladders touch the siding or stucco for exterior glass. Interior windows are done by hand with squeegees. Gutters on mid sized 2000s homes are often packed with seeds by now, so owners often add them. We fit this neighborhood in with other north and central Lakeway work.</p><p>A 2,500 square foot home in Sunset Park is about $250 for the exterior. Plan on about two hours outside and 75 minutes inside. Pairing interior with exterior comes to $15 per window. Triannual takes 15% off and lines up with the cedar and live oak seasons.</p></section>
+      <section><h2>Why Sunset Park neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>West facing glass dried streak free, so late sun shows nothing.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Old hard water stains on 2000s glass treated panel by panel.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Gutters, screens and tracks can ride along on the same visit.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Mid sized home pricing is simple: about $250 for a 2,500 square foot house.</span></li></ul></section>
+      <section class="loc-faq"><h2>Sunset Park questions</h2>
         <details class="pfaq">
           <summary>Why do my west windows look worst?</summary>
           <p>Afternoon sun hits the glass, bakes spots in and highlights streaks. Pure water leaves a clear finish, and spot removal handles older stains at $10 per pane.</p>
@@ -263,15 +266,25 @@
           <summary>Do I need a plan?</summary>
           <p>No. You can book one visit. Plans exist for owners who want regular cleaning, starting with Twice a Year at 10% off.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-honey-creek-lakeway"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Honey Creek</a><a href="/window-cleaning-deerfield-lakeway"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Deerfield</a><a href="/window-cleaning-yaupon-creek"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Yaupon Creek</a><a href="/window-cleaning-cardinal-hills"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cardinal Hills</a><a href="/window-cleaning-lakeway"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lakeway</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Sunset Park price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Sunset Park homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Gutter cleaning</a><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hard water spot removal</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Sunset Park save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Sunset+Park,+TX" target="_blank" rel="noopener">Sunset Park on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-honey-creek-lakeway" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Honey Creek</span></a><a href="/window-cleaning-deerfield-lakeway" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Deerfield</span></a><a href="/window-cleaning-yaupon-creek" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Yaupon Creek</span></a><a href="/window-cleaning-cardinal-hills" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Cardinal Hills</span></a><a href="/window-cleaning-lakeway" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lakeway</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Sunset%20Park." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Sunset%20Park." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

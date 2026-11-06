@@ -77,5 +77,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in Westcliff"
+ "h1": "Window cleaning in Westcliff",
+ "lat": 30.36327,
+ "lon": -97.81842,
+ "geo_source": "osm:residential"
 }

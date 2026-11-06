@@ -78,5 +78,8 @@
   "window cleaning palomba at flintrock",
   "palomba flintrock window washing",
   "flintrock lakeway window cleaning"
- ]
+ ],
+ "lat": 30.3315,
+ "lon": -97.99527,
+ "geo_source": "osm:neighbourhood"
 }

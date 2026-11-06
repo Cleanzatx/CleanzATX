@@ -82,5 +82,8 @@
   "window cleaning lakeside rough hollow",
   "lakeside window cleaner lakeway",
   "rough hollow window washing"
- ]
+ ],
+ "lat": 30.24401,
+ "lon": -97.72635,
+ "geo_source": "osm:residential"
 }

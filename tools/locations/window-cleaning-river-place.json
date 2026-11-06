@@ -89,5 +89,8 @@
   "window cleaning river place austin",
   "window cleaning river place",
   "river place window washing"
- ]
+ ],
+ "lat": 30.37778,
+ "lon": -97.85268,
+ "geo_source": "osm:neighbourhood"
 }

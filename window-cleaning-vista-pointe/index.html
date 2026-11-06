@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-vista-pointe",
   "areaServed": {
     "@type": "Place",
-    "name": "Vista Pointe, TX"
+    "name": "Vista Pointe, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.308,
+      "longitude": -97.948
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Bee Cave",
       "item": "https://www.cleanzatx.com/window-cleaning-bee-cave"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Vista Pointe",
       "item": "https://www.cleanzatx.com/window-cleaning-vista-pointe"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-bee-cave">Bee Cave</a> / Vista Pointe</p>
-        <p class="prices__eyebrow">Serving Vista Pointe · Austin, TX 78738</p>
-        <h1 class="pg-hero__title">Window cleaning in Vista Pointe <em>Keep the view clear.</em></h1>
-        <p class="pg-hero__sub">Vista Pointe is the view section of Lake Pointe, with homes from $700K to $1.2M. CleanzATX keeps the glass clear so the view stays the reason you bought, not the spots in front of it.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Vista Pointe homes are like</h2><p>If Lake Pointe has a view section, this is it. Vista Pointe sits up where the land opens toward the Hill Country and Lake Austin, and its homes range from about $700,000 to $1.2 million. The Lake Pointe HOA covers the section, and there is no gate. Houses are designed to face outward, with tall back windows, wide sliders and decks or patios that take in the view.</p><p>That design makes glass the main feature of the house, so how it looks matters more here than in a house with small windows.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/bee-cave-6.jpg" alt="A home in the Bee Cave area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Bee Cave area, February 2023</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Vista Pointe windows deal with</h2><p>Big windows facing out catch everything. Westward panes get hit by afternoon sun, and any streak or film shows plainly. Wind on higher ground carries pollen, dust and Highway 71 haze onto the glass, and sprinkler spray adds mineral spots on the lower sections. In winter, cedar pollen turns a clear view yellow. By March, live oak adds its own coating.</p><p>Pure water makes the difference with view glass. The dual RO, 4 stage system with a DI resin tank gives near 0 TDS water, so the panes dry clear with no soap film to catch the light. Stone and stucco are soft washed, never pressure washed.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Vista Pointe</h2><p>We clean view glass last in the visit, after frames and walls, so nothing drips onto finished panes. For tall back windows we use the poles from the ground, and if a deck gets in the way, we work from the deck without moving furniture further than needed. Many owners schedule early in the day so the sun is off the back glass while we work. Screens are worth cleaning here too, since dirty mesh blurs the view as much as dirty glass.</p><p>A 3,200 square foot example: exterior windows at about $320 and roughly two and a half to three hours on site. Interior added at $15 a window would bring the total close to $480.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/bee-cave-9.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Vista Pointe neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>View glass is cleaned last so nothing drips on finished panes.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Westward windows dry streak free in afternoon sun thanks to pure water.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Screens and sliders are cleaned so the view is not blurred by mesh.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Decks are used as work platforms with minimal furniture moved.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-bee-cave">Bee Cave</a> / Vista Pointe</p>
+          <p class="loc-hero__eyebrow">Serving Vista Pointe · Austin, TX 78738</p>
+          <h1>Window cleaning in Vista Pointe <em>Keep the view clear.</em></h1>
+          <p class="loc-hero__sub">Vista Pointe is the view section of Lake Pointe, with homes from $700K to $1.2M. CleanzATX keeps the glass clear so the view stays the reason you bought, not the spots in front of it.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Vista Pointe homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#screens" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Screen and track cleaning</span></a><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Hard water spot removal</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Vista Pointe save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Vista Pointe price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Vista Pointe questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Vista Pointe homes are like</h2><p>If Lake Pointe has a view section, this is it. Vista Pointe sits up where the land opens toward the Hill Country and Lake Austin, and its homes range from about $700,000 to $1.2 million. The Lake Pointe HOA covers the section, and there is no gate. Houses are designed to face outward, with tall back windows, wide sliders and decks or patios that take in the view.</p><p>That design makes glass the main feature of the house, so how it looks matters more here than in a house with small windows.</p></section>
+      <section><h2>What Vista Pointe windows deal with</h2><p>Big windows facing out catch everything. Westward panes get hit by afternoon sun, and any streak or film shows plainly. Wind on higher ground carries pollen, dust and Highway 71 haze onto the glass, and sprinkler spray adds mineral spots on the lower sections. In winter, cedar pollen turns a clear view yellow. By March, live oak adds its own coating.</p><p>Pure water makes the difference with view glass. The dual RO, 4 stage system with a DI resin tank gives near 0 TDS water, so the panes dry clear with no soap film to catch the light. Stone and stucco are soft washed, never pressure washed.</p><figure class="loc-figure"><img src="/img/areas/bee-cave-6.jpg" alt="A home in the Bee Cave area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Bee Cave area, February 2023</figcaption></figure></section>
+      <section><h2>How we work Vista Pointe</h2><p>We clean view glass last in the visit, after frames and walls, so nothing drips onto finished panes. For tall back windows we use the poles from the ground, and if a deck gets in the way, we work from the deck without moving furniture further than needed. Many owners schedule early in the day so the sun is off the back glass while we work. Screens are worth cleaning here too, since dirty mesh blurs the view as much as dirty glass.</p><p>A 3,200 square foot example: exterior windows at about $320 and roughly two and a half to three hours on site. Interior added at $15 a window would bring the total close to $480.</p></section>
+      <section><h2>Why Vista Pointe neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>View glass is cleaned last so nothing drips on finished panes.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Westward windows dry streak free in afternoon sun thanks to pure water.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Screens and sliders are cleaned so the view is not blurred by mesh.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Decks are used as work platforms with minimal furniture moved.</span></li></ul></section>
+      <section class="loc-faq"><h2>Vista Pointe questions</h2>
         <details class="pfaq">
           <summary>Why do my view windows show streaks at sunset?</summary>
           <p>Soap film and mineral residue catch low light. Pure water leaves nothing behind, so streaks are far less likely.</p>
@@ -263,15 +266,25 @@
           <summary>What does a quote look like?</summary>
           <p>Text your address and a rough size. We reply with a price based on $10 per window or about $0.10 per square foot, with a $200 minimum.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lake Pointe</a><a href="/window-cleaning-the-landing-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Landing at Lake Pointe</a><a href="/window-cleaning-the-estates-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Estates at Lake Pointe</a><a href="/window-cleaning-the-pointe-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Pointe at Lake Pointe</a><a href="/window-cleaning-bee-cave"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bee Cave</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Vista Pointe price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Vista Pointe homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#screens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Screen and track cleaning</a><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hard water spot removal</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Vista Pointe save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Vista+Pointe,+TX" target="_blank" rel="noopener">Vista Pointe on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lake Pointe</span></a><a href="/window-cleaning-the-landing-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Landing at Lake Pointe</span></a><a href="/window-cleaning-the-estates-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Estates at Lake Pointe</span></a><a href="/window-cleaning-the-pointe-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Pointe at Lake Pointe</span></a><a href="/window-cleaning-bee-cave" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bee Cave</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Vista%20Pointe." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Vista%20Pointe." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

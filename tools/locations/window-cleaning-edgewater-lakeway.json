@@ -78,5 +78,8 @@
   "window cleaning edgewater lakeway",
   "edgewater water view window washing",
   "lakeway view home window cleaning"
- ]
+ ],
+ "lat": 30.38136,
+ "lon": -97.97703,
+ "geo_source": "osm:residential"
 }

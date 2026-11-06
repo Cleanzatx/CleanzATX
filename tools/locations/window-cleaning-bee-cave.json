@@ -90,5 +90,8 @@
   "window cleaning bee cave",
   "window cleaning bee cave tx",
   "bee cave window washing"
- ]
+ ],
+ "lat": 30.30854,
+ "lon": -97.94501,
+ "geo_source": "osm:administrative"
 }

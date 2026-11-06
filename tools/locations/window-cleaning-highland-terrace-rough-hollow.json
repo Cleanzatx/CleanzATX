@@ -82,5 +82,8 @@
   "window cleaning highland terrace rough hollow",
   "highland terrace lakeway window cleaner",
   "highland village window cleaning"
- ]
+ ],
+ "lat": 30.32675,
+ "lon": -97.75681,
+ "geo_source": "osm:residential"
 }

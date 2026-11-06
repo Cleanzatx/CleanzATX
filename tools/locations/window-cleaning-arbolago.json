@@ -78,5 +78,8 @@
   "window cleaning arbolago",
   "arbolago lakefront window washing",
   "gated lake travis window cleaning"
- ]
+ ],
+ "lat": 30.37615,
+ "lon": -97.95713,
+ "geo_source": "osm:residential"
 }

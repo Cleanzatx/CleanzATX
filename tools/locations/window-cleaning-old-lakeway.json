@@ -83,5 +83,8 @@
   "window cleaning old lakeway",
   "old lakeway window washing",
   "lakeway window cleaning near golf course"
- ]
+ ],
+ "lat": 30.34065,
+ "lon": -98.02146,
+ "geo_source": "osm:path"
 }

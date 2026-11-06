@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-arbolago",
   "areaServed": {
     "@type": "Place",
-    "name": "Arbolago, TX"
+    "name": "Arbolago, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.37615,
+      "longitude": -97.95713
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Lakeway",
       "item": "https://www.cleanzatx.com/window-cleaning-lakeway"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Arbolago",
       "item": "https://www.cleanzatx.com/window-cleaning-arbolago"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-lakeway">Lakeway</a> / Arbolago</p>
-        <p class="prices__eyebrow">Serving Arbolago · Lakeway, TX 78734</p>
-        <h1 class="pg-hero__title">Window cleaning in Arbolago <em>Gated lake views, spot free.</em></h1>
-        <p class="pg-hero__sub">Arbolago is a small gated enclave north of Lakeway with estate lots and a private park on Lake Travis. CleanzATX plans each visit around the gate and the lake facing glass.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Arbolago homes are like</h2><p>The community is small and gated, with estate sized lots and an Arbolago HOA. A private park on Lake Travis gives residents their own piece of shoreline. Home prices run from $1.4M to $2M. The location sits north of the center of Lakeway.</p><p>Houses are built to face the water, so the biggest windows tend to look at the lake. Owners here use their outdoor spaces heavily, with terraces, covered patios and pools sitting close to large glass doors. When a home is the owner's main view, clean glass becomes one of the first things guests notice.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/lakeway-2.jpg" alt="A home in the Lakeway area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Lakeway area, March 2023</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Arbolago windows deal with</h2><p>Lake exposure brings several issues at once. Spray and humidity leave mineral film. Wind carries pollen and dust across open water onto west facing glass, where afternoon sun shows every smear. Cedar pollen from December to February and live oak pollen from March to April add to it.</p><p>Lawns and planting beds get regular watering, and overspray hits lower panes. Over time those white spots can etch. Our water filtering, dual RO, four stage and a DI resin tank, gets water near 0 TDS, and glass dries with no soap film. For spots already set, hard water removal is $10 per pane.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Arbolago</h2><p>Gate access comes first. Send us the code or a contact, and we plan arrival around it. We reach the upper and view side glass from the ground with water fed poles, which keeps equipment off terraces and sloped lawn. Inside windows are cleaned by hand with drop cloths down. We also handle house soft wash, stone and stucco, and flatwork around the pool. Limestone is only ever soft washed.</p><p>For a 4,500 square foot home, exterior windows come to about $450. Expect roughly three and a half to four and a half hours on site outside. Adding the interior takes about two hours more. Quarterly service takes 15% off.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/lakeway-7.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Arbolago neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Gate access arranged in advance, with a small crew and Tyler directly.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Lake facing glass dried spot free, so afternoon sun shows no streaks.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Terraces, pool decks and stone handled gently by hand and soft wash.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Spray spots removed before they etch into expensive large panes.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-lakeway">Lakeway</a> / Arbolago</p>
+          <p class="loc-hero__eyebrow">Serving Arbolago · Lakeway, TX 78734</p>
+          <h1>Window cleaning in Arbolago <em>Gated lake views, spot free.</em></h1>
+          <p class="loc-hero__sub">Arbolago is a small gated enclave north of Lakeway with estate lots and a private park on Lake Travis. CleanzATX plans each visit around the gate and the lake facing glass.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Arbolago homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Hard water spot removal</span></a><a href="/pricing#flatwork" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Driveway and patio pressure washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Arbolago save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Arbolago price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Arbolago questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Arbolago homes are like</h2><p>The community is small and gated, with estate sized lots and an Arbolago HOA. A private park on Lake Travis gives residents their own piece of shoreline. Home prices run from $1.4M to $2M. The location sits north of the center of Lakeway.</p><p>Houses are built to face the water, so the biggest windows tend to look at the lake. Owners here use their outdoor spaces heavily, with terraces, covered patios and pools sitting close to large glass doors. When a home is the owner's main view, clean glass becomes one of the first things guests notice.</p></section>
+      <section><h2>What Arbolago windows deal with</h2><p>Lake exposure brings several issues at once. Spray and humidity leave mineral film. Wind carries pollen and dust across open water onto west facing glass, where afternoon sun shows every smear. Cedar pollen from December to February and live oak pollen from March to April add to it.</p><p>Lawns and planting beds get regular watering, and overspray hits lower panes. Over time those white spots can etch. Our water filtering, dual RO, four stage and a DI resin tank, gets water near 0 TDS, and glass dries with no soap film. For spots already set, hard water removal is $10 per pane.</p><figure class="loc-figure"><img src="/img/areas/lakeway-2.jpg" alt="A home in the Lakeway area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Lakeway area, March 2023</figcaption></figure></section>
+      <section><h2>How we work Arbolago</h2><p>Gate access comes first. Send us the code or a contact, and we plan arrival around it. We reach the upper and view side glass from the ground with water fed poles, which keeps equipment off terraces and sloped lawn. Inside windows are cleaned by hand with drop cloths down. We also handle house soft wash, stone and stucco, and flatwork around the pool. Limestone is only ever soft washed.</p><p>For a 4,500 square foot home, exterior windows come to about $450. Expect roughly three and a half to four and a half hours on site outside. Adding the interior takes about two hours more. Quarterly service takes 15% off.</p></section>
+      <section><h2>Why Arbolago neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Gate access arranged in advance, with a small crew and Tyler directly.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Lake facing glass dried spot free, so afternoon sun shows no streaks.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Terraces, pool decks and stone handled gently by hand and soft wash.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Spray spots removed before they etch into expensive large panes.</span></li></ul></section>
+      <section class="loc-faq"><h2>Arbolago questions</h2>
         <details class="pfaq">
           <summary>Do you work inside gated communities?</summary>
           <p>Yes. Send the gate code or the name of someone who can open it. We confirm the arrival window by text before we come.</p>
@@ -263,15 +266,25 @@
           <summary>Can you do stone and the pool area?</summary>
           <p>Yes. Stone is soft washed, never pressure washed, and pool decks and patios are cleaned by hand. Soft wash starts at $0.20 per square foot with a $400 minimum.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-bella-montagna"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bella Montagna</a><a href="/window-cleaning-estates-above-hurst-harbor"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Estates Above Hurst Harbor</a><a href="/window-cleaning-cardinal-hills-estates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cardinal Hills Estates</a><a href="/window-cleaning-round-mountain"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Round Mountain</a><a href="/window-cleaning-lakeway"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lakeway</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Arbolago price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Arbolago homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hard water spot removal</a><a href="/pricing#flatwork"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Driveway and patio pressure washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Arbolago save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Arbolago,+TX" target="_blank" rel="noopener">Arbolago on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-bella-montagna" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bella Montagna</span></a><a href="/window-cleaning-estates-above-hurst-harbor" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Estates Above Hurst Harbor</span></a><a href="/window-cleaning-cardinal-hills-estates" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Cardinal Hills Estates</span></a><a href="/window-cleaning-round-mountain" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Round Mountain</span></a><a href="/window-cleaning-lakeway" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lakeway</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Arbolago." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Arbolago." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

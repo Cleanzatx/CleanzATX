@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-the-setting-lake-pointe",
   "areaServed": {
     "@type": "Place",
-    "name": "The Setting at Lake Pointe, TX"
+    "name": "The Setting at Lake Pointe, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.308,
+      "longitude": -97.948
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Bee Cave",
       "item": "https://www.cleanzatx.com/window-cleaning-bee-cave"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "The Setting at Lake Pointe",
       "item": "https://www.cleanzatx.com/window-cleaning-the-setting-lake-pointe"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-bee-cave">Bee Cave</a> / The Setting at Lake Pointe</p>
-        <p class="prices__eyebrow">Serving The Setting at Lake Pointe · Austin, TX 78738</p>
-        <h1 class="pg-hero__title">Window cleaning in The Setting at Lake Pointe <em>Original Lake Pointe, spot free.</em></h1>
-        <p class="pg-hero__sub">The Setting is the original 1990s section of Lake Pointe, about 150 homes priced from $500K to $800K. CleanzATX washes windows here and treats the mineral spots that thirty years of sprinklers can leave.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What The Setting homes are like</h2><p>This is where Lake Pointe began. The Setting holds roughly 150 homes built in the 1990s, making it the oldest part of the neighborhood, with prices from about $500,000 to $800,000. It belongs to the Lake Pointe HOA and is not gated. The trees here have had thirty years to grow, so streets feel shaded and settled compared to the newer sections nearby.</p><p>Original homes from this era often have their first generation windows, with older frames and tracks. They clean up well, but they reward a careful hand around the seals and screens.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/bee-cave-4.jpg" alt="A home in the Bee Cave area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Bee Cave area, January 2025</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What The Setting windows deal with</h2><p>Age matters for glass. A window that has taken three decades of sprinkler water can carry layers of hard water film that a standard wash will not touch. Our hard water spot removal, at $10 per pane, handles it, and the results show best on windows that have not been treated before. Mature trees add spider webs, acorns and leaf litter in the tracks, and cedar pollen from December to February coats everything.</p><p>Exteriors are often stucco or stone with some wood trim. We soft wash those surfaces with the 12V system, because pressure does harm to limestone and aging trim alike. Pure water poles take care of the glass.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work The Setting</h2><p>There is no gate, so we pull in and begin. With older frames, we pay attention to screens and tracks, which get brittle and gather debris. We tell you if a screen is past saving rather than risk damaging it. Many owners schedule a first deep clean with hard water removal, then move to a Twice a Year plan to keep it up, saving 10%.</p><p>As an example, a 2,400 square foot home runs about $240 for exterior windows and takes roughly one and three quarter to two and a half hours. Interior at $15 a window brings the total to about $360.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/bee-cave-8.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why The Setting at Lake Pointe neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Older glass with decades of mineral film is treated with dedicated spot removal.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We check screens and tracks gently, because older frames can be brittle.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Mature trees mean webs and leaf bits, so we clean frames while we are there.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>A first deep clean followed by a plan keeps the glass from slipping back.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-bee-cave">Bee Cave</a> / The Setting at Lake Pointe</p>
+          <p class="loc-hero__eyebrow">Serving The Setting at Lake Pointe · Austin, TX 78738</p>
+          <h1>Window cleaning in The Setting at Lake Pointe <em>Original Lake Pointe, spot free.</em></h1>
+          <p class="loc-hero__sub">The Setting is the original 1990s section of Lake Pointe, about 150 homes priced from $500K to $800K. CleanzATX washes windows here and treats the mineral spots that thirty years of sprinklers can leave.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What The Setting at Lake Pointe homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Hard water spot removal</span></a><a href="/pricing#screens" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Screen and track cleaning</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in The Setting at Lake Pointe save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your The Setting at Lake Pointe price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">The Setting at Lake Pointe questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What The Setting homes are like</h2><p>This is where Lake Pointe began. The Setting holds roughly 150 homes built in the 1990s, making it the oldest part of the neighborhood, with prices from about $500,000 to $800,000. It belongs to the Lake Pointe HOA and is not gated. The trees here have had thirty years to grow, so streets feel shaded and settled compared to the newer sections nearby.</p><p>Original homes from this era often have their first generation windows, with older frames and tracks. They clean up well, but they reward a careful hand around the seals and screens.</p></section>
+      <section><h2>What The Setting windows deal with</h2><p>Age matters for glass. A window that has taken three decades of sprinkler water can carry layers of hard water film that a standard wash will not touch. Our hard water spot removal, at $10 per pane, handles it, and the results show best on windows that have not been treated before. Mature trees add spider webs, acorns and leaf litter in the tracks, and cedar pollen from December to February coats everything.</p><p>Exteriors are often stucco or stone with some wood trim. We soft wash those surfaces with the 12V system, because pressure does harm to limestone and aging trim alike. Pure water poles take care of the glass.</p><figure class="loc-figure"><img src="/img/areas/bee-cave-4.jpg" alt="A home in the Bee Cave area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Bee Cave area, January 2025</figcaption></figure></section>
+      <section><h2>How we work The Setting</h2><p>There is no gate, so we pull in and begin. With older frames, we pay attention to screens and tracks, which get brittle and gather debris. We tell you if a screen is past saving rather than risk damaging it. Many owners schedule a first deep clean with hard water removal, then move to a Twice a Year plan to keep it up, saving 10%.</p><p>As an example, a 2,400 square foot home runs about $240 for exterior windows and takes roughly one and three quarter to two and a half hours. Interior at $15 a window brings the total to about $360.</p></section>
+      <section><h2>Why The Setting at Lake Pointe neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Older glass with decades of mineral film is treated with dedicated spot removal.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We check screens and tracks gently, because older frames can be brittle.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Mature trees mean webs and leaf bits, so we clean frames while we are there.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>A first deep clean followed by a plan keeps the glass from slipping back.</span></li></ul></section>
+      <section class="loc-faq"><h2>The Setting at Lake Pointe questions</h2>
         <details class="pfaq">
           <summary>Can old hard water stains come off?</summary>
           <p>Often, yes. We treat spots at $10 per pane and tell you before we start if the glass looks etched. Etching is damage in the glass itself, and cleaning cannot reverse it.</p>
@@ -263,15 +266,25 @@
           <summary>How much is a typical house here?</summary>
           <p>Exterior windows are about $0.10 per square foot with a $200 minimum, so a 2,400 square foot home is around $240. A house soft wash starts at $0.20 per square foot.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lake Pointe</a><a href="/window-cleaning-the-landing-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Landing at Lake Pointe</a><a href="/window-cleaning-vista-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Vista Pointe</a><a href="/window-cleaning-the-estates-lake-pointe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Estates at Lake Pointe</a><a href="/window-cleaning-bee-cave"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bee Cave</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your The Setting at Lake Pointe price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What The Setting at Lake Pointe homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hard water spot removal</a><a href="/pricing#screens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Screen and track cleaning</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in The Setting at Lake Pointe save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=The+Setting+at+Lake+Pointe,+TX" target="_blank" rel="noopener">The Setting at Lake Pointe on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lake Pointe</span></a><a href="/window-cleaning-the-landing-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Landing at Lake Pointe</span></a><a href="/window-cleaning-vista-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Vista Pointe</span></a><a href="/window-cleaning-the-estates-lake-pointe" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Estates at Lake Pointe</span></a><a href="/window-cleaning-bee-cave" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bee Cave</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20The%20Setting%20at%20Lake%20Pointe." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20The%20Setting%20at%20Lake%20Pointe." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

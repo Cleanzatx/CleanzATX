@@ -78,5 +78,8 @@
   "window cleaning the uplands bee cave",
   "uplands bee cave window washing",
   "bee cave estate window cleaning"
- ]
+ ],
+ "lat": 30.30463,
+ "lon": -97.92512,
+ "geo_source": "osm:residential"
 }

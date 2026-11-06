@@ -78,5 +78,8 @@
   "window cleaning comanche trail",
   "comanche trail austin window washing",
   "window cleaning lake travis mansfield dam"
- ]
+ ],
+ "lat": 30.433,
+ "lon": -97.89212,
+ "geo_source": "osm:residential"
 }

@@ -81,5 +81,8 @@
   "window cleaning provence bee cave",
   "new construction window cleaning bee cave",
   "post construction window cleaning 78738"
- ]
+ ],
+ "lat": 30.29845,
+ "lon": -98.01596,
+ "geo_source": "osm:tertiary"
 }

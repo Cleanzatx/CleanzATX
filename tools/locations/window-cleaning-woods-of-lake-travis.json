@@ -80,5 +80,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Woods of Lake Travis"
+ "h1": "Window cleaning in Woods of Lake Travis",
+ "lat": 30.34634,
+ "lon": -97.80137,
+ "geo_source": "osm:footway"
 }

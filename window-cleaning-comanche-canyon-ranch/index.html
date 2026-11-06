@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-comanche-canyon-ranch",
   "areaServed": {
     "@type": "Place",
-    "name": "Comanche Canyon Ranch, TX"
+    "name": "Comanche Canyon Ranch, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.4,
+      "longitude": -97.872
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Four Points",
       "item": "https://www.cleanzatx.com/window-cleaning-four-points"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Comanche Canyon Ranch",
       "item": "https://www.cleanzatx.com/window-cleaning-comanche-canyon-ranch"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-four-points">Four Points</a> / Comanche Canyon Ranch</p>
-        <p class="prices__eyebrow">Serving Comanche Canyon Ranch · Austin, TX 78732</p>
-        <h1 class="pg-hero__title">Window cleaning in Comanche Canyon Ranch <em>bluff top glass behind the gate.</em></h1>
-        <p class="pg-hero__sub">Comanche Canyon Ranch, also marketed as Villa Montana, is a gated enclave of 98 homes in a nature preserve above Lake Travis. CleanzATX cleans windows here, and Tyler arranges gate access directly with you.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Comanche Canyon Ranch homes are like</h2><p>This gated community of 98 homes sits behind The Oasis, with entrance roads such as Monte Castillo Parkway and Villa Montana Way. Homes date from 2006 on, and the style is custom Old World, with stone, stucco and tile. Many look out from the bluff over Lake Travis. The community has a concierge, and the Comanche Canyon Ranch HOA manages it. Prices run from about $1 million to $1.8 million.</p><p>A nature preserve setting means the homes are surrounded by native trees and rock rather than open lawn, and the views are the main feature. That makes the glass the most important part of the exterior.</p><p class="hood-streets"><strong>Streets and landmarks:</strong> Monte Castillo Pkwy, Villa Montana Way.</p></div>
-        <div><figure class="hood-photo"><img src="/photos/trucks-estate-driveway.jpg" alt="Two CleanzATX trucks on the driveway of a Lake Travis area estate" width="1400" height="1050" loading="lazy"><figcaption>Windows and exterior washing on one visit</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What the windows here deal with</h2><p>View windows on a bluff catch everything. Afternoon sun finds each streak on west facing glass, wind carries dust and pollen up the slope, and the lake breeze brings fine mist that dries to mineral spots. Cedar pollen from December to February and live oak pollen from March to April cover the rest.</p><p>Stucco and stone add their own dust. Limestone sheds a fine powder that settles on sills and runs down the glass in the first rain, so sills and frames are worth wiping before the final rinse. Preserve trees also mean webs on high eaves.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Comanche Canyon Ranch</h2><p>Access goes through the gate, so we plan each visit with you ahead of time. Send us the entry steps when you ask for a quote, and let the concierge know when we are expected if your HOA asks. Water fed poles reach up to three stories from the ground, which is how we get at tall bluff side glass without leaning ladders on stone. Stucco, stone and tile roofs are soft washed only, never pressure washed.</p><p>A 4,000 square foot home is about $400 for exterior windows, with a typical visit running three to four hours. Inside and out at $15 a window, with roughly 40 windows, comes to about $600.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/hero/slide-2-lg.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Comanche Canyon Ranch neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We coordinate gate access with you, and the concierge if your HOA asks.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Poles reach tall bluff side glass without ladders touching stone or stucco.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Limestone dust and lake mist both come off with pure water.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Soft wash only for stone, stucco and tile, never pressure.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-four-points">Four Points</a> / Comanche Canyon Ranch</p>
+          <p class="loc-hero__eyebrow">Serving Comanche Canyon Ranch · Austin, TX 78732</p>
+          <h1>Window cleaning in Comanche Canyon Ranch <em>bluff top glass behind the gate.</em></h1>
+          <p class="loc-hero__sub">Comanche Canyon Ranch, also marketed as Villa Montana, is a gated enclave of 98 homes in a nature preserve above Lake Travis. CleanzATX cleans windows here, and Tyler arranges gate access directly with you.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Comanche Canyon Ranch homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>House soft washing</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Roof soft washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Comanche Canyon Ranch save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Comanche Canyon Ranch price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Comanche Canyon Ranch questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Comanche Canyon Ranch homes are like</h2><p>This gated community of 98 homes sits behind The Oasis, with entrance roads such as Monte Castillo Parkway and Villa Montana Way. Homes date from 2006 on, and the style is custom Old World, with stone, stucco and tile. Many look out from the bluff over Lake Travis. The community has a concierge, and the Comanche Canyon Ranch HOA manages it. Prices run from about $1 million to $1.8 million.</p><p>A nature preserve setting means the homes are surrounded by native trees and rock rather than open lawn, and the views are the main feature. That makes the glass the most important part of the exterior.</p><div class="loc-streets"><span>Monte Castillo Pkwy</span><span>Villa Montana Way</span></div></section>
+      <section><h2>What the windows here deal with</h2><p>View windows on a bluff catch everything. Afternoon sun finds each streak on west facing glass, wind carries dust and pollen up the slope, and the lake breeze brings fine mist that dries to mineral spots. Cedar pollen from December to February and live oak pollen from March to April cover the rest.</p><p>Stucco and stone add their own dust. Limestone sheds a fine powder that settles on sills and runs down the glass in the first rain, so sills and frames are worth wiping before the final rinse. Preserve trees also mean webs on high eaves.</p><figure class="loc-figure"><img src="/photos/trucks-estate-driveway.jpg" alt="Two CleanzATX trucks on the driveway of a Lake Travis area estate" width="1400" height="1050" loading="lazy"><figcaption>Windows and exterior washing on one visit</figcaption></figure></section>
+      <section><h2>How we work Comanche Canyon Ranch</h2><p>Access goes through the gate, so we plan each visit with you ahead of time. Send us the entry steps when you ask for a quote, and let the concierge know when we are expected if your HOA asks. Water fed poles reach up to three stories from the ground, which is how we get at tall bluff side glass without leaning ladders on stone. Stucco, stone and tile roofs are soft washed only, never pressure washed.</p><p>A 4,000 square foot home is about $400 for exterior windows, with a typical visit running three to four hours. Inside and out at $15 a window, with roughly 40 windows, comes to about $600.</p></section>
+      <section><h2>Why Comanche Canyon Ranch neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We coordinate gate access with you, and the concierge if your HOA asks.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Poles reach tall bluff side glass without ladders touching stone or stucco.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Limestone dust and lake mist both come off with pure water.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Soft wash only for stone, stucco and tile, never pressure.</span></li></ul></section>
+      <section class="loc-faq"><h2>Comanche Canyon Ranch questions</h2>
         <details class="pfaq">
           <summary>Do you work inside gated communities?</summary>
           <p>Yes. Share the entry steps or arrange a guest pass when you book. We confirm the arrival window by text, and a gate does not change the price.</p>
@@ -263,15 +266,25 @@
           <summary>How soon can you come?</summary>
           <p>Most jobs are booked within two weeks. We do not promise a date in advance, but Tyler confirms a window by text once you book.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-comanche-trail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Comanche Trail</a><a href="/window-cleaning-comanche-trail-estates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Comanche Trail Estates</a><a href="/window-cleaning-marshall-ford-vista"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Marshall Ford Vista</a><a href="/window-cleaning-four-points"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Four Points</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Comanche Canyon Ranch price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Comanche Canyon Ranch homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>House soft washing</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Roof soft washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Comanche Canyon Ranch save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Comanche+Canyon+Ranch,+TX" target="_blank" rel="noopener">Comanche Canyon Ranch on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-comanche-trail" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Comanche Trail</span></a><a href="/window-cleaning-comanche-trail-estates" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Comanche Trail Estates</span></a><a href="/window-cleaning-marshall-ford-vista" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Marshall Ford Vista</span></a><a href="/window-cleaning-four-points" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Four Points</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Comanche%20Canyon%20Ranch." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Comanche%20Canyon%20Ranch." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

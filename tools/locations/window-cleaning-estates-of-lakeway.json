@@ -78,5 +78,8 @@
   "window cleaning estates of lakeway",
   "lakeway estates window washing",
   "lakeway home window cleaning"
- ]
+ ],
+ "lat": 30.32986,
+ "lon": -97.98751,
+ "geo_source": "osm:neighbourhood"
 }

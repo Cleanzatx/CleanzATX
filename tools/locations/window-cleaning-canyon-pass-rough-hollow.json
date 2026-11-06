@@ -82,5 +82,8 @@
   "window cleaning canyon pass rough hollow",
   "canyon pass lakeway window cleaner",
   "new home window cleaning lakeway"
- ]
+ ],
+ "lat": 30.30212,
+ "lon": -97.95929,
+ "geo_source": "osm:residential"
 }

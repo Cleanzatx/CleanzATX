@@ -81,5 +81,8 @@
   "window cleaning belvedere",
   "gated community window cleaning bee cave",
   "belvedere hamilton pool road window cleaning"
- ]
+ ],
+ "lat": 30.34955,
+ "lon": -97.78272,
+ "geo_source": "osm:residential"
 }

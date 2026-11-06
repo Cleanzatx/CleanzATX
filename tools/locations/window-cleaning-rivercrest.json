@@ -77,5 +77,8 @@
   "window cleaning rivercrest austin",
   "rivercrest 78733 window washing",
   "lake austin window cleaning eanes isd"
- ]
+ ],
+ "lat": 30.33523,
+ "lon": -97.81799,
+ "geo_source": "osm:residential"
 }

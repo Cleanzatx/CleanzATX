@@ -81,5 +81,8 @@
   "window cleaning galleria walk",
   "bee cave townhome window cleaning",
   "galleria walk window cleaning"
- ]
+ ],
+ "lat": 30.308,
+ "lon": -97.948,
+ "geo_source": "hub"
 }

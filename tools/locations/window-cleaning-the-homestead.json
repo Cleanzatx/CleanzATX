@@ -82,5 +82,8 @@
   "window cleaning the homestead bee cave",
   "homestead hamilton pool road window cleaning",
   "estate window cleaning bee cave"
- ]
+ ],
+ "lat": 30.47385,
+ "lon": -97.80087,
+ "geo_source": "osm:retail"
 }

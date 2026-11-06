@@ -78,5 +78,8 @@
   "window cleaning the point rough hollow",
   "waterfront window cleaning lakeway",
   "lake travis window cleaner rough hollow"
- ]
+ ],
+ "lat": 30.42307,
+ "lon": -97.91834,
+ "geo_source": "osm:slipway"
 }

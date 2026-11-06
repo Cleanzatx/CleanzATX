@@ -78,5 +78,8 @@
   "window cleaning barton creek austin",
   "barton creek golf community window washing",
   "omni barton creek area window cleaning"
- ]
+ ],
+ "lat": 30.25088,
+ "lon": -97.79672,
+ "geo_source": "osm:park"
 }

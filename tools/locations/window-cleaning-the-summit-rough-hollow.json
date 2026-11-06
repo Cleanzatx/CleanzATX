@@ -82,5 +82,8 @@
   "window cleaning the summit rough hollow",
   "summit lakeway window cleaner",
   "highest elevation window cleaning rough hollow"
- ]
+ ],
+ "lat": 30.35889,
+ "lon": -97.73198,
+ "geo_source": "osm:residential"
 }

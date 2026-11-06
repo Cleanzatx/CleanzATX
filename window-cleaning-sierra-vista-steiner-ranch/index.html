@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-sierra-vista-steiner-ranch",
   "areaServed": {
     "@type": "Place",
-    "name": "Sierra Vista, TX"
+    "name": "Sierra Vista, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.255,
+      "longitude": -97.8793
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Steiner Ranch",
       "item": "https://www.cleanzatx.com/window-cleaning-steiner-ranch"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Sierra Vista",
       "item": "https://www.cleanzatx.com/window-cleaning-sierra-vista-steiner-ranch"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-steiner-ranch">Steiner Ranch</a> / Sierra Vista</p>
-        <p class="prices__eyebrow">Serving Sierra Vista · Austin, TX 78732</p>
-        <h1 class="pg-hero__title">Window cleaning in Sierra Vista <em>acre lots, long sight lines.</em></h1>
-        <p class="pg-hero__sub">Sierra Vista is a small acreage section of Steiner Ranch where homesites run an acre or more. CleanzATX cleans windows here, on homes that have a lot of glass and a lot of yard around it.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Sierra Vista homes are like</h2><p>Space is the difference here. Most of Steiner Ranch is built close together, but Sierra Vista has homesites of an acre or more, so houses sit back from the street with real distance to the next neighbor. Prices run from about $1.2M to $2.5M. The section is small, not gated, and covered by the Steiner Ranch Master Association. On bigger lots, builders usually go bigger on the house too, with long rear elevations, large patio doors and a lot of picture glass facing the yard and the hills.</p><p>Longer driveways and more landscaping also mean more ground around each home to keep in mind when we plan the work.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/steiner-ranch-1.jpg" alt="A home in the Steiner Ranch area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Steiner Ranch area, October 2026</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Sierra Vista windows deal with</h2><p>An acre means more trees, and more trees means more of everything that falls from them. Live oak and cedar pollen settle on the glass every spring and winter, and leaf litter packs into screens and tracks. Spiders move in near mature plantings, so webs turn up around frames and eaves. Irrigation systems on larger lots often cover a lot of ground, and the spray that reaches the house leaves white hard water spots on the lower windows. Those can etch if ignored, so we treat them at $10 per pane when ordinary cleaning will not lift them.</p><p>Open yards also mean wind and dust, so glass facing the lot gets dusty between visits.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Sierra Vista</h2><p>Without a gate, access is simple. We park near the house, and we ask you to unlock side and rear gates and keep dogs inside. Our dual RO, four stage pure water system dries without spots, and the water fed poles reach up to three stories so we never lean a ladder on your stone or stucco. Interior windows are cleaned by hand with squeegees. On a lot this size we can add driveway and patio cleaning, since the surface cleaner makes quick work of flatwork at $0.18 per sq ft for concrete. We try to pair Sierra Vista with other Steiner Ranch homes, usually within two weeks.</p><p>For a 4,500 sq ft home, exterior windows are about $450 at $0.10 per sq ft. Plan on about three and a half to four and a half hours outside, and around two hours for the inside.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/steiner-ranch-1.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Sierra Vista neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Acre lots mean more trees, so we clean screens and tracks along with the glass.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Pure water dries clear on picture windows that face a big open yard.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Poles reach upper glass without ladders on your landscaping.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Driveway and patio cleaning can ride along on the same visit.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-steiner-ranch">Steiner Ranch</a> / Sierra Vista</p>
+          <p class="loc-hero__eyebrow">Serving Sierra Vista · Austin, TX 78732</p>
+          <h1>Window cleaning in Sierra Vista <em>acre lots, long sight lines.</em></h1>
+          <p class="loc-hero__sub">Sierra Vista is a small acreage section of Steiner Ranch where homesites run an acre or more. CleanzATX cleans windows here, on homes that have a lot of glass and a lot of yard around it.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Sierra Vista homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#screens" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Screen and track cleaning</span></a><a href="/pricing#flatwork" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Driveway and patio pressure washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Sierra Vista save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Sierra Vista price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Sierra Vista questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Sierra Vista homes are like</h2><p>Space is the difference here. Most of Steiner Ranch is built close together, but Sierra Vista has homesites of an acre or more, so houses sit back from the street with real distance to the next neighbor. Prices run from about $1.2M to $2.5M. The section is small, not gated, and covered by the Steiner Ranch Master Association. On bigger lots, builders usually go bigger on the house too, with long rear elevations, large patio doors and a lot of picture glass facing the yard and the hills.</p><p>Longer driveways and more landscaping also mean more ground around each home to keep in mind when we plan the work.</p></section>
+      <section><h2>What Sierra Vista windows deal with</h2><p>An acre means more trees, and more trees means more of everything that falls from them. Live oak and cedar pollen settle on the glass every spring and winter, and leaf litter packs into screens and tracks. Spiders move in near mature plantings, so webs turn up around frames and eaves. Irrigation systems on larger lots often cover a lot of ground, and the spray that reaches the house leaves white hard water spots on the lower windows. Those can etch if ignored, so we treat them at $10 per pane when ordinary cleaning will not lift them.</p><p>Open yards also mean wind and dust, so glass facing the lot gets dusty between visits.</p><figure class="loc-figure"><img src="/img/areas/steiner-ranch-1.jpg" alt="A home in the Steiner Ranch area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Steiner Ranch area, October 2026</figcaption></figure></section>
+      <section><h2>How we work Sierra Vista</h2><p>Without a gate, access is simple. We park near the house, and we ask you to unlock side and rear gates and keep dogs inside. Our dual RO, four stage pure water system dries without spots, and the water fed poles reach up to three stories so we never lean a ladder on your stone or stucco. Interior windows are cleaned by hand with squeegees. On a lot this size we can add driveway and patio cleaning, since the surface cleaner makes quick work of flatwork at $0.18 per sq ft for concrete. We try to pair Sierra Vista with other Steiner Ranch homes, usually within two weeks.</p><p>For a 4,500 sq ft home, exterior windows are about $450 at $0.10 per sq ft. Plan on about three and a half to four and a half hours outside, and around two hours for the inside.</p></section>
+      <section><h2>Why Sierra Vista neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Acre lots mean more trees, so we clean screens and tracks along with the glass.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Pure water dries clear on picture windows that face a big open yard.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Poles reach upper glass without ladders on your landscaping.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Driveway and patio cleaning can ride along on the same visit.</span></li></ul></section>
+      <section class="loc-faq"><h2>Sierra Vista questions</h2>
         <details class="pfaq">
           <summary>Will you need to walk the whole yard?</summary>
           <p>Only as far as the windows go. We work from the ground with poles, and we ask that gates are unlocked and pets are inside. We avoid stepping on planting beds and rinse any splash off the patio.</p>
@@ -263,15 +266,25 @@
           <summary>Do you offer a recurring plan?</summary>
           <p>Yes, the Clean Windows Club. Twice a Year is 10% off, Triannual and Quarterly are 15% off, and Every 2 Months is 20% off. The upper tiers add free yearly screen cleaning and a 7 day rain guarantee.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-bellagio-estates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bellagio Estates</a><a href="/window-cleaning-ut-golf-club"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>UT Golf Club</a><a href="/window-cleaning-bella-mar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bella Mar</a><a href="/window-cleaning-lakeland-park"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lakeland Park</a><a href="/window-cleaning-steiner-ranch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Steiner Ranch</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Sierra Vista price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Sierra Vista homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#screens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Screen and track cleaning</a><a href="/pricing#flatwork"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Driveway and patio pressure washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Sierra Vista save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Sierra+Vista,+TX" target="_blank" rel="noopener">Sierra Vista on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-bellagio-estates" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bellagio Estates</span></a><a href="/window-cleaning-ut-golf-club" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>UT Golf Club</span></a><a href="/window-cleaning-bella-mar" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bella Mar</span></a><a href="/window-cleaning-lakeland-park" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lakeland Park</span></a><a href="/window-cleaning-steiner-ranch" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Steiner Ranch</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Sierra%20Vista." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Sierra%20Vista." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

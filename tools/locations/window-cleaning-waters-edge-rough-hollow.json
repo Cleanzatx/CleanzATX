@@ -82,5 +82,8 @@
   "window cleaning waters edge rough hollow",
   "lakeway window cleaner waters edge",
   "rough hollow lake view window cleaning"
- ]
+ ],
+ "lat": 30.32545,
+ "lon": -97.7751,
+ "geo_source": "osm:residential"
 }

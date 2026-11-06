@@ -81,5 +81,8 @@
   "window cleaning vistas at lakeway",
   "lakeway townhome window cleaning",
   "glen heather window washing"
- ]
+ ],
+ "lat": 30.34359,
+ "lon": -97.96299,
+ "geo_source": "osm:neighbourhood"
 }

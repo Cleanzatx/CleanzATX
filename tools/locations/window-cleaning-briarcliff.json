@@ -81,5 +81,8 @@
   "window cleaning briarcliff",
   "lake travis lake house window cleaning",
   "briarcliff spicewood window cleaning"
- ]
+ ],
+ "lat": 30.40742,
+ "lon": -98.04446,
+ "geo_source": "osm:administrative"
 }

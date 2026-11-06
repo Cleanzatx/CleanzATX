@@ -82,5 +82,8 @@
   "window cleaning west rim rough hollow",
   "west rim lakeway window cleaner",
   "ridge top lake view window cleaning"
- ]
+ ],
+ "lat": 30.36757,
+ "lon": -97.7681,
+ "geo_source": "osm:residential"
 }

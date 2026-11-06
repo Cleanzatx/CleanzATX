@@ -78,5 +78,8 @@
   "window cleaning vista ridge rough hollow",
   "vista ridge lakeway window cleaner",
   "hilltop lake view window cleaning"
- ]
+ ],
+ "lat": 30.34115,
+ "lon": -97.96684,
+ "geo_source": "osm:retail"
 }

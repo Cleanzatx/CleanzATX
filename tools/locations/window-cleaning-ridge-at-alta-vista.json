@@ -80,5 +80,8 @@
   "window cleaning ridge at alta vista",
   "alta vista stucco cleaning",
   "lohmans crossing window washing"
- ]
+ ],
+ "lat": 30.32949,
+ "lon": -97.9622,
+ "geo_source": "osm:residential"
 }

@@ -78,5 +78,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in Manana West and Oak Shores"
+ "h1": "Window cleaning in Manana West and Oak Shores",
+ "lat": 30.376,
+ "lon": -97.86,
+ "geo_source": "hub"
 }

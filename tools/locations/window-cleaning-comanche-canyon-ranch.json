@@ -80,5 +80,8 @@
   "window cleaning comanche canyon ranch",
   "villa montana austin window cleaning",
   "gated community window washing lake travis"
- ]
+ ],
+ "lat": 30.4,
+ "lon": -97.872,
+ "geo_source": "hub"
 }

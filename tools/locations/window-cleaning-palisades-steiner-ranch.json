@@ -78,5 +78,8 @@
   "window cleaning palisades steiner ranch",
   "palisades at steiner ranch window cleaner",
   "window cleaning austin 78732 palisades"
- ]
+ ],
+ "lat": 30.29329,
+ "lon": -97.73491,
+ "geo_source": "osm:residential"
 }

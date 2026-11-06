@@ -89,5 +89,8 @@
   "window cleaning lake travis",
   "window cleaning hudson bend",
   "lake travis window washing"
- ]
+ ],
+ "lat": 30.46459,
+ "lon": -98.07835,
+ "geo_source": "osm:reservoir"
 }

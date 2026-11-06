@@ -78,5 +78,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Apache Shores"
+ "h1": "Window cleaning in Apache Shores",
+ "lat": 30.408,
+ "lon": -97.93,
+ "geo_source": "hub"
 }

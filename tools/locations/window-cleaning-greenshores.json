@@ -80,5 +80,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in Greenshores on Lake Austin"
+ "h1": "Window cleaning in Greenshores on Lake Austin",
+ "lat": 30.376,
+ "lon": -97.86,
+ "geo_source": "hub"
 }

@@ -78,5 +78,8 @@
   "window cleaning falconhead west",
   "falconhead west bee cave window washing",
   "window cleaners falconhead west"
- ]
+ ],
+ "lat": 30.32216,
+ "lon": -97.9855,
+ "geo_source": "osm:neighbourhood"
 }

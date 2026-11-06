@@ -80,5 +80,8 @@
   "window cleaning canyon glen",
   "canyon glen steiner ranch window cleaner",
   "canyon glen circle austin window cleaning"
- ]
+ ],
+ "lat": 30.43699,
+ "lon": -97.82453,
+ "geo_source": "osm:school"
 }

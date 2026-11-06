@@ -77,5 +77,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in Woods of Greenshores"
+ "h1": "Window cleaning in Woods of Greenshores",
+ "lat": 30.376,
+ "lon": -97.86,
+ "geo_source": "hub"
 }

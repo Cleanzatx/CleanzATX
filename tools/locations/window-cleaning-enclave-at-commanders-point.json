@@ -78,5 +78,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Enclave at Commanders Point"
+ "h1": "Window cleaning in Enclave at Commanders Point",
+ "lat": 30.408,
+ "lon": -97.93,
+ "geo_source": "hub"
 }

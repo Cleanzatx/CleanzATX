@@ -81,5 +81,8 @@
   "window cleaning river bend lake austin",
   "river bend waterfront window cleaner austin",
   "lake austin waterfront window cleaning"
- ]
+ ],
+ "lat": 30.32888,
+ "lon": -97.92164,
+ "geo_source": "osm:residential"
 }

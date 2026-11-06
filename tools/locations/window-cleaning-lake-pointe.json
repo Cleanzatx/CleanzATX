@@ -79,5 +79,8 @@
   "window cleaning lake pointe",
   "lake pointe austin 78738 window washing",
   "lake pointe hoa window cleaning"
- ]
+ ],
+ "lat": 30.31023,
+ "lon": -97.92438,
+ "geo_source": "osm:park"
 }

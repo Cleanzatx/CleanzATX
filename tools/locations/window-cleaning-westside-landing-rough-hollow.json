@@ -82,5 +82,8 @@
   "window cleaning westside landing rough hollow",
   "townhome window cleaning lakeway",
   "lock and leave window cleaning rough hollow"
- ]
+ ],
+ "lat": 30.3647,
+ "lon": -97.9797,
+ "geo_source": "hub"
 }

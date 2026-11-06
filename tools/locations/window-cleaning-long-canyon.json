@@ -80,5 +80,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in Long Canyon"
+ "h1": "Window cleaning in Long Canyon",
+ "lat": 30.37711,
+ "lon": -97.81723,
+ "geo_source": "osm:residential"
 }

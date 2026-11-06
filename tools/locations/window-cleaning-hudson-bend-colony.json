@@ -81,5 +81,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Hudson Bend Colony"
+ "h1": "Window cleaning in Hudson Bend Colony",
+ "lat": 30.408,
+ "lon": -97.93,
+ "geo_source": "hub"
 }

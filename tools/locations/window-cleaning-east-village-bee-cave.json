@@ -81,5 +81,8 @@
   "window cleaning east village bee cave",
   "bee cave newer home window cleaning",
   "window cleaning 78738"
- ]
+ ],
+ "lat": 30.26916,
+ "lon": -97.72492,
+ "geo_source": "osm:residential"
 }

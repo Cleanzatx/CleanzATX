@@ -82,5 +82,8 @@
   "window cleaning the overlook rough hollow",
   "overlook lakeway window cleaner",
   "hilltop view window cleaning lakeway"
- ]
+ ],
+ "lat": 30.2425,
+ "lon": -97.81484,
+ "geo_source": "osm:office"
 }

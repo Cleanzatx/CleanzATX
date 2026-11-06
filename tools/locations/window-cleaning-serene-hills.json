@@ -78,5 +78,8 @@
   "window cleaning serene hills",
   "serene hills window washing",
   "hill country custom home window cleaning"
- ]
+ ],
+ "lat": 30.32699,
+ "lon": -98.0068,
+ "geo_source": "osm:neighbourhood"
 }

@@ -78,5 +78,8 @@
   "window cleaning lake ridge rough hollow",
   "lock and leave window cleaning lakeway",
   "courtyard home window cleaner"
- ]
+ ],
+ "lat": 30.33274,
+ "lon": -97.87317,
+ "geo_source": "osm:residential"
 }

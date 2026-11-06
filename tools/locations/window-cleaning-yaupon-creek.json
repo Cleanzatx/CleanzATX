@@ -78,5 +78,8 @@
   "window cleaning yaupon creek",
   "yaupon creek window washing",
   "lakeway window cleaning near town center"
- ]
+ ],
+ "lat": 30.34626,
+ "lon": -97.96952,
+ "geo_source": "osm:river"
 }

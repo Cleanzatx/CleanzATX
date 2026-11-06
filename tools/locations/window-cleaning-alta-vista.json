@@ -80,5 +80,8 @@
   "window cleaning alta vista lakeway",
   "alta vista window washing",
   "lakeway center window cleaning"
- ]
+ ],
+ "lat": 30.32938,
+ "lon": -97.96211,
+ "geo_source": "osm:residential"
 }

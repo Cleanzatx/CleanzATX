@@ -81,5 +81,8 @@
   "window cleaning west cypress hills",
   "west cypress hills spicewood window cleaning",
   "lake travis isd window cleaning"
- ]
+ ],
+ "lat": 30.34989,
+ "lon": -98.08458,
+ "geo_source": "osm:school"
 }

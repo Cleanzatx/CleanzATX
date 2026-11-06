@@ -80,5 +80,8 @@
   "window cleaning sweetwater",
   "sweetwater bee cave window washing",
   "sweetwater austin 78738 window cleaning"
- ]
+ ],
+ "lat": 30.45309,
+ "lon": -97.81836,
+ "geo_source": "osm:residential"
 }

@@ -81,5 +81,8 @@
   "window cleaning lakeside at the park",
   "spicewood newer home window cleaning",
   "window cleaning near briarcliff"
- ]
+ ],
+ "lat": 30.308,
+ "lon": -97.948,
+ "geo_source": "hub"
 }

@@ -78,5 +78,8 @@
   "window cleaning sierra vista steiner ranch",
   "acreage home window cleaning steiner ranch",
   "sierra vista austin 78732 window cleaner"
- ]
+ ],
+ "lat": 30.255,
+ "lon": -97.8793,
+ "geo_source": "osm:residential"
 }

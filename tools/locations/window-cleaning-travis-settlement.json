@@ -81,5 +81,8 @@
   "window cleaning travis settlement",
   "travis settlement spicewood window cleaning",
   "spicewood acreage window cleaning"
- ]
+ ],
+ "lat": 30.35023,
+ "lon": -98.05215,
+ "geo_source": "osm:residential"
 }

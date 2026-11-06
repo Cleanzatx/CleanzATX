@@ -77,5 +77,8 @@
   "window cleaning glenlake austin",
   "river pointe austin window washing",
   "glenlake 78730 window cleaning"
- ]
+ ],
+ "lat": 30.36103,
+ "lon": -97.85147,
+ "geo_source": "osm:residential"
 }

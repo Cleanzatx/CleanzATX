@@ -78,5 +78,8 @@
   "window cleaning round mountain",
   "round mountain estate window washing",
   "large home window cleaning lakeway"
- ]
+ ],
+ "lat": 30.36045,
+ "lon": -97.95627,
+ "geo_source": "osm:peak"
 }

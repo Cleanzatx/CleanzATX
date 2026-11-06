@@ -78,5 +78,8 @@
   "window cleaning the preserve at lakeway",
   "preserve at lakeway window washing",
   "lakeway garden home window cleaning"
- ]
+ ],
+ "lat": 30.35084,
+ "lon": -97.95847,
+ "geo_source": "osm:neighbourhood"
 }

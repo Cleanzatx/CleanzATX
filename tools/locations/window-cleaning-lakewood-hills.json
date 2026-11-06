@@ -80,5 +80,8 @@
   "window cleaning lakewood hills",
   "lakewood hills steiner ranch window cleaner",
   "window cleaning lakewood hills terrace austin"
- ]
+ ],
+ "lat": 30.35522,
+ "lon": -97.9122,
+ "geo_source": "osm:residential"
 }

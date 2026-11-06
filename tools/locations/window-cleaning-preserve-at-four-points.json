@@ -80,5 +80,8 @@
   "window cleaning preserve at four points",
   "window cleaning four points austin 78726",
   "window washing preserve at four points"
- ]
+ ],
+ "lat": 30.40124,
+ "lon": -97.84322,
+ "geo_source": "osm:residential"
 }

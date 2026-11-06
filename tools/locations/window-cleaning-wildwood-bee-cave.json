@@ -81,5 +81,8 @@
   "window cleaning wildwood bee cave",
   "small home window cleaning bee cave",
   "window cleaning 78738"
- ]
+ ],
+ "lat": 30.49376,
+ "lon": -97.97805,
+ "geo_source": "osm:residential"
 }

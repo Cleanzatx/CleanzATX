@@ -78,5 +78,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in River Pointe"
+ "h1": "Window cleaning in River Pointe",
+ "lat": 30.376,
+ "lon": -97.86,
+ "geo_source": "hub"
 }

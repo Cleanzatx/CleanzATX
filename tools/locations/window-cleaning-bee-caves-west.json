@@ -81,5 +81,8 @@
   "window cleaning bee caves west",
   "older home window cleaning bee cave",
   "window cleaning 78738"
- ]
+ ],
+ "lat": 30.28774,
+ "lon": -97.81647,
+ "geo_source": "osm:doctors"
 }

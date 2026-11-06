@@ -78,5 +78,8 @@
   "window cleaning the landing at lakeway",
   "lohmans spur villas window washing",
   "new construction villa window cleaning lakeway"
- ]
+ ],
+ "lat": 30.33927,
+ "lon": -97.97231,
+ "geo_source": "osm:residential"
 }

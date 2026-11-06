@@ -78,5 +78,8 @@
   "window cleaning st andrews lakeway",
   "the hills garden home window washing",
   "lakeway golf course home window cleaning"
- ]
+ ],
+ "lat": 30.26271,
+ "lon": -97.89167,
+ "geo_source": "osm:park"
 }

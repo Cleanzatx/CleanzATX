@@ -82,5 +82,8 @@
   "window cleaning the enclave rough hollow",
   "gated community window cleaning lakeway",
   "enclave lakeway window cleaner"
- ]
+ ],
+ "lat": 30.27916,
+ "lon": -97.81202,
+ "geo_source": "osm:commercial"
 }

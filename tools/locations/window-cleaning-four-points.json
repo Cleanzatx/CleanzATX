@@ -90,5 +90,8 @@
   "window cleaning four points austin",
   "window cleaning four points",
   "four points window washing"
- ]
+ ],
+ "lat": 30.40383,
+ "lon": -97.85388,
+ "geo_source": "osm:locality"
 }

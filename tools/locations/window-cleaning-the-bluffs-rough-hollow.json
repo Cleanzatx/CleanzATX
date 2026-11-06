@@ -82,5 +82,8 @@
   "window cleaning the bluffs rough hollow",
   "hill country view window cleaning lakeway",
   "bluffs window cleaner lakeway"
- ]
+ ],
+ "lat": 30.34227,
+ "lon": -97.92261,
+ "geo_source": "osm:residential"
 }

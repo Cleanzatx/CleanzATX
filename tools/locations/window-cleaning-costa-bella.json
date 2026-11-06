@@ -78,5 +78,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Costa Bella"
+ "h1": "Window cleaning in Costa Bella",
+ "lat": 30.38612,
+ "lon": -97.95142,
+ "geo_source": "osm:residential"
 }

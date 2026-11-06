@@ -77,5 +77,8 @@
   "window cleaning westminster glen",
   "westminster glen austin window washing",
   "78730 window cleaning acreage"
- ]
+ ],
+ "lat": 30.36558,
+ "lon": -97.84166,
+ "geo_source": "osm:residential"
 }

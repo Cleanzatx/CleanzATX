@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-signal-hill-estates",
   "areaServed": {
     "@type": "Place",
-    "name": "Signal Hill Estates, TX"
+    "name": "Signal Hill Estates, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.308,
+      "longitude": -97.948
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Bee Cave",
       "item": "https://www.cleanzatx.com/window-cleaning-bee-cave"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Signal Hill Estates",
       "item": "https://www.cleanzatx.com/window-cleaning-signal-hill-estates"
     }
@@ -152,7 +163,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -206,51 +217,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-bee-cave">Bee Cave</a> / Signal Hill Estates</p>
-        <p class="prices__eyebrow">Serving Signal Hill Estates · Bee Cave, TX 78738</p>
-        <h1 class="pg-hero__title">Window cleaning in Signal Hill Estates <em>Quiet custom homes, clear glass.</em></h1>
-        <p class="pg-hero__sub">Signal Hill Estates is a small group of custom homes tucked close to The Homestead on the Bee Cave side of Hamilton Pool Road. CleanzATX cleans windows here with pure water, and Tyler handles each quote himself.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Signal Hill Estates homes are like</h2><p>Signal Hill Estates is one of those pockets people drive past without knowing it is there. It is a small subdivision of custom homes, priced roughly between $800K and $1.6M, with no gate and no HOA listed. Because there are not many lots, no two houses look alike. You get a mix of stone, stucco and painted siding, each built to the taste of whoever ordered it. Lots are big enough that homes sit back from each other, and plenty of owners kept the native live oaks and cedar that were already on the land. That gives the streets a settled, shaded feel even though Bee Cave retail is only minutes away.</p><p>Custom builds usually mean custom glass. Expect tall entry windows, wide sliders to the back patio, and the occasional arched or divided light unit that a standard cleaning routine does not handle well. We slow down for those.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/bee-cave-3.jpg" alt="A home in the Bee Cave area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Bee Cave area, November 2023</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Signal Hill Estates windows deal with</h2><p>Glass on a custom home collects more than just dust. Trees close to the house drop pollen in cedar season and again when the live oaks bloom in spring, and that yellow film bakes on once the sun hits it. Sprinkler heads aimed near the foundation leave white mineral spots on lower panes, and in this part of Travis County the water is hard enough that those spots can etch the glass if they sit for years. Dust from nearby construction along Hamilton Pool Road settles on south and west facing panes and mixes with morning dew into a gritty smear.</p><p>Screens and tracks catch the rest: leaf bits, spider webs, and fine grit that gets dragged across the glass when someone slides a door open.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Signal Hill Estates</h2><p>There is no gate to arrange here, so the route is simple. We park on the street or the driveway, set up the pure water system and work the outside with water fed poles that reach up to three stories from the ground. That means no ladders leaning on stucco or stone. Inside, we lay drop cloths and hand squeegee each pane. Because Signal Hill sits close to The Homestead, we often group visits with homes in both places on the same day to keep the schedule tight. Many owners add a screen cleaning or a house soft wash while we are there, since limestone and stucco get soft washed only, never blasted.</p><p>For a custom home around 3,000 square feet, exterior windows come to about $300, and we would plan roughly two and a half to three hours on site. Cleaning inside and out in Signal Hill Estates is $15 per window.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/bee-cave-2.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Signal Hill Estates neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Small custom subdivision, so quotes are tailored to each house, not a template.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Water fed poles keep ladders off the stone and stucco on custom exteriors.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Pure water dries spot free, which matters on large panes facing the afternoon sun.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Easy to pair with homes in The Homestead on the same trip.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-bee-cave">Bee Cave</a> / Signal Hill Estates</p>
+          <p class="loc-hero__eyebrow">Serving Signal Hill Estates · Bee Cave, TX 78738</p>
+          <h1>Window cleaning in Signal Hill Estates <em>Quiet custom homes, clear glass.</em></h1>
+          <p class="loc-hero__sub">Signal Hill Estates is a small group of custom homes tucked close to The Homestead on the Bee Cave side of Hamilton Pool Road. CleanzATX cleans windows here with pure water, and Tyler handles each quote himself.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Signal Hill Estates homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#screens" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Screen and track cleaning</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>House soft washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Signal Hill Estates save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Signal Hill Estates price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Signal Hill Estates questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Signal Hill Estates homes are like</h2><p>Signal Hill Estates is one of those pockets people drive past without knowing it is there. It is a small subdivision of custom homes, priced roughly between $800K and $1.6M, with no gate and no HOA listed. Because there are not many lots, no two houses look alike. You get a mix of stone, stucco and painted siding, each built to the taste of whoever ordered it. Lots are big enough that homes sit back from each other, and plenty of owners kept the native live oaks and cedar that were already on the land. That gives the streets a settled, shaded feel even though Bee Cave retail is only minutes away.</p><p>Custom builds usually mean custom glass. Expect tall entry windows, wide sliders to the back patio, and the occasional arched or divided light unit that a standard cleaning routine does not handle well. We slow down for those.</p></section>
+      <section><h2>What Signal Hill Estates windows deal with</h2><p>Glass on a custom home collects more than just dust. Trees close to the house drop pollen in cedar season and again when the live oaks bloom in spring, and that yellow film bakes on once the sun hits it. Sprinkler heads aimed near the foundation leave white mineral spots on lower panes, and in this part of Travis County the water is hard enough that those spots can etch the glass if they sit for years. Dust from nearby construction along Hamilton Pool Road settles on south and west facing panes and mixes with morning dew into a gritty smear.</p><p>Screens and tracks catch the rest: leaf bits, spider webs, and fine grit that gets dragged across the glass when someone slides a door open.</p><figure class="loc-figure"><img src="/img/areas/bee-cave-3.jpg" alt="A home in the Bee Cave area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Bee Cave area, November 2023</figcaption></figure></section>
+      <section><h2>How we work Signal Hill Estates</h2><p>There is no gate to arrange here, so the route is simple. We park on the street or the driveway, set up the pure water system and work the outside with water fed poles that reach up to three stories from the ground. That means no ladders leaning on stucco or stone. Inside, we lay drop cloths and hand squeegee each pane. Because Signal Hill sits close to The Homestead, we often group visits with homes in both places on the same day to keep the schedule tight. Many owners add a screen cleaning or a house soft wash while we are there, since limestone and stucco get soft washed only, never blasted.</p><p>For a custom home around 3,000 square feet, exterior windows come to about $300, and we would plan roughly two and a half to three hours on site. Cleaning inside and out in Signal Hill Estates is $15 per window.</p></section>
+      <section><h2>Why Signal Hill Estates neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Small custom subdivision, so quotes are tailored to each house, not a template.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Water fed poles keep ladders off the stone and stucco on custom exteriors.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Pure water dries spot free, which matters on large panes facing the afternoon sun.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Easy to pair with homes in The Homestead on the same trip.</span></li></ul></section>
+      <section class="loc-faq"><h2>Signal Hill Estates questions</h2>
         <details class="pfaq">
           <summary>Do you work in a neighborhood as small as Signal Hill Estates?</summary>
           <p>Yes. Small subdivisions are fine. We just send a text photo request for a quote, and Tyler usually replies about {n} quotes within the hour during business hours. Lead time is typically within two weeks, and we group nearby addresses to keep it efficient.</p>
@@ -275,15 +278,25 @@
           <summary>Can I get a quote without someone coming out?</summary>
           <p>In most cases, yes. Text (512) 518-0512 with your address and a rough window count, and we quote from there. Exterior pricing is about $0.10 per square foot of home, so it is easy to estimate.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-the-homestead"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Homestead</a><a href="/window-cleaning-bee-caves-west"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bee Caves West</a><a href="/window-cleaning-rocky-creek"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Rocky Creek</a><a href="/window-cleaning-bee-cave"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bee Cave</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Signal Hill Estates price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Signal Hill Estates homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#screens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Screen and track cleaning</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>House soft washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Signal Hill Estates save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Signal+Hill+Estates,+TX" target="_blank" rel="noopener">Signal Hill Estates on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-the-homestead" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>The Homestead</span></a><a href="/window-cleaning-bee-caves-west" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bee Caves West</span></a><a href="/window-cleaning-rocky-creek" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Rocky Creek</span></a><a href="/window-cleaning-bee-cave" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bee Cave</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -371,7 +384,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Signal%20Hill%20Estates." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Signal%20Hill%20Estates." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

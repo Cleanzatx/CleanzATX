@@ -78,5 +78,8 @@
   "window cleaning ladera",
   "ladera ranch bee cave window washing",
   "hamilton pool road window cleaning"
- ]
+ ],
+ "lat": 30.31776,
+ "lon": -97.95445,
+ "geo_source": "osm:residential"
 }

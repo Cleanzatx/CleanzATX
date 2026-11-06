@@ -78,5 +78,8 @@
   "window cleaning sunset park lakeway",
   "sunset park window washing",
   "lakeway 2000s home window cleaning"
- ]
+ ],
+ "lat": 30.37899,
+ "lon": -97.95855,
+ "geo_source": "osm:residential"
 }

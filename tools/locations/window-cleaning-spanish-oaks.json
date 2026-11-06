@@ -89,5 +89,8 @@
   "window cleaning spanish oaks",
   "window cleaning bee cave rd",
   "spanish oaks window washing"
- ]
+ ],
+ "lat": 30.3069,
+ "lon": -97.72543,
+ "geo_source": "osm:residential"
 }

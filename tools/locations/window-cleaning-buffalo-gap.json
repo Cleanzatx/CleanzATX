@@ -80,5 +80,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Buffalo Gap"
+ "h1": "Window cleaning in Buffalo Gap",
+ "lat": 30.38282,
+ "lon": -97.95402,
+ "geo_source": "osm:residential"
 }

@@ -90,5 +90,8 @@
   "window cleaning lakeway",
   "window cleaning lakeway tx",
   "lakeway window washing"
- ]
+ ],
+ "lat": 30.36449,
+ "lon": -97.98753,
+ "geo_source": "osm:administrative"
 }

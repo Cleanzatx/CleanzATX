@@ -79,5 +79,8 @@
   "window cleaning canyon creek austin",
   "canyon creek window washing",
   "canyon creek austin 78726 window cleaner"
- ]
+ ],
+ "lat": 30.37576,
+ "lon": -97.85743,
+ "geo_source": "osm:stream"
 }

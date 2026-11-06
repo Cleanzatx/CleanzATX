@@ -78,5 +78,8 @@
   "window cleaning deerfield lakeway",
   "deerfield window washing lakeway",
   "small home window cleaning lakeway"
- ]
+ ],
+ "lat": 30.36515,
+ "lon": -97.97926,
+ "geo_source": "osm:residential"
 }

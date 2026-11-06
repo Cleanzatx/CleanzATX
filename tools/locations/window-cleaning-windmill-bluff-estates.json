@@ -80,5 +80,8 @@
  ],
  "kind": "neighborhood",
  "hub": "lake-travis",
- "h1": "Window cleaning in Windmill Bluff Estates"
+ "h1": "Window cleaning in Windmill Bluff Estates",
+ "lat": 30.408,
+ "lon": -97.93,
+ "geo_source": "hub"
 }

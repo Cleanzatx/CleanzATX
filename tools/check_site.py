@@ -8,6 +8,9 @@ def main_text(s):
     body = re.sub(r'<script.*?</script>|<style.*?</style>|<svg.*?</svg>', ' ', body, flags=re.S)
     body = re.sub(r'<nav class="hood-areas.*?</nav>', ' ', body, flags=re.S)   # link chips are allowed to repeat
     body = re.sub(r'<ul class="hood-stats">.*?</ul>', ' ', body, flags=re.S)
+    body = re.sub(r'<aside class="loc-card">.*?</aside>', ' ', body, flags=re.S)
+    body = re.sub(r'<ul class="loc-stats">.*?</ul>', ' ', body, flags=re.S)
+    body = re.sub(r'<div class="loc-aside__box">.*?</div></div>', ' ', body, flags=re.S)
     body = re.sub(r'<section class="pg-cta">.*?</section>', ' ', body, flags=re.S)
     t = html.unescape(re.sub(r'<[^>]+>', ' ', body)); return re.sub(r'\s+', ' ', t)
 sent = collections.defaultdict(set); probs = 0; rows = []

@@ -78,5 +78,8 @@
   "window cleaning honey creek lakeway",
   "honey creek window washing",
   "lakeway small subdivision window cleaning"
- ]
+ ],
+ "lat": 30.34229,
+ "lon": -97.94792,
+ "geo_source": "osm:river"
 }

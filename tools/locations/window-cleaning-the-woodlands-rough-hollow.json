@@ -74,5 +74,8 @@
   "window cleaning the woodlands rough hollow",
   "wooded home window cleaning lakeway",
   "gutter and window cleaning rough hollow"
- ]
+ ],
+ "lat": 30.2287,
+ "lon": -97.73615,
+ "geo_source": "osm:residential"
 }

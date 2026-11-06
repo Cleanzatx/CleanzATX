@@ -77,5 +77,8 @@
   "window cleaning grandview hills",
   "window washing grandview hills austin",
   "grandview hills austin window cleaner"
- ]
+ ],
+ "lat": 30.41765,
+ "lon": -97.86278,
+ "geo_source": "osm:nature_reserve"
 }

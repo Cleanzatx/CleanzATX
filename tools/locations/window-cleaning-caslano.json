@@ -78,5 +78,8 @@
   "window cleaning caslano",
   "caslano steiner ranch window cleaner",
   "new construction window cleaning steiner ranch"
- ]
+ ],
+ "lat": 30.33773,
+ "lon": -97.92933,
+ "geo_source": "osm:residential"
 }

@@ -18,6 +18,7 @@ Plain text version of this file with every page: https://www.cleanzatx.com/llms.
 
 <!-- areas:start -->
 ## Area pages
+- Directory of every area: https://www.cleanzatx.com/areas
 - Lakeway: https://www.cleanzatx.com/window-cleaning-lakeway
   - Alta Vista: https://www.cleanzatx.com/window-cleaning-alta-vista
   - Arbolago: https://www.cleanzatx.com/window-cleaning-arbolago

@@ -81,5 +81,8 @@
   "window cleaning reserve at lake travis",
   "gated lake travis window cleaning",
   "spicewood waterfront window cleaning"
- ]
+ ],
+ "lat": 30.308,
+ "lon": -97.948,
+ "geo_source": "hub"
 }

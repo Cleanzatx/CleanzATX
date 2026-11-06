@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=50" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,7 +37,12 @@
   "url": "https://www.cleanzatx.com/window-cleaning-lakewood-hills",
   "areaServed": {
     "@type": "Place",
-    "name": "Lakewood Hills, TX"
+    "name": "Lakewood Hills, TX",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.35522,
+      "longitude": -97.9122
+    }
   },
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -83,12 +88,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "Areas",
+      "item": "https://www.cleanzatx.com/areas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Steiner Ranch",
       "item": "https://www.cleanzatx.com/window-cleaning-steiner-ranch"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Lakewood Hills",
       "item": "https://www.cleanzatx.com/window-cleaning-lakewood-hills"
     }
@@ -144,7 +155,7 @@
 }
   </script>
 </head>
-<body class="subpage">
+<body class="subpage loc-page">
 
   <!-- ===== PROMO TOPBAR ===== -->
   <div class="topbar" role="note" aria-label="Promotion">
@@ -198,51 +209,43 @@
   </nav>
 
 
-  <main class="pg">
-    <section class="pg-hero">
-      <div class="container">
-        <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/#areas">Areas</a> / <a href="/window-cleaning-steiner-ranch">Steiner Ranch</a> / Lakewood Hills</p>
-        <p class="prices__eyebrow">Serving Lakewood Hills · Austin, TX 78732</p>
-        <h1 class="pg-hero__title">Window cleaning in Lakewood Hills <em>Lake Austin glass, spot free.</em></h1>
-        <p class="pg-hero__sub">Lakewood Hills is a private gated section of Steiner Ranch off Lakewood Hills Terrace, with roughly 60 to 100 homes and some Lake Austin views. CleanzATX cleans windows here, with the gate handled ahead of time.</p>
-        <div class="prices__ctas pg-hero__ctas">
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
-        </div>
-        <ul class="hood-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
-      </div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-two">
-        <div class="hood-local"><h2 class="pg-h2">What Lakewood Hills homes are like</h2><p>Most Lakewood Hills homes date from the mid 2000s and are on the larger side, from about 3,200 to 5,600 sq ft, with prices around $810K to $1.65M. The section is gated and has its own sub association, and owners get Lake Club access. A few lots have views down toward Lake Austin, which is where the sunsets and the glare come from. The builds are typical of that era in Steiner Ranch: stone and stucco fronts, tall entries, two story great rooms with plenty of glass, and covered back patios.</p><p>With fewer than a hundred homes, the streets are quiet, and you can tell which owners keep up with maintenance.</p><p class="hood-streets"><strong>Streets and landmarks:</strong> Lakewood Hills Terrace.</p></div>
-        <div><figure class="hood-photo"><img src="/img/areas/steiner-ranch-1.jpg" alt="A home in the Steiner Ranch area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Steiner Ranch area, October 2026</figcaption></figure></div>
-      </div>
-    </section>
-    <section class="pg-section pg-section--alt">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">What Lakewood Hills windows deal with</h2><p>Homes of this age have had fifteen or more years of sprinkler spray on the glass, and that is the biggest problem we see. Hard water leaves white spots that bond to the surface, and left alone they can etch. Pure water cleaning handles most of it, and the stubborn panes get hard water spot removal at $10 each. The lake view side faces west in many cases, so afternoon sun shows every streak and film. Cedar pollen from December to February and live oak pollen in March and April coat everything, and the tree cover brings webs and leaf bits into screens and tracks.</p><p>Older caulk and weatherstrip are worth a glance, and we will tell you if we see something.</p></div>
-    </section>
-    <section class="pg-section">
-      <div class="container pg-narrow hood-local"><h2 class="pg-h2">How we work Lakewood Hills</h2><p>We confirm gate access before the visit, and we will not show up unannounced. Exterior glass is cleaned with our dual RO, four stage pure water system with a DI tank, so it dries with no soap film, and poles reach up to three stories without ladders on the stone. Inside, we clean by hand with squeegees and put down drop cloths first. Because Lakewood Hills sits close to other gated Steiner Ranch sections, we can often schedule neighbors on the same day, and most visits happen within two weeks. Many owners add a house soft wash, since stucco and limestone only get soft washed here, never pressure washed.</p><p>At $0.10 per sq ft, a 4,000 sq ft Lakewood Hills home runs about $400 on the outside. Expect roughly three to four hours outside and two hours inside.</p></div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container pg-two">
+  <main class="loc">
+    <section class="loc-hero">
+      <div class="loc-hero__bg" style="background-image:url('/img/areas/steiner-ranch-1.jpg')"></div>
+      <div class="container loc-hero__inner">
         <div>
-          <h2 class="pg-h2">Why Lakewood Hills neighbors call CleanzATX</h2>
-          <ul class="hood-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Fifteen year old sprinkler spotting is exactly what our hard water removal is for.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Lake facing west glass gets checked in afternoon light so streaks do not return.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We arrange gate access first and keep the visit quiet and tidy.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Stone and stucco are soft washed gently, never pressure washed.</span></li></ul>
-          <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <p class="crumbs crumbs--hero"><a href="/">Home</a> / <a href="/areas">Areas</a> / <a href="/window-cleaning-steiner-ranch">Steiner Ranch</a> / Lakewood Hills</p>
+          <p class="loc-hero__eyebrow">Serving Lakewood Hills · Austin, TX 78732</p>
+          <h1>Window cleaning in Lakewood Hills <em>Lake Austin glass, spot free.</em></h1>
+          <p class="loc-hero__sub">Lakewood Hills is a private gated section of Steiner Ranch off Lakewood Hills Terrace, with roughly 60 to 100 homes and some Lake Austin views. CleanzATX cleans windows here, with the gate handled ahead of time.</p>
+          <div class="loc-hero__ctas">
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+          </div>
+          <ul class="loc-stats"><li><strong>5.0★</strong><span>200+ Google reviews</span></li><li><strong>3,000+</strong><span>homes cleaned</span></li><li><strong>3 stories</strong><span>from the ground</span></li><li><strong>$1M</strong><span>insured</span></li></ul>
         </div>
-        <div>
-          <h2 class="pg-h2">What Lakewood Hills homes book most</h2>
-          <nav class="hood-areas" aria-label="Services"><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Window cleaning</span></a><a href="/pricing#windows" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Hard water spot removal</span></a><a href="/pricing#exterior" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>House soft washing</span></a></nav>
-          <p class="prices__fine">Published prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Lakewood Hills save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p>
-        </div>
+        <div><aside class="loc-card">
+            <h2>Get your Lakewood Hills price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside></div>
       </div>
     </section>
 
-    <section class="pg-section pg-section--alt" id="faq">
-      <div class="container pg-narrow">
-        <h2 class="pg-h2">Lakewood Hills questions</h2>
+    <div class="loc-body">
+      <div class="container loc-body__inner">
+        <div class="loc-main">
+      <section><h2>What Lakewood Hills homes are like</h2><p>Most Lakewood Hills homes date from the mid 2000s and are on the larger side, from about 3,200 to 5,600 sq ft, with prices around $810K to $1.65M. The section is gated and has its own sub association, and owners get Lake Club access. A few lots have views down toward Lake Austin, which is where the sunsets and the glare come from. The builds are typical of that era in Steiner Ranch: stone and stucco fronts, tall entries, two story great rooms with plenty of glass, and covered back patios.</p><p>With fewer than a hundred homes, the streets are quiet, and you can tell which owners keep up with maintenance.</p><div class="loc-streets"><span>Lakewood Hills Terrace</span></div></section>
+      <section><h2>What Lakewood Hills windows deal with</h2><p>Homes of this age have had fifteen or more years of sprinkler spray on the glass, and that is the biggest problem we see. Hard water leaves white spots that bond to the surface, and left alone they can etch. Pure water cleaning handles most of it, and the stubborn panes get hard water spot removal at $10 each. The lake view side faces west in many cases, so afternoon sun shows every streak and film. Cedar pollen from December to February and live oak pollen in March and April coat everything, and the tree cover brings webs and leaf bits into screens and tracks.</p><p>Older caulk and weatherstrip are worth a glance, and we will tell you if we see something.</p><figure class="loc-figure"><img src="/img/areas/steiner-ranch-1.jpg" alt="A home in the Steiner Ranch area after a CleanzATX window cleaning visit" width="1200" height="900" loading="lazy"><figcaption>A CleanzATX job in the Steiner Ranch area, October 2026</figcaption></figure></section>
+      <section><h2>How we work Lakewood Hills</h2><p>We confirm gate access before the visit, and we will not show up unannounced. Exterior glass is cleaned with our dual RO, four stage pure water system with a DI tank, so it dries with no soap film, and poles reach up to three stories without ladders on the stone. Inside, we clean by hand with squeegees and put down drop cloths first. Because Lakewood Hills sits close to other gated Steiner Ranch sections, we can often schedule neighbors on the same day, and most visits happen within two weeks. Many owners add a house soft wash, since stucco and limestone only get soft washed here, never pressure washed.</p><p>At $0.10 per sq ft, a 4,000 sq ft Lakewood Hills home runs about $400 on the outside. Expect roughly three to four hours outside and two hours inside.</p></section>
+      <section><h2>Why Lakewood Hills neighbors call CleanzATX</h2><ul class="loc-why"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Fifteen year old sprinkler spotting is exactly what our hard water removal is for.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Lake facing west glass gets checked in afternoon light so streaks do not return.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>We arrange gate access first and keep the visit quiet and tidy.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Stone and stucco are soft washed gently, never pressure washed.</span></li></ul></section>
+      <section class="loc-faq"><h2>Lakewood Hills questions</h2>
         <details class="pfaq">
           <summary>Do you handle the gate and sub association?</summary>
           <p>We just need the gate code or guest list name. We do not need anything from the association. Text us the details when you book and we will arrive when we said we would.</p>
@@ -263,15 +266,25 @@
           <summary>Can you soft wash my stucco and roof too?</summary>
           <p>Yes. House soft wash starts at $0.20 per sq ft with a $400 minimum, and roof soft wash starts at $0.25 per sq ft with a $400 minimum. We use a 12V soft wash system, not high pressure.</p>
         </details>
+      </section>
+      <section><h2>Nearby</h2><div class="loc-grid"><a href="/window-cleaning-ut-golf-club"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>UT Golf Club</a><a href="/window-cleaning-bellagio-estates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bellagio Estates</a><a href="/window-cleaning-river-dance"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>River Dance</a><a href="/window-cleaning-lakeland-park"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lakeland Park</a><a href="/window-cleaning-steiner-ranch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Steiner Ranch</a></div></section>
+        </div>
+        <div class="loc-aside">
+          <aside class="loc-card loc-card--compact">
+            <h2>Get your Lakewood Hills price by text</h2>
+            <p>Tell Tyler the address and what you need. A price and the next open dates come back by text, usually within the hour during business hours.</p>
+            <a href="/#quoteWizard" class="prices__btn prices__btn--solid">Get My Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="sms:+15125180512" class="prices__btn">Text (512) 518-0512</a>
+            <ul class="loc-card__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>5.0 stars, 200+ Google reviews</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>$1M insured, 7 day touch up on every job</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Owner answers the phone, not a call center</span></li>
+            </ul>
+          </aside>
+          <div class="loc-aside__box"><h3>What Lakewood Hills homes book most</h3><div class="loc-grid"><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Window cleaning</a><a href="/pricing#windows"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hard water spot removal</a><a href="/pricing#exterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>House soft washing</a></div><p class="prices__fine" style="margin:12px 0 0">Prices for everything are on the <a href="/pricing">pricing page</a>. Window plans in Lakewood Hills save 10 to 20 percent on every visit; see <a href="/plans">the plans</a>.</p><p class="prices__fine" style="margin:8px 0 0"><a href="https://www.google.com/maps/search/?api=1&query=Lakewood+Hills,+TX" target="_blank" rel="noopener">Lakewood Hills on Google Maps</a></p></div>
+        </div>
       </div>
-    </section>
-
-    <section class="pg-section">
-      <div class="container">
-        <h2 class="pg-h2">Nearby</h2>
-        <nav class="hood-areas" aria-label="Nearby areas"><a href="/window-cleaning-ut-golf-club" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>UT Golf Club</span></a><a href="/window-cleaning-bellagio-estates" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bellagio Estates</span></a><a href="/window-cleaning-river-dance" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>River Dance</span></a><a href="/window-cleaning-lakeland-park" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lakeland Park</span></a><a href="/window-cleaning-steiner-ranch" class="hood-areas__a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Steiner Ranch</span></a></nav>
-      </div>
-    </section>
+    </div>
 
     <section class="pg-cta">
       <div class="container">
@@ -359,7 +372,7 @@
   <!-- Sticky phone bar -->
   <div class="mobile-cta-bar">
     <a href="/#quoteWizard" class="mobile-cta-bar__quote">Get My Free Quote</a>
-    <a href="sms:+15125180512?&body=Hi%20Tyler%2C%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Lakewood%20Hills." class="mobile-cta-bar__call">Text for a Quote</a>
+    <a href="sms:+15125180512?&body=Hi%20Tyler,%20I%20would%20like%20a%20window%20cleaning%20quote%20in%20Lakewood%20Hills." class="mobile-cta-bar__call">Text for a Quote</a>
   </div>
 
   <script>

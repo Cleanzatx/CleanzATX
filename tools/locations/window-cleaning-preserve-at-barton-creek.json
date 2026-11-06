@@ -80,5 +80,8 @@
   "window cleaning preserve at barton creek",
   "preserve drive window cleaning austin 78735",
   "gated custom home window washing tx 71"
- ]
+ ],
+ "lat": 30.29544,
+ "lon": -97.92109,
+ "geo_source": "osm:residential"
 }

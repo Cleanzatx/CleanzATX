@@ -80,5 +80,8 @@
   "window cleaning bella mar",
   "bella mar steiner ranch window cleaner",
   "window cleaning montclair bend austin"
- ]
+ ],
+ "lat": 30.34713,
+ "lon": -97.91149,
+ "geo_source": "osm:hamlet"
 }

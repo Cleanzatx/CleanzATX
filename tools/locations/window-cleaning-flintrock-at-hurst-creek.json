@@ -78,5 +78,8 @@
   "window cleaning flintrock at hurst creek",
   "hurst creek window washing",
   "flintrock lakeway window cleaner"
- ]
+ ],
+ "lat": 30.344,
+ "lon": -97.96,
+ "geo_source": "hub"
 }

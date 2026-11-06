@@ -81,5 +81,8 @@
   "window cleaning rocky creek bee cave",
   "rocky creek hamilton pool road window cleaning",
   "window cleaning 78738"
- ]
+ ],
+ "lat": 30.27728,
+ "lon": -98.03183,
+ "geo_source": "osm:river"
 }

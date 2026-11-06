@@ -80,5 +80,8 @@
   "window cleaning creekside at flintrock",
   "stephanie ln window cleaning",
   "creekside flintrock window washing"
- ]
+ ],
+ "lat": 30.32934,
+ "lon": -97.99642,
+ "geo_source": "osm:neighbourhood"
 }

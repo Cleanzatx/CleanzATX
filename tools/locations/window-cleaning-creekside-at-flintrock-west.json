@@ -79,5 +79,8 @@
   "window cleaning creekside at flintrock west",
   "kaden way window cleaning",
   "the hills lakeway window washer"
- ]
+ ],
+ "lat": 30.32973,
+ "lon": -97.99921,
+ "geo_source": "osm:neighbourhood"
 }

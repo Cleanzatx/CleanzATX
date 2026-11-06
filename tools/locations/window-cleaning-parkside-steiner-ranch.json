@@ -78,5 +78,8 @@
   "window cleaning parkside steiner ranch",
   "parkside steiner ranch window cleaner",
   "window cleaning near steiner ranch parks"
- ]
+ ],
+ "lat": 30.2672,
+ "lon": -97.7403,
+ "geo_source": "osm:restaurant"
 }

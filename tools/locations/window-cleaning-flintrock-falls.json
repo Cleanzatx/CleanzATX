@@ -78,5 +78,8 @@
   "window cleaning flintrock falls",
   "flintrock falls window washing",
   "lakeway golf community window cleaner"
- ]
+ ],
+ "lat": 30.33564,
+ "lon": -97.98666,
+ "geo_source": "osm:neighbourhood"
 }

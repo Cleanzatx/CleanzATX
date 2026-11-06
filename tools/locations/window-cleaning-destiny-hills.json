@@ -77,5 +77,8 @@
   "window cleaning destiny hills",
   "ranches at destiny hills window washing",
   "tx 71 bee creek acreage window cleaning"
- ]
+ ],
+ "lat": 30.30189,
+ "lon": -98.01275,
+ "geo_source": "osm:residential"
 }

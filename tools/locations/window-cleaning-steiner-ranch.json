@@ -90,5 +90,8 @@
   "window cleaning steiner ranch",
   "steiner ranch window cleaning",
   "window washing steiner ranch austin"
- ]
+ ],
+ "lat": 30.35569,
+ "lon": -97.89942,
+ "geo_source": "osm:suburb"
 }

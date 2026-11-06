@@ -78,5 +78,8 @@
   "window cleaning boulevard at lakeway",
   "lakeway townhome window washing",
   "lakeway blvd window cleaning"
- ]
+ ],
+ "lat": 30.35671,
+ "lon": -97.97369,
+ "geo_source": "osm:secondary"
 }

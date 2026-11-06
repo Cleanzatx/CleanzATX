@@ -78,5 +78,8 @@
   "window cleaning madrone ridge",
   "madrone ridge sweetwater window washing",
   "new construction window cleaning bee cave"
- ]
+ ],
+ "lat": 30.32799,
+ "lon": -98.03968,
+ "geo_source": "osm:residential"
 }

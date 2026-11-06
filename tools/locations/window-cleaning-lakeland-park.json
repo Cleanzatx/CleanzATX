@@ -80,5 +80,8 @@
   "window cleaning lakeland park",
   "lakeland park lake austin window cleaner",
   "window cleaning quinlan park road austin"
- ]
+ ],
+ "lat": 30.32854,
+ "lon": -97.92584,
+ "geo_source": "osm:park"
 }

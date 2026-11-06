@@ -78,5 +78,8 @@
   "window cleaning river heights",
   "river heights steiner ranch window cleaner",
   "affordable window cleaning steiner ranch"
- ]
+ ],
+ "lat": 30.36993,
+ "lon": -97.91029,
+ "geo_source": "osm:path"
 }

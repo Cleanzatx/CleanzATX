@@ -78,5 +78,8 @@
  ],
  "kind": "neighborhood",
  "hub": "river-place",
- "h1": "Window cleaning in Shepherd Mountain"
+ "h1": "Window cleaning in Shepherd Mountain",
+ "lat": 30.35876,
+ "lon": -97.80154,
+ "geo_source": "osm:peak"
 }

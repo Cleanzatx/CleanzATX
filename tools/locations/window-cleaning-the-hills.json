@@ -88,5 +88,8 @@
   "window cleaning the hills tx",
   "window cleaning hills of lakeway",
   "flintrock falls window cleaning"
- ]
+ ],
+ "lat": 30.34691,
+ "lon": -97.98645,
+ "geo_source": "osm:administrative"
 }
