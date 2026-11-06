@@ -1,0 +1,85 @@
+{
+ "slug": "window-cleaning-ladera",
+ "name": "Ladera",
+ "hub": "bee-cave",
+ "kind": "neighborhood",
+ "tier": "B",
+ "city": "Bee Cave, TX 78738",
+ "title": "Ladera Ranch Window Cleaning | Bee Cave TX | CleanzATX",
+ "description": "Window cleaning in Ladera off Hamilton Pool Road. Pure water glass for 2010s Hill Country homes above Falconhead Golf Club, from $10 a window.",
+ "h1": "Window cleaning in Ladera",
+ "h1_em": "Hill Country glass, clear views.",
+ "intro": "Ladera is a Bee Cave subdivision off Hamilton Pool Road, about 300 homes looking out toward Falconhead Golf Club and the Hill Country. CleanzATX keeps the view glass clear and soft washes the stone and stucco.",
+ "sections": [
+  {
+   "h2": "What Ladera homes are like",
+   "paragraphs": [
+    "Ladera, also called Ladera Ranch, is a subdivision of about 300 homes built mostly in the 2010s, reached from Hamilton Pool Road. The homes overlook Falconhead Golf Club and carry long Hill Country views. They run from about 1,800 to 4,400 square feet and sell from the mid $500,000s to about $1.3 million. The Ladera HOA runs the community and there is no gate.",
+    "Many houses are stucco and limestone, with big back windows, covered porches and views that make the glass the best feature of the house."
+   ]
+  },
+  {
+   "h2": "What Ladera windows deal with",
+   "paragraphs": [
+    "View lots mean wind. It carries dust off Hamilton Pool Road and the nearby construction, plus pollen in winter and spring, and the glass catches all of it. The golf course below has sprinklers of its own, and mist drifts toward the slope on some days, leaving mineral spots. Lawn irrigation at your house adds to it. Where west facing windows face the afternoon sun, streaks and spots show.",
+    "Pure water at near 0 TDS dries without a trace. Our hard water treatment, $10 per pane, takes off the spots that have accumulated. Limestone and stucco are soft washed."
+   ]
+  },
+  {
+   "h2": "How we work Ladera",
+   "paragraphs": [
+    "The streets are open, and the lots are often sloped, so we plan hose and pole placement carefully and keep off planted beds. Poles from the ground reach three stories, which helps on sloping lots where the back wall sits well above grade. We often combine Ladera with Terra Colinas and Bella Colinas, two nearby Bee Cave neighborhoods, so scheduling is flexible.",
+    "For a 3,000 square foot home, exterior windows run about $300, with two and a quarter to three hours on site. Doing the inside at $15 a window comes close to $450."
+   ]
+  }
+ ],
+ "streets": [],
+ "why": [
+  "Sloped lots and tall back walls are handled with poles from the ground.",
+  "Golf course mist and sprinkler spots get dedicated treatment.",
+  "View glass dries clear with pure water, even in afternoon sun.",
+  "We schedule Ladera with the Colinas neighborhoods nearby."
+ ],
+ "faq": [
+  {
+   "q": "Can you clean windows on a sloped lot?",
+   "a": "Yes. The pole system reaches up to three stories from the ground, so a back wall that sits high above grade is not a problem."
+  },
+  {
+   "q": "Does the golf course affect my glass?",
+   "a": "It can. Mist and spray from sprinklers carry minerals that dry as white spots. We treat those spots at $10 per pane."
+  },
+  {
+   "q": "Is it okay to clean limestone with pressure?",
+   "a": "No. We never pressure wash limestone. A soft wash with a 12V system cleans it gently and safely."
+  },
+  {
+   "q": "How soon can I schedule?",
+   "a": "Most jobs are booked within about two weeks, and we reply to quote texts, usually within the hour during business hours."
+  },
+  {
+   "q": "Do you offer discounts for regular service?",
+   "a": "Yes. Plans save 10% to 20%, and the Quarterly and Every 2 Months plans include hard water removal on up to 5 windows per visit."
+  }
+ ],
+ "services": [
+  "window-cleaning",
+  "hard-water",
+  "house-washing"
+ ],
+ "neighbors": [
+  "window-cleaning-terra-colinas",
+  "window-cleaning-bella-colinas",
+  "window-cleaning-falconhead",
+  "window-cleaning-falconhead-west",
+  "window-cleaning-bee-cave"
+ ],
+ "keywords": [
+  "window cleaning ladera",
+  "ladera ranch bee cave window washing",
+  "hamilton pool road window cleaning"
+ ],
+ "lat": 30.31776,
+ "lon": -97.95445,
+ "geo_source": "osm:residential"
+}

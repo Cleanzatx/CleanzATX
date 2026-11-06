@@ -1,0 +1,87 @@
+{
+ "slug": "window-cleaning-sweetwater",
+ "name": "Sweetwater",
+ "hub": "bee-cave",
+ "kind": "neighborhood",
+ "tier": "A",
+ "city": "Austin, TX 78738",
+ "title": "Sweetwater Window Cleaning | Bee Cave Area | CleanzATX",
+ "description": "Sweetwater window cleaning south of Highway 71. Pure water glass from $10 a window, construction dust handled, stone and stucco soft washed.",
+ "h1": "Window cleaning in Sweetwater",
+ "h1_em": "Fresh builds, fresh dust.",
+ "intro": "Sweetwater is the 1,400 acre master planned community south of Highway 71 off Pedernales Summit Parkway, still growing. CleanzATX cleans windows here, including the construction dust new neighbors and new phases leave behind.",
+ "sections": [
+  {
+   "h2": "What Sweetwater homes are like",
+   "paragraphs": [
+    "Sweetwater covers about 1,400 acres, with 700 of them kept as open space and roughly ten miles of trails. There are three pools, the Sweetwater Club and the Overlook Club, and building began in the mid 2010s and has not stopped. Eventually it will hold more than 2,000 homes. Houses run from 1,500 to 7,700 square feet, with a median price near $685,000, and the range spans the upper $300s to over $1 million. The Sweetwater HOA covers all of it, plus a MUD, and two sections are gated.",
+    "Most homes are stucco and limestone in the Hill Country style, many with covered patios facing green belts or trails."
+   ]
+  },
+  {
+   "h2": "What Sweetwater windows deal with",
+   "paragraphs": [
+    "The first thing is construction. Because new phases are still going in, dust from grading, concrete and framing blows across streets that are already lived in. It settles on glass, frames and sills, and a bit of morning dew turns it into a stubborn film. If your own yard is newly landscaped, expect more dust and also irrigation spots, because new sprinkler heads tend to hit the walls.",
+    "The wide open space brings pollen, cedar in winter and oak in spring, and the limestone dust that is native to this part of Travis County. Our pure water system rinses glass clean without soap film. Stucco and limestone get a soft wash with the 12V system, since pressure on stone causes damage."
+   ]
+  },
+  {
+   "h2": "How we work Sweetwater",
+   "paragraphs": [
+    "The community is partly gated, with two gated sections, so we ask for access details in the quote text. Because the neighborhood is large, we usually group several visits into one trip and run the route by phase. Newer owners often schedule a first cleaning after landscaping settles, to remove builder dust and any leftover film. After that, a Quarterly plan keeps ahead of the dust and saves 15%.",
+    "For a typical 2,200 square foot home at the lower end of the range, exterior windows come to about $220, in roughly one and three quarter to two and a quarter hours. A 3,500 square foot home is about $350."
+   ]
+  }
+ ],
+ "streets": [
+  "Pedernales Summit Parkway"
+ ],
+ "why": [
+  "Construction dust from new phases is part of the job, and we plan for it.",
+  "New landscaping and sprinklers leave spots, which we treat with hard water removal.",
+  "We run the route by phase, so visits stay close to neighbors.",
+  "A first cleaning after move in clears builder film from fresh glass."
+ ],
+ "faq": [
+  {
+   "q": "Why are my new windows still dirty after move in?",
+   "a": "Builder dust, stucco residue and sprinkler spots stay behind. A first cleaning with pure water, and hard water removal where needed, clears them."
+  },
+  {
+   "q": "Do you service the gated sections?",
+   "a": "Yes. Send the gate code or contact in your quote text and we confirm the day before. Davenport Summit and The Summit at Sweetwater are the two gated sections."
+  },
+  {
+   "q": "How often should I clean with construction nearby?",
+   "a": "Quarterly works well for many homes while building continues nearby. The plan saves 15% and includes a yearly free screen cleaning."
+  },
+  {
+   "q": "What about my patio and pool deck?",
+   "a": "Yes. Patios and pool decks are cleaned by hand so they are not soaked, and driveways use a surface cleaner at $0.18 per square foot for concrete."
+  },
+  {
+   "q": "What is the price range for homes here?",
+   "a": "At $10 per window or about $0.10 per square foot, a 1,500 square foot home hits the $200 minimum and a 4,500 square foot home is about $450."
+  }
+ ],
+ "services": [
+  "window-cleaning",
+  "hard-water",
+  "house-washing"
+ ],
+ "neighbors": [
+  "window-cleaning-davenport-summit",
+  "window-cleaning-summit-at-sweetwater",
+  "window-cleaning-madrone-ridge",
+  "window-cleaning-terra-colinas",
+  "window-cleaning-bee-cave"
+ ],
+ "keywords": [
+  "window cleaning sweetwater",
+  "sweetwater bee cave window washing",
+  "sweetwater austin 78738 window cleaning"
+ ],
+ "lat": 30.45309,
+ "lon": -97.81836,
+ "geo_source": "osm:residential"
+}

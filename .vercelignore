@@ -7,3 +7,4 @@ cleanzatx-tracker/
 server.py
 .env.example
 _neighborhood-template/
+tools/

@@ -1,41 +1,37 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [],
   "redirects": [
+    { "source": "/home", "destination": "/", "statusCode": 301 },
+    { "source": "/home/", "destination": "/", "statusCode": 301 },
+    { "source": "/why-house-washing-can-help-you-sell-your-home-faster", "destination": "/", "statusCode": 301 },
+    { "source": "/why-house-washing-can-help-you-sell-your-home-faster/", "destination": "/", "statusCode": 301 },
+    { "source": "/barton-creek-texas", "destination": "/window-cleaning-bee-cave", "statusCode": 301 },
+    { "source": "/barton-creek-texas/", "destination": "/window-cleaning-bee-cave", "statusCode": 301 },
+    { "source": "/window-cleaning-westlake-hills", "destination": "/window-cleaning-bee-cave", "statusCode": 301 },
+    { "source": "/window-cleaning-westlake-hills/", "destination": "/window-cleaning-bee-cave", "statusCode": 301 },
+    { "source": "/window-cleaning-hudson-bend", "destination": "/window-cleaning-lake-travis", "statusCode": 301 },
+    { "source": "/window-cleaning-hudson-bend/", "destination": "/window-cleaning-lake-travis", "statusCode": 301 },
+    { "source": "/gallery-test", "destination": "/gallery", "statusCode": 301 },
+    { "source": "/ai-info.html", "destination": "/ai-info", "statusCode": 301 }
+  ],
+  "headers": [
     {
-      "source": "/home",
-      "destination": "/",
-      "statusCode": 301
+      "source": "/(.*)\\.(jpg|jpeg|png|webp|avif|svg|gif|ico)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ]
     },
     {
-      "source": "/home/",
-      "destination": "/",
-      "statusCode": 301
+      "source": "/(styles|main|analytics|promo)\\.(css|js)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ]
     },
     {
-      "source": "/why-house-washing-can-help-you-sell-your-home-faster",
-      "destination": "/",
-      "statusCode": 301
+      "source": "/(.*)\\.(woff2|woff)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ]
     },
     {
-      "source": "/why-house-washing-can-help-you-sell-your-home-faster/",
-      "destination": "/",
-      "statusCode": 301
-    },
-    {
-      "source": "/barton-creek-texas",
-      "destination": "/window-cleaning-westlake-hills",
-      "statusCode": 301
-    },
-    {
-      "source": "/barton-creek-texas/",
-      "destination": "/window-cleaning-westlake-hills",
-      "statusCode": 301
-    },
-    {
-      "source": "/gallery-test",
-      "destination": "/gallery",
-      "statusCode": 301
+      "source": "/sw.js",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" } ]
     }
   ]
 }

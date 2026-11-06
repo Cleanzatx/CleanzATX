@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /quotetest
-Disallow: /cleanzatx-tracker/
-Disallow: /detailflow-crm/
 
 Sitemap: https://www.cleanzatx.com/sitemap.xml
