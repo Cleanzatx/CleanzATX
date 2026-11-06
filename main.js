@@ -778,7 +778,33 @@ function launchConfetti() {
 })();
 
 /* ---------- ZIP finder: send visitors to the page built for their area ---------- */
-/* ZIP and neighborhood search lives in zip-find.js (shared with /areas) */
+(function () {
+  const form = document.getElementById('zipFind');
+  if (!form) return;
+  const input = document.getElementById('zipInput');
+  const msg = document.getElementById('zipMsg');
+  // ZIP -> closest location page
+  const pages = {
+    '78734': 'lakeway', '78738': 'bee-cave', '78736': 'bee-cave', '78620': 'bee-cave',
+    '78669': 'lake-travis', '78645': 'lake-travis',
+    '78732': 'steiner-ranch',
+    '78730': 'river-place', '78726': 'four-points', '78750': 'four-points',
+    '78746': 'bee-cave', '78733': 'spanish-oaks', '78735': 'spanish-oaks',
+  };
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const zip = input.value.replace(/\D/g, '').slice(0, 5);
+    if (zip.length !== 5) { msg.textContent = 'Enter a 5-digit ZIP code.'; return; }
+    const slug = pages[zip];
+    if (typeof gtag === 'function') gtag('event', 'zip_search', { zip, matched: slug ? 'yes' : 'no' });
+    if (slug) {
+      msg.textContent = 'Taking you to your local page…';
+      location.href = '/window-cleaning-' + slug;
+    } else {
+      msg.innerHTML = 'We don\'t have a page for ' + zip + ' yet, but we may still serve you. <a href="#quoteWizard">Request a quote</a> or call/text <a href="tel:5125180512">(512) 518-0512</a>.';
+    }
+  });
+})();
 
 /* ---------- FAQ: show the first 6, expand to all ---------- */
 (function () {

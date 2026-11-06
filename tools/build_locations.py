@@ -352,10 +352,7 @@ dir_body = f'''  <main class="loc">
       </div>
     </section>
     <div class="loc-body">
-      <div class="container">
-        {static_map()}
-      </div>
-      <div class="container loc-body__inner" style="margin-top:40px">
+      <div class="container loc-body__inner">
         <div class="loc-main">
 {dir_sections}        </div>
         <div class="loc-aside">{quote_card('Lake Travis area')}</div>
