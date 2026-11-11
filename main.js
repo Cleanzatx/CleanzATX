@@ -246,8 +246,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ============================================================
-   QUOTE FORM — 2-step callback quote request
-   Step 1: services + property, Step 2: contact + preferences
+   QUOTE FORM — 4-field quick quote (name, mobile, address, service)
+   Submitting it creates the lead and fires the conversions. Afterwards an
+   OPTIONAL "add details" block (#qFollowup) can send the rest of the old
+   form as a second, flagged submission for the same name/phone.
    ============================================================ */
 const qwiz = document.getElementById('quoteWizard');
 if (qwiz) {
@@ -258,52 +260,14 @@ if (qwiz) {
   const referrerField = document.getElementById('q-referrer-field');
   const timelineSel = document.getElementById('q-timeline');
   const dateField = document.getElementById('q-date-field');
-  const step1 = document.getElementById('qStep1');
-  const step2 = document.getElementById('qStep2');
-  const dots = qwiz.querySelectorAll('.qwiz__dot');
-
-  // Category toggles — show/hide sub-service panels
-  const catCheckboxes = qwiz.querySelectorAll('#q-service-cats input[type="checkbox"]');
-  const windowSubs = document.getElementById('q-window-subs');
-  const powerSubs = document.getElementById('q-power-subs');
-  catCheckboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-      if (cb.value === 'window_cleaning') windowSubs.style.display = cb.checked ? '' : 'none';
-      if (cb.value === 'power_washing') powerSubs.style.display = cb.checked ? '' : 'none';
-    });
-  });
-
-  function getSelectedServices() {
-    const services = [];
-    qwiz.querySelectorAll('.qwiz__sub-services:not([style*="display:none"]):not([style*="display: none"]) input[type="checkbox"]').forEach(cb => {
-      if (cb.checked) services.push(cb.value);
-    });
-    return services;
-  }
-
-  function anyCategorySelected() {
-    return Array.from(catCheckboxes).some(cb => cb.checked);
-  }
+  const val = id => (document.getElementById(id)?.value || '').trim();
 
   function scrollToForm() {
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
     window.scrollTo({ top: qwiz.getBoundingClientRect().top + window.scrollY - navH - 10, behavior: 'smooth' });
   }
 
-  // GA4 — quote_step fires only when the visitor moves between steps (never on
-  // page load); begin_checkout fires once, the first time they leave step 1.
-  // quote_start (first interaction) lives in analytics.js.
-  let checkoutBegun = false;
-  function trackStep(step) {
-    if (typeof gtag !== 'function') return;
-    gtag('event', 'quote_step', { step_number: step });
-    if (step === 2 && !checkoutBegun) {
-      checkoutBegun = true;
-      gtag('event', 'begin_checkout');
-    }
-  }
-
-  // Inline validation: mark the empty fields, show one line under the buttons, focus the first one
+  // Inline validation: mark the empty fields, show one line under the button, focus the first one
   function clearMissing() {
     qwiz.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
     qwiz.querySelectorAll('.qwiz__error').forEach(el => el.remove());
@@ -315,50 +279,20 @@ if (qwiz) {
       const el = document.getElementById(id);
       if (!el) return;
       const v = (el.value || '').trim();
-      const bad = !v || (id === 'q-phone' && v.replace(/\D/g, '').length < 10) || (id === 'q-sqft' && !(parseInt(v) > 0));
+      const bad = !v || (id === 'q-phone' && v.replace(/\D/g, '').length < 10);
       if (bad) { el.classList.add('is-invalid'); if (!first) first = el; }
     });
-    if (!anyCategorySelected() && !first) first = qwiz.querySelector('#q-service-cats');
     const panel = qwiz.querySelector('.qwiz__panel.active') || qwiz;
     const msg = document.createElement('p');
     msg.className = 'qwiz__error';
     msg.setAttribute('role', 'alert');
     msg.textContent = 'Please fill in: ' + missing.join(', ') + '.';
-    const actions = panel.querySelector('.qwiz__actions') || panel;
-    actions.insertAdjacentElement('beforebegin', msg);
+    const btn = document.getElementById('q-submit');
+    (btn || panel).insertAdjacentElement('beforebegin', msg);
     if (first && first.focus) { try { first.focus({ preventScroll: false }); } catch (e) { first.focus(); } }
   }
 
-  function showStep(n) {
-    step1.style.display = n === 1 ? '' : 'none';
-    step1.classList.toggle('active', n === 1);
-    step2.style.display = n === 2 ? '' : 'none';
-    step2.classList.toggle('active', n === 2);
-    dots.forEach((d, i) => d.classList.toggle('active', i === n - 1));
-    trackStep(n);
-    scrollToForm();
-  }
-
-  // Next button — validate step 1
-  document.getElementById('q-next')?.addEventListener('click', () => {
-    const address = (document.getElementById('q-address')?.value || '').trim();
-    const sqft = parseInt(document.getElementById('q-sqft')?.value) || 0;
-    const stories = parseInt(storiesSel?.value) || 0;
-
-    const missing = [];
-    if (!anyCategorySelected()) missing.push('at least one service');
-    if (!address) missing.push('address');
-    if (!sqft) missing.push('square footage');
-    if (!stories) missing.push('number of stories');
-    if (missing.length) { showMissing(missing, ['q-address', 'q-sqft', 'q-stories']); return; }
-    clearMissing();
-    showStep(2);
-  });
-
-  // Back button
-  document.getElementById('q-back')?.addEventListener('click', () => showStep(1));
-
-  // Conditional fields
+  // Conditional fields (in the optional follow-up block)
   if (referralSel && referrerField) {
     referralSel.addEventListener('change', () => {
       referrerField.style.display = referralSel.value === 'Referral' ? '' : 'none';
@@ -382,79 +316,127 @@ if (qwiz) {
     });
   }
 
-  // Submit
+  const serviceLabels = { ext_windows:'Exterior Windows', int_windows:'Interior Windows', screens:'Screen Cleaning', tracks:'Track Cleaning', skylights:'Skylights', post_construction:'Post Construction', hard_water:'Hard Water Removal', house_wash:'House Washing', driveway:'Driveway', front_patio:'Front Patio', back_patio:'Back Patio', roof_wash:'Roof Cleaning', gutters:'Gutter Cleaning', stone_limestone:'Stone / Limestone', deck_fence:'Deck / Fence' };
+  const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', triannual:'3 Times a Year', '6month':'Twice a Year' };
+  const lastCleanedLabels = { never:'Never / First Time', '1_month':'Within 1 Month', '3_months':'1–3 Months Ago', '6_months':'3–6 Months Ago', '1_year':'6–12 Months Ago', over_1_year:'Over a Year Ago' };
+  const timelineLabels = { asap:'ASAP', within_1_week:'Within 1 Week', within_2_weeks:'Within 2 Weeks', flexible:'Flexible', specific_date:'Specific Date' };
+
+  // One "Name" field -> first / last for the email template and the Rotor lead
+  function splitName(full) {
+    const parts = full.replace(/\s+/g, ' ').trim().split(' ');
+    return { first: parts.shift() || '', last: parts.join(' ') };
+  }
+
+  // Everything the form can say right now, in the same shape the old single submit built.
+  // Step 1 fields are always read; the optional follow-up fields are empty until filled in.
+  function collect() {
+    const { first, last } = splitName(val('q-fname'));
+    const choice = qwiz.querySelector('input[name="q-service"]:checked')?.value || 'exterior';
+    const services = ['ext_windows'];
+    if (choice === 'inside_out') services.push('int_windows');
+    qwiz.querySelectorAll('#q-service-tiles input[type="checkbox"]').forEach(cb => {
+      if (cb.checked && !services.includes(cb.value)) services.push(cb.value);
+    });
+    return {
+      firstName: first, lastName: last,
+      phone: val('q-phone'), email: val('q-email'),
+      smsConsent: !!document.getElementById('q-sms-consent')?.checked,
+      address: val('q-address'),
+      sqft: parseInt(document.getElementById('q-sqft')?.value) || 0,
+      propertyType: propertyTypeSel?.value || 'Residential',
+      stories: parseInt(storiesSel?.value) || 0,
+      referral: referralSel?.value || '',
+      referrer: val('q-referrer'),
+      timeline: timelineSel?.value || '',
+      deadlineDate: document.getElementById('q-date')?.value || '',
+      lastCleaned: document.getElementById('q-last-cleaned')?.value || '',
+      frequency: document.getElementById('q-frequency')?.value || '',
+      typedNotes: val('q-notes'),
+      services,
+    };
+  }
+
+  // Builds the two payloads (EmailJS template params + /api/quote-lead body) from collect().
+  // Shape is unchanged from the old 2-step form; fields the visitor hasn't given are empty.
+  // followUp = true marks the second submission so Rotor/email can tell it from the first.
+  function buildPayloads(c, followUp) {
+    const screenOffer = qwiz.dataset.screenOffer === '1';
+    const services = c.services.slice();
+    if (screenOffer && !services.includes('screens')) services.push('screens');
+    const notes = [
+      followUp ? 'FOLLOW-UP DETAILS for the quote request just sent by this same name and phone' : '',
+      screenOffer ? 'FREE SCREENS OFFER claimed on the website (first window cleaning only)' : '',
+      c.typedNotes,
+    ].filter(Boolean).join(' | ');
+    const frequencyLabel = freqLabels[c.frequency] || c.frequency;
+    const servicesText = services.map(s => serviceLabels[s] || s).join(', ');
+    const has = s => services.includes(s) ? 'Yes' : 'No';
+
+    let computedDeadline = c.deadlineDate;
+    if (!computedDeadline && c.timeline) {
+      const d = new Date();
+      d.setDate(d.getDate() + ({ asap:3, within_1_week:7, within_2_weeks:14 }[c.timeline] || 30));
+      computedDeadline = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+    }
+    const landing = (function () { try { return sessionStorage.getItem('cz_landing'); } catch (e) { return null; } })() || location.pathname;
+
+    const email = {
+      first_name: c.firstName, last_name: c.lastName, phone: c.phone, email: c.email,
+      sms_consent: c.smsConsent ? 'Yes' : 'No',
+      address: c.address, property_type: c.propertyType, sqft: c.sqft || '', stories: c.stories || '',
+      last_cleaned: lastCleanedLabels[c.lastCleaned] || c.lastCleaned || '',
+      selected_services: servicesText,
+      exterior_windows: has('ext_windows'), interior_windows: has('int_windows'),
+      screens: has('screens'), tracks: has('tracks'),
+      service_plan: frequencyLabel,
+      referral_source: c.referral + (c.referrer ? ' (' + c.referrer + ')' : ''),
+      timeline: timelineLabels[c.timeline] || c.timeline,
+      deadline_date: computedDeadline || '',
+      notes,
+    };
+    const lead = {
+      name: [c.firstName, c.lastName].filter(Boolean).join(' '),
+      email: c.email, phone: c.phone, address: c.address,
+      sms_consent: c.smsConsent,
+      services: services.map(s => serviceLabels[s] || s),
+      frequency: frequencyLabel,
+      timeline: timelineLabels[c.timeline] || c.timeline,
+      target_date: c.timeline === 'specific_date' ? c.deadlineDate : '',
+      last_serviced: lastCleanedLabels[c.lastCleaned] || c.lastCleaned || '',
+      property_type: c.propertyType,
+      sqft: c.sqft || '', stories: c.stories || '',
+      referral: c.referral, referrer: c.referrer, notes,
+      free_screens: screenOffer,
+      landing_page: landing,
+    };
+    if (followUp) lead.follow_up = true;
+    return { email, lead, services, screenOffer };
+  }
+
+  function sendEmail(params) {
+    // Silent EmailJS send (never let a failed/blocked email library stop the submit)
+    try { emailjs.send('service_xsex2ss', 'template_536xvvp', params).catch(() => {}); } catch (e) {}
+  }
+
+  // Step 1 submit
   let submitted = false;
   function handleSubmit() {
     if (submitted) return;
 
-    const selectedServices = getSelectedServices();
-    const firstName = (document.getElementById('q-fname')?.value || '').trim();
-    const lastName  = (document.getElementById('q-lname')?.value || '').trim();
-    const phone     = (document.getElementById('q-phone')?.value || '').trim();
-    const email     = (document.getElementById('q-email')?.value || '').trim();
-    const smsConsent = !!document.getElementById('q-sms-consent')?.checked;
-    const address   = (document.getElementById('q-address')?.value || '').trim();
-    const sqft      = parseInt(document.getElementById('q-sqft')?.value) || 0;
-    const propertyType = propertyTypeSel?.value || 'Residential';
-    const stories   = parseInt(storiesSel?.value) || 0;
-    const referral  = referralSel?.value || '';
-    const referrer  = (document.getElementById('q-referrer')?.value || '').trim();
-    const timeline  = timelineSel?.value || '';
-    const deadlineDate = document.getElementById('q-date')?.value || '';
-    const lastCleaned = document.getElementById('q-last-cleaned')?.value || '';
-    const frequency = document.getElementById('q-frequency')?.value || '';
-    const typedNotes = (document.getElementById('q-notes')?.value || '').trim();
-    const screenOffer = qwiz.dataset.screenOffer === '1';
-    if (screenOffer) {
-      const screens = qwiz.querySelector('#q-service-tiles input[value="screens"]');
-      if (screens && !screens.checked) screens.checked = true;
-    }
-    const notes = [screenOffer ? 'FREE SCREENS OFFER claimed on the website (first window cleaning only)' : '', typedNotes].filter(Boolean).join(' | ');
-
+    const c = collect();
     const missing = [];
-    if (!firstName) missing.push('first name');
-    if (!phone || phone.replace(/\D/g, '').length < 10) missing.push('phone number');
-    if (!frequency) missing.push('service frequency');
-    if (!timeline) missing.push('timeline');
-    if (missing.length) { showMissing(missing, ['q-fname', 'q-phone', 'q-frequency', 'q-timeline']); return; }
+    if (!c.firstName) missing.push('name');
+    if (!c.phone || c.phone.replace(/\D/g, '').length < 10) missing.push('mobile phone');
+    if (!c.address) missing.push('address');
+    if (missing.length) { showMissing(missing, ['q-fname', 'q-phone', 'q-address']); return; }
     clearMissing();
 
     submitted = true;
     const btn = document.getElementById('q-submit');
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
-    const serviceLabels = { ext_windows:'Exterior Windows', int_windows:'Interior Windows', screens:'Screen Cleaning', tracks:'Track Cleaning', skylights:'Skylights', post_construction:'Post Construction', hard_water:'Hard Water Removal', house_wash:'House Washing', driveway:'Driveway', front_patio:'Front Patio', back_patio:'Back Patio', roof_wash:'Roof Cleaning', gutters:'Gutter Cleaning', stone_limestone:'Stone / Limestone', deck_fence:'Deck / Fence' };
-    const freqLabels = { one_time:'One-Time Clean', bimonthly:'Every 2 Months', quarterly:'Quarterly', triannual:'3 Times a Year', '6month':'Twice a Year' };
-    const lastCleanedLabels = { never:'Never / First Time', '1_month':'Within 1 Month', '3_months':'1–3 Months Ago', '6_months':'3–6 Months Ago', '1_year':'6–12 Months Ago', over_1_year:'Over a Year Ago' };
-    const timelineLabels = { asap:'ASAP', within_1_week:'Within 1 Week', within_2_weeks:'Within 2 Weeks', flexible:'Flexible', specific_date:'Specific Date' };
-    const frequencyLabel = freqLabels[frequency] || frequency;
-    const servicesText = selectedServices.map(s => serviceLabels[s] || s).join(', ');
-    const has = s => selectedServices.includes(s) ? 'Yes' : 'No';
-
-    let computedDeadline = deadlineDate;
-    if (!computedDeadline) {
-      const d = new Date();
-      d.setDate(d.getDate() + ({ asap:3, within_1_week:7, within_2_weeks:14 }[timeline] || 30));
-      computedDeadline = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
-    }
-
-    // Silent EmailJS send (never let a failed/blocked email library stop the submit)
-    try {
-      emailjs.send('service_xsex2ss', 'template_536xvvp', {
-        first_name: firstName, last_name: lastName, phone, email,
-        sms_consent: smsConsent ? 'Yes' : 'No',
-        address, property_type: propertyType, sqft, stories,
-        last_cleaned: lastCleanedLabels[lastCleaned] || lastCleaned || '',
-        selected_services: servicesText,
-        exterior_windows: has('ext_windows'), interior_windows: has('int_windows'),
-        screens: has('screens'), tracks: has('tracks'),
-        service_plan: frequencyLabel,
-        referral_source: referral + (referrer ? ' (' + referrer + ')' : ''),
-        timeline: timelineLabels[timeline] || timeline,
-        deadline_date: computedDeadline,
-        notes,
-      }).catch(() => {});
-    } catch (e) {}
+    const { email, lead, services } = buildPayloads(c, false);
+    sendEmail(email);
 
     // GA4 + Google Ads lead conversion, fired once the lead service confirms the lead was
     // created (or after 5 s if it never answers), so a failed submit is not counted as a lead.
@@ -466,12 +448,12 @@ if (qwiz) {
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', {
             currency: 'USD',
-            lead_source: referral || 'unknown',
-            selected_services: selectedServices.join(','),
-            landing_page: (sessionStorage.getItem('cz_landing') || location.pathname),
-            ...(frequency ? { plan: frequency } : {}),
+            lead_source: c.referral || 'unknown',
+            selected_services: services.join(','),
+            landing_page: lead.landing_page,
+            ...(c.frequency ? { plan: c.frequency } : {}),
           });
-          if (window.czAdsConversion) window.czAdsConversion('lead', { phone, email });
+          if (window.czAdsConversion) window.czAdsConversion('lead', { phone: c.phone, email: c.email });
         }
       } catch (e) {}
     }
@@ -482,31 +464,15 @@ if (qwiz) {
     try {
       fetch('/api/quote-lead', {
         method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: [firstName, lastName].filter(Boolean).join(' '),
-          email, phone, address,
-          sms_consent: smsConsent,
-          services: selectedServices.map(s => serviceLabels[s] || s),
-          frequency: frequencyLabel,
-          timeline: timelineLabels[timeline] || timeline,
-          target_date: timeline === 'specific_date' ? deadlineDate : '',
-          last_serviced: lastCleanedLabels[lastCleaned] || lastCleaned || '',
-          property_type: propertyType,
-          sqft: sqft || '', stories: stories || '',
-          referral, referrer, notes,
-          free_screens: screenOffer,
-          landing_page: (sessionStorage.getItem('cz_landing') || location.pathname),
-        }),
+        body: JSON.stringify(lead),
       }).then(r => { if (r && r.ok) fireLeadConversion(); }).catch(() => {});
     } catch (e) {}
     // The quote now carries the free screens claim, so the pop-up lead is never sent
     try { localStorage.removeItem('cz_screens_claim'); } catch (e) {}
 
-    // Show confirmation
-    step2.style.display = 'none';
-    step2.classList.remove('active');
-    const stepsEl = document.getElementById('q-steps');
-    if (stepsEl) stepsEl.style.display = 'none';
+    // Show confirmation (with the optional follow-up block under it)
+    const step1 = document.getElementById('qStep1');
+    if (step1) { step1.style.display = 'none'; step1.classList.remove('active'); }
     const confirmPanel = qwiz.querySelector('[data-panel="confirm"]');
     if (confirmPanel) { confirmPanel.removeAttribute('style'); confirmPanel.classList.add('active'); }
     scrollToForm();
@@ -514,6 +480,27 @@ if (qwiz) {
   }
 
   document.getElementById('q-submit')?.addEventListener('click', handleSubmit);
+
+  // Optional follow-up: nothing required. The lead service can't edit a lead, so this goes
+  // out as a second submission with follow_up: true and the same name/phone.
+  let followSent = false;
+  document.getElementById('q-followup-submit')?.addEventListener('click', function () {
+    if (followSent) return;
+    followSent = true;
+    this.disabled = true; this.textContent = 'Sending...';
+    const c = collect();
+    const { email, lead } = buildPayloads(c, true);
+    sendEmail(email);
+    try {
+      fetch('/api/quote-lead', {
+        method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead),
+      }).catch(() => {});
+    } catch (e) {}
+    this.style.display = 'none';
+    const done = document.getElementById('q-followup-done');
+    if (done) done.hidden = false;
+  });
 }
 
 /* ---------- Phone action modal ---------- */

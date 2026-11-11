@@ -10,7 +10,7 @@
     gtag('config', 'G-QL4RJE3056');
     gtag('config', 'AW-11122883575', { allow_enhanced_conversions: true });
   </script>
-  <script src="/analytics.js?v=4" defer></script>
+  <script src="/analytics.js?v=5" defer></script>
 
   <!-- Microsoft Clarity Heatmaps (replace CLARITY_PROJECT_ID with your actual Clarity project ID to enable) -->
   <!-- <script type="text/javascript">
@@ -507,7 +507,7 @@
   <link rel="preload" as="image" href="img/hero/slide-1-sm.jpg" media="(max-width: 768px)">
   <link rel="preload" as="image" href="img/hero/slide-1-lg.jpg" media="(min-width: 769px) and (max-aspect-ratio: 1/1)">
   <link rel="preload" as="image" href="img/hero/slide-1-xl.jpg" media="(min-width: 769px) and (min-aspect-ratio: 1/1)">
-  <link rel="stylesheet" href="styles.css?v=50" />
+  <link rel="stylesheet" href="styles.css?v=51" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -853,50 +853,18 @@
           <span data-promo-strip>🦃 <strong>Thanksgiving Sale:</strong> code THANKS takes 10% off your first window cleaning</span>
         </div>
 
-        <!-- Single-page quote request form -->
-        <!-- Step indicator -->
-        <div class="qwiz__steps" id="q-steps">
-          <span class="qwiz__dot active"></span>
-          <span class="qwiz__dot"></span>
-        </div>
-
-        <!-- STEP 1: Property details -->
+        <!-- Quick quote request: 4 fields, then optional details after submit -->
         <div class="qwiz__panel active" id="qStep1">
-          <p class="qwiz__step-label">Tell us about your property</p>
+          <p class="qwiz__step-label">Get your price by text. Takes 20 seconds.</p>
 
           <div class="qwiz__field">
-            <label>What do you need?</label>
-            <div class="qwiz__service-pills" id="q-service-cats">
-              <label class="qwiz__pill qwiz__pill--cat"><input type="checkbox" value="window_cleaning" /><span>Window Cleaning</span></label>
-              <label class="qwiz__pill qwiz__pill--cat"><input type="checkbox" value="power_washing" /><span>Power Washing</span></label>
-            </div>
+            <label for="q-fname">Name</label>
+            <input type="text" id="q-fname" placeholder="First and last name" required autocomplete="name" />
           </div>
 
-          <div class="qwiz__sub-services" id="q-window-subs" style="display:none">
-            <label>Which window services?</label>
-            <div class="qwiz__service-pills" id="q-service-tiles">
-              <label class="qwiz__pill"><input type="checkbox" value="ext_windows" checked /><span>Exterior</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="int_windows" /><span>Interior</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="screens" /><span>Screens</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="tracks" /><span>Track Cleaning</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="skylights" /><span>Skylights</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="post_construction" /><span>Post Construction</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="hard_water" /><span>Hard Water Removal</span></label>
-            </div>
-          </div>
-
-          <div class="qwiz__sub-services" id="q-power-subs" style="display:none">
-            <label>Which power wash services?</label>
-            <div class="qwiz__service-pills">
-              <label class="qwiz__pill"><input type="checkbox" value="house_wash" checked /><span>House Wash</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="driveway" /><span>Driveway</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="front_patio" /><span>Front Patio</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="back_patio" /><span>Back Patio</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="roof_wash" /><span>Roof</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="gutters" /><span>Gutters</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="stone_limestone" /><span>Stone / Limestone</span></label>
-              <label class="qwiz__pill"><input type="checkbox" value="deck_fence" /><span>Deck / Fence</span></label>
-            </div>
+          <div class="qwiz__field">
+            <label for="q-phone">Mobile phone</label>
+            <input type="tel" id="q-phone" placeholder="(512) 000-0000" required autocomplete="tel-national" inputmode="tel" />
           </div>
 
           <div class="qwiz__field">
@@ -904,59 +872,11 @@
             <input type="text" id="q-address" placeholder="123 Lakeway Dr, Lakeway TX" required autocomplete="street-address" />
           </div>
 
-          <div class="qwiz__row qwiz__row--stay qwiz__row--3">
-            <div class="qwiz__field">
-              <label for="q-property-type">Property</label>
-              <select id="q-property-type" required>
-                <option value="Residential" selected>Residential</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Realtor">Realtor</option>
-              </select>
-            </div>
-            <div class="qwiz__field">
-              <label for="q-sqft">Sq ft</label>
-              <input type="number" id="q-sqft" placeholder="2,500" min="100" max="50000" required inputmode="numeric" />
-            </div>
-            <div class="qwiz__field">
-              <label for="q-stories">Stories</label>
-              <select id="q-stories" required>
-                <option value="">Select...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3+</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="button" class="btn btn--primary btn--full" id="q-next">
-            Next
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-        </div>
-
-        <!-- STEP 2: Contact + preferences -->
-        <div class="qwiz__panel" id="qStep2" style="display:none">
-          <p class="qwiz__step-label">Almost done. How can we reach you?</p>
-
-          <div class="qwiz__row qwiz__row--stay">
-            <div class="qwiz__field">
-              <label for="q-fname">Name</label>
-              <input type="text" id="q-fname" placeholder="First" required autocomplete="given-name" />
-            </div>
-            <div class="qwiz__field">
-              <label for="q-lname">&nbsp;</label>
-              <input type="text" id="q-lname" placeholder="Last" autocomplete="family-name" />
-            </div>
-          </div>
-
-          <div class="qwiz__row qwiz__row--stay">
-            <div class="qwiz__field">
-              <label for="q-phone">Phone</label>
-              <input type="tel" id="q-phone" placeholder="(512) 000-0000" required autocomplete="tel-national" />
-            </div>
-            <div class="qwiz__field">
-              <label for="q-email">Email <em>(optional)</em></label>
-              <input type="email" id="q-email" placeholder="you@email.com" autocomplete="email" />
+          <div class="qwiz__field" id="q-service-choice">
+            <label id="q-service-label">What do you need?</label>
+            <div class="qwiz__service-pills qwiz__service-pills--choice" role="radiogroup" aria-labelledby="q-service-label">
+              <label class="qwiz__pill qwiz__pill--cat"><input type="radio" name="q-service" value="exterior" checked /><span>Exterior only</span></label>
+              <label class="qwiz__pill qwiz__pill--cat"><input type="radio" name="q-service" value="inside_out" /><span>Inside &amp; out</span></label>
             </div>
           </div>
 
@@ -967,76 +887,8 @@
             </label>
           </div>
 
-          <div class="qwiz__row qwiz__row--stay">
-            <div class="qwiz__field">
-              <label for="q-frequency">Frequency</label>
-              <select id="q-frequency" required>
-                <option value="">Select...</option>
-                <option value="one_time">One Time</option>
-                <option value="bimonthly">Every 2 Months (20% off)</option>
-                <option value="quarterly">Quarterly (15% off)</option>
-                <option value="triannual">3 Times a Year (15% off)</option>
-                <option value="6month">Twice a Year (10% off)</option>
-              </select>
-            </div>
-            <div class="qwiz__field">
-              <label for="q-timeline">Timeline</label>
-              <select id="q-timeline" required>
-                <option value="">Select...</option>
-                <option value="asap">ASAP</option>
-                <option value="within_1_week">Within 1 Week</option>
-                <option value="within_2_weeks">Within 2 Weeks</option>
-                <option value="flexible">Flexible</option>
-                <option value="specific_date">Specific Date</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="qwiz__field" id="q-date-field" style="display:none">
-            <label for="q-date">Preferred date</label>
-            <input type="date" id="q-date" />
-          </div>
-
-          <div class="qwiz__row qwiz__row--stay">
-            <div class="qwiz__field">
-              <label for="q-last-cleaned">Last serviced</label>
-              <select id="q-last-cleaned">
-                <option value="">Select...</option>
-                <option value="never">Never / First Time</option>
-                <option value="1_month">Within 1 Month</option>
-                <option value="3_months">1 to 3 Months Ago</option>
-                <option value="6_months">3 to 6 Months Ago</option>
-                <option value="1_year">6 to 12 Months Ago</option>
-                <option value="over_1_year">Over a Year Ago</option>
-              </select>
-            </div>
-            <div class="qwiz__field">
-              <label for="q-referral">Referral source</label>
-              <select id="q-referral">
-                <option value="">Select...</option>
-                <option value="Google">Google</option>
-                <option value="Facebook">Facebook</option>
-                <option value="Nextdoor">Nextdoor</option>
-                <option value="Saw Your Truck">Saw Your Truck</option>
-                <option value="Referral">Referral / Word of Mouth</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="qwiz__field" id="q-referrer-field" style="display:none">
-            <label for="q-referrer">Who referred you?</label>
-            <input type="text" id="q-referrer" placeholder="Their name" />
-          </div>
-
-          <div class="qwiz__field">
-            <label for="q-notes">Notes <em>(optional)</em></label>
-            <input type="text" id="q-notes" placeholder="Gate codes, special requests..." />
-          </div>
-
-          <div class="qwiz__row qwiz__row--stay" style="margin-top:4px">
-            <button type="button" class="btn btn--ghost btn--full" id="q-back">Back</button>
-            <button type="button" class="btn btn--primary btn--full" id="q-submit">Get My Quote</button>
-          </div>
+          <button type="button" class="btn btn--primary btn--full" id="q-submit">Get my price by text</button>
+          <p class="qwiz__reassure">We reply within the hour. Pay after the job.</p>
         </div>
 
         <!-- CONFIRMATION -->
@@ -1056,6 +908,128 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
               Text Us: (512) 518-0512
             </a>
+          </div>
+
+          <!-- OPTIONAL follow-up: everything is optional, sent as a second submission for the same lead -->
+          <div class="qwiz__followup" id="qFollowup">
+            <h4 class="qwiz__followup-title">Want a faster quote? Add details</h4>
+
+            <div class="qwiz__sub-services" id="q-extra-services">
+              <label>Anything else to include?</label>
+              <div class="qwiz__service-pills" id="q-service-tiles">
+                <label class="qwiz__pill"><input type="checkbox" value="screens" /><span>Screens</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="tracks" /><span>Track Cleaning</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="skylights" /><span>Skylights</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="post_construction" /><span>Post Construction</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="hard_water" /><span>Hard Water Removal</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="house_wash" /><span>House Wash</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="driveway" /><span>Driveway</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="front_patio" /><span>Front Patio</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="back_patio" /><span>Back Patio</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="roof_wash" /><span>Roof</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="gutters" /><span>Gutters</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="stone_limestone" /><span>Stone / Limestone</span></label>
+                <label class="qwiz__pill"><input type="checkbox" value="deck_fence" /><span>Deck / Fence</span></label>
+              </div>
+            </div>
+
+            <div class="qwiz__row qwiz__row--stay qwiz__row--3">
+              <div class="qwiz__field">
+                <label for="q-property-type">Property</label>
+                <select id="q-property-type">
+                  <option value="Residential" selected>Residential</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Realtor">Realtor</option>
+                </select>
+              </div>
+              <div class="qwiz__field">
+                <label for="q-sqft">Sq ft</label>
+                <input type="number" id="q-sqft" placeholder="2,500" min="100" max="50000" inputmode="numeric" />
+              </div>
+              <div class="qwiz__field">
+                <label for="q-stories">Stories</label>
+                <select id="q-stories">
+                  <option value="">Select...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="qwiz__field">
+              <label for="q-email">Email <em>(optional)</em></label>
+              <input type="email" id="q-email" placeholder="you@email.com" autocomplete="email" />
+            </div>
+
+            <div class="qwiz__row qwiz__row--stay">
+              <div class="qwiz__field">
+                <label for="q-frequency">Frequency</label>
+                <select id="q-frequency">
+                  <option value="">Select...</option>
+                  <option value="one_time">One Time</option>
+                  <option value="bimonthly">Every 2 Months (20% off)</option>
+                  <option value="quarterly">Quarterly (15% off)</option>
+                  <option value="triannual">3 Times a Year (15% off)</option>
+                  <option value="6month">Twice a Year (10% off)</option>
+                </select>
+              </div>
+              <div class="qwiz__field">
+                <label for="q-timeline">Timeline</label>
+                <select id="q-timeline">
+                  <option value="">Select...</option>
+                  <option value="asap">ASAP</option>
+                  <option value="within_1_week">Within 1 Week</option>
+                  <option value="within_2_weeks">Within 2 Weeks</option>
+                  <option value="flexible">Flexible</option>
+                  <option value="specific_date">Specific Date</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="qwiz__field" id="q-date-field" style="display:none">
+              <label for="q-date">Preferred date</label>
+              <input type="date" id="q-date" />
+            </div>
+
+            <div class="qwiz__row qwiz__row--stay">
+              <div class="qwiz__field">
+                <label for="q-last-cleaned">Last serviced</label>
+                <select id="q-last-cleaned">
+                  <option value="">Select...</option>
+                  <option value="never">Never / First Time</option>
+                  <option value="1_month">Within 1 Month</option>
+                  <option value="3_months">1 to 3 Months Ago</option>
+                  <option value="6_months">3 to 6 Months Ago</option>
+                  <option value="1_year">6 to 12 Months Ago</option>
+                  <option value="over_1_year">Over a Year Ago</option>
+                </select>
+              </div>
+              <div class="qwiz__field">
+                <label for="q-referral">Referral source</label>
+                <select id="q-referral">
+                  <option value="">Select...</option>
+                  <option value="Google">Google</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Nextdoor">Nextdoor</option>
+                  <option value="Saw Your Truck">Saw Your Truck</option>
+                  <option value="Referral">Referral / Word of Mouth</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="qwiz__field" id="q-referrer-field" style="display:none">
+              <label for="q-referrer">Who referred you?</label>
+              <input type="text" id="q-referrer" placeholder="Their name" />
+            </div>
+
+            <div class="qwiz__field">
+              <label for="q-notes">Notes <em>(optional)</em></label>
+              <input type="text" id="q-notes" placeholder="Gate codes, special requests..." />
+            </div>
+
+            <button type="button" class="btn btn--primary btn--full" id="q-followup-submit">Send details</button>
+            <p class="qwiz__followup-done" id="q-followup-done" role="status" hidden>Thanks, details added to your request.</p>
           </div>
         </div>
 
@@ -1461,7 +1435,7 @@
 
   <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>window.addEventListener('load', function () { if (window.emailjs) emailjs.init('pEcuEf_nmG3f4FLX1'); });</script>
-<script src="main.js?v=34"></script>
+<script src="main.js?v=35"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
