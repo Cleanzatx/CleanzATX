@@ -6526,3 +6526,16 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h); }
 .smap__hint { position: absolute; right: 12px; bottom: 8px; font-size: 11px; color: rgba(255,255,255,.55); }
 .smap__hint a { color: rgba(255,255,255,.7); }
 @media (max-width: 640px) { .smap { border-radius: 10px; } .smap__pin { font-size: 0; gap: 0; } .smap__pin--hub { font-size: 11px; gap: 4px; } .smap__pin::before { width: 9px; height: 9px; box-shadow: 0 0 0 3px rgba(14,165,233,.25); } .smap__pin--hub::before { width: 11px; height: 11px; } }
+
+/* Quick quote: reassurance line under the button, single-choice pills, optional follow-up block */
+.qwiz__reassure { margin: 10px 0 0; text-align: center; font-size: 13px; color: rgba(255,255,255,.6); }
+.qwiz__service-pills--choice .qwiz__pill { flex: 1 1 0; text-align: center; }
+.qwiz__service-pills--choice .qwiz__pill span { display: block; }
+.qwiz__followup { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); text-align: left; }
+.qwiz__followup-title { font-family: var(--head); font-size: 18px; font-weight: 800; color: var(--white); margin: 0 0 14px; text-align: center; }
+.qwiz__followup .qwiz__field { margin-bottom: 10px; }
+.qwiz__followup .qwiz__field label { font-size: 11px; font-weight: 500; color: rgba(255,255,255,.45); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .6px; }
+.qwiz__followup .qwiz__field input,
+.qwiz__followup .qwiz__field select { padding: 10px 12px; font-size: 16px; }
+.qwiz__followup .qwiz__sub-services { margin-bottom: 12px; }
+.qwiz__followup-done { margin: 12px auto 0; color: var(--green, #34d399); text-align: center; }

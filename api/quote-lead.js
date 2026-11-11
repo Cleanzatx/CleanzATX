@@ -7,6 +7,9 @@
 // When someone claims free screens and then finishes the quote form, main.js sends
 // only the quote, with free_screens set, so Rotor gets one combined lead.
 //
+// The quote form sends a short first submission (name, phone, address, service), then
+// optionally a second one with follow_up: true carrying the extra details. Same name/phone.
+//
 // Rotor's open API can create and search leads but can't edit one, so if the phone
 // is already on a Rotor lead, the new lead's notes say so and name the earlier one.
 //
@@ -57,6 +60,7 @@ function serviceType(services) {
 function quoteNotes(f, services) {
   const foundUs = clean(f.referral) + (clean(f.referrer) ? ` (${clean(f.referrer)})` : '');
   return [
+    f.follow_up ? 'FOLLOW-UP DETAILS: the same visitor (same name and phone) sent the short quote form first, then added these details. Combine with that lead.' : '',
     f.free_screens ? FREE_SCREENS_NOTE : '',
     `Website quote request ${submissionDate()}`,
     `OK to text: ${f.sms_consent === true || f.sms_consent === 'Yes' ? 'Yes' : 'No'}`,
@@ -135,10 +139,11 @@ module.exports = async function handler(req, res) {
 
   const tags = ['website'];
   if (isScreens || f.free_screens) tags.push('free-screens');
+  if (!isScreens && f.follow_up) tags.push('follow-up');
   const lead = {
     name,
     phone,
-    source: isScreens ? 'Website free screens pop-up' : 'Website quote form',
+    source: isScreens ? 'Website free screens pop-up' : (f.follow_up ? 'Website quote form (follow-up details)' : 'Website quote form'),
     service_type: isScreens ? 'Window Cleaning' : serviceType(services),
     priority: 'high',
     tags,

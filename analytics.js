@@ -95,6 +95,13 @@ window.czAdsConversion = function (key, user) {
         link_url: href,
         link_text: linkText(el)
       });
+      // text_tap: every sms: link tap, in addition to the phone_call_click above
+      if (scheme === 'sms') {
+        send('text_tap', {
+          link_url: href,
+          link_text: linkText(el)
+        });
+      }
       return;
     }
     if (scheme === 'mailto') {
